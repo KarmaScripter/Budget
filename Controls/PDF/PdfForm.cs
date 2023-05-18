@@ -44,6 +44,68 @@ namespace BudgetExecution
         /// <value> The data table. </value>
         public DataTable DataTable { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="PdfForm"/>
+        /// class.
+        /// </summary>
+        public PdfForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            StartPosition = FormStartPosition.CenterScreen;
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            StartPosition = FormStartPosition.CenterScreen;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = false;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionBarHeight = 5;
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Event Wiring
+            CloseButton.Click += OnCloseButtonClick;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            BackButton.Click += OnBackButtonClicked;
+            DataGridButton.Click += OnDataGridButtonClick;
+            ChartButton.Click += OnChartButtonClick;
+            ExcelButton.Click += OnExcelButtonClick;
+            ListBox.SelectedValueChanged += OnListBoxItemSelected;
+            Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClosing;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="PdfForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="filePath"> The file path. </param>
+        public PdfForm( string filePath )
+            : this( )
+        {
+            FilePath = filePath;
+            FileName = Path.GetFileName( filePath );
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -397,68 +459,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PdfForm"/>
-        /// class.
-        /// </summary>
-        public PdfForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            StartPosition = FormStartPosition.CenterScreen;
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            StartPosition = FormStartPosition.CenterScreen;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = false;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionBarHeight = 5;
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Event Wiring
-            CloseButton.Click += OnCloseButtonClick;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            BackButton.Click += OnBackButtonClicked;
-            DataGridButton.Click += OnDataGridButtonClick;
-            ChartButton.Click += OnChartButtonClick;
-            ExcelButton.Click += OnExcelButtonClick;
-            ListBox.SelectedValueChanged += OnListBoxItemSelected;
-            Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClosing;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PdfForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="filePath"> The file path. </param>
-        public PdfForm( string filePath )
-            : this( )
-        {
-            FilePath = filePath;
-            FileName = Path.GetFileName( filePath );
         }
     }
 }

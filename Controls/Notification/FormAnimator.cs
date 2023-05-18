@@ -112,48 +112,6 @@ namespace BudgetExecution
             Up = 0x8
         }
 
-        /// <summary> Animates the form automatically when it is loaded </summary>
-        private void Form_Load( object sender, EventArgs e )
-        {
-            if( Form.MdiParent == null
-               || Method != AnimationMethod.Fade )
-            {
-                NativeMethods.AnimateWindow( Form.Handle, Duration, AwActivate | (int)Method | (int)Direction );
-            }
-        }
-
-        /// <summary> Animates the form automatically when it is shown or hidden </summary>
-        private void Form_VisibleChanged( object sender, EventArgs e )
-        {
-            if( Form.MdiParent == null )
-            {
-                var flags = (int)Method | (int)Direction;
-                if( Form.Visible )
-                {
-                    flags |= AwActivate;
-                }
-                else
-                {
-                    flags |= AwHide;
-                }
-
-                NativeMethods.AnimateWindow( Form.Handle, Duration, flags );
-            }
-        }
-
-        /// <summary> Animates the form automatically when it closes </summary>
-        private void Form_Closing( object sender, CancelEventArgs e )
-        {
-            if( !e.Cancel )
-            {
-                if( Form.MdiParent == null
-                   || Method != AnimationMethod.Fade )
-                {
-                    NativeMethods.AnimateWindow( Form.Handle, Duration, AwHide | (int)Method | (int)Direction );
-                }
-            }
-        }
-
         /// <summary>
         /// Creates a new
         /// <
@@ -232,6 +190,48 @@ namespace BudgetExecution
             : this( form, method, duration )
         {
             Direction = direction;
+        }
+
+        /// <summary> Animates the form automatically when it is loaded </summary>
+        private void Form_Load( object sender, EventArgs e )
+        {
+            if( Form.MdiParent == null
+               || Method != AnimationMethod.Fade )
+            {
+                NativeMethods.AnimateWindow( Form.Handle, Duration, AwActivate | (int)Method | (int)Direction );
+            }
+        }
+
+        /// <summary> Animates the form automatically when it is shown or hidden </summary>
+        private void Form_VisibleChanged( object sender, EventArgs e )
+        {
+            if( Form.MdiParent == null )
+            {
+                var flags = (int)Method | (int)Direction;
+                if( Form.Visible )
+                {
+                    flags |= AwActivate;
+                }
+                else
+                {
+                    flags |= AwHide;
+                }
+
+                NativeMethods.AnimateWindow( Form.Handle, Duration, flags );
+            }
+        }
+
+        /// <summary> Animates the form automatically when it closes </summary>
+        private void Form_Closing( object sender, CancelEventArgs e )
+        {
+            if( !e.Cancel )
+            {
+                if( Form.MdiParent == null
+                   || Method != AnimationMethod.Fade )
+                {
+                    NativeMethods.AnimateWindow( Form.Handle, Duration, AwHide | (int)Method | (int)Direction );
+                }
+            }
         }
     }
 }

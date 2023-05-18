@@ -23,6 +23,63 @@ namespace BudgetExecution
         /// <summary> The delta </summary>
         public double Delta { get; set; }
 
+        /// <summary> The funding </summary>
+        public double Value { get; set; }
+
+        /// <summary> The numeric column name </summary>
+        public string Numeric { get; set; }
+
+        /// <summary> Called to get the Amount </summary>
+        public IAmount GetAmount( )
+        {
+            try
+            {
+                return new Amount( Value );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IAmount );
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Amount"/>
+        /// class.
+        /// </summary>
+        public Amount( )
+        {
+            Numeric = "Amount";
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Amount"/>
+        /// class.
+        /// </summary>
+        /// <param name="value"> The value. </param>
+        public Amount( double value = 0.0 )
+            : this( )
+        {
+            Value = value;
+            Delta = Initial - Value;
+        }
+
+        public Amount( DataRow dataRow, string numeric )
+        {
+            Numeric = numeric;
+            Value = double.Parse( dataRow[ numeric ].ToString( ) ?? string.Empty );
+            Delta = Initial - Value;
+        }
+
+        public Amount( IAmount amount )
+        {
+            Numeric = amount.Numeric;
+            Value = amount.Value;
+            Delta = 0.0;
+        }
+
         /// <summary> Increases the specified amount. </summary>
         /// <param name="increment"> The amount. </param>
         public void Increase( int increment )
@@ -134,63 +191,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary> The funding </summary>
-        public double Value { get; set; }
-
-        /// <summary> The numeric column name </summary>
-        public string Numeric { get; set; }
-
-        /// <summary> Called to get the Amount </summary>
-        public IAmount GetAmount( )
-        {
-            try
-            {
-                return new Amount( Value );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IAmount );
-            }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Amount"/>
-        /// class.
-        /// </summary>
-        public Amount( )
-        {
-            Numeric = "Amount";
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Amount"/>
-        /// class.
-        /// </summary>
-        /// <param name="value"> The value. </param>
-        public Amount( double value = 0.0 )
-            : this( )
-        {
-            Value = value;
-            Delta = Initial - Value;
-        }
-
-        public Amount( DataRow dataRow, string numeric )
-        {
-            Numeric = numeric;
-            Value = double.Parse( dataRow[ numeric ].ToString( ) ?? string.Empty );
-            Delta = Initial - Value;
-        }
-
-        public Amount( IAmount amount )
-        {
-            Numeric = amount.Numeric;
-            Value = amount.Value;
-            Delta = 0.0;
         }
     }
 }

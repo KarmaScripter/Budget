@@ -11,11 +11,12 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
 
     /// <summary> </summary>
-    /// <seealso cref = "ExcelConfig"/>
+    /// <seealso cref="ExcelConfig"/>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -62,8 +63,8 @@ namespace BudgetExecution
         public IEnumerable<DataRow> Data { get; set; }
 
         /// <summary> Sets the width of the column. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "width" > The width. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="width"> The width. </param>
         public void SetColumnWidth( Grid grid, double width )
         {
             if( grid?.Worksheet != null
@@ -82,8 +83,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the color of the background. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "color" > The color. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="color"> The color. </param>
         public void SetBackgroundColor( Grid grid, Color color )
         {
             if( grid?.Worksheet != null
@@ -105,8 +106,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the range font. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "font" > The font. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="font"> The font. </param>
         public void SetRangeFont( Grid grid, Font font )
         {
             if( grid?.Worksheet != null
@@ -126,8 +127,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the color of the font. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "color" > The color. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="color"> The color. </param>
         public void SetFontColor( Grid grid, Color color )
         {
             if( grid?.Worksheet != null
@@ -148,9 +149,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the border style. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "side" > The side. </param>
-        /// <param name = "style" > The style. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="side"> The side. </param>
+        /// <param name="style"> The style. </param>
         public void SetBorderStyle( Grid grid, BorderSide side, ExcelBorderStyle style )
         {
             if( grid?.Worksheet != null
@@ -198,8 +199,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the horizontal alignment. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "align" > The align. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="align"> The align. </param>
         public void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
             if( grid?.Worksheet != null
@@ -219,8 +220,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the vertical aligment. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "align" > The align. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="align"> The align. </param>
         public void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
         {
             if( grid?.Worksheet != null
@@ -239,7 +240,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Merges the cells. </summary>
-        /// <param name = "grid" > The grid. </param>
+        /// <param name="grid"> The grid. </param>
         public void MergeCells( Grid grid )
         {
             if( grid?.Worksheet != null

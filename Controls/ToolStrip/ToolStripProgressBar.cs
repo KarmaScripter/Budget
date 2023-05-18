@@ -16,6 +16,32 @@ namespace BudgetExecution
     public class ToolStripProgressBar : ToolStripProgressBase
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabel"/>
+        /// class.
+        /// </summary>
+        public ToolStripProgressBar( )
+        {
+            Margin = new Padding( 1, 1, 1, 1 );
+            Padding = new Padding( 1, 1, 1, 1 );
+            Size = new Size( 200, 22 );
+            ForeColor = SystemColors.Highlight;
+            BackColor = SystemColors.Control;
+            Font = new Font( "Roboto", 9 );
+            Visible = true;
+            Enabled = true;
+            Name = "ProgressBar";
+            Maximum = 100;
+            Minimum = 1;
+            Tag = Name;
+            ToolTipText = Tag.ToString( );
+            HoverText = ToolTipText;
+            Style = ProgressBarStyle.Blocks;
+            Step = 10;
+            MouseHover += OnMouseHover;
+        }
+
         /// <summary> Increases the specified increment. </summary>
         /// <param name="increment"> The increment. </param>
         public void IncreaseBy( int increment )
@@ -128,32 +154,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
-        /// class.
-        /// </summary>
-        public ToolStripProgressBar( )
-        {
-            Margin = new Padding( 1, 1, 1, 1 );
-            Padding = new Padding( 1, 1, 1, 1 );
-            Size = new Size( 200, 22 );
-            ForeColor = SystemColors.Highlight;
-            BackColor = SystemColors.Control;
-            Font = new Font( "Roboto", 9 );
-            Visible = true;
-            Enabled = true;
-            Name = "ProgressBar";
-            Maximum = 100;
-            Minimum = 1;
-            Tag = Name;
-            ToolTipText = Tag.ToString( );
-            HoverText = ToolTipText;
-            Style = ProgressBarStyle.Blocks;
-            Step = 10;
-            MouseHover += OnMouseHover;
         }
     }
 }

@@ -23,23 +23,6 @@ namespace BudgetExecution
     public class FullTimeEquivalent : OperatingPlan
     {
 
-        /// <summary> Gets the ProgramResultCodes identifier. </summary>
-        /// <returns> </returns>
-        public override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>
@@ -207,6 +190,23 @@ namespace BudgetExecution
             TreasuryAccountName = allocation.TreasuryAccountName;
             BudgetAccountCode = allocation.BudgetAccountCode;
             BudgetAccountName = allocation.BudgetAccountName;
+        }
+
+        /// <summary> Gets the ProgramResultCodes identifier. </summary>
+        /// <returns> </returns>
+        public override int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
     }
 }

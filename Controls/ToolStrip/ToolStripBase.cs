@@ -137,6 +137,15 @@ namespace BudgetExecution
         /// <value> The home button. </value>
         public virtual ToolStripButton HomeButton { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripBase"/>
+        /// class.
+        /// </summary>
+        protected ToolStripBase( )
+        {
+        }
+
         /// <summary> Creates the text box. </summary>
         /// <returns> </returns>
         public virtual void AddTextBox( )
@@ -226,15 +235,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripBase"/>
-        /// class.
-        /// </summary>
-        protected ToolStripBase( )
-        {
         }
     }
 }

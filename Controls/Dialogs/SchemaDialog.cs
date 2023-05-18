@@ -55,6 +55,52 @@ namespace BudgetExecution
         /// <value> The provider. </value>
         public Provider Provider { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SchemaDialog"/>
+        /// class.
+        /// </summary>
+        public SchemaDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 704, 541 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Event Wiring
+            Load += OnLoad;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SchemaDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public SchemaDialog( BindingSource bindingSource )
+            : this( )
+        {
+            BindingSource = bindingSource;
+        }
+
         /// <summary> Called when [second button clicked]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -148,52 +194,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SchemaDialog"/>
-        /// class.
-        /// </summary>
-        public SchemaDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 704, 541 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Event Wiring
-            Load += OnLoad;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SchemaDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        public SchemaDialog( BindingSource bindingSource )
-            : this( )
-        {
-            BindingSource = bindingSource;
         }
     }
 }

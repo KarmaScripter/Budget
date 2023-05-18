@@ -35,104 +35,6 @@ namespace BudgetExecution
         /// <value> The data filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Res the size. </summary>
-        /// <param name="width"> The width. </param>
-        /// <param name="height"> The height. </param>
-        public virtual void ReSize( int width, int height )
-        {
-            try
-            {
-                Size = new Size( width, height );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
-        public virtual void SetText( string text )
-        {
-            try
-            {
-                Text = text;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Res the locate. </summary>
-        /// <param name="x"> The x. </param>
-        /// <param name="y"> The y. </param>
-        public virtual void ReLocate( int x, int y )
-        {
-            if( x > 0
-               && y > 0 )
-            {
-                try
-                {
-                    Location = new Point( x, y );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public virtual void OnMouseLeave( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is Button _button
-                   && _button != null
-                   && ToolTip?.Active == true )
-                {
-                    ToolTip.RemoveAll( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the color of the back. </summary>
-        /// <param name="normal"> The normal. </param>
-        public void SetBackColor( Color normal )
-        {
-            if( normal != Color.Empty )
-            {
-                try
-                {
-                    BackColor = normal;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        protected private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary> Sets the color of the fore. Required Attributes: ForeColor </summary>
         /// <param name="foreColor"> </param>
         public void SetForeColor( Color foreColor )
@@ -328,6 +230,104 @@ namespace BudgetExecution
         {
             Parent = parent;
             Tag = field.ToString( );
+        }
+
+        /// <summary> Res the size. </summary>
+        /// <param name="width"> The width. </param>
+        /// <param name="height"> The height. </param>
+        public virtual void ReSize( int width, int height )
+        {
+            try
+            {
+                Size = new Size( width, height );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Sets the text. </summary>
+        /// <param name="text"> The text. </param>
+        public virtual void SetText( string text )
+        {
+            try
+            {
+                Text = text;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Res the locate. </summary>
+        /// <param name="x"> The x. </param>
+        /// <param name="y"> The y. </param>
+        public virtual void ReLocate( int x, int y )
+        {
+            if( x > 0
+               && y > 0 )
+            {
+                try
+                {
+                    Location = new Point( x, y );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is Button _button
+                   && _button != null
+                   && ToolTip?.Active == true )
+                {
+                    ToolTip.RemoveAll( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Sets the color of the back. </summary>
+        /// <param name="normal"> The normal. </param>
+        public void SetBackColor( Color normal )
+        {
+            if( normal != Color.Empty )
+            {
+                try
+                {
+                    BackColor = normal;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        protected private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

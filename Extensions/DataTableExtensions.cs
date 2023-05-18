@@ -12,6 +12,7 @@ namespace BudgetExecution
     using System.Data.OleDb;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
     using System.Xml.Linq;
@@ -28,12 +29,11 @@ namespace BudgetExecution
     public static class DataTableExtensions
     {
         /// <summary> The connection string </summary>
-        public static readonly ConnectionStringSettingsCollection Connection =
-            ConfigurationManager.ConnectionStrings;
+        public static readonly ConnectionStringSettingsCollection Connection = ConfigurationManager.ConnectionStrings;
 
         /// <summary> Converts to xml. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
-        /// <param name = "rootName" > The rootName. </param>
+        /// <param name="dataTable"> The dataTable. </param>
+        /// <param name="rootName"> The rootName. </param>
         /// <returns> </returns>
         public static XDocument ToXml( this DataTable dataTable, string rootName )
         {
@@ -65,11 +65,11 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to excel. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
-        /// <param name = "filePath" > The filePath. </param>
-        /// <exception cref = "Exception" >
-        /// OSExportToExcelFile: Null or empty input datatable!\n or OSExportToExcelFile:
-        /// Excel file could not be saved.\n" + ex.Message
+        /// <param name="dataTable"> The dataTable. </param>
+        /// <param name="filePath"> The filePath. </param>
+        /// <exception cref="Exception">
+        /// OSExportToExcelFile: Null or empty input datatable!\n or OSExportToExcelFile: Excel file could not
+        /// be saved.\n" + ex.Message
         /// </exception>
         public static void ToExcel( this DataTable dataTable, string filePath = null )
         {
@@ -122,9 +122,9 @@ namespace BudgetExecution
         }
 
         /// <summary> From excel. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
-        /// <param name = "filePath" > The filePath. </param>
-        /// <param name = "sheetName" > The sheetName. </param>
+        /// <param name="dataTable"> The dataTable. </param>
+        /// <param name="filePath"> The filePath. </param>
+        /// <param name="sheetName"> The sheetName. </param>
         /// <returns> </returns>
         public static DataTable FromExcel( this DataTable dataTable, string filePath, string sheetName )
         {
@@ -153,7 +153,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether [has numeric column]. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
+        /// <param name="dataTable"> The dataTable. </param>
         /// <returns>
         /// <c> true </c>
         /// if [has numeric column] [the specified dataTable]; otherwise,
@@ -170,8 +170,7 @@ namespace BudgetExecution
                     {
                         if( col?.Ordinal > 0
                            && !col.ColumnName.EndsWith( "Id" )
-                           && ( col.DataType == typeof( double ) | col.DataType == typeof( decimal )
-                               | col.DataType == typeof( float ) | col.DataType == typeof( int ) ) )
+                           && ( col.DataType == typeof( double ) | col.DataType == typeof( decimal ) | col.DataType == typeof( float ) | col.DataType == typeof( int ) ) )
                         {
                             return true;
                         }
@@ -190,7 +189,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the primary key values. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
+        /// <param name="dataTable"> The dataTable. </param>
         /// <returns> </returns>
         public static IEnumerable<int> GetIndexValues( this DataTable dataTable )
         {
@@ -232,11 +231,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the primary key values. </summary>
-        /// <param name = "dataTable" > The data table. </param>
-        /// <param name = "where" > The dictionary. </param>
+        /// <param name="dataTable"> The data table. </param>
+        /// <param name="where"> The dictionary. </param>
         /// <returns> </returns>
-        public static IEnumerable<int> GetIndexValues( this DataTable dataTable,
-            IDictionary<string, object> where )
+        public static IEnumerable<int> GetIndexValues( this DataTable dataTable, IDictionary<string, object> where )
         {
             try
             {
@@ -275,8 +273,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the unique values. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
-        /// <param name = "columnName" > The column. </param>
+        /// <param name="dataTable"> The dataTable. </param>
+        /// <param name="columnName"> The column. </param>
         /// <returns> </returns>
         public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName )
         {
@@ -285,10 +283,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _enumerable = dataTable?.AsEnumerable( )
-                        ?.Select( p => p.Field<string>( columnName ) )
-                        ?.Distinct( );
-
+                    var _enumerable = dataTable?.AsEnumerable( )?.Select( p => p.Field<string>( columnName ) )?.Distinct( );
                     return ( _enumerable?.Any( ) == true )
                         ? _enumerable?.ToArray( )
                         : default( string[ ] );
@@ -304,12 +299,11 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the unique column values. </summary>
-        /// <param name = "dataTable" > The data table. </param>
-        /// <param name = "columnName" > Name of the column. </param>
-        /// <param name = "where" > The where. </param>
+        /// <param name="dataTable"> The data table. </param>
+        /// <param name="columnName"> Name of the column. </param>
+        /// <param name="where"> The where. </param>
         /// <returns> </returns>
-        public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName,
-            IDictionary<string, object> where )
+        public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( columnName )
                && dataTable?.Columns?.Contains( columnName ) == true
@@ -318,10 +312,7 @@ namespace BudgetExecution
                 try
                 {
                     var _criteria = where.ToCriteria( );
-                    var _query = dataTable.Select( _criteria )
-                        ?.Select( p => p.Field<string>( columnName ) )
-                        ?.Distinct( );
-
+                    var _query = dataTable.Select( _criteria )?.Select( p => p.Field<string>( columnName ) )?.Distinct( );
                     return ( _query?.Any( ) == true )
                         ? _query?.ToArray( )
                         : default( string[ ] );
@@ -337,7 +328,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the chart points. </summary>
-        /// <param name = "dataTable" > The data table. </param>
+        /// <param name="dataTable"> The data table. </param>
         /// <returns> </returns>
         public static IList<DataPoint> GetChartPoints( this DataTable dataTable )
         {
@@ -351,8 +342,7 @@ namespace BudgetExecution
                     foreach( DataColumn col in dataTable.Columns )
                     {
                         if( col.Ordinal > 1
-                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float )
-                               | col.DataType == typeof( double ) | col.DataType == typeof( int ) ) )
+                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float ) | col.DataType == typeof( double ) | col.DataType == typeof( int ) ) )
                         {
                             _names.Add( col.ColumnName );
                         }
@@ -389,11 +379,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Filters the specified dictionary. </summary>
-        /// <param name = "dataTable" > The data table. </param>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <param name="dataTable"> The data table. </param>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public static IEnumerable<DataRow> Filter( this DataTable dataTable,
-            IDictionary<string, object> dict )
+        public static IEnumerable<DataRow> Filter( this DataTable dataTable, IDictionary<string, object> dict )
         {
             if( dataTable?.Columns?.Count > 0
                && dict?.Any( ) == true )
@@ -416,7 +405,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the column names. </summary>
-        /// <param name = "dataTable" > The dataTable. </param>
+        /// <param name="dataTable"> The dataTable. </param>
         /// <returns> </returns>
         public static string[ ] GetColumnNames( this DataTable dataTable )
         {
@@ -441,7 +430,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the chart points. </summary>
-        /// <param name = "dataTable" > The data table. </param>
+        /// <param name="dataTable"> The data table. </param>
         /// <returns> </returns>
         public static IList<DataColumn> GetNumericColumns( this DataTable dataTable )
         {
@@ -453,8 +442,7 @@ namespace BudgetExecution
                     foreach( DataColumn col in dataTable.Columns )
                     {
                         if( !col.ColumnName.EndsWith( "Id" )
-                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float )
-                               | col.DataType == typeof( double ) | col.DataType == typeof( int ) ) )
+                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float ) | col.DataType == typeof( double ) | col.DataType == typeof( int ) ) )
                         {
                             _columns.Add( col );
                         }
@@ -475,7 +463,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the date columns. </summary>
-        /// <param name = "dataTable" > The data table. </param>
+        /// <param name="dataTable"> The data table. </param>
         /// <returns> </returns>
         public static IList<DataColumn> GetDateColumns( this DataTable dataTable )
         {
@@ -487,8 +475,7 @@ namespace BudgetExecution
                     foreach( DataColumn col in dataTable.Columns )
                     {
                         if( col.ColumnName.EndsWith( "Date" )
-                           || ( col.DataType == typeof( DateTime ) | col.DataType == typeof( DateOnly )
-                               | col.DataType == typeof( DateTimeOffset ) ) )
+                           || ( col.DataType == typeof( DateTime ) | col.DataType == typeof( DateOnly ) | col.DataType == typeof( DateTimeOffset ) ) )
                         {
                             _columns.Add( col );
                         }
@@ -509,8 +496,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Removes a DataColumn from the table </summary>
-        /// <param name = "dataTable" > The data table. </param>
-        /// <param name = "columnName" > The column name. </param>
+        /// <param name="dataTable"> The data table. </param>
+        /// <param name="columnName"> The column name. </param>
         public static void RemoveColumn( this DataTable dataTable, string columnName )
         {
             if( dataTable != null
@@ -531,7 +518,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to bindinglist. </summary>
-        /// <param name = "dataTable" > The data table. </param>
+        /// <param name="dataTable"> The data table. </param>
         /// <returns> </returns>
         public static BindingList<DataRow> ToBindingList( this DataTable dataTable )
         {
@@ -560,8 +547,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

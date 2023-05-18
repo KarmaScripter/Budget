@@ -7,27 +7,28 @@ namespace BudgetExecution
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     public static class LinqExtensions
     {
         /// <summary> The specified predicate. </summary>
-        /// <typeparam name = "TSource" > The type of the source. </typeparam>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "predicate" > The predicate. </param>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="predicate"> The predicate. </param>
         /// <returns> </returns>
-        public static bool None<TSource>( this IEnumerable<TSource> source,
-            Func<TSource, bool> predicate )
+        public static bool None<TSource>( this IEnumerable<TSource> source, Func<TSource, bool> predicate )
         {
             return !source.Any( predicate );
         }
 
-        /// <summary> Determines whether [has at least] [the specified minimum count]. </summary>
-        /// <typeparam name = "TSource" > The type of the source. </typeparam>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "minCount" > The minimum count. </param>
+        /// <summary>
+        /// Determines whether [has at least] [the specified minimum count].
+        /// </summary>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="minCount"> The minimum count. </param>
         /// <returns>
         /// <c> true </c>
         /// if [has at least] [the specified minimum count]; otherwise,
@@ -39,19 +40,20 @@ namespace BudgetExecution
             return source.HasAtLeast( minCount, _ => true );
         }
 
-        /// <summary> Determines whether [has at least] [the specified minimum count]. </summary>
-        /// <typeparam name = "TSource" > The type of the source. </typeparam>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "minCount" > The minimum count. </param>
-        /// <param name = "predicate" > The predicate. </param>
+        /// <summary>
+        /// Determines whether [has at least] [the specified minimum count].
+        /// </summary>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="minCount"> The minimum count. </param>
+        /// <param name="predicate"> The predicate. </param>
         /// <returns>
         /// <c> true </c>
         /// if [has at least] [the specified minimum count]; otherwise,
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount,
-            Func<TSource, bool> predicate )
+        public static bool HasAtLeast<TSource>( this IEnumerable<TSource> source, int minCount, Func<TSource, bool> predicate )
         {
             if( minCount == 0 )
             {
@@ -78,9 +80,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether the specified count has exactly. </summary>
-        /// <typeparam name = "TSource" > The type of the source. </typeparam>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "count" > The count. </param>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="count"> The count. </param>
         /// <returns>
         /// <c> true </c>
         /// if the specified count has exactly; otherwise,
@@ -95,18 +97,17 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether the specified count has exactly. </summary>
-        /// <typeparam name = "TSource" > The type of the source. </typeparam>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "count" > The count. </param>
-        /// <param name = "predicate" > The predicate. </param>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="count"> The count. </param>
+        /// <param name="predicate"> The predicate. </param>
         /// <returns>
         /// <c> true </c>
         /// if the specified count has exactly; otherwise,
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count,
-            Func<TSource, bool> predicate )
+        public static bool HasExactly<TSource>( this IEnumerable<TSource> source, int count, Func<TSource, bool> predicate )
         {
             if( source is ICollection _sequence
                && _sequence.Count < count )
@@ -128,9 +129,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether [has at most] [the specified limit]. </summary>
-        /// <typeparam name = "TSource" > The type of the source. </typeparam>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "limit" > The limit. </param>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="limit"> The limit. </param>
         /// <returns>
         /// <c> true </c>
         /// if [has at most] [the specified limit]; otherwise,
@@ -143,18 +144,17 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether [has at most] [the specified limit]. </summary>
-        /// <typeparam name = "TSource" > The type of the source. </typeparam>
-        /// <param name = "source" > The source. </param>
-        /// <param name = "limit" > The limit. </param>
-        /// <param name = "predicate" > The predicate. </param>
+        /// <typeparam name="TSource"> The type of the source. </typeparam>
+        /// <param name="source"> The source. </param>
+        /// <param name="limit"> The limit. </param>
+        /// <param name="predicate"> The predicate. </param>
         /// <returns>
         /// <c> true </c>
         /// if [has at most] [the specified limit]; otherwise,
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit,
-            Func<TSource, bool> predicate )
+        public static bool HasAtMost<TSource>( this IEnumerable<TSource> source, int limit, Func<TSource, bool> predicate )
         {
             if( source is ICollection _sequence
                && _sequence.Count <= limit )
@@ -176,8 +176,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

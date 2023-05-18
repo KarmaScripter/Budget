@@ -8,6 +8,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Security.AccessControl;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
@@ -38,7 +39,9 @@ namespace BudgetExecution
         /// <value> The extension. </value>
         public virtual string Extension { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance has parent. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance has parent.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance has parent { get; set; } otherwise,
@@ -47,7 +50,9 @@ namespace BudgetExecution
         /// </value>
         public virtual bool HasParent { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance has parent. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance has parent.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance has parent { get; set; } otherwise,
@@ -88,9 +93,18 @@ namespace BudgetExecution
         /// <value> The invalid namehar. </value>
         public char[ ] InvalidNameChars { get; } = Path.GetInvalidFileNameChars( );
 
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
+
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "PathBase"/>
+        /// <see cref="PathBase"/>
         /// class.
         /// </summary>
         protected PathBase( )
@@ -99,10 +113,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "PathBase"/>
+        /// <see cref="PathBase"/>
         /// class.
         /// </summary>
-        /// <param name = "input" > The input. </param>
+        /// <param name="input"> The input. </param>
         protected PathBase( string input )
         {
             Buffer = input;
@@ -115,15 +129,6 @@ namespace BudgetExecution
             FileSecurity = new FileInfo( AbsolutePath ).GetAccessControl( );
             Created = new FileInfo( AbsolutePath ).CreationTime;
             Modified = new FileInfo( AbsolutePath ).LastWriteTime;
-        }
-
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
         }
     }
 }

@@ -63,6 +63,15 @@ namespace BudgetExecution
         /// <summary> The largest </summary>
         public static readonly Size ImageHuge = new(250, 250);
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SizeConfig"/>
+        /// class.
+        /// </summary>
+        public SizeConfig( )
+        {
+        }
+
         /// <summary> Sets the color. </summary>
         /// <param name="width"> The width. </param>
         /// <param name="height"> The height. </param>
@@ -134,15 +143,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SizeConfig"/>
-        /// class.
-        /// </summary>
-        public SizeConfig( )
-        {
         }
     }
 }

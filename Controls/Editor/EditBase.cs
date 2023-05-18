@@ -108,6 +108,36 @@ namespace BudgetExecution
         /// <value> The data types. </value>
         public virtual IEnumerable<string> DataTypes { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EditBase"/>
+        /// class.
+        /// </summary>
+        public EditBase( )
+        {
+            InitializeComponent( );
+            Size = new Size( 1310, 648 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            BorderColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.Red;
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionBarHeight = 26;
+            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            ShowIcon = false;
+            ShowMouseOver = false;
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterParent;
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            Text = string.Empty;
+        }
+
         /// <summary> Gets the data types. </summary>
         /// <param name="provider"> The provider. </param>
         /// <returns> </returns>
@@ -344,36 +374,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditBase"/>
-        /// class.
-        /// </summary>
-        public EditBase( )
-        {
-            InitializeComponent( );
-            Size = new Size( 1310, 648 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.Red;
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionBarHeight = 26;
-            CaptionFont = new Font( "Roboto", 11, FontStyle.Regular );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            ShowMaximizeBox = false;
-            ShowMinimizeBox = false;
-            ShowIcon = false;
-            ShowMouseOver = false;
-            ShowInTaskbar = false;
-            StartPosition = FormStartPosition.CenterParent;
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Text = string.Empty;
         }
     }
 }

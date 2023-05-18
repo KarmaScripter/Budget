@@ -85,6 +85,26 @@ namespace BudgetExecution
         /// <summary> The start position </summary>
         public static FormStartPosition StartPosition = FormStartPosition.CenterScreen;
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetForm"/>
+        /// class.
+        /// </summary>
+        public BudgetForm( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="BudgetForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="form"> The form. </param>
+        public BudgetForm( MetroForm form )
+        {
+            Form = form;
+        }
+
         /// <summary> Gets the field. </summary>
         /// <param name="field"> The field. </param>
         /// <returns> </returns>
@@ -113,26 +133,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetForm"/>
-        /// class.
-        /// </summary>
-        public BudgetForm( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="form"> The form. </param>
-        public BudgetForm( MetroForm form )
-        {
-            Form = form;
         }
     }
 }

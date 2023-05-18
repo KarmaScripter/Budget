@@ -48,96 +48,6 @@ namespace BudgetExecution
         /// <value> The federal holidays. </value>
         public IDictionary<Holiday, DateOnly> FederalHolidays { get; set; }
 
-        /// <summary> Gets the identifier. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <returns> </returns>
-        public int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary> Gets the identifier. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <param name="primaryKey"> The primary key. </param>
-        /// <returns> </returns>
-        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
-                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary> Converts to dictionary. </summary>
-        /// <returns> </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Record?.ItemArray?.Length > 0
-                    ? Record.ToDictionary( )
-                    : default( IDictionary<string, object> );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IDictionary<string, object> );
-            }
-        }
-
-        /// <summary> Converts to string. </summary>
-        /// <returns>
-        /// A
-        /// <see cref="System.String"/>
-        /// that represents this instance.
-        /// </returns>
-        public override string ToString( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( FirstYear )
-                    ? FirstYear
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary> Gets the budget fiscal year. </summary>
-        /// <returns> </returns>
-        public IBudgetFiscalYear GetBudgetFiscalYear( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as IBudgetFiscalYear;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IBudgetFiscalYear );
-            }
-        }
-
         /// <summary> Gets the federal holidays. </summary>
         /// <returns> </returns>
         public IDictionary<Holiday, DateOnly> GetFederalHolidays( )
@@ -299,6 +209,96 @@ namespace BudgetExecution
             StartDate = fiscalYear.StartDate;
             EndDate = fiscalYear.EndDate;
             CancellationDate = fiscalYear.CancellationDate;
+        }
+
+        /// <summary> Gets the identifier. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <returns> </returns>
+        public int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
+        /// <summary> Gets the identifier. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="primaryKey"> The primary key. </param>
+        /// <returns> </returns>
+        public int GetId( DataRow dataRow, PrimaryKey primaryKey )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                    ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
+        /// <summary> Converts to dictionary. </summary>
+        /// <returns> </returns>
+        public IDictionary<string, object> ToDictionary( )
+        {
+            try
+            {
+                return Record?.ItemArray?.Length > 0
+                    ? Record.ToDictionary( )
+                    : default( IDictionary<string, object> );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IDictionary<string, object> );
+            }
+        }
+
+        /// <summary> Converts to string. </summary>
+        /// <returns>
+        /// A
+        /// <see cref="System.String"/>
+        /// that represents this instance.
+        /// </returns>
+        public override string ToString( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( FirstYear )
+                    ? FirstYear
+                    : string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary> Gets the budget fiscal year. </summary>
+        /// <returns> </returns>
+        public IBudgetFiscalYear GetBudgetFiscalYear( )
+        {
+            try
+            {
+                return MemberwiseClone( ) as IBudgetFiscalYear;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IBudgetFiscalYear );
+            }
         }
     }
 }

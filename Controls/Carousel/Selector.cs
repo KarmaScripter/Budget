@@ -30,15 +30,6 @@ namespace BudgetExecution
         /// <value> The size of the image. </value>
         public Size ImageSize { get; set; }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Selector"/>
@@ -75,6 +66,15 @@ namespace BudgetExecution
 
             // User Properties
             ImageSize = new Size( 250, 250 );
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -21,29 +21,9 @@ namespace BudgetExecution
         /// <value> The name of the host. </value>
         public string HostName { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "OutlookManager"/>
-        /// class.
-        /// </summary>
-        public OutlookManager( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "OutlookManager"/>
-        /// class.
-        /// </summary>
-        /// <param name = "hostName" > Name of the host. </param>
-        public OutlookManager( string hostName )
-        {
-            HostName = hostName;
-        }
-
         /// <summary> Sends the mail. </summary>
-        /// <param name = "config" > The configuration. </param>
-        /// <param name = "content" > The content. </param>
+        /// <param name="config"> The configuration. </param>
+        /// <param name="content"> The content. </param>
         public void SendMail( OutlookConfig config, EmailContent content )
         {
             if( config != null
@@ -62,8 +42,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
@@ -71,8 +51,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Constructs the email message. </summary>
-        /// <param name = "config" > The configuration. </param>
-        /// <param name = "content" > The content. </param>
+        /// <param name="config"> The configuration. </param>
+        /// <param name="content"> The content. </param>
         /// <returns> </returns>
         private MailMessage CreateMessage( OutlookConfig config, EmailContent content )
         {
@@ -109,9 +89,7 @@ namespace BudgetExecution
                     _message.SubjectEncoding = Encoding.UTF8;
                     if( content.AttachFileName != null )
                     {
-                        var _data = new Attachment( content.AttachFileName,
-                            MediaTypeNames.Application.Zip );
-
+                        var _data = new Attachment( content.AttachFileName, MediaTypeNames.Application.Zip );
                         _message.Attachments.Add( _data );
                     }
 
@@ -128,8 +106,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sends the specified message. </summary>
-        /// <param name = "message" > The message. </param>
-        /// <param name = "config" > The configuration. </param>
+        /// <param name="message"> The message. </param>
+        /// <param name="config"> The configuration. </param>
         private void Send( MailMessage message, OutlookConfig config )
         {
             if( message != null
@@ -151,6 +129,26 @@ namespace BudgetExecution
                     message.Dispose( );
                 }
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="OutlookManager"/>
+        /// class.
+        /// </summary>
+        public OutlookManager( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="OutlookManager"/>
+        /// class.
+        /// </summary>
+        /// <param name="hostName"> Name of the host. </param>
+        public OutlookManager( string hostName )
+        {
+            HostName = hostName;
         }
     }
 }

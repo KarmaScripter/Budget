@@ -6,7 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Net.Mail;
-    using System.Net.Mime;
+    using System.Threading;
 
     /// <summary> </summary>
     public class OutlookConfig
@@ -45,7 +45,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "OutlookConfig"/>
+        /// <see cref="OutlookConfig"/>
         /// class.
         /// </summary>
         public OutlookConfig( )

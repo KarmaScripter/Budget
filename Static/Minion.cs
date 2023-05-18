@@ -7,6 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
@@ -172,8 +173,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The exception. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The exception. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

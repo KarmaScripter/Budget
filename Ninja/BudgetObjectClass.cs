@@ -49,136 +49,6 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Converts to dictionary. </summary>
-        /// <returns> </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Gets the value. </summary>
-        /// <param name="prc"> The ProgramResultCodes. </param>
-        /// <returns> </returns>
-        public double GetAmount( IProgramResultsCode prc )
-        {
-            try
-            {
-                var _amount = prc.Amount;
-                return _amount > -1
-                    ? _amount
-                    : 0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return -1D;
-            }
-        }
-
-        /// <summary> Gets the amount. </summary>
-        /// <returns> </returns>
-        public double GetAmount( )
-        {
-            try
-            {
-                return Value != null
-                    ? double.Parse( Value?.ToString( ) ?? "0.0" )
-                    : 0.0;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Gets the budget object class category. </summary>
-        /// <returns> </returns>
-        public BOC GetCategory( )
-        {
-            try
-            {
-                return !string.IsNullOrEmpty( Name ) && Enum.IsDefined( typeof( BOC ), Name )
-                    ? (BOC)Enum.Parse( typeof( BOC ), Name )
-                    : BOC.NS;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> SetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code )
-               && code.Length == 2
-               && Codes.Contains( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ "Code" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-            else if( !string.IsNullOrEmpty( code )
-                    && code.Length > 2
-                    && Enum.GetNames( typeof( BOC ) ).Contains( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ "Name" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="boc"> The boc. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> SetArgs( BOC boc )
-        {
-            if( !string.IsNullOrEmpty( boc.ToString( ) )
-               && boc.ToString( ).Length == 2
-               && Codes.Contains( boc.ToString( ) ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ "Code" ] = boc.ToString( ) };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         public object Value { get; set; }
 
         /// <summary> Gets the category. </summary>
@@ -313,6 +183,136 @@ namespace BudgetExecution
             Code = boc.Code;
             Name = boc.Name;
             Category = boc.Category;
+        }
+
+        /// <summary> Converts to dictionary. </summary>
+        /// <returns> </returns>
+        public IDictionary<string, object> ToDictionary( )
+        {
+            try
+            {
+                return Data?.Any( ) == true
+                    ? Data
+                    : default;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Gets the value. </summary>
+        /// <param name="prc"> The ProgramResultCodes. </param>
+        /// <returns> </returns>
+        public double GetAmount( IProgramResultsCode prc )
+        {
+            try
+            {
+                var _amount = prc.Amount;
+                return _amount > -1
+                    ? _amount
+                    : 0;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return -1D;
+            }
+        }
+
+        /// <summary> Gets the amount. </summary>
+        /// <returns> </returns>
+        public double GetAmount( )
+        {
+            try
+            {
+                return Value != null
+                    ? double.Parse( Value?.ToString( ) ?? "0.0" )
+                    : 0.0;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Gets the budget object class category. </summary>
+        /// <returns> </returns>
+        public BOC GetCategory( )
+        {
+            try
+            {
+                return !string.IsNullOrEmpty( Name ) && Enum.IsDefined( typeof( BOC ), Name )
+                    ? (BOC)Enum.Parse( typeof( BOC ), Name )
+                    : BOC.NS;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> SetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code )
+               && code.Length == 2
+               && Codes.Contains( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+            else if( !string.IsNullOrEmpty( code )
+                    && code.Length > 2
+                    && Enum.GetNames( typeof( BOC ) ).Contains( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Name" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="boc"> The boc. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> SetArgs( BOC boc )
+        {
+            if( !string.IsNullOrEmpty( boc.ToString( ) )
+               && boc.ToString( ).Length == 2
+               && Codes.Contains( boc.ToString( ) ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = boc.ToString( ) };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

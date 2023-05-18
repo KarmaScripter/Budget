@@ -35,6 +35,37 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public BindingSource BindingSource { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="CheckBox"/>
+        /// class.
+        /// </summary>
+        public CheckBox( )
+        {
+            // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
+            Size = new Size( 125, 25 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
+            Font = new Font( "Roboto", 8 );
+            ForeColor = Color.LightGray;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
+            Cursor = Cursors.Hand;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            CheckSignColor = Color.LimeGreen;
+            CheckState = CheckState.Unchecked;
+
+            // Disabled Color Configuration
+            DisabledBorderColor = Color.Transparent;
+
+            // Event Wiring
+            MouseHover += OnMouseOver;
+            MouseLeave += OnMouseLeave;
+        }
+
         /// <summary> Called when [mouse over]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -97,37 +128,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CheckBox"/>
-        /// class.
-        /// </summary>
-        public CheckBox( )
-        {
-            // Basic Properties
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            Size = new Size( 125, 25 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            DisabledBorderColor = Color.FromArgb( 20, 20, 20 );
-            Font = new Font( "Roboto", 8 );
-            ForeColor = Color.LightGray;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Dock = DockStyle.None;
-            Cursor = Cursors.Hand;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            CheckSignColor = Color.LimeGreen;
-            CheckState = CheckState.Unchecked;
-
-            // Disabled Color Configuration
-            DisabledBorderColor = Color.Transparent;
-
-            // Event Wiring
-            MouseHover += OnMouseOver;
-            MouseLeave += OnMouseLeave;
         }
     }
 }

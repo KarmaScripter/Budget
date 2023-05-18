@@ -104,24 +104,6 @@ namespace BudgetExecution
         /// <value> The Data. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> </summary>
-        /// <param name="dataRow"> </param>
-        /// <returns> </returns>
-        public override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
         /// <summary> Gets or sets the budget level. </summary>
         /// <value> The budget level. </value>
         public override string BudgetLevel { get; set; }
@@ -332,6 +314,24 @@ namespace BudgetExecution
             ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
             Data = Record.ToDictionary( );
+        }
+
+        /// <summary> </summary>
+        /// <param name="dataRow"> </param>
+        /// <returns> </returns>
+        public override int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString( ) )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
     }
 }

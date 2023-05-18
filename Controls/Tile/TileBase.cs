@@ -41,6 +41,15 @@ namespace BudgetExecution
         /// <value> The color of the hover. </value>
         public virtual Color HoverColor { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="TileBase"/>
+        /// class.
+        /// </summary>
+        protected TileBase( )
+        {
+        }
+
         /// <summary> Sets the location. </summary>
         /// <param name="x"> The x. </param>
         /// <param name="y"> The y. </param>
@@ -277,15 +286,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="TileBase"/>
-        /// class.
-        /// </summary>
-        protected TileBase( )
-        {
         }
     }
 }

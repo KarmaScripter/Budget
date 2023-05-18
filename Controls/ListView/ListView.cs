@@ -14,23 +14,6 @@ namespace BudgetExecution
     public class ListView : ListViewBase, IListView
     {
 
-        /// <summary> Sets the tag. </summary>
-        /// <param name="tag"> The tag. </param>
-        public void ReTag( object tag )
-        {
-            if( tag != null )
-            {
-                try
-                {
-                    Tag = tag;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
         /// <summary> Gets or sets the binding source. </summary>
         /// <value> The binding source. </value>
         public override BindingSource BindingSource { get; set; }
@@ -178,6 +161,23 @@ namespace BudgetExecution
             : this( size, location, parent )
         {
             BindingSource = bindingSource;
+        }
+
+        /// <summary> Sets the tag. </summary>
+        /// <param name="tag"> The tag. </param>
+        public void ReTag( object tag )
+        {
+            if( tag != null )
+            {
+                try
+                {
+                    Tag = tag;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
     }
 }

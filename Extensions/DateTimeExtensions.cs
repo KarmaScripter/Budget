@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -13,10 +14,10 @@ namespace BudgetExecution
     public static class DateTimeExtensions
     {
         /// <summary> Verifies if the object is a startDate </summary>
-        /// <param name = "date" > The date. </param>
+        /// <param name="date"> The date. </param>
         /// <returns>
         /// The
-        /// <see cref = "bool"/>
+        /// <see cref="bool"/>
         /// </returns>
         public static bool IsDate( this object date )
         {
@@ -32,7 +33,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Returns a startDate in the past by days. </summary>
-        /// <param name = "days" > The days. </param>
+        /// <param name="days"> The days. </param>
         /// <returns> </returns>
         public static DateTime DaysAgo( this int days )
         {
@@ -49,7 +50,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Returns a startDate in the future by days. </summary>
-        /// <param name = "days" > The days. </param>
+        /// <param name="days"> The days. </param>
         /// <returns> </returns>
         public static DateTime DaysFromNow( this int days )
         {
@@ -66,7 +67,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Returns a startDate in the past by hours. </summary>
-        /// <param name = "hours" > The hours. </param>
+        /// <param name="hours"> The hours. </param>
         /// <returns> </returns>
         public static DateTime HoursAgo( this int hours )
         {
@@ -83,7 +84,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Returns a startDate in the future by hours. </summary>
-        /// <param name = "hours" > The hours. </param>
+        /// <param name="hours"> The hours. </param>
         /// <returns> </returns>
         public static DateTime HoursFromNow( this int hours )
         {
@@ -100,7 +101,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Returns a startDate in the past by minutes </summary>
-        /// <param name = "minutes" > The minutes. </param>
+        /// <param name="minutes"> The minutes. </param>
         /// <returns> </returns>
         public static DateTime MinutesAgo( this int minutes )
         {
@@ -117,7 +118,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Returns a startDate in the future by minutes. </summary>
-        /// <param name = "minutes" > The minutes. </param>
+        /// <param name="minutes"> The minutes. </param>
         /// <returns> </returns>
         public static DateTime MinutesFromNow( this int minutes )
         {
@@ -134,7 +135,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets a startDate in the past according to seconds </summary>
-        /// <param name = "seconds" > The seconds. </param>
+        /// <param name="seconds"> The seconds. </param>
         /// <returns> </returns>
         public static DateTime SecondsAgo( this int seconds )
         {
@@ -151,7 +152,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets a startDate in the future by seconds. </summary>
-        /// <param name = "seconds" > The seconds. </param>
+        /// <param name="seconds"> The seconds. </param>
         /// <returns> </returns>
         public static DateTime SecondsFromNow( this int seconds )
         {
@@ -168,17 +169,16 @@ namespace BudgetExecution
         }
 
         /// <summary> Checks to see if the startDate is a week day (Mon - Fri) </summary>
-        /// <param name = "dateTime" > The date. </param>
+        /// <param name="dateTime"> The date. </param>
         /// <returns>
         /// The
-        /// <see cref = "bool"/>
+        /// <see cref="bool"/>
         /// </returns>
         public static bool IsWeekDay( this DateTime dateTime )
         {
             try
             {
-                return dateTime.DayOfWeek != DayOfWeek.Saturday
-                    && dateTime.DayOfWeek != DayOfWeek.Sunday;
+                return dateTime.DayOfWeek != DayOfWeek.Saturday && dateTime.DayOfWeek != DayOfWeek.Sunday;
             }
             catch( Exception ex )
             {
@@ -190,14 +190,13 @@ namespace BudgetExecution
         /// <summary> Checks to see if the startDate is Saturday or Sunday </summary>
         /// <returns>
         /// The
-        /// <see cref = "bool"/>
+        /// <see cref="bool"/>
         /// </returns>
         public static bool IsWeekEnd( this DateTime dateTime )
         {
             try
             {
-                return dateTime.DayOfWeek == DayOfWeek.Saturday
-                    || dateTime.DayOfWeek == DayOfWeek.Sunday;
+                return dateTime.DayOfWeek == DayOfWeek.Saturday || dateTime.DayOfWeek == DayOfWeek.Sunday;
             }
             catch( Exception ex )
             {
@@ -207,10 +206,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether the specified start date is between. </summary>
-        /// <param name = "dateTime" > The date time. </param>
-        /// <param name = "startDate" > The start date. </param>
-        /// <param name = "endDate" > The end date. </param>
-        /// <param name = "compareTime" >
+        /// <param name="dateTime"> The date time. </param>
+        /// <param name="startDate"> The start date. </param>
+        /// <param name="endDate"> The end date. </param>
+        /// <param name="compareTime">
         /// if set to
         /// <c> true </c>
         /// [compare time].
@@ -221,8 +220,7 @@ namespace BudgetExecution
         /// <c> false </c>
         /// .
         /// </returns>
-        public static bool IsBetween( this DateTime dateTime, DateTime startDate, DateTime endDate,
-            bool compareTime = false )
+        public static bool IsBetween( this DateTime dateTime, DateTime startDate, DateTime endDate, bool compareTime = false )
         {
             try
             {
@@ -266,8 +264,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Counts the number of weekdays between two dates. </summary>
-        /// <param name = "startDate" > The start time. </param>
-        /// <param name = "endDate" > The end time. </param>
+        /// <param name="startDate"> The start time. </param>
+        /// <param name="endDate"> The end time. </param>
         /// <returns> </returns>
         public static int CountWeekDays( this DateTime startDate, DateTime endDate )
         {
@@ -296,8 +294,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Counts the number of weekends between two dates. </summary>
-        /// <param name = "startDate" > The start time. </param>
-        /// <param name = "endDate" > The end time. </param>
+        /// <param name="startDate"> The start time. </param>
+        /// <param name="endDate"> The end time. </param>
         /// <returns> </returns>
         public static int CountWeekEnds( this DateTime startDate, DateTime endDate )
         {
@@ -326,8 +324,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Diffs the specified startDate. </summary>
-        /// <param name = "startDate" > The startDate one. </param>
-        /// <param name = "endDate" > The startDate two. </param>
+        /// <param name="startDate"> The startDate one. </param>
+        /// <param name="endDate"> The startDate two. </param>
         /// <returns> </returns>
         public static TimeSpan DateDelta( this DateTime startDate, DateTime endDate )
         {
@@ -344,13 +342,13 @@ namespace BudgetExecution
         }
 
         /// <summary> The IsFederalHoliday </summary>
-        /// <param name = "dateTime" >
+        /// <param name="dateTime">
         /// The startDate
-        /// <see cref = "DateTime"/>
+        /// <see cref="DateTime"/>
         /// </param>
         /// <returns>
         /// The
-        /// <see cref = "bool"/>
+        /// <see cref="bool"/>
         /// </returns>
         public static bool IsFederalHoliday( this DateTime dateTime )
         {
@@ -407,8 +405,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

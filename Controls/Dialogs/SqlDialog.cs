@@ -50,6 +50,92 @@ namespace BudgetExecution
         /// <value> The statements. </value>
         public IDictionary<string, object> Statements { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/>
+        /// class.
+        /// </summary>
+        public SqlDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1310, 646 );
+            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+            FirstButton.Text = "Save";
+            ThirdButton.Text = "Exit";
+            DatabaseDirectory = @"C:\Users\terry\source\repos\Budget\Data\Database\";
+
+            // Event Wiring
+            ThirdButton.Click += OnCloseButtonClicked;
+            Load += OnLoad;
+            MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="provider"> The provider. </param>
+        public SqlDialog( BindingSource bindingSource, Provider provider = Provider.Access )
+            : this( )
+        {
+            ToolType = ToolType.EditSqlButton;
+            BindingSource = bindingSource;
+            Provider = provider;
+            DataTable = BindingSource.GetDataTable( );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            DataModel = new DataBuilder( Source, Provider );
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+            Commands = new List<string>( );
+            Statements = new Dictionary<string, object>( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="provider"> The provider. </param>
+        public SqlDialog( ToolType toolType, BindingSource bindingSource, Provider provider = Provider.Access )
+            : this( )
+        {
+            ToolType = toolType;
+            BindingSource = bindingSource;
+            Provider = provider;
+            DataTable = BindingSource.GetDataTable( );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            DataModel = new DataBuilder( Source, Provider );
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SqlDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public SqlDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
+            : this( )
+        {
+            ToolType = toolType;
+            Provider = provider;
+            Source = source;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataModel.DataTable;
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -495,92 +581,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlDialog"/>
-        /// class.
-        /// </summary>
-        public SqlDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1310, 646 );
-            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
-            FirstButton.Text = "Save";
-            ThirdButton.Text = "Exit";
-            DatabaseDirectory = @"C:\Users\terry\source\repos\Budget\Data\Database\";
-
-            // Event Wiring
-            ThirdButton.Click += OnCloseButtonClicked;
-            Load += OnLoad;
-            MouseClick += OnRightClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        /// <param name="provider"> The provider. </param>
-        public SqlDialog( BindingSource bindingSource, Provider provider = Provider.Access )
-            : this( )
-        {
-            ToolType = ToolType.EditSqlButton;
-            BindingSource = bindingSource;
-            Provider = provider;
-            DataTable = BindingSource.GetDataTable( );
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            DataModel = new DataBuilder( Source, Provider );
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-            Commands = new List<string>( );
-            Statements = new Dictionary<string, object>( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="bindingSource"> The binding source. </param>
-        /// <param name="provider"> The provider. </param>
-        public SqlDialog( ToolType toolType, BindingSource bindingSource, Provider provider = Provider.Access )
-            : this( )
-        {
-            ToolType = toolType;
-            BindingSource = bindingSource;
-            Provider = provider;
-            DataTable = BindingSource.GetDataTable( );
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            DataModel = new DataBuilder( Source, Provider );
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SqlDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        public SqlDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
-            : this( )
-        {
-            ToolType = toolType;
-            Provider = provider;
-            Source = source;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataModel.DataTable;
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
         }
     }
 }

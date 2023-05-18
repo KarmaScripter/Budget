@@ -9,12 +9,12 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
+    using System.Threading;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
-    using ExcelHorizontalAlignment = Syncfusion.XlsIO.ExcelHorizontalAlignment;
 
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.ExcelBase"/>
+    /// <seealso cref="BudgetExecution.ExcelBase"/>
     [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Workbook : ExcelBase
@@ -57,7 +57,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Workbook"/>
+        /// <see cref="Workbook"/>
         /// class.
         /// </summary>
         public Workbook( )
@@ -66,10 +66,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Workbook"/>
+        /// <see cref="Workbook"/>
         /// class.
         /// </summary>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="filePath"> The file path. </param>
         public Workbook( string filePath )
         {
             FileInfo = new FileInfo( filePath );
@@ -79,10 +79,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Workbook"/>
+        /// <see cref="Workbook"/>
         /// class.
         /// </summary>
-        /// <param name = "dataTable" > The data table. </param>
+        /// <param name="dataTable"> The data table. </param>
         public Workbook( DataTable dataTable )
             : this( )
         {
@@ -108,7 +108,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the header format. </summary>
-        /// <param name = "grid" > The grid. </param>
+        /// <param name="grid"> The grid. </param>
         public void SetHeaderFormat( Grid grid )
         {
             if( grid?.Worksheet != null )
@@ -119,8 +119,7 @@ namespace BudgetExecution
                     {
                         SetFontColor( grid, FontColor );
                         SetBackgroundColor( grid, PrimaryBackColor );
-                        SetHorizontalAlignment( grid,
-                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Left );
+                        SetHorizontalAlignment( grid, ExcelHorizontalAlignment.Left );
                     }
                 }
                 catch( Exception ex )
@@ -131,7 +130,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the header text. </summary>
-        /// <param name = "grid" > The grid. </param>
+        /// <param name="grid"> The grid. </param>
         public void SetHeaderText( Grid grid )
         {
             if( grid?.Worksheet != null )
@@ -144,7 +143,7 @@ namespace BudgetExecution
                     var _column = _range.Start.Column;
                     SetFontColor( grid, FontColor );
                     SetBackgroundColor( grid, PrimaryBackColor );
-                    SetHorizontalAlignment( grid, OfficeOpenXml.Style.ExcelHorizontalAlignment.Left );
+                    SetHorizontalAlignment( grid, ExcelHorizontalAlignment.Left );
                     _worksheet.Cells[ _row, _column ].Value = "Account";
                     _worksheet.Cells[ _row, _column + 1 ].Value = "SuperfundSite";
                     _worksheet.Cells[ _row, _column + 2 ].Value = "Travel";
@@ -161,7 +160,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the dark color row. </summary>
-        /// <param name = "excelRange" > The excel range. </param>
+        /// <param name="excelRange"> The excel range. </param>
         public void SetDarkColorRow( ExcelRange excelRange )
         {
             if( excelRange != null )
@@ -173,9 +172,7 @@ namespace BudgetExecution
                     excelRange.Style.Font.SetFromFont( Font.Name, Font.Size );
                     excelRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     excelRange.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
-                    excelRange.Style.HorizontalAlignment =
-                        OfficeOpenXml.Style.ExcelHorizontalAlignment.CenterContinuous;
-
+                    excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                     excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                 }
                 catch( Exception ex )
@@ -186,7 +183,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the light color row. </summary>
-        /// <param name = "range" > The excel range. </param>
+        /// <param name="range"> The excel range. </param>
         public void SetLightColorRow( ExcelRange range )
         {
             if( range != null )
@@ -198,9 +195,7 @@ namespace BudgetExecution
                     range.Style.Font.SetFromFont( Font.Name, Font.Size );
                     range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     range.Style.Fill.BackgroundColor.SetColor( Color.White );
-                    range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment
-                        .CenterContinuous;
-
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                     range.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                 }
                 catch( Exception ex )
@@ -211,7 +206,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the color of the alternating row. </summary>
-        /// <param name = "range" > The excel range. </param>
+        /// <param name="range"> The excel range. </param>
         public void SetAlternatingRowColor( ExcelRange range )
         {
             if( Worksheet != null
@@ -222,9 +217,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _prc = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.End.Row,
-                        range.End.Column ];
-
+                    var _prc = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.End.Row, range.End.Column ];
                     for( var i = range.Start.Row; i < range.End.Row; i++ )
                     {
                         if( i % 2 == 0 )
@@ -248,7 +241,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the numeric row format. </summary>
-        /// <param name = "range" > The excel range. </param>
+        /// <param name="range"> The excel range. </param>
         public void SetNumericRowFormat( ExcelRange range )
         {
             if( Worksheet != null
@@ -261,9 +254,7 @@ namespace BudgetExecution
                 {
                     using( range )
                     {
-                        range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment
-                            .CenterContinuous;
-
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                         range.Style.Numberformat.Format = "#,###";
                     }
                 }
@@ -275,7 +266,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the table format. </summary>
-        /// <param name = "grid" > The grid. </param>
+        /// <param name="grid"> The grid. </param>
         public void SetTableFormat( Grid grid )
         {
             if( grid?.Worksheet != null )
@@ -288,8 +279,7 @@ namespace BudgetExecution
                     _range.Style.Border.BorderAround( ExcelBorderStyle.Thin );
                     _range.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _range.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
-                    _range.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment
-                        .CenterContinuous;
+                    _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                 }
                 catch( Exception ex )
                 {
@@ -299,7 +289,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the total row format. </summary>
-        /// <param name = "range" > The excel range. </param>
+        /// <param name="range"> The excel range. </param>
         public void SetTotalRowFormat( ExcelRange range )
         {
             if( Worksheet != null
@@ -310,12 +300,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _total = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.Start.Row,
-                        range.Start.Column + 6 ];
-
-                    var _range = Worksheet.Cells[ range.Start.Row, range.Start.Column + 1,
-                        range.Start.Row, range.Start.Column + 6 ];
-
+                    var _total = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.Start.Row, range.Start.Column + 6 ];
+                    var _range = Worksheet.Cells[ range.Start.Row, range.Start.Column + 1, range.Start.Row, range.Start.Column + 6 ];
                     _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _total.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
@@ -328,7 +314,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
-        /// <param name = "disposing" >
+        /// <param name="disposing">
         /// <c> true </c>
         /// to release both managed and unmanaged resources;
         /// <c> false </c>

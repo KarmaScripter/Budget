@@ -29,6 +29,45 @@ namespace BudgetExecution
         /// <value> The hover text. </value>
         public virtual string HoverText { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="RadioButton"/>
+        /// class.
+        /// </summary>
+        public RadioButton( )
+        {
+            // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
+            BackgroundColor = Color.FromArgb( 30, 30, 30 );
+            Font = new Font( "Roboto", 8, FontStyle.Regular );
+            ForeColor = Color.LightSteelBlue;
+            CheckSignColor = Color.LimeGreen;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            Size = new Size( 125, 17 );
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
+            CheckState = CheckState.Unchecked;
+
+            // Event Wiring
+            CheckedChanged += OnCheckStateChanged;
+            MouseEnter += OnMouseHover;
+            MouseLeave += OnMouseLeave;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="RadioButton"/>
+        /// class.
+        /// </summary>
+        /// <param name="text"> The text displayed by the control. </param>
+        public RadioButton( string text )
+            : this( )
+        {
+            Text = text;
+        }
+
         /// <summary> Called when [check state changed]. </summary>
         /// <param name="sender"> The sender. </param>
         public void OnCheckStateChanged( object sender )
@@ -110,45 +149,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="RadioButton"/>
-        /// class.
-        /// </summary>
-        public RadioButton( )
-        {
-            // Basic Properties
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            BackgroundColor = Color.FromArgb( 30, 30, 30 );
-            Font = new Font( "Roboto", 8, FontStyle.Regular );
-            ForeColor = Color.LightSteelBlue;
-            CheckSignColor = Color.LimeGreen;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            Size = new Size( 125, 17 );
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Dock = DockStyle.None;
-            CheckState = CheckState.Unchecked;
-
-            // Event Wiring
-            CheckedChanged += OnCheckStateChanged;
-            MouseEnter += OnMouseHover;
-            MouseLeave += OnMouseLeave;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="RadioButton"/>
-        /// class.
-        /// </summary>
-        /// <param name="text"> The text displayed by the control. </param>
-        public RadioButton( string text )
-            : this( )
-        {
-            Text = text;
         }
     }
 }

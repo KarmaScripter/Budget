@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Linq;
+    using System.Threading;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
     using Syncfusion.Linq;
@@ -36,8 +37,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to data set. </summary>
-        /// <param name = "excelPackage" > The excelPackage. </param>
-        /// <param name = "header" >
+        /// <param name="excelPackage"> The excelPackage. </param>
+        /// <param name="header">
         /// if set to
         /// <c> true </c>
         /// [header].
@@ -61,21 +62,17 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to data set. </summary>
-        /// <param name = "excelPackage" > The excelPackage. </param>
-        /// <param name = "header" > The header. </param>
+        /// <param name="excelPackage"> The excelPackage. </param>
+        /// <param name="header"> The header. </param>
         /// <returns> </returns>
-        /// <exception cref = "ArgumentOutOfRangeException" >
-        /// header - Must be 0 or
-        /// greater.
-        /// </exception>
+        /// <exception cref="ArgumentOutOfRangeException"> header - Must be 0 or greater. </exception>
         public static DataSet ToDataSet( this ExcelPackage excelPackage, int header = 0 )
         {
             try
             {
                 if( header < 0 )
                 {
-                    throw new ArgumentOutOfRangeException( nameof( header ), header,
-                        "Must be 0 or greater." );
+                    throw new ArgumentOutOfRangeException( nameof( header ), header, "Must be 0 or greater." );
                 }
 
                 var _result = new DataSet( );
@@ -93,11 +90,9 @@ namespace BudgetExecution
                         _start = header;
                     }
 
-                    var _columns =
-                        from _cell in _worksheet?.Cells[ _start, 1, _start,
-                            _worksheet.Dimension.End.Column ] select new DataColumn( header > 0
-                            ? _cell?.Value?.ToString( )
-                            : $"Column {_cell?.Start?.Column}" );
+                    var _columns = from _cell in _worksheet?.Cells[ _start, 1, _start, _worksheet.Dimension.End.Column ] select new DataColumn( header > 0
+                        ? _cell?.Value?.ToString( )
+                        : $"Column {_cell?.Start?.Column}" );
 
                     _table.Columns.AddRange( _columns?.ToArray( ) );
                     var i = header > 0
@@ -106,9 +101,7 @@ namespace BudgetExecution
 
                     for( var index = i; index <= _worksheet?.Dimension.End.Row; index++ )
                     {
-                        var _range =
-                            _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
-
+                        var _range = _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
                         var _row = _table.Rows?.Add( );
                         foreach( var cell in _range )
                         {
@@ -129,7 +122,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Trims the last empty rows. </summary>
-        /// <param name = "worksheet" > The worksheet. </param>
+        /// <param name="worksheet"> The worksheet. </param>
         public static void TrimLastEmptyRows( this ExcelWorksheet worksheet )
         {
             try
@@ -146,7 +139,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether [is last row empty]. </summary>
-        /// <param name = "worksheet" > The worksheet. </param>
+        /// <param name="worksheet"> The worksheet. </param>
         /// <returns>
         /// <c> true </c>
         /// if [is last row empty] [the specified worksheet]; otherwise,
@@ -174,8 +167,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the width. </summary>
-        /// <param name = "column" > The column. </param>
-        /// <param name = "width" > The width. </param>
+        /// <param name="column"> The column. </param>
+        /// <param name="width"> The width. </param>
         public static void SetWidth( this ExcelColumn column, double width )
         {
             if( width > 0 )
@@ -184,9 +177,7 @@ namespace BudgetExecution
                 {
                     var _first = width >= 1.0
                         ? Math.Round( ( Math.Round( 7.0 * ( width - 0.0 ), 0 ) - 5.0 ) / 7.0, 2 )
-                        : Math.Round(
-                            ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) )
-                            / 12.0, 2 );
+                        : Math.Round( ( Math.Round( 12.0 * ( width - 0.0 ), 0 ) - Math.Round( 5.0 * width, 0 ) ) / 12.0, 2 );
 
                     var _second = width - _first;
                     var _third = width >= 1.0
@@ -205,8 +196,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the height. </summary>
-        /// <param name = "row" > The row. </param>
-        /// <param name = "height" > The height. </param>
+        /// <param name="row"> The row. </param>
+        /// <param name="height"> The height. </param>
         public static void SetHeight( this ExcelRow row, double height )
         {
             if( height > 0 )
@@ -223,8 +214,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Expands the column. </summary>
-        /// <param name = "index" > The index. </param>
-        /// <param name = "offset" > The offset. </param>
+        /// <param name="index"> The index. </param>
+        /// <param name="offset"> The offset. </param>
         /// <returns> </returns>
         public static int[ ] ExpandColumn( this int[ ] index, int offset )
         {
@@ -247,8 +238,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Expands the row. </summary>
-        /// <param name = "index" > The index. </param>
-        /// <param name = "offset" > The offset. </param>
+        /// <param name="index"> The index. </param>
+        /// <param name="offset"> The offset. </param>
         /// <returns> </returns>
         public static int[ ] ExpandRow( this int[ ] index, int offset )
         {
@@ -271,8 +262,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Moves the column. </summary>
-        /// <param name = "index" > The index. </param>
-        /// <param name = "offset" > The offset. </param>
+        /// <param name="index"> The index. </param>
+        /// <param name="offset"> The offset. </param>
         /// <returns> </returns>
         public static int[ ] MoveColumn( this int[ ] index, int offset )
         {
@@ -296,8 +287,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Moves the row. </summary>
-        /// <param name = "index" > The index. </param>
-        /// <param name = "offset" > The offset. </param>
+        /// <param name="index"> The index. </param>
+        /// <param name="offset"> The offset. </param>
         /// <returns> </returns>
         public static int[ ] MoveRow( this int[ ] index, int offset )
         {
@@ -321,10 +312,9 @@ namespace BudgetExecution
         }
 
         /// <summary> All the borders. </summary>
-        /// <param name = "range" > The range. </param>
-        /// <param name = "borderStyle" > </param>
-        public static void AllBorder( this ExcelRange range,
-            ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
+        /// <param name="range"> The range. </param>
+        /// <param name="borderStyle"> </param>
+        public static void AllBorder( this ExcelRange range, ExcelBorderStyle borderStyle = ExcelBorderStyle.Thin )
         {
             try
             {
@@ -337,11 +327,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Backgrounds the color. </summary>
-        /// <param name = "range" > The range. </param>
-        /// <param name = "color" > The color. </param>
-        /// <param name = "fillStyle" > </param>
-        public static void BackgroundColor( this ExcelRange range, Color color,
-            ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
+        /// <param name="range"> The range. </param>
+        /// <param name="color"> The color. </param>
+        /// <param name="fillStyle"> </param>
+        public static void BackgroundColor( this ExcelRange range, Color color, ExcelFillStyle fillStyle = ExcelFillStyle.Solid )
         {
             if( color != Color.Empty )
             {
@@ -358,8 +347,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

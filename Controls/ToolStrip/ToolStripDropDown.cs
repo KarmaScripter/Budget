@@ -26,66 +26,6 @@ namespace BudgetExecution
         /// <value> The tool tip. </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets the selected item. </summary>
-        /// <returns> </returns>
-        public object GetSelectedItem( )
-        {
-            if( Selected && SelectedIndex > -1 )
-            {
-                try
-                {
-                    return ComboBox.Items[ SelectedIndex ];
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return null;
-                }
-            }
-
-            return null;
-        }
-
-        /// <summary> Gets the selected item. </summary>
-        /// <returns> </returns>
-        public void AddItem( object item )
-        {
-            if( item != null )
-            {
-                try
-                {
-                    ComboBox.Items.Add( item );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnMouseLeave( object sender, EventArgs e )
-        {
-            try
-            {
-                if( ToolTip?.Active == true )
-                {
-                    ToolTip.RemoveAll( );
-                    ToolTip = null;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
         /// <summary> Sets the data source. </summary>
         /// <param name="bindingSource"> The binding source. </param>
         public void SetDataSource( BindingSource bindingSource )
@@ -222,6 +162,66 @@ namespace BudgetExecution
         {
             BindingSource.DataSource = data?.ToList( );
             BindingSource.DataMember = filter;
+        }
+
+        /// <summary> Gets the selected item. </summary>
+        /// <returns> </returns>
+        public object GetSelectedItem( )
+        {
+            if( Selected && SelectedIndex > -1 )
+            {
+                try
+                {
+                    return ComboBox.Items[ SelectedIndex ];
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return null;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary> Gets the selected item. </summary>
+        /// <returns> </returns>
+        public void AddItem( object item )
+        {
+            if( item != null )
+            {
+                try
+                {
+                    ComboBox.Items.Add( item );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                if( ToolTip?.Active == true )
+                {
+                    ToolTip.RemoveAll( );
+                    ToolTip = null;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
     }
 }

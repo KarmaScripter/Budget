@@ -17,64 +17,6 @@ namespace BudgetExecution
     public class Tile : TileBase
     {
 
-        /// <summary> Called when [mouse enter]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnMouseEnter( object sender, EventArgs e )
-        {
-            try
-            {
-                BackColor = Color.FromArgb( 17, 53, 84 );
-                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
-                Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
-                Title.TextColor = Color.White;
-                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Body.TextColor = Color.White;
-                Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Footer.TextColor = Color.White;
-                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                Banner.TextColor = Color.White;
-                Refresh( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnMouseLeave( object sender, EventArgs e )
-        {
-            try
-            {
-                BackColor = Color.FromArgb( 20, 20, 20 );
-                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
-                Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Title.TextColor = Color.FromArgb( 0, 120, 212 );
-                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                Body.TextColor = Color.DarkGray;
-                Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                Footer.TextColor = Color.DarkGray;
-                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                Banner.TextColor = Color.DarkGray;
-                Refresh( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Tile"/>
@@ -157,6 +99,64 @@ namespace BudgetExecution
             Size = size;
             Location = location;
             TileType = type;
+        }
+
+        /// <summary> Called when [mouse enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnMouseEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                BackColor = Color.FromArgb( 17, 53, 84 );
+                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
+                Title.Font = new Font( "Roboto", 10, FontStyle.Regular );
+                Title.TextColor = Color.White;
+                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Body.TextColor = Color.White;
+                Footer.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Footer.TextColor = Color.White;
+                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                Banner.TextColor = Color.White;
+                Refresh( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        private void OnMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                BackColor = Color.FromArgb( 20, 20, 20 );
+                HoveredBorderColor = Color.FromArgb( 0, 120, 212 );
+                Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Title.TextColor = Color.FromArgb( 0, 120, 212 );
+                Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                Body.TextColor = Color.DarkGray;
+                Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                Footer.TextColor = Color.DarkGray;
+                Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                Banner.TextColor = Color.DarkGray;
+                Refresh( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
     }
 }

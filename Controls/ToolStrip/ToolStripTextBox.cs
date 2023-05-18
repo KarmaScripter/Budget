@@ -19,63 +19,6 @@ namespace BudgetExecution
     public class ToolStripTextBox : ToolStripTextBase, IToolStripTextBox
     {
 
-        /// <summary> Called when [mouse hover]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnMouseHover( object sender, EventArgs e )
-        {
-            try
-            {
-                var _button = sender as ToolStripTextBox;
-                if( _button != null
-                   && !string.IsNullOrEmpty( HoverText ) )
-                {
-                    _button.Tag = HoverText;
-                    var _tip = new SmallTip( _button );
-                    ToolTip = _tip;
-                }
-                else
-                {
-                    if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
-                    {
-                        var _tool = new SmallTip( _button );
-                        ToolTip = _tool;
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnMouseLeave( object sender, EventArgs e )
-        {
-            try
-            {
-                if( ToolTip?.Active == true )
-                {
-                    ToolTip.RemoveAll( );
-                    ToolTip = null;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
         /// <summary> Sets the text. </summary>
         /// <param name="text"> The text. </param>
         public void ResetText( string text )
@@ -155,6 +98,63 @@ namespace BudgetExecution
             : this( text )
         {
             HoverText = hoverText;
+        }
+
+        /// <summary> Called when [mouse hover]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnMouseHover( object sender, EventArgs e )
+        {
+            try
+            {
+                var _button = sender as ToolStripTextBox;
+                if( _button != null
+                   && !string.IsNullOrEmpty( HoverText ) )
+                {
+                    _button.Tag = HoverText;
+                    var _tip = new SmallTip( _button );
+                    ToolTip = _tip;
+                }
+                else
+                {
+                    if( !string.IsNullOrEmpty( Tag?.ToString( ) ) )
+                    {
+                        var _tool = new SmallTip( _button );
+                        ToolTip = _tool;
+                    }
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [mouse leave]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                if( ToolTip?.Active == true )
+                {
+                    ToolTip.RemoveAll( );
+                    ToolTip = null;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
     }
 }

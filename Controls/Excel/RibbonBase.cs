@@ -31,15 +31,6 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="RibbonBase"/>
@@ -65,6 +56,15 @@ namespace BudgetExecution
             OfficeMenu.LayoutStyle = ToolStripLayoutStyle.Flow;
             ShowQuickItemsDropDownButton = false;
             Ribbon.ScaleMenuButtonImage = true;
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

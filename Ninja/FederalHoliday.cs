@@ -14,15 +14,6 @@ namespace BudgetExecution
     public abstract class FederalHoliday : IFederalHoliday
     {
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary> Columbus Day, the second Monday in October. </summary>
         /// <value> Columbus Day, the second Monday in October. </value>
         public virtual DateOnly ColumbusDay { get; set; }
@@ -70,5 +61,14 @@ namespace BudgetExecution
         /// <summary> Labor Day, the first Monday in September. </summary>
         /// <value> Labor Day, the first Monday in September. </value>
         public virtual DateOnly LaborDay { get; set; }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
+        }
     }
 }

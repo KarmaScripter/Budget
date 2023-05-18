@@ -36,6 +36,84 @@ namespace BudgetExecution
         /// <value> The binding source. </value>
         public virtual BindingSource BindingSource { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        public SmallTip( )
+        {
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
+            BackColor = Color.FromArgb( 5, 5, 5 );
+            BorderColor = SystemColors.Highlight;
+            ForeColor = Color.White;
+            UseAnimation = true;
+            UseFading = true;
+            AutomaticDelay = 500;
+            InitialDelay = 500;
+            AutoPopDelay = 5000;
+            ReshowDelay = 100;
+            TipIcon = ToolTipIcon.Info;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        /// <param name="control"> The control. </param>
+        /// <param name="text"> The text. </param>
+        /// <param name="title"> </param>
+        public SmallTip( Control control, string text, string title = "" )
+            : this( )
+        {
+            TipTitle = title;
+            TipText = text;
+            SetText( control, TipText );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        /// <param name="component"> The component. </param>
+        /// <param name="text"> The text. </param>
+        /// <param name="title"> </param>
+        public SmallTip( Component component, string text, string title = "" )
+            : this( )
+        {
+            TipTitle = title;
+            TipText = text;
+            SetText( component, text );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolItem"> The toolItem. </param>
+        public SmallTip( ToolStripItem toolItem )
+            : this( )
+        {
+            SetText( toolItem );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SmallTip"/>
+        /// class.
+        /// </summary>
+        /// <param name="control"> The control. </param>
+        public SmallTip( Control control )
+            : this( )
+        {
+            SetText( control );
+        }
+
         /// <summary> Sets the animation. </summary>
         /// <param name="animate">
         /// if set to
@@ -270,84 +348,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SmallTip"/>
-        /// class.
-        /// </summary>
-        public SmallTip( )
-        {
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            BackColor = Color.FromArgb( 5, 5, 5 );
-            BorderColor = SystemColors.Highlight;
-            ForeColor = Color.White;
-            UseAnimation = true;
-            UseFading = true;
-            AutomaticDelay = 500;
-            InitialDelay = 500;
-            AutoPopDelay = 5000;
-            ReshowDelay = 100;
-            TipIcon = ToolTipIcon.Info;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SmallTip"/>
-        /// class.
-        /// </summary>
-        /// <param name="control"> The control. </param>
-        /// <param name="text"> The text. </param>
-        /// <param name="title"> </param>
-        public SmallTip( Control control, string text, string title = "" )
-            : this( )
-        {
-            TipTitle = title;
-            TipText = text;
-            SetText( control, TipText );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SmallTip"/>
-        /// class.
-        /// </summary>
-        /// <param name="component"> The component. </param>
-        /// <param name="text"> The text. </param>
-        /// <param name="title"> </param>
-        public SmallTip( Component component, string text, string title = "" )
-            : this( )
-        {
-            TipTitle = title;
-            TipText = text;
-            SetText( component, text );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SmallTip"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolItem"> The toolItem. </param>
-        public SmallTip( ToolStripItem toolItem )
-            : this( )
-        {
-            SetText( toolItem );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SmallTip"/>
-        /// class.
-        /// </summary>
-        /// <param name="control"> The control. </param>
-        public SmallTip( Control control )
-            : this( )
-        {
-            SetText( control );
         }
     }
 }

@@ -5,10 +5,7 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Threading;
 
     /// <summary> </summary>
     public static class ThrowIf
@@ -17,9 +14,9 @@ namespace BudgetExecution
         public static class Argument
         {
             /// <summary> Determines whether the specified argument is null. </summary>
-            /// <param name = "argument" > The argument. </param>
-            /// <param name = "argumentName" > Name of the argument. </param>
-            /// <exception cref = "System.ArgumentNullException" > </exception>
+            /// <param name="argument"> The argument. </param>
+            /// <param name="argumentName"> Name of the argument. </param>
+            /// <exception cref="System.ArgumentNullException"> </exception>
             public static void IsNull( object argument, string argumentName )
             {
                 if( argument == null )
@@ -29,9 +26,9 @@ namespace BudgetExecution
             }
 
             /// <summary> Determines whether the specified argument is negative. </summary>
-            /// <param name = "argument" > The argument. </param>
-            /// <param name = "argumentName" > Name of the argument. </param>
-            /// <exception cref = "System.ArgumentOutOfRangeException" > </exception>
+            /// <param name="argument"> The argument. </param>
+            /// <param name="argumentName"> Name of the argument. </param>
+            /// <exception cref="System.ArgumentOutOfRangeException"> </exception>
             public static void IsNegative( int argument, string argumentName )
             {
                 if( argument < 0 )
@@ -41,10 +38,12 @@ namespace BudgetExecution
                 }
             }
 
-            /// <summary> Determines whether [is zero or negative] [the specified argument]. </summary>
-            /// <param name = "argument" > The argument. </param>
-            /// <param name = "argumentName" > Name of the argument. </param>
-            /// <exception cref = "System.ArgumentOutOfRangeException" > </exception>
+            /// <summary>
+            /// Determines whether [is zero or negative] [the specified argument].
+            /// </summary>
+            /// <param name="argument"> The argument. </param>
+            /// <param name="argumentName"> Name of the argument. </param>
+            /// <exception cref="System.ArgumentOutOfRangeException"> </exception>
             public static void IsZeroOrNegative( int argument, string argumentName )
             {
                 if( argument <= 0 )

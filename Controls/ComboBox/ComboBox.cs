@@ -31,15 +31,6 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ComboBox"/>
@@ -67,6 +58,15 @@ namespace BudgetExecution
             DisabledBorderColor = Color.Transparent;
             DisabledBackColor = Color.Transparent;
             DisabledForeColor = Color.Transparent;
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

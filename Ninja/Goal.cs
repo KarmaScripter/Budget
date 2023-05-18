@@ -23,81 +23,6 @@ namespace BudgetExecution
     public class Goal : DataUnit, IGoal
     {
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="goal"> The goal. </param>
-        /// <returns> </returns>
-        public IDictionary<string, object> GetArgs( int goal )
-        {
-            if( goal > 0
-               && goal < 5 )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ "Code" ] = goal.ToString( ) };
-                }
-                catch( SystemException ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
-
-            return default( IDictionary<string, object> );
-        }
-
-        /// <summary> Gets the goal. </summary>
-        /// <returns> </returns>
-        public IGoal GetGoal( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as Goal;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IGoal );
-            }
-        }
-
-        /// <summary> Gets the source. </summary>
-        /// <returns> </returns>
-        public Source GetSource( )
-        {
-            try
-            {
-                return Enum.IsDefined( typeof( Source ), Source )
-                    ? Source
-                    : default( Source );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Source );
-            }
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ "Code" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
-
-            return default( IDictionary<string, object> );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Goal"/>
@@ -178,6 +103,81 @@ namespace BudgetExecution
             ID = goal.ID;
             Code = goal.Code;
             Name = goal.Name;
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="goal"> The goal. </param>
+        /// <returns> </returns>
+        public IDictionary<string, object> GetArgs( int goal )
+        {
+            if( goal > 0
+               && goal < 5 )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = goal.ToString( ) };
+                }
+                catch( SystemException ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
+        }
+
+        /// <summary> Gets the goal. </summary>
+        /// <returns> </returns>
+        public IGoal GetGoal( )
+        {
+            try
+            {
+                return MemberwiseClone( ) as Goal;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IGoal );
+            }
+        }
+
+        /// <summary> Gets the source. </summary>
+        /// <returns> </returns>
+        public Source GetSource( )
+        {
+            try
+            {
+                return Enum.IsDefined( typeof( Source ), Source )
+                    ? Source
+                    : default( Source );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( Source );
+            }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
         }
     }
 }

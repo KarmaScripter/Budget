@@ -19,6 +19,15 @@ namespace BudgetExecution
         /// <value> The image directory. </value>
         public static string ImageDirectory { get; } = ConfigurationManager.AppSettings[ "ToolStrip" ];
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolFactory"/>
+        /// class.
+        /// </summary>
+        public ToolFactory( )
+        {
+        }
+
         /// <summary> Creates the separator. </summary>
         /// <returns> </returns>
         public static ToolSeparator CreateSeparator( )
@@ -366,15 +375,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolFactory"/>
-        /// class.
-        /// </summary>
-        public ToolFactory( )
-        {
         }
     }
 }

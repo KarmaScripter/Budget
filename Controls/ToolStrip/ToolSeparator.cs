@@ -13,6 +13,21 @@ namespace BudgetExecution
     public class ToolSeparator : ToolStripSeparator
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripLabel"/>
+        /// class.
+        /// </summary>
+        public ToolSeparator( )
+        {
+            Margin = new Padding( 1, 1, 1, 1 );
+            Padding = new Padding( 1, 1, 1, 1 );
+            ForeColor = Color.Black;
+            Font = new Font( "Roboto", 8 );
+            Width = 1;
+            Height = 42;
+        }
+
         /// <summary> Sets the width. </summary>
         /// <param name="width"> The width. </param>
         public void SetWidth( int width = 3 )
@@ -38,21 +53,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
-        /// class.
-        /// </summary>
-        public ToolSeparator( )
-        {
-            Margin = new Padding( 1, 1, 1, 1 );
-            Padding = new Padding( 1, 1, 1, 1 );
-            ForeColor = Color.Black;
-            Font = new Font( "Roboto", 8 );
-            Width = 1;
-            Height = 42;
         }
     }
 }

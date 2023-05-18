@@ -38,6 +38,78 @@ namespace BudgetExecution
         /// <value> The children. </value>
         public IEnumerable<Control> Children { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Layout"/>
+        /// class.
+        /// </summary>
+        public Layout( )
+        {
+            // Basic Properties
+            Style = Style.Custom;
+            ThemeAuthor = "Terry D. Eppler";
+            ThemeName = "Budget Execution";
+            Size = new Size( 700, 428 );
+            Location = new Point( 1, 1 );
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            Dock = DockStyle.None;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            Enabled = true;
+            Visible = true;
+            Font = new Font( "Roboto", 8 );
+
+            // Back color SeriesConfiguration
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            BackgroundColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            BorderColor = Color.FromArgb( 65, 65, 65 );
+            BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Layout"/>
+        /// class.
+        /// </summary>
+        /// <param name="size"> The size. </param>
+        /// <param name="location"> The location. </param>
+        public Layout( Size size, Point location )
+            : this( )
+        {
+            Size = size;
+            Location = location;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Layout"/>
+        /// class.
+        /// </summary>
+        /// <param name="size"> The size. </param>
+        /// <param name="location"> The location. </param>
+        /// <param name="parent"> The parent. </param>
+        public Layout( Size size, Point location, Control parent )
+            : this( size, location )
+        {
+            Size = new Size( size.Width, size.Height );
+            Location = location;
+            Parent = parent;
+            Parent.Controls.Add( this );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Layout"/>
+        /// class.
+        /// </summary>
+        /// <param name="parent"> The parent. </param>
+        public Layout( Control parent )
+        {
+            Parent = parent;
+            Parent.Controls.Add( this );
+        }
+
         /// <summary> Sets the color of the border. </summary>
         /// <param name="color"> The color. </param>
         public void SetBorderColor( Color color )
@@ -140,78 +212,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Layout"/>
-        /// class.
-        /// </summary>
-        public Layout( )
-        {
-            // Basic Properties
-            Style = Style.Custom;
-            ThemeAuthor = "Terry D. Eppler";
-            ThemeName = "Budget Execution";
-            Size = new Size( 700, 428 );
-            Location = new Point( 1, 1 );
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            Dock = DockStyle.None;
-            Margin = new Padding( 3 );
-            Padding = new Padding( 1 );
-            Enabled = true;
-            Visible = true;
-            Font = new Font( "Roboto", 8 );
-
-            // Back color SeriesConfiguration
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            BackgroundColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            BorderColor = Color.FromArgb( 65, 65, 65 );
-            BorderStyle = BorderStyle.FixedSingle;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Layout"/>
-        /// class.
-        /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        public Layout( Size size, Point location )
-            : this( )
-        {
-            Size = size;
-            Location = location;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Layout"/>
-        /// class.
-        /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
-        public Layout( Size size, Point location, Control parent )
-            : this( size, location )
-        {
-            Size = new Size( size.Width, size.Height );
-            Location = location;
-            Parent = parent;
-            Parent.Controls.Add( this );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Layout"/>
-        /// class.
-        /// </summary>
-        /// <param name="parent"> The parent. </param>
-        public Layout( Control parent )
-        {
-            Parent = parent;
-            Parent.Controls.Add( this );
         }
     }
 }

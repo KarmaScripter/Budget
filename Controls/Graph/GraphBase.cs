@@ -37,6 +37,15 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GraphBase"/>
+        /// class.
+        /// </summary>
+        protected GraphBase( )
+        {
+        }
+
         /// <summary> Sets the legend configuration. </summary>
         /// <param name="font"> The font. </param>
         /// <param name="size"> The size. </param>
@@ -72,15 +81,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="GraphBase"/>
-        /// class.
-        /// </summary>
-        protected GraphBase( )
-        {
         }
     }
 }

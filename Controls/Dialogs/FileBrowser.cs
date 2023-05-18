@@ -49,6 +49,63 @@ namespace BudgetExecution
         /// <value> The selected file. </value>
         public string SelectedFile { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FileBrowser"/>
+        /// class.
+        /// </summary>
+        public FileBrowser( )
+        {
+            InitializeComponent( );
+            Font = new Font( "Roboto", 9 );
+            ForeColor = Color.LightGray;
+            Margin = new Padding( 3 );
+            Padding = new Padding( 1 );
+            Size = new Size( 700, 480 );
+            MaximumSize = new Size( 700, 480 );
+            MinimumSize = new Size( 700, 480 );
+            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Header.TextAlign = ContentAlignment.TopLeft;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            InitialDirPaths = GetInitialDirPaths( );
+            RadioButtons = GetRadioButtons( );
+            FileExtension = "xlsx";
+            Extension = EXT.XLSX;
+            Picture.Image = GetImage( );
+            FilePaths = GetListViewPaths( );
+            FileList.BackColor = Color.FromArgb( 40, 40, 40 );
+            CaptionBarHeight = 5;
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Event Wiring
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
+            FileList.SelectedValueChanged += OnPathSelected;
+            FindButton.Click += OnFindButtonClicked;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FileBrowser"/>
+        /// class.
+        /// </summary>
+        /// <param name="extension"> The extension. </param>
+        public FileBrowser( EXT extension )
+            : this( )
+        {
+            Extension = extension;
+            FileExtension = Extension.ToString( ).ToLower( );
+        }
+
         /// <summary> Called when [browser loaded]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -410,63 +467,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FileBrowser"/>
-        /// class.
-        /// </summary>
-        public FileBrowser( )
-        {
-            InitializeComponent( );
-            Font = new Font( "Roboto", 9 );
-            ForeColor = Color.LightGray;
-            Margin = new Padding( 3 );
-            Padding = new Padding( 1 );
-            Size = new Size( 700, 480 );
-            MaximumSize = new Size( 700, 480 );
-            MinimumSize = new Size( 700, 480 );
-            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-            Header.TextAlign = ContentAlignment.TopLeft;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            InitialDirPaths = GetInitialDirPaths( );
-            RadioButtons = GetRadioButtons( );
-            FileExtension = "xlsx";
-            Extension = EXT.XLSX;
-            Picture.Image = GetImage( );
-            FilePaths = GetListViewPaths( );
-            FileList.BackColor = Color.FromArgb( 40, 40, 40 );
-            CaptionBarHeight = 5;
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Event Wiring
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-            FileList.SelectedValueChanged += OnPathSelected;
-            FindButton.Click += OnFindButtonClicked;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FileBrowser"/>
-        /// class.
-        /// </summary>
-        /// <param name="extension"> The extension. </param>
-        public FileBrowser( EXT extension )
-            : this( )
-        {
-            Extension = extension;
-            FileExtension = Extension.ToString( ).ToLower( );
         }
     }
 }

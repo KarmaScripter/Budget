@@ -16,53 +16,6 @@ namespace BudgetExecution
     public partial class Message : MetroForm
     {
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> instance containing the event data. </param>
-        public virtual void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public virtual void OnCloseButtonClick( object sender, EventArgs e )
-        {
-            if( sender is Button _button
-               && !string.IsNullOrEmpty( _button?.Name ) )
-            {
-                try
-                {
-                    Close( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary> </summary>
         public Message( )
         {
@@ -123,6 +76,53 @@ namespace BudgetExecution
         {
             Header.Text = caption;
             CloseButton.Focus( );
+        }
+
+        /// <summary> Called when [load]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e"> instance containing the event data. </param>
+        public virtual void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Called when [close button clicked]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public virtual void OnCloseButtonClick( object sender, EventArgs e )
+        {
+            if( sender is Button _button
+               && !string.IsNullOrEmpty( _button?.Name ) )
+            {
+                try
+                {
+                    Close( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

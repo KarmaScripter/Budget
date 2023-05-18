@@ -24,42 +24,6 @@ namespace BudgetExecution
         /// <value> The agency activity. </value>
         public string AgencyActivity { get; set; }
 
-        /// <summary> Gets the account. </summary>
-        /// <returns> </returns>
-        public Account GetAccount( )
-        {
-            try
-            {
-                return (Account)MemberwiseClone( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( Account );
-            }
-        }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        protected private IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
-
-            return default( IDictionary<string, object> );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Account"/>
@@ -185,6 +149,42 @@ namespace BudgetExecution
             ActivityName = account.ActivityName;
             ProgramAreaCode = account.ProgramProjectCode;
             ProgramAreaName = account.ProgramAreaName;
+        }
+
+        /// <summary> Gets the account. </summary>
+        /// <returns> </returns>
+        public Account GetAccount( )
+        {
+            try
+            {
+                return (Account)MemberwiseClone( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( Account );
+            }
+        }
+
+        /// <summary> Gets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        protected private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
         }
     }
 }

@@ -104,6 +104,188 @@ namespace BudgetExecution
         /// <value> The data model. </value>
         public DataBuilder DataModel { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataGridForm"/>
+        /// class.
+        /// </summary>
+        public DataGridForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Label Properties
+            FirstGridLabel.Font = new Font( "Roboto", 8 );
+            FirstGridLabel.ForeColor = Color.DarkGray;
+            SecondGridLabel.Font = new Font( "Roboto", 8 );
+            SecondGridLabel.ForeColor = Color.DarkGray;
+            SecondGridLabel.Text = string.Empty;
+            ThirdGridLabel.Font = new Font( "Roboto", 8 );
+            ThirdGridLabel.ForeColor = Color.DarkGray;
+            ThirdGridLabel.Text = string.Empty;
+            FourthGridLabel.Font = new Font( "Roboto", 8 );
+            FourthGridLabel.ForeColor = Color.DarkGray;
+            FourthGridLabel.Text = string.Empty;
+
+            // Header Properties
+            HeaderLabel.Font = new Font( "Roboto", 10 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
+
+            // TabPage Properties
+            TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
+            TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+            GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
+
+            // Table Layout Properties
+            FirstTable.Visible = false;
+            SecondTable.Visible = false;
+            ThirdTable.Visible = false;
+
+            // Initialize Default Provider
+            Provider = Provider.Access;
+
+            // Control Event Wiring
+            ExcelExportButton.Click += null;
+            ExitButton.Click += null;
+            BackButton.Click += null;
+            MenuButton.Click += null;
+            ChartButton.Click += null;
+            EditSqlButton.Click += null;
+            RefreshDataButton.Click += null;
+            RemoveFiltersButton.Click += null;
+            GroupButton.Click += null;
+            CalendarButton.Click += null;
+            TabControl.SelectedIndexChanged += OnActiveTabChanged;
+            GridPanel.MouseClick += OnRightClick;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
+            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+            ExcelExportButton.Click += OnExcelButtonClicked;
+            ChartButton.Click += OnChartButtonClicked;
+            ExitButton.Click += OnExitButtonClicked;
+            BackButton.Click += OnBackButtonClicked;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
+            RefreshDataButton.Click += OnRefreshDataButtonClicked;
+            GroupButton.Click += OnGroupButtonClicked;
+            CalendarButton.Click += OnCalendarButtonClicked;
+            FirstCalendar.SelectionChanged += OnStartDateSelected;
+            SecondCalendar.SelectionChanged += OnEndDateSelected;
+            EditSqlButton.Click += OnSqlButtonClick;
+            EditRecordButton.Click += OnEditRecordButtonClicked;
+            EditColumnButton.Click += OnEditColumnButtonClicked;
+
+            // Form Event Wiring
+            Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
+            MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataGridForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public DataGridForm( BindingSource bindingSource )
+            : this( )
+        {
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
+            Source = DataBuilder.GetSource( SelectedTable );
+            DataModel = new DataBuilder( Source, Provider );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataModel?.DataTable;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+            DataGrid.DataSource = BindingSource?.DataSource;
+            ToolStrip.BindingSource = BindingSource;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataGridForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public DataGridForm( Source source, Provider provider )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel?.DataTable;
+            SelectedTable = DataTable?.TableName;
+            BindingSource.DataSource = DataTable;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+            DataGrid.DataSource = BindingSource?.DataSource;
+            ToolStrip.BindingSource = BindingSource;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataGridForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The where. </param>
+        public DataGridForm( Source source, Provider provider, IDictionary<string, object> where )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            FormFilter = where;
+            DataModel = new DataBuilder( source, provider, where );
+            DataTable = DataModel?.DataTable;
+            SelectedTable = DataTable?.TableName;
+            BindingSource.DataSource = DataTable;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+            DataGrid.DataSource = BindingSource?.DataSource;
+            ToolStrip.BindingSource = BindingSource;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -1774,188 +1956,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGridForm"/>
-        /// class.
-        /// </summary>
-        public DataGridForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
-            Font = new Font( "Roboto", 9 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Label Properties
-            FirstGridLabel.Font = new Font( "Roboto", 8 );
-            FirstGridLabel.ForeColor = Color.DarkGray;
-            SecondGridLabel.Font = new Font( "Roboto", 8 );
-            SecondGridLabel.ForeColor = Color.DarkGray;
-            SecondGridLabel.Text = string.Empty;
-            ThirdGridLabel.Font = new Font( "Roboto", 8 );
-            ThirdGridLabel.ForeColor = Color.DarkGray;
-            ThirdGridLabel.Text = string.Empty;
-            FourthGridLabel.Font = new Font( "Roboto", 8 );
-            FourthGridLabel.ForeColor = Color.DarkGray;
-            FourthGridLabel.Text = string.Empty;
-
-            // Header Properties
-            HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
-
-            // TabPage Properties
-            TabControl.ActiveTabForeColor = Color.FromArgb( 20, 20, 20 );
-            TableTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            FilterTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-            GroupTabPage.TabForeColor = Color.FromArgb( 20, 20, 20 );
-
-            // Table Layout Properties
-            FirstTable.Visible = false;
-            SecondTable.Visible = false;
-            ThirdTable.Visible = false;
-
-            // Initialize Default Provider
-            Provider = Provider.Access;
-
-            // Control Event Wiring
-            ExcelExportButton.Click += null;
-            ExitButton.Click += null;
-            BackButton.Click += null;
-            MenuButton.Click += null;
-            ChartButton.Click += null;
-            EditSqlButton.Click += null;
-            RefreshDataButton.Click += null;
-            RemoveFiltersButton.Click += null;
-            GroupButton.Click += null;
-            CalendarButton.Click += null;
-            TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            GridPanel.MouseClick += OnRightClick;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            TableComboBox.SelectedValueChanged += OnTableComboBoxItemSelected;
-            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-            ExcelExportButton.Click += OnExcelButtonClicked;
-            ChartButton.Click += OnChartButtonClicked;
-            ExitButton.Click += OnExitButtonClicked;
-            BackButton.Click += OnBackButtonClicked;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
-            RefreshDataButton.Click += OnRefreshDataButtonClicked;
-            GroupButton.Click += OnGroupButtonClicked;
-            CalendarButton.Click += OnCalendarButtonClicked;
-            FirstCalendar.SelectionChanged += OnStartDateSelected;
-            SecondCalendar.SelectionChanged += OnEndDateSelected;
-            EditSqlButton.Click += OnSqlButtonClick;
-            EditRecordButton.Click += OnEditRecordButtonClicked;
-            EditColumnButton.Click += OnEditColumnButtonClicked;
-
-            // Form Event Wiring
-            Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClose;
-            MouseClick += OnRightClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGridForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        public DataGridForm( BindingSource bindingSource )
-            : this( )
-        {
-            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
-            Source = DataBuilder.GetSource( SelectedTable );
-            DataModel = new DataBuilder( Source, Provider );
-            DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataModel?.DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-            DataGrid.DataSource = BindingSource?.DataSource;
-            ToolStrip.BindingSource = BindingSource;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGridForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        public DataGridForm( Source source, Provider provider )
-            : this( )
-        {
-            Source = source;
-            Provider = provider;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel?.DataTable;
-            SelectedTable = DataTable?.TableName;
-            BindingSource.DataSource = DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-            DataGrid.DataSource = BindingSource?.DataSource;
-            ToolStrip.BindingSource = BindingSource;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGridForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The where. </param>
-        public DataGridForm( Source source, Provider provider, IDictionary<string, object> where )
-            : this( )
-        {
-            Source = source;
-            Provider = provider;
-            FormFilter = where;
-            DataModel = new DataBuilder( source, provider, where );
-            DataTable = DataModel?.DataTable;
-            SelectedTable = DataTable?.TableName;
-            BindingSource.DataSource = DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-            DataGrid.DataSource = BindingSource?.DataSource;
-            ToolStrip.BindingSource = BindingSource;
         }
     }
 }

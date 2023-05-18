@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Threading;
 
     /// <summary> </summary>
     public class ResultData
@@ -25,22 +26,22 @@ namespace BudgetExecution
         /// <value> The title. </value>
         public string Title { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "ResultData"/>
-        /// class.
-        /// </summary>
-        public ResultData( )
-        {
-        }
-
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ResultData"/>
+        /// class.
+        /// </summary>
+        public ResultData( )
+        {
         }
     }
 }

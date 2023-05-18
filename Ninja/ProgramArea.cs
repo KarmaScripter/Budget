@@ -28,42 +28,6 @@ namespace BudgetExecution
         /// <summary> The source </summary>
         public override Source Source { get; set; } = Source.ProgramAreas;
 
-        /// <summary> Gets the program area. </summary>
-        /// <returns> </returns>
-        public IProgramArea GetProgramArea( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as ProgramArea;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( ProgramArea );
-            }
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> SetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public override int ID { get; set; }
@@ -150,6 +114,42 @@ namespace BudgetExecution
             ID = area.ID;
             Code = area.Code;
             Name = area.Name;
+        }
+
+        /// <summary> Gets the program area. </summary>
+        /// <returns> </returns>
+        public IProgramArea GetProgramArea( )
+        {
+            try
+            {
+                return MemberwiseClone( ) as ProgramArea;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( ProgramArea );
+            }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> SetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

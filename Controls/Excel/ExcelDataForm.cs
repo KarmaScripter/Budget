@@ -87,6 +87,112 @@ namespace BudgetExecution
         /// <value> The data model. </value>
         public DataBuilder DataModel { get; set; }
 
+        /// <summary> </summary>
+        public ExcelDataForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Ribbon Properties
+            Ribbon.Spreadsheet = Spreadsheet;
+
+            // Event Wiring
+            RemoveFiltersButton.Click += null;
+            TableButton.Click += null;
+            LookupButton.Click += null;
+            UploadButton.Click += null;
+            MenuButton.Click += null;
+            RemoveFiltersButton.Click += null;
+            Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
+            Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="filePath"> The file path. </param>
+        public ExcelDataForm( string filePath )
+            : this( )
+        {
+            Spreadsheet.Open( filePath );
+            FilePath = filePath;
+            FileName = Path.GetFileName( filePath );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="fileStream"> The file. </param>
+        public ExcelDataForm( Stream fileStream )
+            : this( )
+        {
+            Spreadsheet.Open( fileStream );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public ExcelDataForm( BindingSource bindingSource )
+            : this( )
+        {
+            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+            Header.Text = $"{SelectedTable.SplitPascal( )} ";
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ExcelDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="dataTable"> The data table. </param>
+        public ExcelDataForm( DataTable dataTable )
+            : this( )
+        {
+            DataTable = dataTable;
+            BindingSource.DataSource = dataTable;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -695,112 +801,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary> </summary>
-        public ExcelDataForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Center;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Ribbon Properties
-            Ribbon.Spreadsheet = Spreadsheet;
-
-            // Event Wiring
-            RemoveFiltersButton.Click += null;
-            TableButton.Click += null;
-            LookupButton.Click += null;
-            UploadButton.Click += null;
-            MenuButton.Click += null;
-            RemoveFiltersButton.Click += null;
-            Spreadsheet.WorkbookLoaded += OnWorkBookLoaded;
-            Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClose;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="filePath"> The file path. </param>
-        public ExcelDataForm( string filePath )
-            : this( )
-        {
-            Spreadsheet.Open( filePath );
-            FilePath = filePath;
-            FileName = Path.GetFileName( filePath );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="fileStream"> The file. </param>
-        public ExcelDataForm( Stream fileStream )
-            : this( )
-        {
-            Spreadsheet.Open( fileStream );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        public ExcelDataForm( BindingSource bindingSource )
-            : this( )
-        {
-            BindingSource.DataSource = (DataTable)bindingSource.DataSource;
-            DataTable = (DataTable)bindingSource.DataSource;
-            SelectedTable = ( (DataTable)bindingSource.DataSource ).TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-            Header.Text = $"{SelectedTable.SplitPascal( )} ";
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="dataTable"> The data table. </param>
-        public ExcelDataForm( DataTable dataTable )
-            : this( )
-        {
-            DataTable = dataTable;
-            BindingSource.DataSource = dataTable;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
     }
 }

@@ -31,6 +31,71 @@ namespace BudgetExecution
 
         public string ColumnName { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DefinitionDialog"/>
+        /// class.
+        /// </summary>
+        public DefinitionDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1310, 646 );
+            SqliteRadioButton.Tag = "SQLite";
+            SqlServerRadioButton.Tag = "SqlServer";
+            AccessRadioButton.Tag = "Access";
+            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
+            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
+            TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
+
+            // Populate Controls
+            TabPages = GetTabPages( );
+            Panels = GetPanels( );
+            ListBoxes = GetListBoxes( );
+            RadioButtons = GetRadioButtons( );
+            ComboBoxes = GetComboBoxes( );
+
+            // Wire Events
+            AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
+            SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
+            TabPage.MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DefinitionDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        public DefinitionDialog( ToolType toolType )
+            : this( )
+        {
+            ToolType = toolType;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DefinitionDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="bindingSource"> The binding source. </param>
+        public DefinitionDialog( ToolType toolType, BindingSource bindingSource )
+            : this( toolType )
+        {
+            BindingSource = bindingSource;
+            DataTable = (DataTable)bindingSource.DataSource;
+            BindingSource.DataSource = DataTable;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            Columns = DataTable.GetColumnNames( );
+        }
+
         /// <summary> Called when [visible]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -243,71 +308,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DefinitionDialog"/>
-        /// class.
-        /// </summary>
-        public DefinitionDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1310, 646 );
-            SqliteRadioButton.Tag = "SQLite";
-            SqlServerRadioButton.Tag = "SqlServer";
-            AccessRadioButton.Tag = "Access";
-            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-            DataTypeComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-            TableNameComboBox.BackgroundColor = Color.FromArgb( 40, 40, 40 );
-
-            // Populate Controls
-            TabPages = GetTabPages( );
-            Panels = GetPanels( );
-            ListBoxes = GetListBoxes( );
-            RadioButtons = GetRadioButtons( );
-            ComboBoxes = GetComboBoxes( );
-
-            // Wire Events
-            AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
-            SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
-            SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-            TabPage.MouseClick += OnRightClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DefinitionDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        public DefinitionDialog( ToolType toolType )
-            : this( )
-        {
-            ToolType = toolType;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DefinitionDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="bindingSource"> The binding source. </param>
-        public DefinitionDialog( ToolType toolType, BindingSource bindingSource )
-            : this( toolType )
-        {
-            BindingSource = bindingSource;
-            DataTable = (DataTable)bindingSource.DataSource;
-            BindingSource.DataSource = DataTable;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            Columns = DataTable.GetColumnNames( );
         }
     }
 }

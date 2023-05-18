@@ -11,10 +11,9 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
-    using BudgetExecution;
-    using DocumentFormat.OpenXml.Drawing.Diagrams;
+    using System.Threading;
     using OfficeOpenXml;
-    using TableStyles = OfficeOpenXml.Table.TableStyles;
+    using OfficeOpenXml.Table;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
@@ -25,8 +24,8 @@ namespace BudgetExecution
     public static class EnumerableExtensions
     {
         /// <summary> Converts to bindinglist. </summary>
-        /// <typeparam name = "T" > </typeparam>
-        /// <param name = "enumerable" > The enumerable. </param>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="enumerable"> The enumerable. </param>
         /// <returns> </returns>
         public static BindingList<T> ToBindingList<T>( this IEnumerable<T> enumerable )
         {
@@ -55,20 +54,20 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Filters a sequence of values based on a given predicate and returns
-        /// those values that don't match the predicate.
+        /// Filters a sequence of values based on a given predicate and returns those values that don't match
+        /// the predicate.
         /// </summary>
-        /// <typeparam name = "T" >
+        /// <typeparam name="T">
         /// The type of the elements of
-        /// <paramref name = "source"/>
+        /// <paramref name="source"/>
         /// .
         /// </typeparam>
-        /// <param name = "source" >
+        /// <param name="source">
         /// An
-        /// <see cref = "IEnumerable{T}"/>
+        /// <see cref="IEnumerable{T}"/>
         /// to filter.
         /// </param>
-        /// <param name = "predicate" > A function to test each element for a condition. </param>
+        /// <param name="predicate"> A function to test each element for a condition. </param>
         /// <returns> Those values that don't match the given predicate. </returns>
         public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source, Func<T, bool> predicate )
         {
@@ -84,27 +83,25 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Filters a sequence of values based on a predicate and returns those values that
-        /// don't match the given predicate. Each element's index is used in the logic of
-        /// predicate function.
+        /// Filters a sequence of values based on a predicate and returns those values that don't match the
+        /// given predicate. Each element's index is used in the logic of predicate function.
         /// </summary>
-        /// <typeparam name = "T" >
+        /// <typeparam name="T">
         /// The type of the elements of
-        /// <paramref name = "source"/>
+        /// <paramref name="source"/>
         /// .
         /// </typeparam>
-        /// <param name = "source" >
+        /// <param name="source">
         /// An
-        /// <see cref = "IEnumerable{T}"/>
+        /// <see cref="IEnumerable{T}"/>
         /// to filter.
         /// </param>
-        /// <param name = "predicate" >
-        /// A function to test each element for a condition; the second parameter of the
-        /// functions represents the index of the source element.
+        /// <param name="predicate">
+        /// A function to test each element for a condition; the second parameter of the functions represents
+        /// the index of the source element.
         /// </param>
         /// <returns> Those values that don't match the given predicate. </returns>
-        public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source,
-            Func<T, int, bool> predicate )
+        public static IEnumerable<T> WhereNot<T>( this IEnumerable<T> source, Func<T, int, bool> predicate )
         {
             try
             {
@@ -118,12 +115,11 @@ namespace BudgetExecution
         }
 
         /// <summary> Filters the specified columnName. </summary>
-        /// <param name = "dataRow" > The dataRow. </param>
-        /// <param name = "name" > The columnName. </param>
-        /// <param name = "value" > The filter. </param>
+        /// <param name="dataRow"> The dataRow. </param>
+        /// <param name="name"> The columnName. </param>
+        /// <param name="value"> The filter. </param>
         /// <returns> </returns>
-        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, string name,
-            string value )
+        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, string name, string value )
         {
             if( dataRow?.Any( ) == true
                && !string.IsNullOrEmpty( name )
@@ -136,9 +132,7 @@ namespace BudgetExecution
                     var _array = _dictionary.Keys.ToArray( );
                     if( _array?.Contains( name ) == true )
                     {
-                        var _select = dataRow?.Where( p => p.Field<string>( name ) == value )
-                            ?.Select( p => p );
-
+                        var _select = dataRow?.Where( p => p.Field<string>( name ) == value )?.Select( p => p );
                         return _select?.Any( ) == true
                             ? _select
                             : default( IEnumerable<DataRow> );
@@ -155,11 +149,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Filters the specified dictionary. </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        /// <param name = "where" > The dictionary. </param>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="where"> The dictionary. </param>
         /// <returns> </returns>
-        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow,
-            IDictionary<string, object> where )
+        public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, IDictionary<string, object> where )
         {
             if( dataRow?.Any( ) == true
                && where?.Any( ) == true )
@@ -183,16 +176,14 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to excel. </summary>
-        /// <typeparam name = "T" > </typeparam>
-        /// <param name = "type" > The dataRow. </param>
-        /// <param name = "path" > The path. </param>
-        /// <param name = "style" > </param>
-        /// <exception cref = "Exception" >
-        /// Invalid file path. or Invalid file path. or No
-        /// dataRow to export.
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="type"> The dataRow. </param>
+        /// <param name="path"> The path. </param>
+        /// <param name="style"> </param>
+        /// <exception cref="Exception">
+        /// Invalid file path. or Invalid file path. or No dataRow to export.
         /// </exception>
-        public static ExcelPackage ToExcel<T>( this IEnumerable<T> type, string path,
-            TableStyles style = TableStyles.Light1 )
+        public static ExcelPackage ToExcel<T>( this IEnumerable<T> type, string path, TableStyles style = TableStyles.Light1 )
         {
             if( string.IsNullOrEmpty( path )
                && type?.Any( ) == true
@@ -218,34 +209,31 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Extracts a contiguous count of elements from a sequence at a
-        /// particular zero-based starting index.
+        /// Extracts a contiguous count of elements from a sequence at a particular zero-based starting index.
         /// </summary>
-        /// <typeparam name = "T" > The type of the elements in the source sequence. </typeparam>
-        /// <param name = "sequence" > The sequence from which to extract elements. </param>
-        /// <param name = "startIndex" > The zero-based index at which to begin slicing. </param>
-        /// <param name = "count" > The number of items to slice out of the index. </param>
+        /// <typeparam name="T"> The type of the elements in the source sequence. </typeparam>
+        /// <param name="sequence"> The sequence from which to extract elements. </param>
+        /// <param name="startIndex"> The zero-based index at which to begin slicing. </param>
+        /// <param name="count"> The number of items to slice out of the index. </param>
         /// <returns>
-        /// A new sequence containing any elements sliced out from the source
-        /// sequence.
+        /// A new sequence containing any elements sliced out from the source sequence.
         /// </returns>
         /// <remarks>
         /// <para>
-        /// If the starting position or count specified result in slice extending past the
-        /// end of the sequence, it will return all elements up to that point. There is no
-        /// guarantee that the resulting sequence will contain the number of elements
-        /// requested - it may have anywhere from 0 to
-        /// <paramref name = "count"/>
+        /// If the starting position or count specified result in slice extending past the end of the sequence,
+        /// it will return all elements up to that point. There is no guarantee that the resulting sequence
+        /// will contain the number of elements requested - it may have anywhere from 0 to
+        /// <paramref name="count"/>
         /// .
         /// </para>
         /// <para>
         /// This method is implemented in an optimized manner for any sequence implementing
-        /// <see cref = "IList{T}"/>
+        /// <see cref="IList{T}"/>
         /// .
         /// </para>
         /// <para>
         /// The result of
-        /// <see cref = "Slice{T}"/>
+        /// <see cref="Slice{T}"/>
         /// is identical to:
         /// <c> sequence.Skip(startIndex).Take(count) </c>
         /// </para>
@@ -272,10 +260,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Slices the specified start. </summary>
-        /// <typeparam name = "T" > </typeparam>
-        /// <param name = "type" > The dataRow. </param>
-        /// <param name = "start" > The start. </param>
-        /// <param name = "end" > The end. </param>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="type"> The dataRow. </param>
+        /// <param name="start"> The start. </param>
+        /// <param name="end"> The end. </param>
         /// <returns> </returns>
         public static IEnumerable<T> LazySlice<T>( this IEnumerable<T> type, int start, int end )
         {
@@ -302,17 +290,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Turns a finite sequence into a circular one, or equivalently, repeats
-        /// the original sequence indefinitely.
+        /// Turns a finite sequence into a circular one, or equivalently, repeats the original sequence
+        /// indefinitely.
         /// </summary>
-        /// <typeparam name = "T" >
+        /// <typeparam name="T">
         /// The type of the elements of
-        /// <paramref name = "source"/>
+        /// <paramref name="source"/>
         /// .
         /// </typeparam>
-        /// <param name = "source" >
+        /// <param name="source">
         /// An
-        /// <see cref = "IEnumerable{T}"/>
+        /// <see cref="IEnumerable{T}"/>
         /// to cycle through.
         /// </param>
         /// <returns> An infinite sequence cycling through the given sequence. </returns>
@@ -330,10 +318,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Cycles the iterator. </summary>
-        /// <typeparam name = "T" > </typeparam>
-        /// <param name = "source" > The source. </param>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="source"> The source. </param>
         /// <returns> </returns>
-        private static IEnumerable<T> CycleIterator<T>( IEnumerable<T> source )
+        static private IEnumerable<T> CycleIterator<T>( IEnumerable<T> source )
         {
             var elementBuffer = source is not ICollection<T> collection
                 ? new List<T>( )
@@ -361,8 +349,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

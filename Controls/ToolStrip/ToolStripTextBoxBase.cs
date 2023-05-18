@@ -32,15 +32,6 @@ namespace BudgetExecution
         /// <value> The tool tip. </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ToolStripTextBase"/>
@@ -48,6 +39,15 @@ namespace BudgetExecution
         /// </summary>
         protected ToolStripTextBase( )
         {
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

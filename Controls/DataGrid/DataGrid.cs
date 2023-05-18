@@ -38,79 +38,6 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Called when [cell enter]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnCellEnter( object sender, EventArgs e )
-        {
-            try
-            {
-                if( CurrentCell.ValueType == typeof( string ) )
-                {
-                    var _cellValue = CurrentCell?.Value?.ToString( );
-                    if( _cellValue?.Length >= 6
-                       && _cellValue.Length <= 9 )
-                    {
-                        var _code = _cellValue.Substring( 4, 2 );
-                        var _dialog = new ProgramProjectDialog( _code );
-                        _dialog.ShowDialog( );
-                    }
-                }
-                else if( CurrentCell.ValueType == typeof( double ) )
-                {
-                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalculationForm( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calculator.Value.ToDouble( );
-                }
-                else if( CurrentCell.ValueType == typeof( decimal ) )
-                {
-                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalculationForm( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
-                }
-                else if( CurrentCell.ValueType == typeof( DateOnly ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-                else if( CurrentCell.ValueType == typeof( DateTime ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-                else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary> Gets the filter values. </summary>
         /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
@@ -305,6 +232,79 @@ namespace BudgetExecution
             : this( size, location )
         {
             Parent = parent;
+        }
+
+        /// <summary> Called when [cell enter]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnCellEnter( object sender, EventArgs e )
+        {
+            try
+            {
+                if( CurrentCell.ValueType == typeof( string ) )
+                {
+                    var _cellValue = CurrentCell?.Value?.ToString( );
+                    if( _cellValue?.Length >= 6
+                       && _cellValue.Length <= 9 )
+                    {
+                        var _code = _cellValue.Substring( 4, 2 );
+                        var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.ShowDialog( );
+                    }
+                }
+                else if( CurrentCell.ValueType == typeof( double ) )
+                {
+                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalculationForm( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calculator.Value.ToDouble( );
+                }
+                else if( CurrentCell.ValueType == typeof( decimal ) )
+                {
+                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalculationForm( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
+                }
+                else if( CurrentCell.ValueType == typeof( DateOnly ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarDialog( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                }
+                else if( CurrentCell.ValueType == typeof( DateTime ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarDialog( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                }
+                else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
+                {
+                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                    var _form = new CalendarDialog( _cellValue );
+                    _form.ShowDialog( );
+                    CurrentCell.Value = _form.Calendar.SelectedDate;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

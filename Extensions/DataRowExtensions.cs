@@ -15,6 +15,7 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
@@ -22,12 +23,11 @@ namespace BudgetExecution
     public static class DataRowExtensions
     {
         /// <summary> Converts to sql db parameters. </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        /// <param name = "provider" > The provider. </param>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="provider"> The provider. </param>
         /// <returns> </returns>
-        /// <exception cref = "InvalidEnumArgumentException" > provider </exception>
-        public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow,
-            Provider provider )
+        /// <exception cref="InvalidEnumArgumentException"> provider </exception>
+        public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow, Provider provider )
         {
             if( dataRow != null
                && dataRow.ItemArray.Length > 0
@@ -119,7 +119,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to dictionary. </summary>
-        /// <param name = "dataRow" > The data row. </param>
+        /// <param name="dataRow"> The data row. </param>
         /// <returns> </returns>
         public static IDictionary<string, object> ToDictionary( this DataRow dataRow )
         {
@@ -135,8 +135,7 @@ namespace BudgetExecution
                     {
                         if( !string.IsNullOrEmpty( _column[ i ]?.ColumnName ) )
                         {
-                            _dictionary?.Add( _column[ i ].ColumnName,
-                                _items[ i ] ?? default( object ) );
+                            _dictionary?.Add( _column[ i ].ColumnName, _items[ i ] ?? default( object ) );
                         }
                     }
 
@@ -155,8 +154,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the bytes. </summary>
-        /// <param name = "dataRow" > The data row. </param>
-        /// <param name = "columnName" > </param>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="columnName"> </param>
         /// <returns> </returns>
         public static IEnumerable<byte> GetBytes( this DataRow dataRow, string columnName )
         {
@@ -172,8 +171,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

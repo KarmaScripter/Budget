@@ -28,6 +28,29 @@ namespace BudgetExecution
         /// <value> The data row. </value>
         public DataRow Record { get; set; }
 
+        /// <summary> </summary>
+        public HolidayFactory( )
+        {
+        }
+
+        /// <summary> </summary>
+        /// <param name="dataRow"> </param>
+        public HolidayFactory( DataRow dataRow )
+        {
+            Record = dataRow;
+            NewYearsDay = DateOnly.Parse( dataRow[ "NewYearsDay" ].ToString( ) );
+            MartinLutherKingDay = DateOnly.Parse( dataRow[ "MartinLutherKingDay" ].ToString( ) );
+            PresidentsDay = DateOnly.Parse( dataRow[ "PresidentsDay" ].ToString( ) );
+            MemorialDay = DateOnly.Parse( dataRow[ "MemorialDay" ].ToString( ) );
+            VeteransDay = DateOnly.Parse( dataRow[ "VeteransDay" ].ToString( ) );
+            LaborDay = DateOnly.Parse( dataRow[ "LaborDay" ].ToString( ) );
+            IndependenceDay = DateOnly.Parse( dataRow[ "IndependenceDay" ].ToString( ) );
+            ColumbusDay = DateOnly.Parse( dataRow[ "ColumbusDay" ].ToString( ) );
+            ThanksgivingDay = DateOnly.Parse( dataRow[ "ThanksgivingDay" ].ToString( ) );
+            ChristmasDay = DateOnly.Parse( dataRow[ "ChristmasDay" ].ToString( ) );
+            Args = Record?.ToDictionary( );
+        }
+
         /// <summary> Gets the federal holidays. </summary>
         /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
@@ -91,29 +114,6 @@ namespace BudgetExecution
                 Fail( ex );
                 return default;
             }
-        }
-
-        /// <summary> </summary>
-        public HolidayFactory( )
-        {
-        }
-
-        /// <summary> </summary>
-        /// <param name="dataRow"> </param>
-        public HolidayFactory( DataRow dataRow )
-        {
-            Record = dataRow;
-            NewYearsDay = DateOnly.Parse( dataRow[ "NewYearsDay" ].ToString( ) );
-            MartinLutherKingDay = DateOnly.Parse( dataRow[ "MartinLutherKingDay" ].ToString( ) );
-            PresidentsDay = DateOnly.Parse( dataRow[ "PresidentsDay" ].ToString( ) );
-            MemorialDay = DateOnly.Parse( dataRow[ "MemorialDay" ].ToString( ) );
-            VeteransDay = DateOnly.Parse( dataRow[ "VeteransDay" ].ToString( ) );
-            LaborDay = DateOnly.Parse( dataRow[ "LaborDay" ].ToString( ) );
-            IndependenceDay = DateOnly.Parse( dataRow[ "IndependenceDay" ].ToString( ) );
-            ColumbusDay = DateOnly.Parse( dataRow[ "ColumbusDay" ].ToString( ) );
-            ThanksgivingDay = DateOnly.Parse( dataRow[ "ThanksgivingDay" ].ToString( ) );
-            ChristmasDay = DateOnly.Parse( dataRow[ "ChristmasDay" ].ToString( ) );
-            Args = Record?.ToDictionary( );
         }
     }
 }

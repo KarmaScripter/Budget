@@ -7,7 +7,7 @@ namespace BudgetExecution
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -27,7 +27,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Heading"/>
+        /// <see cref="Heading"/>
         /// class.
         /// </summary>
         public Heading( )
@@ -35,7 +35,7 @@ namespace BudgetExecution
         }
 
         /// <summary> </summary>
-        /// <param name = "grid" > </param>
+        /// <param name="grid"> </param>
         public Heading( IGrid grid )
         {
             Worksheet = grid.Worksheet;
@@ -48,11 +48,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "Heading"/>
+        /// <see cref="Heading"/>
         /// class.
         /// </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "caption" > The caption. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="caption"> The caption. </param>
         public Heading( IGrid grid, IDictionary<int, string> caption )
             : this( grid )
         {

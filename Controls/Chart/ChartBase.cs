@@ -14,6 +14,23 @@ namespace BudgetExecution
     public abstract class ChartBase : System.Windows.Forms.DataVisualization.Charting.Chart
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartBase"/>
+        /// class.
+        /// </summary>
+        protected ChartBase( )
+        {
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.White;
+            BorderlineColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
+            BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
+        }
+
         /// <summary> Sets the area properties. </summary>
         protected private void SetAreaProperties( )
         {
@@ -164,23 +181,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartBase"/>
-        /// class.
-        /// </summary>
-        protected ChartBase( )
-        {
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.White;
-            BorderlineColor = Color.FromArgb( 20, 20, 20 );
-            BorderSkin.BackColor = Color.FromArgb( 20, 20, 20 );
-            BorderSkin.BackSecondaryColor = Color.FromArgb( 20, 20, 20 );
-            BorderSkin.PageColor = Color.FromArgb( 20, 20, 20 );
-            BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
         }
     }
 }

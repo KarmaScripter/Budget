@@ -61,15 +61,6 @@ namespace BudgetExecution
         /// <value> The dark blue. </value>
         public Color DarkBlue { get; }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ColorConfig"/>
@@ -92,6 +83,15 @@ namespace BudgetExecution
             SteelBlue = Color.SteelBlue;
             Maroon = Color.Maroon;
             LightSteelBlue = Color.LightSteelBlue;
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -35,6 +35,49 @@ namespace BudgetExecution
         /// <value> The base address. </value>
         public Uri BaseAddress { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="WebPage"/>
+        /// class.
+        /// </summary>
+        public WebPage( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            StartPosition = FormStartPosition.CenterScreen;
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // WebControl Properties
+            WebControl = new HTMLUIControl( );
+
+            // Event Wiring
+            Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -321,49 +364,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="WebPage"/>
-        /// class.
-        /// </summary>
-        public WebPage( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            StartPosition = FormStartPosition.CenterScreen;
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 12, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // WebControl Properties
-            WebControl = new HTMLUIControl( );
-
-            // Event Wiring
-            Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClose;
         }
     }
 }

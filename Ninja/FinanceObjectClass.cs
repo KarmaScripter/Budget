@@ -34,42 +34,6 @@ namespace BudgetExecution
         /// <value> The data. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets the finance object class. </summary>
-        /// <returns> </returns>
-        public IFinanceObjectClass GetFinanceObjectClass( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as FinanceObjectClass;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( FinanceObjectClass );
-            }
-        }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public override int ID { get; set; }
@@ -169,6 +133,42 @@ namespace BudgetExecution
             Category = foc.Category;
             BocCode = foc.BocCode;
             BocName = foc.BocName;
+        }
+
+        /// <summary> Gets the finance object class. </summary>
+        /// <returns> </returns>
+        public IFinanceObjectClass GetFinanceObjectClass( )
+        {
+            try
+            {
+                return MemberwiseClone( ) as FinanceObjectClass;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( FinanceObjectClass );
+            }
+        }
+
+        /// <summary> Gets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

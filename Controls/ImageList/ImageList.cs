@@ -32,6 +32,42 @@ namespace BudgetExecution
         /// <value> The file names. </value>
         public IEnumerable<string> FilePaths { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ImageList"/>
+        /// class.
+        /// </summary>
+        public ImageList( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ImageList"/>
+        /// class.
+        /// </summary>
+        /// <param name="imageImageSource"> The image source. </param>
+        /// <param name="size"> The size. </param>
+        public ImageList( ImageDirectory imageImageSource, Size size )
+        {
+            ImageSource = imageImageSource;
+            ImageSize = size;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ImageList"/>
+        /// class.
+        /// </summary>
+        /// <param name="path"> The image source. </param>
+        /// <param name="size"> The size. </param>
+        public ImageList( string path, Size size )
+        {
+            ImageSource = ImageDirectory.NS;
+            ImageSize = size;
+            Images.Add( new Bitmap( path ) );
+        }
+
         /// <summary> Adds the specified image. </summary>
         /// <param name="image"> The image. </param>
         public void Add( Image image )
@@ -167,42 +203,6 @@ namespace BudgetExecution
             }
 
             return default;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ImageList"/>
-        /// class.
-        /// </summary>
-        public ImageList( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ImageList"/>
-        /// class.
-        /// </summary>
-        /// <param name="imageImageSource"> The image source. </param>
-        /// <param name="size"> The size. </param>
-        public ImageList( ImageDirectory imageImageSource, Size size )
-        {
-            ImageSource = imageImageSource;
-            ImageSize = size;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ImageList"/>
-        /// class.
-        /// </summary>
-        /// <param name="path"> The image source. </param>
-        /// <param name="size"> The size. </param>
-        public ImageList( string path, Size size )
-        {
-            ImageSource = ImageDirectory.NS;
-            ImageSize = size;
-            Images.Add( new Bitmap( path ) );
         }
     }
 }

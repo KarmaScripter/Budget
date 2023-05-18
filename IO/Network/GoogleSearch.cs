@@ -5,14 +5,15 @@
 namespace BudgetExecution
 {
     using System;
-    using Google.Apis.Customsearch.v1;
-    using Google.Apis.Services;
     using System;
     using System.Collections.Generic;
     using System.Collections.Specialized;
+    using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Configuration;
+    using System.Threading;
+    using Google.Apis.Customsearch.v1;
+    using Google.Apis.Services;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
@@ -29,28 +30,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the query. </summary>
         /// <value> The query. </value>
         public string Query { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GoogleSearch"/>
-        /// class.
-        /// </summary>
-        public GoogleSearch( )
-        {
-            Config = ConfigurationManager.AppSettings;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "GoogleSearch"/>
-        /// class.
-        /// </summary>
-        /// <param name = "keywords" > </param>
-        public GoogleSearch( string keywords )
-        {
-            Config = ConfigurationManager.AppSettings;
-            Query = keywords;
-        }
 
         /// <summary> Gets the results. </summary>
         /// <returns> </returns>
@@ -95,12 +74,34 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
+        /// <param name="ex"> The ex. </param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GoogleSearch"/>
+        /// class.
+        /// </summary>
+        public GoogleSearch( )
+        {
+            Config = ConfigurationManager.AppSettings;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="GoogleSearch"/>
+        /// class.
+        /// </summary>
+        /// <param name="keywords"> </param>
+        public GoogleSearch( string keywords )
+        {
+            Config = ConfigurationManager.AppSettings;
+            Query = keywords;
         }
     }
 }

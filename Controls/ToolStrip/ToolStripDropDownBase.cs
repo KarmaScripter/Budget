@@ -29,6 +29,15 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ToolStripDropDownBase"/>
+        /// class.
+        /// </summary>
+        protected ToolStripDropDownBase( )
+        {
+        }
+
         /// <summary> Sets the font. </summary>
         /// <param name="font"> The font. </param>
         public virtual void SetFont( Font font )
@@ -128,15 +137,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripDropDownBase"/>
-        /// class.
-        /// </summary>
-        protected ToolStripDropDownBase( )
-        {
         }
     }
 }

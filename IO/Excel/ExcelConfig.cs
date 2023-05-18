@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using OfficeOpenXml.Style;
     using static System.IO.Path;
 
@@ -118,7 +119,7 @@ namespace BudgetExecution
         };
 
         /// <summary> Sets the file path. </summary>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="filePath"> The file path. </param>
         public void SetFilePath( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
@@ -136,7 +137,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the name of the file. </summary>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="filePath"> The file path. </param>
         public void SetFileName( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
@@ -154,7 +155,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the file extension. </summary>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="filePath"> The file path. </param>
         /// <returns> </returns>
         public EXT GetFileExtension( string filePath )
         {
@@ -179,8 +180,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the connection string. </summary>
-        /// <param name = "extension" > The extension. </param>
-        /// <param name = "filePath" > The file path. </param>
+        /// <param name="extension"> The extension. </param>
+        /// <param name="filePath"> The file path. </param>
         /// <returns> </returns>
         public string GetConnectionString( string extension, string filePath )
         {
@@ -193,18 +194,15 @@ namespace BudgetExecution
                     {
                         case ".XLS":
                         {
-                            return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath
-                                + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
+                            return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
                         }
                         case ".XLSX":
                         {
-                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath
-                                + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
+                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                         }
                         default:
                         {
-                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath
-                                + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
+                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                         }
                     }
                 }
@@ -218,8 +216,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Adds the comment. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "text" > The text. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="text"> The text. </param>
         public void AddComment( Grid grid, string text )
         {
             if( grid != null
@@ -250,7 +248,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the caption text. </summary>
-        /// <param name = "grid" > The grid. </param>
+        /// <param name="grid"> The grid. </param>
         public void SetCaptionText( Grid grid )
         {
             if( grid != null )
@@ -276,8 +274,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the text. </summary>
-        /// <param name = "grid" > The grid. </param>
-        /// <param name = "text" > The text. </param>
+        /// <param name="grid"> The grid. </param>
+        /// <param name="text"> The text. </param>
         public void SetText( Grid grid, IEnumerable<string> text )
         {
             if( grid != null
@@ -306,8 +304,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

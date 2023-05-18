@@ -49,6 +49,76 @@ namespace BudgetExecution
         /// </value>
         public bool ShownWithoutActivation { get; } = true;
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Notification"/>
+        /// class.
+        /// </summary>
+        public Notification( )
+        {
+            InitializeComponent( );
+            DoubleBuffered = true;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            Resize += OnResized;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Notification"/>
+        /// class.
+        /// </summary>
+        /// <param name="body"> The body. </param>
+        /// <param name="duration"> The duration. </param>
+        /// <param name="animation"> The animation. </param>
+        /// <param name="direction"> The direction. </param>
+        public Notification( string body, int duration = 3, AnimationMethod animation = AnimationMethod.Fade, AnimationDirection direction = AnimationDirection.Up )
+            : this( )
+        {
+            Load += OnLoad;
+            Time = 0;
+            Seconds = duration;
+            Timer.Interval = duration * 1000;
+            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.Text = "Budget Execution Notification";
+            Message.Text = body;
+            Region = FromHrgn( CreateRoundRectRgn( 0, 0, Width - 5, Height - 5, 20,
+                20 ) );
+
+            Click += ( s, e ) => Close( );
+            Message.Click += ( s, e ) => Close( );
+            Title.Click += ( s, e ) => Close( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Notification"/>
+        /// class.
+        /// </summary>
+        /// <param name="title"> The title. </param>
+        /// <param name="body"> The body. </param>
+        /// <param name="duration"> The duration. </param>
+        /// <param name="animation"> The animation. </param>
+        /// <param name="direction"> The direction. </param>
+        public Notification( string title, string body, int duration = 3, AnimationMethod animation = AnimationMethod.Fade,
+            AnimationDirection direction = AnimationDirection.Up )
+            : this( )
+        {
+            Load += OnLoad;
+            Time = 0;
+            Seconds = duration;
+            Timer.Interval = duration * 1000;
+            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+            Title.Text = title;
+            Message.Text = body;
+            Region = FromHrgn( CreateRoundRectRgn( 0, 0, Width - 5, Height - 5, 20,
+                20 ) );
+
+            Click += ( s, e ) => Close( );
+            Message.Click += ( s, e ) => Close( );
+            Title.Click += ( s, e ) => Close( );
+        }
+
         /// <summary> Displays the control to the user. </summary>
         public new void Show( )
         {
@@ -215,76 +285,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Notification"/>
-        /// class.
-        /// </summary>
-        public Notification( )
-        {
-            InitializeComponent( );
-            DoubleBuffered = true;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            Resize += OnResized;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Notification"/>
-        /// class.
-        /// </summary>
-        /// <param name="body"> The body. </param>
-        /// <param name="duration"> The duration. </param>
-        /// <param name="animation"> The animation. </param>
-        /// <param name="direction"> The direction. </param>
-        public Notification( string body, int duration = 3, AnimationMethod animation = AnimationMethod.Fade, AnimationDirection direction = AnimationDirection.Up )
-            : this( )
-        {
-            Load += OnLoad;
-            Time = 0;
-            Seconds = duration;
-            Timer.Interval = duration * 1000;
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
-            Title.Text = "Budget Execution Notification";
-            Message.Text = body;
-            Region = FromHrgn( CreateRoundRectRgn( 0, 0, Width - 5, Height - 5, 20,
-                20 ) );
-
-            Click += ( s, e ) => Close( );
-            Message.Click += ( s, e ) => Close( );
-            Title.Click += ( s, e ) => Close( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Notification"/>
-        /// class.
-        /// </summary>
-        /// <param name="title"> The title. </param>
-        /// <param name="body"> The body. </param>
-        /// <param name="duration"> The duration. </param>
-        /// <param name="animation"> The animation. </param>
-        /// <param name="direction"> The direction. </param>
-        public Notification( string title, string body, int duration = 3, AnimationMethod animation = AnimationMethod.Fade,
-            AnimationDirection direction = AnimationDirection.Up )
-            : this( )
-        {
-            Load += OnLoad;
-            Time = 0;
-            Seconds = duration;
-            Timer.Interval = duration * 1000;
-            Title.ForeColor = Color.FromArgb( 0, 120, 212 );
-            Title.Text = title;
-            Message.Text = body;
-            Region = FromHrgn( CreateRoundRectRgn( 0, 0, Width - 5, Height - 5, 20,
-                20 ) );
-
-            Click += ( s, e ) => Close( );
-            Message.Click += ( s, e ) => Close( );
-            Title.Click += ( s, e ) => Close( );
         }
     }
 }

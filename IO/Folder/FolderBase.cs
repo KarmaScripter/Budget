@@ -12,6 +12,7 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
     using System.Security.AccessControl;
+    using System.Threading;
 
     /// <summary> </summary>
     public abstract class FolderBase
@@ -36,7 +37,9 @@ namespace BudgetExecution
         /// <value> The changed date. </value>
         public virtual DateTime Modified { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance has parent. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance has parent.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance has parent { get; set; } otherwise,
@@ -49,7 +52,9 @@ namespace BudgetExecution
         /// <value> The creation date.p/// </value>
         public virtual DateTime Created { get; set; }
 
-        /// <summary> Gets or sets a value indicating whether this instance has sub files. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance has sub files.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance has sub files; otherwise,
@@ -59,8 +64,7 @@ namespace BudgetExecution
         public virtual IEnumerable<string> SubFiles { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this instance has sub
-        /// folders.
+        /// Gets or sets a value indicating whether this instance has sub folders.
         /// </summary>
         /// <value>
         /// <c> true </c>
@@ -73,35 +77,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the security. </summary>
         /// <value> The security. </value>
         public virtual DirectorySecurity Security { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FolderBase"/>
-        /// class.
-        /// </summary>
-        protected FolderBase( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FolderBase"/>
-        /// class.
-        /// </summary>
-        /// <param name = "input" > The input. </param>
-        protected FolderBase( string input )
-        {
-            Buffer = input;
-            FullPath = Path.GetFullPath( input );
-            Name = Path.GetDirectoryName( input );
-            FullName = new DirectoryInfo( FullPath ).FullName;
-            Created = new DirectoryInfo( FullPath ).CreationTime;
-            Modified = new DirectoryInfo( FullPath ).LastWriteTime;
-            Parent = new DirectoryInfo( FullPath ).Parent;
-            SubFiles = Directory.GetFiles( input );
-            SubFolders = Directory.GetDirectories( input );
-            Security = new DirectorySecurity( FullPath, AccessControlSections.Access );
-        }
 
         /// <summary> Gets the sub file dictionary. </summary>
         /// <returns> </returns>
@@ -177,12 +152,41 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
+        /// <param name="ex"> The ex. </param>
         protected private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FolderBase"/>
+        /// class.
+        /// </summary>
+        protected FolderBase( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FolderBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="input"> The input. </param>
+        protected FolderBase( string input )
+        {
+            Buffer = input;
+            FullPath = Path.GetFullPath( input );
+            Name = Path.GetDirectoryName( input );
+            FullName = new DirectoryInfo( FullPath ).FullName;
+            Created = new DirectoryInfo( FullPath ).CreationTime;
+            Modified = new DirectoryInfo( FullPath ).LastWriteTime;
+            Parent = new DirectoryInfo( FullPath ).Parent;
+            SubFiles = Directory.GetFiles( input );
+            SubFolders = Directory.GetDirectories( input );
+            Security = new DirectorySecurity( FullPath, AccessControlSections.Access );
         }
     }
 }

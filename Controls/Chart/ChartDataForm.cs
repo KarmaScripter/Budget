@@ -131,6 +131,144 @@ namespace BudgetExecution
         /// <value> The metric. </value>
         public STAT Metric { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartDataForm"/>
+        /// class.
+        /// </summary>
+        public ChartDataForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = false;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Initialize Default Provider
+            Provider = Provider.Access;
+            Metric = STAT.Total;
+            ChartType = SeriesChartType.Column;
+
+            // Event Wiring
+            ExitButton.Click += null;
+            BackButton.Click += null;
+            MenuButton.Click += null;
+            ExcelButton.Click += null;
+            RefreshDataButton.Click += null;
+            RemoveFiltersButton.Click += null;
+            TableButton.Click += null;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            TabControl.SelectedIndexChanged += OnActiveTabChanged;
+            BackButton.Click += OnBackButtonClicked;
+            ExitButton.Click += OnExitButtonClicked;
+            MenuButton.Click += OnMainMenuButtonClicked;
+            GroupButton.Click += OnGroupButtonClicked;
+            RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
+            RefreshDataButton.Click += OnRefreshDataButtonClicked;
+            ExcelButton.Click += OnExcelExportButtonClicked;
+            TableButton.Click += OnTableButtonClick;
+            ChartSeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
+            MetricsComboBox.SelectedIndexChanged += OnMeasureSelected;
+            MouseClick += OnRightClick;
+            Load += OnLoad;
+            Shown += OnShown;
+            Closing += OnClose;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public ChartDataForm( BindingSource bindingSource )
+            : this( )
+        {
+            DataTable = (DataTable)bindingSource.DataSource;
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            SelectedTable = DataTable.TableName;
+            DataModel = new DataBuilder( Source, Provider );
+            BindingSource.DataSource = DataModel.DataTable;
+            Chart.DataSource = BindingSource;
+            ToolStrip.BindingSource = BindingSource;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public ChartDataForm( Source source, Provider provider )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
+            BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource = BindingSource;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ChartDataForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        /// <param name="where"> The where. </param>
+        public ChartDataForm( Source source, Provider provider, IDictionary<string, object> where )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            FormFilter = where;
+            DataModel = new DataBuilder( Source, Provider, FormFilter );
+            DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
+            BindingSource.DataSource = DataTable;
+            ToolStrip.BindingSource.DataSource = DataTable;
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -2010,144 +2148,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartDataForm"/>
-        /// class.
-        /// </summary>
-        public ChartDataForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = false;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Initialize Default Provider
-            Provider = Provider.Access;
-            Metric = STAT.Total;
-            ChartType = SeriesChartType.Column;
-
-            // Event Wiring
-            ExitButton.Click += null;
-            BackButton.Click += null;
-            MenuButton.Click += null;
-            ExcelButton.Click += null;
-            RefreshDataButton.Click += null;
-            RemoveFiltersButton.Click += null;
-            TableButton.Click += null;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            BackButton.Click += OnBackButtonClicked;
-            ExitButton.Click += OnExitButtonClicked;
-            MenuButton.Click += OnMainMenuButtonClicked;
-            GroupButton.Click += OnGroupButtonClicked;
-            RemoveFiltersButton.Click += OnRemoveFiltersButtonClicked;
-            RefreshDataButton.Click += OnRefreshDataButtonClicked;
-            ExcelButton.Click += OnExcelExportButtonClicked;
-            TableButton.Click += OnTableButtonClick;
-            ChartSeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
-            MetricsComboBox.SelectedIndexChanged += OnMeasureSelected;
-            MouseClick += OnRightClick;
-            Load += OnLoad;
-            Shown += OnShown;
-            Closing += OnClose;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        public ChartDataForm( BindingSource bindingSource )
-            : this( )
-        {
-            DataTable = (DataTable)bindingSource.DataSource;
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            SelectedTable = DataTable.TableName;
-            DataModel = new DataBuilder( Source, Provider );
-            BindingSource.DataSource = DataModel.DataTable;
-            Chart.DataSource = BindingSource;
-            ToolStrip.BindingSource = BindingSource;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        public ChartDataForm( Source source, Provider provider )
-            : this( )
-        {
-            Source = source;
-            Provider = provider;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource = BindingSource;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartDataForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The where. </param>
-        public ChartDataForm( Source source, Provider provider, IDictionary<string, object> where )
-            : this( )
-        {
-            Source = source;
-            Provider = provider;
-            FormFilter = where;
-            DataModel = new DataBuilder( Source, Provider, FormFilter );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataTable;
-            ToolStrip.BindingSource.DataSource = DataTable;
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
         }
     }
 }

@@ -35,6 +35,50 @@ namespace BudgetExecution
         /// <value> The status. </value>
         public Status Status { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DelayDialog"/>
+        /// class.
+        /// </summary>
+        public DelayDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1310, 646 );
+            MinimumSize = new Size( 1310, 648 );
+            MaximumSize = new Size( 1310, 648 );
+            BackColor = Color.Black;
+            CaptionBarColor = Color.Black;
+            MetroColor = Color.Black;
+            ForeColor = Color.Black;
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.None;
+            BorderColor = Color.Transparent;
+
+            // Timer Configuration
+            Timer.Enabled = true;
+            Timer.Interval = 5000;
+            Timer.Tick += OnTick;
+            Timer.Start( );
+
+            // Event Wiring
+            Load += OnLoad;
+            FormClosed += OnClose;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="LoadingForm"/>
+        /// class.
+        /// </summary>
+        /// <param name="status"> The status. </param>
+        public DelayDialog( Status status )
+            : this( )
+        {
+            Status = status;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -118,50 +162,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DelayDialog"/>
-        /// class.
-        /// </summary>
-        public DelayDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1310, 646 );
-            MinimumSize = new Size( 1310, 648 );
-            MaximumSize = new Size( 1310, 648 );
-            BackColor = Color.Black;
-            CaptionBarColor = Color.Black;
-            MetroColor = Color.Black;
-            ForeColor = Color.Black;
-            StartPosition = FormStartPosition.CenterParent;
-            FormBorderStyle = FormBorderStyle.None;
-            BorderColor = Color.Transparent;
-
-            // Timer Configuration
-            Timer.Enabled = true;
-            Timer.Interval = 5000;
-            Timer.Tick += OnTick;
-            Timer.Start( );
-
-            // Event Wiring
-            Load += OnLoad;
-            FormClosed += OnClose;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="LoadingForm"/>
-        /// class.
-        /// </summary>
-        /// <param name="status"> The status. </param>
-        public DelayDialog( Status status )
-            : this( )
-        {
-            Status = status;
         }
     }
 }

@@ -15,6 +15,45 @@ namespace BudgetExecution
     public partial class ColorDialog : MetroForm
     {
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="ColorDialog"/>
+        /// class.
+        /// </summary>
+        public ColorDialog( )
+        {
+            InitializeComponent( );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Size = new Size( 326, 407 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+
+            // Color Picker Properties
+            ColorPicker.ForeColor = Color.LightGray;
+            ColorPicker.Font = new Font( "Roboto", 9 );
+            ColorPicker.MetroForeColor = Color.LightGray;
+            ColorPicker.BorderStyle = BorderStyle.None;
+            ColorPicker.MetroColor = Color.FromArgb( 0, 120, 212 );
+            ColorPicker.BackColor = Color.FromArgb( 20, 20, 20 );
+            ColorPicker.VisualStyle = ColorUIStyle.Office2016Black;
+            ColorPicker.Size = new Size( 246, 284 );
+            ColorPicker.Location = new Point( 34, 16 );
+
+            // Wire Events
+            Load += OnLoad;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -60,45 +99,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ColorDialog"/>
-        /// class.
-        /// </summary>
-        public ColorDialog( )
-        {
-            InitializeComponent( );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 326, 407 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-
-            // Color Picker Properties
-            ColorPicker.ForeColor = Color.LightGray;
-            ColorPicker.Font = new Font( "Roboto", 9 );
-            ColorPicker.MetroForeColor = Color.LightGray;
-            ColorPicker.BorderStyle = BorderStyle.None;
-            ColorPicker.MetroColor = Color.FromArgb( 0, 120, 212 );
-            ColorPicker.BackColor = Color.FromArgb( 20, 20, 20 );
-            ColorPicker.VisualStyle = ColorUIStyle.Office2016Black;
-            ColorPicker.Size = new Size( 246, 284 );
-            ColorPicker.Location = new Point( 34, 16 );
-
-            // Wire Events
-            Load += OnLoad;
         }
     }
 }

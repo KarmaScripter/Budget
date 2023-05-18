@@ -34,122 +34,6 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Sets the color of the border. </summary>
-        /// <param name="color"> The color. </param>
-        public void SetBorderColor( Color color )
-        {
-            if( color != Color.Empty )
-            {
-                try
-                {
-                    BorderColor = color;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Called when [visible]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        public void OnVisible( object sender, EventArgs e )
-        {
-            try
-            {
-                ItemHeight = 30;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Adds the items. </summary>
-        /// <param name="items"> The items. </param>
-        public void AddItems( IEnumerable<object> items )
-        {
-            if( items?.Count( ) > -1 )
-            {
-                try
-                {
-                    foreach( var _item in items )
-                    {
-                        Items.Add( _item );
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Adds the control item. </summary>
-        /// <returns> </returns>
-        public void AddItem( object item )
-        {
-            if( !string.IsNullOrEmpty( item?.ToString( ) ) )
-            {
-                try
-                {
-                    Items.Add( item );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the hover information. </summary>
-        /// <param name="text"> The text. </param>
-        public void SetHoverText( string text )
-        {
-            if( !string.IsNullOrEmpty( text ) )
-            {
-                try
-                {
-                    var _ = new SmallTip( this, text );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
-        public void SetText( string text )
-        {
-            if( !string.IsNullOrEmpty( text ) )
-            {
-                try
-                {
-                    Text = text;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected private void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ListBox"/>
@@ -266,6 +150,122 @@ namespace BudgetExecution
             : this( )
         {
             Text = title;
+        }
+
+        /// <summary> Sets the color of the border. </summary>
+        /// <param name="color"> The color. </param>
+        public void SetBorderColor( Color color )
+        {
+            if( color != Color.Empty )
+            {
+                try
+                {
+                    BorderColor = color;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Called when [visible]. </summary>
+        /// <param name="sender"> The sender. </param>
+        /// <param name="e">
+        /// The
+        /// <see cref="EventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnVisible( object sender, EventArgs e )
+        {
+            try
+            {
+                ItemHeight = 30;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Adds the items. </summary>
+        /// <param name="items"> The items. </param>
+        public void AddItems( IEnumerable<object> items )
+        {
+            if( items?.Count( ) > -1 )
+            {
+                try
+                {
+                    foreach( var _item in items )
+                    {
+                        Items.Add( _item );
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Adds the control item. </summary>
+        /// <returns> </returns>
+        public void AddItem( object item )
+        {
+            if( !string.IsNullOrEmpty( item?.ToString( ) ) )
+            {
+                try
+                {
+                    Items.Add( item );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the hover information. </summary>
+        /// <param name="text"> The text. </param>
+        public void SetHoverText( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    var _ = new SmallTip( this, text );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the text. </summary>
+        /// <param name="text"> The text. </param>
+        public void SetText( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    Text = text;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

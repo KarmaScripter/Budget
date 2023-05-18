@@ -32,42 +32,6 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets the national program. </summary>
-        /// <returns> </returns>
-        public INationalProgram GetNationalProgram( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as INationalProgram;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public override int ID { get; set; }
@@ -180,6 +144,42 @@ namespace BudgetExecution
             NPM = npm.NPM;
             Title = npm.Title;
             RpioCode = npm.RpioCode;
+        }
+
+        /// <summary> Gets the national program. </summary>
+        /// <returns> </returns>
+        public INationalProgram GetNationalProgram( )
+        {
+            try
+            {
+                return MemberwiseClone( ) as INationalProgram;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

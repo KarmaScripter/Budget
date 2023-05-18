@@ -28,6 +28,98 @@ namespace BudgetExecution
         /// <value> The frames. </value>
         public IEnumerable<Frame> Frames { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EditDialog"/>
+        /// class.
+        /// </summary>
+        public EditDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1310, 646 );
+            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
+            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
+            SelectButton.Text = "Save";
+            CloseButton.Text = "Exit";
+            Frames = GetFrames( );
+            TabPages = GetTabPages( );
+
+            // Event Wiring
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
+            MouseClick += OnRightClick;
+            TabPage.MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EditDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="bindingSource"> The binding source. </param>
+        public EditDialog( ToolType toolType, BindingSource bindingSource )
+            : this( )
+        {
+            ToolType = toolType;
+            BindingSource = bindingSource;
+            DataTable = BindingSource.GetDataTable( );
+            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
+            DataModel = new DataBuilder( Source, Provider.Access );
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EditDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="dataModel"> The data model. </param>
+        public EditDialog( ToolType toolType, DataBuilder dataModel )
+            : this( )
+        {
+            ToolType = toolType;
+            DataModel = dataModel;
+            Provider = dataModel.Provider;
+            Source = dataModel.Source;
+            CommandType = dataModel.SqlStatement.CommandType;
+            BindingSource.DataSource = dataModel.DataTable;
+            DataTable = dataModel.DataTable;
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="EditDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public EditDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
+            : this( )
+        {
+            ToolType = toolType;
+            Provider = provider;
+            Source = source;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            BindingSource.DataSource = DataModel.DataTable;
+            Columns = DataTable.GetColumnNames( );
+            Current = BindingSource.GetCurrentDataRow( );
+            Fields = DataModel?.Fields;
+            Numerics = DataModel?.Numerics;
+        }
+
         /// <summary> Sets the frame visibility. </summary>
         public void SetFrameVisibility( )
         {
@@ -310,98 +402,6 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditDialog"/>
-        /// class.
-        /// </summary>
-        public EditDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1310, 646 );
-            TabPage.TabFont = new Font( "Roboto", 8, FontStyle.Regular );
-            TabPage.TabForeColor = Color.FromArgb( 0, 120, 212 );
-            SelectButton.Text = "Save";
-            CloseButton.Text = "Exit";
-            Frames = GetFrames( );
-            TabPages = GetTabPages( );
-
-            // Event Wiring
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-            MouseClick += OnRightClick;
-            TabPage.MouseClick += OnRightClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="bindingSource"> The binding source. </param>
-        public EditDialog( ToolType toolType, BindingSource bindingSource )
-            : this( )
-        {
-            ToolType = toolType;
-            BindingSource = bindingSource;
-            DataTable = BindingSource.GetDataTable( );
-            Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            DataModel = new DataBuilder( Source, Provider.Access );
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="dataModel"> The data model. </param>
-        public EditDialog( ToolType toolType, DataBuilder dataModel )
-            : this( )
-        {
-            ToolType = toolType;
-            DataModel = dataModel;
-            Provider = dataModel.Provider;
-            Source = dataModel.Source;
-            CommandType = dataModel.SqlStatement.CommandType;
-            BindingSource.DataSource = dataModel.DataTable;
-            DataTable = dataModel.DataTable;
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        public EditDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
-            : this( )
-        {
-            ToolType = toolType;
-            Provider = provider;
-            Source = source;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            BindingSource.DataSource = DataModel.DataTable;
-            Columns = DataTable.GetColumnNames( );
-            Current = BindingSource.GetCurrentDataRow( );
-            Fields = DataModel?.Fields;
-            Numerics = DataModel?.Numerics;
         }
     }
 }

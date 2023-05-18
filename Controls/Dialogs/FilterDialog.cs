@@ -107,6 +107,105 @@ namespace BudgetExecution
         /// <value> The type of the tool. </value>
         public ToolType ToolType { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FilterDialog"/>
+        /// class.
+        /// </summary>
+        public FilterDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            StartPosition = FormStartPosition.CenterParent;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 20, 20, 20 );
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+            Size = new Size( 1340, 674 );
+
+            // Header Label Properties
+            SourceHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+            FilterHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+            GroupHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
+
+            // Event Wiring
+            TabControl.TabIndexChanged += OnActiveTabChanged;
+            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
+            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
+            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
+            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
+            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
+            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
+            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
+            FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
+            FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
+            ClearButton.Click += OnClearButtonClick;
+            SelectButton.Click += OnSelectButtonClick;
+            GroupButton.Click += OnGroupButtonClick;
+            CloseButton.Click += OnCloseButtonClick;
+            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
+            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
+            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
+            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
+            Load += OnLoad;
+            MouseClick += OnRightClick;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FilterDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="source"> The source. </param>
+        /// <param name="provider"> The provider. </param>
+        public FilterDialog( Source source, Provider provider = Provider.Access )
+            : this( )
+        {
+            Source = source;
+            Provider = provider;
+            DataModel = new DataBuilder( source, provider );
+            DataTable = DataModel.DataTable;
+            SelectedTable = DataTable.TableName;
+            BindingSource.DataSource = DataModel.DataTable;
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FilterDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public FilterDialog( BindingSource bindingSource )
+            : this( )
+        {
+            DataTable = (DataTable)bindingSource.DataSource;
+            SelectedTable = DataTable.TableName;
+            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+            Provider = Provider.Access;
+            DataModel = new DataBuilder( Source, Provider );
+            BindingSource.DataSource = DataModel.DataTable;
+            Fields = DataModel.Fields;
+            Numerics = DataModel.Numerics;
+        }
+
         /// <summary> Populates the second como box items. </summary>
         public void PopulateSecondComboBoxItems( )
         {
@@ -1330,105 +1429,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FilterDialog"/>
-        /// class.
-        /// </summary>
-        public FilterDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            StartPosition = FormStartPosition.CenterParent;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-            Size = new Size( 1340, 674 );
-
-            // Header Label Properties
-            SourceHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
-            FilterHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
-            GroupHeader.ForeColor = Color.FromArgb( 0, 120, 212 );
-
-            // Event Wiring
-            TabControl.TabIndexChanged += OnActiveTabChanged;
-            TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
-            FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
-            FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
-            SecondComboBox.SelectedValueChanged += OnSecondComboBoxItemSelected;
-            SecondListBox.SelectedValueChanged += OnSecondListBoxItemSelected;
-            ThirdComboBox.SelectedValueChanged += OnThirdComboBoxItemSelected;
-            ThirdListBox.SelectedValueChanged += OnThirdListBoxItemSelected;
-            FourthComboBox.SelectedValueChanged += OnFourthComboBoxItemSelected;
-            FourthListBox.SelectedValueChanged += OnFourthListBoxItemSelected;
-            ClearButton.Click += OnClearButtonClick;
-            SelectButton.Click += OnSelectButtonClick;
-            GroupButton.Click += OnGroupButtonClick;
-            CloseButton.Click += OnCloseButtonClick;
-            AccessRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SQLiteRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlServerRadioButton.CheckedChanged += OnRadioButtonChecked;
-            SqlCeRadioButton.CheckedChanged += OnRadioButtonChecked;
-            NumericListBox.SelectedValueChanged += OnNumericListBoxSelectedValueChanged;
-            FieldListBox.SelectedValueChanged += OnFieldListBoxSelectedValueChanged;
-            Load += OnLoad;
-            MouseClick += OnRightClick;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FilterDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        public FilterDialog( Source source, Provider provider = Provider.Access )
-            : this( )
-        {
-            Source = source;
-            Provider = provider;
-            DataModel = new DataBuilder( source, provider );
-            DataTable = DataModel.DataTable;
-            SelectedTable = DataTable.TableName;
-            BindingSource.DataSource = DataModel.DataTable;
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FilterDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        public FilterDialog( BindingSource bindingSource )
-            : this( )
-        {
-            DataTable = (DataTable)bindingSource.DataSource;
-            SelectedTable = DataTable.TableName;
-            Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-            Provider = Provider.Access;
-            DataModel = new DataBuilder( Source, Provider );
-            BindingSource.DataSource = DataModel.DataTable;
-            Fields = DataModel.Fields;
-            Numerics = DataModel.Numerics;
         }
     }
 }

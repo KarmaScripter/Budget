@@ -27,45 +27,6 @@ namespace BudgetExecution
         /// <value> The name. </value>
         public override string Name { get; set; }
 
-        /// <summary> Gets the identifier. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <returns> </returns>
-        public override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
-
-            return default( IDictionary<string, object> );
-        }
-
         /// <summary> The source </summary>
         public override Source Source { get; set; } = Source.ProgramDescriptions;
 
@@ -156,6 +117,45 @@ namespace BudgetExecution
             ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
             ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
             Data = Record?.ToDictionary( );
+        }
+
+        /// <summary> Gets the identifier. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <returns> </returns>
+        public override int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( int );
+            }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
         }
     }
 }

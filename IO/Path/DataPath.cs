@@ -4,13 +4,16 @@
 
 namespace BudgetExecution
 {
+    using System;
+    using System.Threading;
+
     /// <summary> </summary>
-    /// <seealso cref = "BudgetExecution.PathBase"/>
+    /// <seealso cref="BudgetExecution.PathBase"/>
     public class DataPath : PathBase, IDataPath
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataPath"/>
+        /// <see cref="DataPath"/>
         /// class.
         /// </summary>
         public DataPath( )
@@ -19,10 +22,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "DataPath"/>
+        /// <see cref="DataPath"/>
         /// class.
         /// </summary>
-        /// <param name = "input" > The input. </param>
+        /// <param name="input"> The input. </param>
         public DataPath( string input )
             : base( input )
         {

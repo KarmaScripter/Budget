@@ -8,9 +8,7 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Threading;
     using System.Windows.Forms;
 
     /// <summary> </summary>
@@ -19,13 +17,13 @@ namespace BudgetExecution
     public static class BindingSourceExtensions
     {
         /// <summary> The GetCurrentDataRow </summary>
-        /// <param name = "bindingSource" >
+        /// <param name="bindingSource">
         /// The bindingSource
-        /// <see cref = "BindingSource"/>
+        /// <see cref="BindingSource"/>
         /// </param>
         /// <returns>
         /// The
-        /// <see cref = "DataRow"/>
+        /// <see cref="DataRow"/>
         /// </returns>
         public static DataRow GetCurrentDataRow( this BindingSource bindingSource )
         {
@@ -48,7 +46,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the rows. </summary>
-        /// <param name = "bindingSource" > The binding source. </param>
+        /// <param name="bindingSource"> The binding source. </param>
         /// <returns> </returns>
         public static IEnumerable<DataRow> GetDataRows( this BindingSource bindingSource )
         {
@@ -72,7 +70,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the data table. </summary>
-        /// <param name = "bindingSource" > The binding source. </param>
+        /// <param name="bindingSource"> The binding source. </param>
         /// <returns> </returns>
         public static DataTable GetDataTable( this BindingSource bindingSource )
         {
@@ -96,8 +94,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

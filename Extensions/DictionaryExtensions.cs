@@ -14,7 +14,7 @@ namespace BudgetExecution
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using BudgetExecution;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
@@ -23,14 +23,13 @@ namespace BudgetExecution
     public static class DictionaryExtensions
     {
         /// <summary> Adds the or update. </summary>
-        /// <typeparam name = "TKey" > The type of the key. </typeparam>
-        /// <typeparam name = "TValue" > The type of the value. </typeparam>
-        /// <param name = "dict" > The dictionary. </param>
-        /// <param name = "key" > The key. </param>
-        /// <param name = "value" > The value. </param>
+        /// <typeparam name="TKey"> The type of the key. </typeparam>
+        /// <typeparam name="TValue"> The type of the value. </typeparam>
+        /// <param name="dict"> The dictionary. </param>
+        /// <param name="key"> The key. </param>
+        /// <param name="value"> The value. </param>
         /// <returns> </returns>
-        public static TValue AddOrUpdate<TKey, TValue>( this IDictionary<TKey, TValue> dict, TKey key,
-            TValue value )
+        public static TValue AddOrUpdate<TKey, TValue>( this IDictionary<TKey, TValue> dict, TKey key, TValue value )
         {
             if( !dict.ContainsKey( key ) )
             {
@@ -53,7 +52,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Predicates the specified logic. </summary>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
         public static string ToCriteria( this IDictionary<string, object> dict )
         {
@@ -65,8 +64,7 @@ namespace BudgetExecution
                     if( dict.HasPrimaryKey( ) )
                     {
                         var _key = dict.GetPrimaryKey( );
-                        if( !string.IsNullOrEmpty( _key.Key )
-                           & int.Parse( _key.Value.ToString( ) ) > -1 )
+                        if( !string.IsNullOrEmpty( _key.Key ) & int.Parse( _key.Value.ToString( ) ) > -1 )
                         {
                             foreach( var kvp in dict )
                             {
@@ -104,12 +102,11 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to sorteddictionary. </summary>
-        /// <typeparam name = "TKey" > The type of the key. </typeparam>
-        /// <typeparam name = "TValue" > The type of the value. </typeparam>
-        /// <param name = "nvc" > The this. </param>
+        /// <typeparam name="TKey"> The type of the key. </typeparam>
+        /// <typeparam name="TValue"> The type of the value. </typeparam>
+        /// <param name="nvc"> The this. </param>
         /// <returns> </returns>
-        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>(
-            this IDictionary<TKey, TValue> nvc )
+        public static SortedDictionary<TKey, TValue> ToSortedDictionary<TKey, TValue>( this IDictionary<TKey, TValue> nvc )
         {
             try
             {
@@ -123,10 +120,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to bindinglist. </summary>
-        /// <param name = "nvc" > The NVC. </param>
+        /// <param name="nvc"> The NVC. </param>
         /// <returns> </returns>
-        public static BindingList<KeyValuePair<string, object>> ToBindingList(
-            this IDictionary<string, object> nvc )
+        public static BindingList<KeyValuePair<string, object>> ToBindingList( this IDictionary<string, object> nvc )
         {
             try
             {
@@ -148,12 +144,11 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to sorteddictionary. </summary>
-        /// <typeparam name = "TKey" > The type of the key. </typeparam>
-        /// <typeparam name = "TValue" > The type of the value. </typeparam>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <typeparam name="TKey"> The type of the key. </typeparam>
+        /// <typeparam name="TValue"> The type of the value. </typeparam>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>(
-            this IDictionary<TKey, TValue> dict )
+        public static SortedList<TKey, TValue> ToSortedList<TKey, TValue>( this IDictionary<TKey, TValue> dict )
         {
             try
             {
@@ -167,11 +162,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to sql db parameters. </summary>
-        /// <param name = "dict" > The dictionary. </param>
-        /// <param name = "provider" > The provider. </param>
+        /// <param name="dict"> The dictionary. </param>
+        /// <param name="provider"> The provider. </param>
         /// <returns> </returns>
-        public static IEnumerable<DbParameter> ToSqlDbParameters( this IDictionary<string, object> dict,
-            Provider provider )
+        public static IEnumerable<DbParameter> ToSqlDbParameters( this IDictionary<string, object> dict, Provider provider )
         {
             if( dict?.Keys?.Count > 0
                && Enum.IsDefined( typeof( Provider ), provider ) )
@@ -271,7 +265,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether [has a primary key]. </summary>
-        /// <param name = "dict" > The row. </param>
+        /// <param name="dict"> The row. </param>
         /// <returns>
         /// <c> true </c>
         /// if [has primary key] [the specified row]; otherwise,
@@ -309,10 +303,9 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the primary key. </summary>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
-        public static KeyValuePair<string, object> GetPrimaryKey(
-            this IDictionary<string, object> dict )
+        public static KeyValuePair<string, object> GetPrimaryKey( this IDictionary<string, object> dict )
         {
             if( dict?.Any( ) == true
                && dict.HasPrimaryKey( ) )
@@ -339,8 +332,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to Key bindinglist. </summary>
-        /// <typeparam name = "T" > </typeparam>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
         public static BindingList<string> ToKeyBindingList<T>( this IDictionary<string, object> dict )
         {
@@ -369,8 +362,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to value bindinglist. </summary>
-        /// <typeparam name = "T" > </typeparam>
-        /// <param name = "dict" > The dictionary. </param>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="dict"> The dictionary. </param>
         /// <returns> </returns>
         public static BindingList<object> ToValueBindingList<T>( this IDictionary<string, object> dict )
         {
@@ -399,8 +392,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Fails the specified ex. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

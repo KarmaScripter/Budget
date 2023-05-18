@@ -23,6 +23,57 @@ namespace BudgetExecution
         /// <value> The tiles. </value>
         public IEnumerable<Tile> Tiles { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MainForm"/>
+        /// class.
+        /// </summary>
+        public MainForm( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Name = "Main";
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = false;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
+            MaximizeBox = false;
+            ExitButton.HoverText = "Exit Application";
+            Tiles = GetTiles( );
+
+            // Event Wiring
+            ExitButton.Click += null;
+            DatabaseTile.Click += OnDatabaseTileClicked;
+            UtilityTile.Click += OnUtilityTileClicked;
+            ReportingTile.Click += OnReportingTileClicked;
+            ClientTile.Click += OnClientTileClicked;
+            GuidanceTile.Click += OnGuidanceTileClicked;
+            WebTile.Click += OnWebTileClicked;
+            ExitButton.Click += OnExitButtonClicked;
+            TestButton.Click += OnTestButtonClick;
+            Load += OnLoad;
+            Shown += OnShown;
+            MouseClick += OnRightClick;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -439,57 +490,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="MainForm"/>
-        /// class.
-        /// </summary>
-        public MainForm( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Name = "Main";
-            Size = new Size( 1350, 750 );
-            MaximumSize = new Size( 1350, 750 );
-            MinimumSize = new Size( 1350, 750 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = false;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            MinimizeBox = false;
-            MaximizeBox = false;
-            ExitButton.HoverText = "Exit Application";
-            Tiles = GetTiles( );
-
-            // Event Wiring
-            ExitButton.Click += null;
-            DatabaseTile.Click += OnDatabaseTileClicked;
-            UtilityTile.Click += OnUtilityTileClicked;
-            ReportingTile.Click += OnReportingTileClicked;
-            ClientTile.Click += OnClientTileClicked;
-            GuidanceTile.Click += OnGuidanceTileClicked;
-            WebTile.Click += OnWebTileClicked;
-            ExitButton.Click += OnExitButtonClicked;
-            TestButton.Click += OnTestButtonClick;
-            Load += OnLoad;
-            Shown += OnShown;
-            MouseClick += OnRightClick;
         }
     }
 }

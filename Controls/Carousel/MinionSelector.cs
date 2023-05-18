@@ -24,6 +24,52 @@ namespace BudgetExecution
         /// <value> The image path. </value>
         public string ImagePath { get; set; } = @"C:\Users\terry\source\repos\Budget\Resource\Images\Carousel\Minion";
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MinionSelector"/>
+        /// class.
+        /// </summary>
+        public MinionSelector( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1200, 600 );
+            MaximumSize = new Size( 1200, 600 );
+            MinimumSize = new Size( 1200, 600 );
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BorderColor = Color.FromArgb( 20, 20, 20 );
+            Dock = DockStyle.None;
+            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            ShowMouseOver = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionFont = new Font( "Roboto", 11 );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            MinimizeBox = false;
+            MaximizeBox = false;
+            StartPosition = FormStartPosition.CenterParent;
+
+            // Header Properties
+            Header.Font = new Font( "Roboto", 16, FontStyle.Regular );
+            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
+
+            // Panel Properties
+            SelectionPanel.BorderColor = Color.Transparent;
+
+            // Event Wiring
+            Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
+            CloseButton.Click += OnCloseButtonClicked;
+            Load += OnLoad;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -154,52 +200,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="MinionSelector"/>
-        /// class.
-        /// </summary>
-        public MinionSelector( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1200, 600 );
-            MaximumSize = new Size( 1200, 600 );
-            MinimumSize = new Size( 1200, 600 );
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderColor = Color.FromArgb( 20, 20, 20 );
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            ShowMouseOver = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 11 );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            MinimizeBox = false;
-            MaximizeBox = false;
-            StartPosition = FormStartPosition.CenterParent;
-
-            // Header Properties
-            Header.Font = new Font( "Roboto", 16, FontStyle.Regular );
-            Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-
-            // Panel Properties
-            SelectionPanel.BorderColor = Color.Transparent;
-
-            // Event Wiring
-            Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
-            CloseButton.Click += OnCloseButtonClicked;
-            Load += OnLoad;
         }
     }
 }

@@ -9,35 +9,88 @@ namespace BudgetExecution
     using System.IO;
     using System.IO.Compression;
     using System.Security.AccessControl;
+    using System.Threading;
 
     /// <summary> </summary>
-    /// <seealso cref = "FolderBase"/>
-    /// <seealso cref = "IFolder"/>
+    /// <seealso cref="FolderBase"/>
+    /// <seealso cref="IFolder"/>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class Folder : FolderBase, IFolder
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Folder"/>
-        /// class.
-        /// </summary>
-        public Folder( )
+
+        /// <summary> Gets the current directory. </summary>
+        /// <returns> </returns>
+        public static string GetCurrentDirectory( )
         {
+            try
+            {
+                return !string.IsNullOrEmpty( Environment.CurrentDirectory )
+                    ? Environment.CurrentDirectory
+                    : string.Empty;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Folder"/>
-        /// class.
-        /// </summary>
-        /// <param name = "dirPath" > The file. </param>
-        public Folder( string dirPath )
-            : base( dirPath )
+        /// <summary> Creates the specified filepath. </summary>
+        /// <param name="fullPath"> The filepath. </param>
+        /// <returns> </returns>
+        public static DirectoryInfo Create( string fullPath )
         {
+            try
+            {
+                return !string.IsNullOrEmpty( fullPath ) && !Directory.Exists( fullPath )
+                    ? Directory.CreateDirectory( fullPath )
+                    : default( DirectoryInfo );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( DirectoryInfo );
+            }
+        }
+
+        /// <summary> Deletes the specified folderName. </summary>
+        /// <param name="folderName"> The folderName. </param>
+        public static void Delete( string folderName )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( folderName )
+                   && Directory.Exists( folderName ) )
+                {
+                    Directory.Delete( folderName, true );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Creats the zip file. </summary>
+        /// <param name="source"> The sourcePath. </param>
+        /// <param name="destination"> The destination. </param>
+        public static void CreateZipFile( string source, string destination )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( source ) )
+                {
+                    ZipFile.CreateFromDirectory( source, destination );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary> Creates the sub folder. </summary>
-        /// <param name = "dirName" > The folderName. </param>
+        /// <param name="dirName"> The folderName. </param>
         /// <returns> </returns>
         public DirectoryInfo CreateSubDirectory( string dirName )
         {
@@ -59,7 +112,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Moves the specified folderpath. </summary>
-        /// <param name = "destination" > The folderpath. </param>
+        /// <param name="destination"> The folderpath. </param>
         public void Move( string destination )
         {
             if( !string.IsNullOrEmpty( destination ) )
@@ -77,7 +130,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Zips the specified filepath. </summary>
-        /// <param name = "destination" > The filepath. </param>
+        /// <param name="destination"> The filepath. </param>
         public void Zip( string destination )
         {
             try
@@ -95,7 +148,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Uns the zip. </summary>
-        /// <param name = "zipPath" > The zipPath. </param>
+        /// <param name="zipPath"> The zipPath. </param>
         public void UnZip( string zipPath )
         {
             try
@@ -113,7 +166,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the access control. </summary>
-        /// <param name = "security" > The security. </param>
+        /// <param name="security"> The security. </param>
         public void SetAccessControl( DirectorySecurity security )
         {
             if( security != null )
@@ -130,75 +183,24 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the current directory. </summary>
-        /// <returns> </returns>
-        public static string GetCurrentDirectory( )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Folder"/>
+        /// class.
+        /// </summary>
+        public Folder( )
         {
-            try
-            {
-                return !string.IsNullOrEmpty( Environment.CurrentDirectory )
-                    ? Environment.CurrentDirectory
-                    : string.Empty;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
         }
 
-        /// <summary> Creates the specified filepath. </summary>
-        /// <param name = "fullPath" > The filepath. </param>
-        /// <returns> </returns>
-        public static DirectoryInfo Create( string fullPath )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Folder"/>
+        /// class.
+        /// </summary>
+        /// <param name="dirPath"> The file. </param>
+        public Folder( string dirPath )
+            : base( dirPath )
         {
-            try
-            {
-                return !string.IsNullOrEmpty( fullPath ) && !Directory.Exists( fullPath )
-                    ? Directory.CreateDirectory( fullPath )
-                    : default( DirectoryInfo );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( DirectoryInfo );
-            }
-        }
-
-        /// <summary> Deletes the specified folderName. </summary>
-        /// <param name = "folderName" > The folderName. </param>
-        public static void Delete( string folderName )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( folderName )
-                   && Directory.Exists( folderName ) )
-                {
-                    Directory.Delete( folderName, true );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Creats the zip file. </summary>
-        /// <param name = "source" > The sourcePath. </param>
-        /// <param name = "destination" > The destination. </param>
-        public static void CreateZipFile( string source, string destination )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( source ) )
-                {
-                    ZipFile.CreateFromDirectory( source, destination );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
         }
     }
 }

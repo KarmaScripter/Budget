@@ -6,6 +6,7 @@ namespace BudgetExecution
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
@@ -28,36 +29,7 @@ namespace BudgetExecution
         public (int Depth, int Span) Area { get; set; }
 
         /// <summary> The grid </summary>
-        private IGrid Grid { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Heading"/>
-        /// class.
-        /// </summary>
-        public Section( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "Section"/>
-        /// class.
-        /// </summary>
-        /// <param name = "grid" > </param>
-        public Section( IGrid grid )
-
-        {
-            Grid = grid;
-            Worksheet = Grid.Worksheet;
-            Range = Grid.Range;
-            Address = Grid.Address;
-            From = ( Range.Start.Row, Range.Start.Column );
-            To = ( Range.End.Row, Range.End.Column );
-            Span = Range.Columns;
-            Depth = Range.Rows;
-            Area = ( Depth, Span );
-        }
+        private IGrid Grid { get;  }
 
         /// <summary> Gets the anchor. </summary>
         /// <returns> </returns>
@@ -117,6 +89,35 @@ namespace BudgetExecution
                 Fail( ex );
                 return ( 0, 0 );
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Heading"/>
+        /// class.
+        /// </summary>
+        public Section( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="Section"/>
+        /// class.
+        /// </summary>
+        /// <param name="grid"> </param>
+        public Section( IGrid grid )
+
+        {
+            Grid = grid;
+            Worksheet = Grid.Worksheet;
+            Range = Grid.Range;
+            Address = Grid.Address;
+            From = ( Range.Start.Row, Range.Start.Column );
+            To = ( Range.End.Row, Range.End.Column );
+            Span = Range.Columns;
+            Depth = Range.Rows;
+            Area = ( Depth, Span );
         }
     }
 }

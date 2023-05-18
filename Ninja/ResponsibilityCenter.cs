@@ -32,27 +32,6 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> SetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ "Code" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IDictionary<string, object> );
-                }
-            }
-
-            return default( IDictionary<string, object> );
-        }
-
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public override int ID { get; set; }
@@ -127,6 +106,27 @@ namespace BudgetExecution
             Name = Record[ "Name" ].ToString( );
             Code = Record[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> SetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ "Code" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IDictionary<string, object> );
+                }
+            }
+
+            return default( IDictionary<string, object> );
         }
     }
 }

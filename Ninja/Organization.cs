@@ -32,59 +32,6 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Converts to dictionary. </summary>
-        /// <returns> </returns>
-        public IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Data?.Any( ) == true
-                    ? Data
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Gets the organization. </summary>
-        /// <returns> </returns>
-        public IOrganization GetOrganization( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as Organization;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> GetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         /// <summary> Gets the identifier. </summary>
         /// <value> The identifier. </value>
         public override int ID { get; set; }
@@ -163,6 +110,59 @@ namespace BudgetExecution
             Name = Record[ "Name" ].ToString( );
             Code = Record[ "Code" ].ToString( );
             Data = dataRow?.ToDictionary( );
+        }
+
+        /// <summary> Converts to dictionary. </summary>
+        /// <returns> </returns>
+        public IDictionary<string, object> ToDictionary( )
+        {
+            try
+            {
+                return Data?.Any( ) == true
+                    ? Data
+                    : default;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Gets the organization. </summary>
+        /// <returns> </returns>
+        public IOrganization GetOrganization( )
+        {
+            try
+            {
+                return MemberwiseClone( ) as Organization;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> GetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

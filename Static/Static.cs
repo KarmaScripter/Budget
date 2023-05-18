@@ -10,6 +10,7 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Text;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -17,7 +18,7 @@ namespace BudgetExecution
     public static class Static
     {
         /// <summary> Gets the type of the SQL. </summary>
-        /// <param name = "type" > The type. </param>
+        /// <param name="type"> The type. </param>
         /// <returns> </returns>
         public static string GetSqlType( this Type type )
         {
@@ -57,10 +58,10 @@ namespace BudgetExecution
         }
 
         /// <summary> Creates the command. </summary>
-        /// <param name = "connection" > The connection. </param>
-        /// <param name = "sql" > The SQL. </param>
+        /// <param name="connection"> The connection. </param>
+        /// <param name="sql"> The SQL. </param>
         /// <returns> </returns>
-        /// <exception cref = "ArgumentNullException" > connection </exception>
+        /// <exception cref="ArgumentNullException"> connection </exception>
         public static IDbCommand CreateCommand( this IDbConnection connection, string sql )
         {
             try
@@ -84,8 +85,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Executes the non query. </summary>
-        /// <param name = "connection" > The connection. </param>
-        /// <param name = "sql" > The SQL. </param>
+        /// <param name="connection"> The connection. </param>
+        /// <param name="sql"> The SQL. </param>
         /// <returns> </returns>
         public static int ExecuteNonQuery( this IDbConnection connection, string sql )
         {
@@ -107,8 +108,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to log string. </summary>
-        /// <param name = "ex" > The ex. </param>
-        /// <param name = "message" > The message. </param>
+        /// <param name="ex"> The ex. </param>
+        /// <param name="message"> The message. </param>
         /// <returns> </returns>
         public static string ToLogString( this Exception ex, string message )
         {
@@ -186,7 +187,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Converts to dictionary. </summary>
-        /// <param name = "nvm" > The NVM. </param>
+        /// <param name="nvm"> The NVM. </param>
         /// <returns> </returns>
         public static IDictionary<string, object> ToDictionary( this NameValueCollection nvm )
         {
@@ -211,8 +212,8 @@ namespace BudgetExecution
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name = "ex" > The ex. </param>
-        private static void Fail( Exception ex )
+        /// <param name="ex"> The ex. </param>
+        static private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

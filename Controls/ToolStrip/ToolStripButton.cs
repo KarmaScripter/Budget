@@ -19,28 +19,6 @@ namespace BudgetExecution
     public class ToolStripButton : ToolButtonBase, IToolStripButton
     {
 
-        /// <summary> Sets the image. </summary>
-        public void SetImage( )
-        {
-            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
-            {
-                try
-                {
-                    var _path = AppSettings[ "ToolStrip" ] + $"{ToolType}.png";
-                    using var _stream = File.Open( _path, FileMode.Open );
-                    if( _stream != null )
-                    {
-                        var _image = Image.FromStream( _stream );
-                        Image = _image;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
         /// <summary> Sets the button image. </summary>
         /// <returns> </returns>
         public Image GetImage( ToolType toolType )
@@ -358,6 +336,28 @@ namespace BudgetExecution
             : this( toolType )
         {
             BindingSource = bindingSource;
+        }
+
+        /// <summary> Sets the image. </summary>
+        public void SetImage( )
+        {
+            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
+            {
+                try
+                {
+                    var _path = AppSettings[ "ToolStrip" ] + $"{ToolType}.png";
+                    using var _stream = File.Open( _path, FileMode.Open );
+                    if( _stream != null )
+                    {
+                        var _image = Image.FromStream( _stream );
+                        Image = _image;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
         }
     }
 }

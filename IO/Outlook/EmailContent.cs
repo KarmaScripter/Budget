@@ -10,7 +10,9 @@ namespace BudgetExecution
     /// <summary> </summary>
     public class EmailContent
     {
-        /// <summary> Gets or sets a value indicating whether this instance is HTML. </summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is HTML.
+        /// </summary>
         /// <value>
         /// <c> true </c>
         /// if this instance is HTML; otherwise,
@@ -29,7 +31,7 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref = "EmailContent"/>
+        /// <see cref="EmailContent"/>
         /// class.
         /// </summary>
         public EmailContent( )

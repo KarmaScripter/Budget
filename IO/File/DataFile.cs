@@ -6,39 +6,78 @@ namespace BudgetExecution
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
+    using System.Threading;
     using System.Windows.Forms;
     using static System.IO.Directory;
 
     /// <summary> </summary>
-    /// <seealso cref = "PathBase"/>
+    /// <seealso cref="PathBase"/>
     public class DataFile : FileBase, IDataFile
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataFile"/>
-        /// class.
-        /// </summary>
-        public DataFile( )
+
+        /// <summary> Creates the specified file path. </summary>
+        /// <param name="filePath"> The file path. </param>
+        /// <returns> </returns>
+        public static FileInfo Create( string filePath )
         {
+            try
+            {
+                return !string.IsNullOrEmpty( filePath )
+                    ? new FileInfo( filePath )
+                    : default;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "DataFile"/>
-        /// class.
-        /// </summary>
-        /// <param name = "input" > The input. </param>
-        public DataFile( string input )
-            : base( input )
+        /// <summary> Browses this instance. </summary>
+        /// <returns> </returns>
+        public static string Browse( )
         {
+            try
+            {
+                var _dialog = new OpenFileDialog( );
+                _dialog.CheckFileExists = true;
+                _dialog.CheckPathExists = true;
+                _dialog.ShowDialog( );
+                return _dialog.FileName;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary> Saves this instance. </summary>
+        /// <returns> </returns>
+        public static string Save( )
+        {
+            try
+            {
+                var _dialog = new SaveFileDialog( );
+                _dialog.CreatePrompt = true;
+                _dialog.OverwritePrompt = true;
+                _dialog.CheckFileExists = true;
+                _dialog.CheckPathExists = true;
+                _dialog.ShowDialog( );
+                return _dialog.FileName;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
         }
 
         /// <summary> Transfers the specified folder. </summary>
-        /// <param name = "folder" > The folder. </param>
+        /// <param name="folder"> The folder. </param>
         public void Transfer( DirectoryInfo folder )
         {
             if( folder != null
@@ -65,7 +104,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Determines whether this instance contains the object. </summary>
-        /// <param name = "search" > The search. </param>
+        /// <param name="search"> The search. </param>
         /// <returns>
         /// <c> true </c>
         /// if [contains] [the specified search]; otherwise,
@@ -110,7 +149,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Searches the specified pattern. </summary>
-        /// <param name = "pattern" > The pattern. </param>
+        /// <param name="pattern"> The pattern. </param>
         /// <returns> </returns>
         public IEnumerable<FileInfo> Search( string pattern )
         {
@@ -183,62 +222,24 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the specified file path. </summary>
-        /// <param name = "filePath" > The file path. </param>
-        /// <returns> </returns>
-        public static FileInfo Create( string filePath )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataFile"/>
+        /// class.
+        /// </summary>
+        public DataFile( )
         {
-            try
-            {
-                return !string.IsNullOrEmpty( filePath )
-                    ? new FileInfo( filePath )
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
         }
 
-        /// <summary> Browses this instance. </summary>
-        /// <returns> </returns>
-        public static string Browse( )
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="DataFile"/>
+        /// class.
+        /// </summary>
+        /// <param name="input"> The input. </param>
+        public DataFile( string input )
+            : base( input )
         {
-            try
-            {
-                var _dialog = new OpenFileDialog( );
-                _dialog.CheckFileExists = true;
-                _dialog.CheckPathExists = true;
-                _dialog.ShowDialog( );
-                return _dialog.FileName;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
-        }
-
-        /// <summary> Saves this instance. </summary>
-        /// <returns> </returns>
-        public static string Save( )
-        {
-            try
-            {
-                var _dialog = new SaveFileDialog( );
-                _dialog.CreatePrompt = true;
-                _dialog.OverwritePrompt = true;
-                _dialog.CheckFileExists = true;
-                _dialog.CheckPathExists = true;
-                _dialog.ShowDialog( );
-                return _dialog.FileName;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return string.Empty;
-            }
         }
     }
 }

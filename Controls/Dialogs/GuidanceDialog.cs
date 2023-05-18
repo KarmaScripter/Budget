@@ -68,6 +68,80 @@ namespace BudgetExecution
         /// <value> The selected item. </value>
         public string SelectedItem { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SchemaDialog"/>
+        /// class.
+        /// </summary>
+        public GuidanceDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 503, 429 );
+            MaximumSize = new Size( 503, 429 );
+            MinimumSize = new Size( 503, 429 );
+            StartPosition = FormStartPosition.CenterScreen;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            BorderColor = Color.FromArgb( 0, 120, 212 );
+            BorderThickness = 2;
+            ShowIcon = false;
+            ShowInTaskbar = true;
+            MetroColor = Color.FromArgb( 20, 20, 20 );
+            CaptionAlign = HorizontalAlignment.Left;
+            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
+            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
+            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            CaptionBarHeight = 5;
+            ShowMouseOver = false;
+            MinimizeBox = false;
+            MaximizeBox = false;
+
+            // Label Properties
+            HeaderLabel.Font = new Font( "Roboto", 10 );
+            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
+            HeaderLabel.FlatStyle = FlatStyle.Flat;
+
+            // Picture Properties
+            Picture.Size = new Size( 22, 20 );
+            Picture.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            // File Dialog Properties
+            OpenFileDialog.Title = "Search for Document";
+            OpenFileDialog.CheckPathExists = true;
+            OpenFileDialog.CheckFileExists = true;
+
+            // Data Properties
+            Source = Source.Resources;
+            Provider = Provider.Access;
+            Extenstion = EXT.PDF;
+
+            // Event Wiring
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
+            SelectButton.Click += OnSelectButtonClicked;
+            ClearButton.Click += OnClearButtonClicked;
+            BrowseButton.Click += OnBrowseButtonClicked;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SchemaDialog"/>
+        /// class.
+        /// </summary>
+        /// <param name="bindingSource"> The binding source. </param>
+        public GuidanceDialog( BindingSource bindingSource )
+            : this( )
+        {
+            BindingSource = bindingSource;
+        }
+
         /// <summary> Called when [browse button clicked]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -254,80 +328,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SchemaDialog"/>
-        /// class.
-        /// </summary>
-        public GuidanceDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 503, 429 );
-            MaximumSize = new Size( 503, 429 );
-            MinimumSize = new Size( 503, 429 );
-            StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
-            ShowIcon = false;
-            ShowInTaskbar = true;
-            MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionAlign = HorizontalAlignment.Left;
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
-            CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
-            CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
-            CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            CaptionBarHeight = 5;
-            ShowMouseOver = false;
-            MinimizeBox = false;
-            MaximizeBox = false;
-
-            // Label Properties
-            HeaderLabel.Font = new Font( "Roboto", 10 );
-            HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-            HeaderLabel.TextAlign = ContentAlignment.MiddleCenter;
-            HeaderLabel.FlatStyle = FlatStyle.Flat;
-
-            // Picture Properties
-            Picture.Size = new Size( 22, 20 );
-            Picture.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            // File Dialog Properties
-            OpenFileDialog.Title = "Search for Document";
-            OpenFileDialog.CheckPathExists = true;
-            OpenFileDialog.CheckFileExists = true;
-
-            // Data Properties
-            Source = Source.Resources;
-            Provider = Provider.Access;
-            Extenstion = EXT.PDF;
-
-            // Event Wiring
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-            SelectButton.Click += OnSelectButtonClicked;
-            ClearButton.Click += OnClearButtonClicked;
-            BrowseButton.Click += OnBrowseButtonClicked;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SchemaDialog"/>
-        /// class.
-        /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        public GuidanceDialog( BindingSource bindingSource )
-            : this( )
-        {
-            BindingSource = bindingSource;
         }
     }
 }

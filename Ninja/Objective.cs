@@ -27,42 +27,6 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets the objective. </summary>
-        /// <returns> </returns>
-        public IObjective GetObjective( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as Objective;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> SetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public override int ID { get; set; }
@@ -149,6 +113,42 @@ namespace BudgetExecution
             ID = objective.ID;
             Code = objective.Code;
             Name = objective.Name;
+        }
+
+        /// <summary> Gets the objective. </summary>
+        /// <returns> </returns>
+        public IObjective GetObjective( )
+        {
+            try
+            {
+                return MemberwiseClone( ) as Objective;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> SetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

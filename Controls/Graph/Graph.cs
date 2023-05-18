@@ -18,70 +18,6 @@ namespace BudgetExecution
     public class Graph : GraphBase
     {
 
-        /// <summary> Sets the size. </summary>
-        /// <param name="width"> The width. </param>
-        /// <param name="height"> The height. </param>
-        public void SetSize( int width = 600, int height = 400 )
-        {
-            if( width > 0
-               && height > 0 )
-            {
-                try
-                {
-                    Size = new Size( width, height );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the primary axis titleInfo. </summary>
-        /// <param name="text"> The titleInfo. </param>
-        /// <param name="font"> </param>
-        /// <param name="color"> The color. </param>
-        public void SetPrimaryAxisTitle( string text, Font font, Color color )
-        {
-            try
-            {
-                PrimaryXAxis.Title = text;
-                PrimaryXAxis.TitleColor = color;
-                PrimaryXAxis.TitleFont = font;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the main titleInfo. </summary>
-        /// <param name="text"> The t. </param>
-        /// <param name="font"> </param>
-        /// <param name="color"> </param>
-        public void SetMainTitle( string text, Font font, Color color )
-        {
-            try
-            {
-                if( Titles?.Count > 0 )
-                {
-                    Titles.Clear( );
-                }
-
-                using var title = new ChartTitle( );
-                title.Visible = true;
-                title.Font = font;
-                title.BackColor = Color.FromArgb( 18, 18, 18 );
-                title.ForeColor = color;
-                title.Text = text;
-                Titles?.Add( title );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
         // Initializes Properties
         /// <summary>
         /// Initializes a new instance of the
@@ -166,6 +102,70 @@ namespace BudgetExecution
             Legend.ShowItemsShadow = true;
             Legend.ShowBorder = false;
             Legend.Visible = true;
+        }
+
+        /// <summary> Sets the size. </summary>
+        /// <param name="width"> The width. </param>
+        /// <param name="height"> The height. </param>
+        public void SetSize( int width = 600, int height = 400 )
+        {
+            if( width > 0
+               && height > 0 )
+            {
+                try
+                {
+                    Size = new Size( width, height );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the primary axis titleInfo. </summary>
+        /// <param name="text"> The titleInfo. </param>
+        /// <param name="font"> </param>
+        /// <param name="color"> The color. </param>
+        public void SetPrimaryAxisTitle( string text, Font font, Color color )
+        {
+            try
+            {
+                PrimaryXAxis.Title = text;
+                PrimaryXAxis.TitleColor = color;
+                PrimaryXAxis.TitleFont = font;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary> Sets the main titleInfo. </summary>
+        /// <param name="text"> The t. </param>
+        /// <param name="font"> </param>
+        /// <param name="color"> </param>
+        public void SetMainTitle( string text, Font font, Color color )
+        {
+            try
+            {
+                if( Titles?.Count > 0 )
+                {
+                    Titles.Clear( );
+                }
+
+                using var title = new ChartTitle( );
+                title.Visible = true;
+                title.Font = font;
+                title.BackColor = Color.FromArgb( 18, 18, 18 );
+                title.ForeColor = color;
+                title.Text = text;
+                Titles?.Add( title );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
     }
 }

@@ -8,34 +8,15 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Security.AccessControl;
+    using System.Threading;
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class FileBase : PathBase
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "PathBase"/>
-        /// class.
-        /// </summary>
-        public FileBase( )
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref = "FileBase"/>
-        /// class.
-        /// </summary>
-        /// <param name = "input" > The input. </param>
-        public FileBase( string input )
-            : base( input )
-
-        {
-        }
 
         /// <summary> Moves the specified destination. </summary>
-        /// <param name = "filePath" > The destination. </param>
+        /// <param name="filePath"> The destination. </param>
         public virtual void Move( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath ) )
@@ -53,7 +34,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Copies the specified filePath. </summary>
-        /// <param name = "filePath" > The filePath. </param>
+        /// <param name="filePath"> The filePath. </param>
         public virtual void Copy( string filePath )
         {
             try
@@ -125,7 +106,7 @@ namespace BudgetExecution
         /// <summary> Converts to string. </summary>
         /// <returns>
         /// A
-        /// <see cref = "System.String"/>
+        /// <see cref="System.String"/>
         /// that represents this instance.
         /// </returns>
         public override string ToString( )
@@ -141,6 +122,27 @@ namespace BudgetExecution
                 Fail( ex );
                 return string.Empty;
             }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="PathBase"/>
+        /// class.
+        /// </summary>
+        public FileBase( )
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="FileBase"/>
+        /// class.
+        /// </summary>
+        /// <param name="input"> The input. </param>
+        public FileBase( string input )
+            : base( input )
+
+        {
         }
     }
 }

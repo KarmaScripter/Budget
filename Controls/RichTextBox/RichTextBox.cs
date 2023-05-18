@@ -31,70 +31,6 @@ namespace BudgetExecution
         /// <value> The filter. </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
-        public void SetText( string text )
-        {
-            if( !string.IsNullOrEmpty( text ) )
-            {
-                try
-                {
-                    Text = text;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the font style. </summary>
-        /// <param name="fontFamily"> The font family. </param>
-        /// <param name="fontColor"> The backColor. </param>
-        /// <param name="fontSize"> Size of the font. </param>
-        public void SetFontStyle( string fontFamily, Color fontColor, int fontSize = 10 )
-        {
-            if( !string.IsNullOrEmpty( fontFamily )
-               && fontColor != Color.Empty )
-            {
-                try
-                {
-                    Font = new Font( fontFamily, fontSize );
-                    ForeColor = fontColor;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the backColor of the back. </summary>
-        /// <param name="backColor"> The backColor. </param>
-        public void SetBackColor( Color backColor )
-        {
-            if( backColor != Color.Empty )
-            {
-                try
-                {
-                    BackColor = backColor;
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="RichTextBox"/>
@@ -201,6 +137,70 @@ namespace BudgetExecution
             : this( )
         {
             Text = title;
+        }
+
+        /// <summary> Sets the text. </summary>
+        /// <param name="text"> The text. </param>
+        public void SetText( string text )
+        {
+            if( !string.IsNullOrEmpty( text ) )
+            {
+                try
+                {
+                    Text = text;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the font style. </summary>
+        /// <param name="fontFamily"> The font family. </param>
+        /// <param name="fontColor"> The backColor. </param>
+        /// <param name="fontSize"> Size of the font. </param>
+        public void SetFontStyle( string fontFamily, Color fontColor, int fontSize = 10 )
+        {
+            if( !string.IsNullOrEmpty( fontFamily )
+               && fontColor != Color.Empty )
+            {
+                try
+                {
+                    Font = new Font( fontFamily, fontSize );
+                    ForeColor = fontColor;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Sets the backColor of the back. </summary>
+        /// <param name="backColor"> The backColor. </param>
+        public void SetBackColor( Color backColor )
+        {
+            if( backColor != Color.Empty )
+            {
+                try
+                {
+                    BackColor = backColor;
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary> Fails the specified ex. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

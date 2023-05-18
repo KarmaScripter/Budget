@@ -78,69 +78,6 @@ namespace BudgetExecution
         /// <value> The data. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets the field. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <param name="field"> The field. </param>
-        /// <returns> </returns>
-        public virtual string GetField( DataRow dataRow, string field )
-        {
-            if( dataRow != null
-               && !string.IsNullOrEmpty( field ) )
-            {
-                try
-                {
-                    return dataRow[ field ].ToString( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary> Gets the amount. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
-        public virtual double GetAmount( DataRow dataRow, string numeric )
-        {
-            if( dataRow != null
-               && !string.IsNullOrEmpty( numeric ) )
-            {
-                try
-                {
-                    return double.Parse( dataRow[ numeric ]?.ToString( ) ?? string.Empty );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
-        /// <summary> Converts to dictionary. </summary>
-        /// <returns> </returns>
-        public virtual IDictionary<string, object> ToDictionary( )
-        {
-            try
-            {
-                return Record.ItemArray != null
-                    ? Record.ToDictionary( )
-                    : default;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
         /// <summary> Gets or sets the agency activity. </summary>
         /// <value> The agency activity. </value>
         public virtual string ActivityCode { get; set; }
@@ -348,6 +285,69 @@ namespace BudgetExecution
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
+        }
+
+        /// <summary> Gets the field. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="field"> The field. </param>
+        /// <returns> </returns>
+        public virtual string GetField( DataRow dataRow, string field )
+        {
+            if( dataRow != null
+               && !string.IsNullOrEmpty( field ) )
+            {
+                try
+                {
+                    return dataRow[ field ].ToString( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary> Gets the amount. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <param name="numeric"> The numeric. </param>
+        /// <returns> </returns>
+        public virtual double GetAmount( DataRow dataRow, string numeric )
+        {
+            if( dataRow != null
+               && !string.IsNullOrEmpty( numeric ) )
+            {
+                try
+                {
+                    return double.Parse( dataRow[ numeric ]?.ToString( ) ?? string.Empty );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
+        }
+
+        /// <summary> Converts to dictionary. </summary>
+        /// <returns> </returns>
+        public virtual IDictionary<string, object> ToDictionary( )
+        {
+            try
+            {
+                return Record.ItemArray != null
+                    ? Record.ToDictionary( )
+                    : default;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
         }
     }
 }

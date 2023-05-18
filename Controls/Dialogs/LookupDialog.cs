@@ -28,6 +28,26 @@ namespace BudgetExecution
         /// <value> The value prefix. </value>
         public string ValuePrefix { get; } = " Values : ";
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="LookupDialog"/>
+        /// class.
+        /// </summary>
+        public LookupDialog( )
+        {
+            InitializeComponent( );
+
+            // Basic Properties
+            Size = new Size( 1310, 646 );
+            Panels = GetPanels( );
+            RadioButtons = GetRadioButtons( );
+            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+            Load += OnLoad;
+            CloseButton.Click += OnCloseButtonClicked;
+            TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
+            ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
+        }
+
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -136,26 +156,6 @@ namespace BudgetExecution
             {
                 Fail( ex );
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="LookupDialog"/>
-        /// class.
-        /// </summary>
-        public LookupDialog( )
-        {
-            InitializeComponent( );
-
-            // Basic Properties
-            Size = new Size( 1310, 646 );
-            Panels = GetPanels( );
-            RadioButtons = GetRadioButtons( );
-            TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
-            Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
-            TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
-            ColumnListBox.SelectedValueChanged += OnColumnListBoxSelectionChanged;
         }
     }
 }

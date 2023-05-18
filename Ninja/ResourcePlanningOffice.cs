@@ -32,52 +32,6 @@ namespace BudgetExecution
         /// <value> The arguments. </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets the resource planning office. </summary>
-        /// <returns> </returns>
-        public IResourcePlanningOffice GetResourcePlanningOffice( )
-        {
-            return MemberwiseClone( ) as ResourcePlanningOffice;
-        }
-
-        /// <summary> Gets the identifier. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <returns> </returns>
-        public override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
-        private IDictionary<string, object> SetArgs( string code )
-        {
-            if( !string.IsNullOrEmpty( code ) )
-            {
-                try
-                {
-                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default;
-                }
-            }
-
-            return default;
-        }
-
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
         public override int ID { get; set; }
@@ -166,6 +120,52 @@ namespace BudgetExecution
             ID = rpio.ID;
             Code = rpio.Code;
             Name = rpio.Name;
+        }
+
+        /// <summary> Gets the resource planning office. </summary>
+        /// <returns> </returns>
+        public IResourcePlanningOffice GetResourcePlanningOffice( )
+        {
+            return MemberwiseClone( ) as ResourcePlanningOffice;
+        }
+
+        /// <summary> Gets the identifier. </summary>
+        /// <param name="dataRow"> The data row. </param>
+        /// <returns> </returns>
+        public override int GetId( DataRow dataRow )
+        {
+            try
+            {
+                return dataRow != null
+                    ? int.Parse( dataRow[ 0 ].ToString( ) ?? string.Empty )
+                    : -1;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default;
+            }
+        }
+
+        /// <summary> Sets the arguments. </summary>
+        /// <param name="code"> The code. </param>
+        /// <returns> </returns>
+        private IDictionary<string, object> SetArgs( string code )
+        {
+            if( !string.IsNullOrEmpty( code ) )
+            {
+                try
+                {
+                    return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default;
+                }
+            }
+
+            return default;
         }
     }
 }

@@ -27,15 +27,6 @@ namespace BudgetExecution
         /// <value> The hover text. </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ToolStripProgressBase"/>
@@ -43,6 +34,15 @@ namespace BudgetExecution
         /// </summary>
         protected ToolStripProgressBase( )
         {
+        }
+
+        /// <summary> Get ErrorDialog Dialog. </summary>
+        /// <param name="ex"> The ex. </param>
+        static protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

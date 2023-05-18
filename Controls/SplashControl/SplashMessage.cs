@@ -36,6 +36,80 @@ namespace BudgetExecution
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SplashMessage"/>
+        /// class.
+        /// </summary>
+        /// <remarks>
+        /// The default value for the
+        /// <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval"/>
+        /// is set to The splash panel has animation turned and by default will appear in the middle of the
+        /// screen.
+        /// </remarks>
+        public SplashMessage( )
+        {
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
+            Font = new Font( "Roboto", 9 );
+            Size = new Size( 300, 150 );
+            BorderStyle = Border3DStyle.Flat;
+            BorderType = SplashBorderType.Border3D;
+            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 45, 45, 45 ) );
+            ShowAnimation = true;
+            ShowAsTopMost = true;
+            AnimationSpeed = 20;
+            AnimationSteps = 3;
+            AnimationDirection = AnimationDirection.Default;
+            DesktopAlignment = SplashAlignment.Center;
+            DiscreetLocation = new Point( 0, 0 );
+            SuspendAutoCloseWhenMouseOver = false;
+            TabIndex = 0;
+            TimerInterval = 5000;
+            CloseOnClick = true;
+            MarqueePosition = MarqueePosition.BottomRight;
+            MarqueeDirection = SplashPanelMarqueeDirection.RightToLeft;
+            SlideStyle = SlideStyle.FadeIn;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SplashMessage"/>
+        /// class.
+        /// </summary>
+        /// <param name="message"> The message. </param>
+        public SplashMessage( string message )
+            : this( )
+        {
+            Text = message;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SplashMessage"/>
+        /// class.
+        /// </summary>
+        /// <param name="toolTip"> The tool tip. </param>
+        public SplashMessage( SmallTip toolTip )
+            : this( )
+        {
+            Text = toolTip?.TipText;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="SplashMessage"/>
+        /// class.
+        /// </summary>
+        /// <param name="control"> The control. </param>
+        /// <param name="message"> The message. </param>
+        public SplashMessage( Control control, string message )
+            : this( )
+        {
+            Parent = control;
+            Text = message;
+        }
+
+        /// <summary>
         /// Displays the
         /// <see cref="T:Syncfusion.Windows.Forms.Tools.SplashPanel"/>
         /// Splash panel.
@@ -138,80 +212,6 @@ namespace BudgetExecution
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SplashMessage"/>
-        /// class.
-        /// </summary>
-        /// <remarks>
-        /// The default value for the
-        /// <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval"/>
-        /// is set to The splash panel has animation turned and by default will appear in the middle of the
-        /// screen.
-        /// </remarks>
-        public SplashMessage( )
-        {
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
-            Size = new Size( 300, 150 );
-            BorderStyle = Border3DStyle.Flat;
-            BorderType = SplashBorderType.Border3D;
-            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 45, 45, 45 ) );
-            ShowAnimation = true;
-            ShowAsTopMost = true;
-            AnimationSpeed = 20;
-            AnimationSteps = 3;
-            AnimationDirection = AnimationDirection.Default;
-            DesktopAlignment = SplashAlignment.Center;
-            DiscreetLocation = new Point( 0, 0 );
-            SuspendAutoCloseWhenMouseOver = false;
-            TabIndex = 0;
-            TimerInterval = 5000;
-            CloseOnClick = true;
-            MarqueePosition = MarqueePosition.BottomRight;
-            MarqueeDirection = SplashPanelMarqueeDirection.RightToLeft;
-            SlideStyle = SlideStyle.FadeIn;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SplashMessage"/>
-        /// class.
-        /// </summary>
-        /// <param name="message"> The message. </param>
-        public SplashMessage( string message )
-            : this( )
-        {
-            Text = message;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SplashMessage"/>
-        /// class.
-        /// </summary>
-        /// <param name="toolTip"> The tool tip. </param>
-        public SplashMessage( SmallTip toolTip )
-            : this( )
-        {
-            Text = toolTip?.TipText;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SplashMessage"/>
-        /// class.
-        /// </summary>
-        /// <param name="control"> The control. </param>
-        /// <param name="message"> The message. </param>
-        public SplashMessage( Control control, string message )
-            : this( )
-        {
-            Parent = control;
-            Text = message;
         }
     }
 }
