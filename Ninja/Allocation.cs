@@ -20,8 +20,12 @@ namespace BudgetExecution
     public class Allocation : StatusOfFunds 
     {
 
-        /// <summary> Gets or sets the appropriation code. </summary>
-        /// <value> The appropriation code. </value>
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
         public virtual string AppropriationCode { get; set; }
 
         /// <summary> Gets or sets the name of the appropriation. </summary>
