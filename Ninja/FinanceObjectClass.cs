@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "FinanceObjectClass.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,11 +10,11 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="IFinanceObjectClass"/>
-    /// <seealso cref="IProgram"/>
-    /// <seealso cref="ISource"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.DataUnit" />
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
     [ SuppressMessage( "ReSharper", "UnassignedReadonlyField" ) ]
@@ -22,55 +22,41 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class FinanceObjectClass : DataUnit 
     {
-        /// <summary> Gets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; } = Source.FinanceObjectClasses;
-
-        /// <summary> Gets or sets the record. </summary>
-        /// <value> The record. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the field. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> The name </summary>
-        public override string Name { get; set; }
-
-        /// <summary> Gets or sets the boc code. </summary>
-        /// <value> The boc code. </value>
+        /// <summary>
+        /// Gets or sets the boc code.
+        /// </summary>
+        /// <value>
+        /// The boc code.
+        /// </value>
         public string BocCode { get; set; }
 
-        /// <summary> Gets or sets the name of the boc. </summary>
-        /// <value> The name of the boc. </value>
+        /// <summary>
+        /// Gets or sets the name of the boc.
+        /// </summary>
+        /// <value>
+        /// The name of the boc.
+        /// </value>
         public string BocName { get; set; }
 
-        /// <summary> Gets or sets the category. </summary>
-        /// <value> The category. </value>
+        /// <summary>
+        /// Gets or sets the category.
+        /// </summary>
+        /// <value>
+        /// The category.
+        /// </value>
         public BOC Category { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClass"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
         public FinanceObjectClass( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClass"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public FinanceObjectClass( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
@@ -81,11 +67,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClass"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public FinanceObjectClass( IDataModel builder )
         {
             Record = builder?.Record;
@@ -96,11 +80,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClass"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public FinanceObjectClass( DataRow dataRow )
         {
             Record = dataRow;
@@ -111,11 +93,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FinanceObjectClass"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
         /// </summary>
-        /// <param name="focCode"> The foc code. </param>
+        /// <param name="focCode">The foc code.</param>
         public FinanceObjectClass( string focCode )
         {
             Record = new DataBuilder( Source, GetArgs( focCode ) )?.Record;
@@ -125,6 +105,10 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FinanceObjectClass"/> class.
+        /// </summary>
+        /// <param name="foc">The foc.</param>
         public FinanceObjectClass( FinanceObjectClass foc )
         {
             ID = foc.ID;
@@ -135,9 +119,11 @@ namespace BudgetExecution
             BocName = foc.BocName;
         }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
         private IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )

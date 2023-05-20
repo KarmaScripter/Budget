@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "GrowthRate.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,93 +10,160 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class GrowthRate  
     {
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
         public DataRow Record { get; set; }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public int ID { get; set; }
 
-        /// <summary> Gets or sets the rate identifier. </summary>
-        /// <value> The rate identifier. </value>
+        /// <summary>
+        /// Gets or sets the rate identifier.
+        /// </summary>
+        /// <value>
+        /// The rate identifier.
+        /// </value>
         public int RateId { get; set; }
 
-        /// <summary> Gets or sets the description. </summary>
-        /// <value> The description. </value>
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
         public string Description { get; set; }
 
-        /// <summary> Gets or sets the budget year rate. </summary>
-        /// <value> The budget year rate. </value>
+        /// <summary>
+        /// Gets or sets the budget year rate.
+        /// </summary>
+        /// <value>
+        /// The budget year rate.
+        /// </value>
         public double BudgetYearRate { get; set; }
 
-        /// <summary> Gets or sets the out year1. </summary>
-        /// <value> The out year1. </value>
+        /// <summary>
+        /// Gets or sets the out year1.
+        /// </summary>
+        /// <value>
+        /// The out year1.
+        /// </value>
         public double OutYear1 { get; set; }
 
-        /// <summary> Gets or sets the out year2. </summary>
-        /// <value> The out year2. </value>
+        /// <summary>
+        /// Gets or sets the out year2.
+        /// </summary>
+        /// <value>
+        /// The out year2.
+        /// </value>
         public double OutYear2 { get; set; }
 
-        /// <summary> Gets or sets the out year3. </summary>
-        /// <value> The out year3. </value>
+        /// <summary>
+        /// Gets or sets the out year3.
+        /// </summary>
+        /// <value>
+        /// The out year3.
+        /// </value>
         public double OutYear3 { get; set; }
 
-        /// <summary> Gets or sets the out year4. </summary>
-        /// <value> The out year4. </value>
+        /// <summary>
+        /// Gets or sets the out year4.
+        /// </summary>
+        /// <value>
+        /// The out year4.
+        /// </value>
         public double OutYear4 { get; set; }
 
-        /// <summary> Gets or sets the out year5. </summary>
-        /// <value> The out year5. </value>
+        /// <summary>
+        /// Gets or sets the out year5.
+        /// </summary>
+        /// <value>
+        /// The out year5.
+        /// </value>
         public double OutYear5 { get; set; }
 
-        /// <summary> Gets or sets the out year6. </summary>
-        /// <value> The out year6. </value>
+        /// <summary>
+        /// Gets or sets the out year6.
+        /// </summary>
+        /// <value>
+        /// The out year6.
+        /// </value>
         public double OutYear6 { get; set; }
 
-        /// <summary> Gets or sets the out year7. </summary>
-        /// <value> The out year7. </value>
+        /// <summary>
+        /// Gets or sets the out year7.
+        /// </summary>
+        /// <value>
+        /// The out year7.
+        /// </value>
         public double OutYear7 { get; set; }
 
-        /// <summary> Gets or sets the out year8. </summary>
-        /// <value> The out year8. </value>
+        /// <summary>
+        /// Gets or sets the out year8.
+        /// </summary>
+        /// <value>
+        /// The out year8.
+        /// </value>
         public double OutYear8 { get; set; }
 
-        /// <summary> Gets or sets the out year9. </summary>
-        /// <value> The out year9. </value>
+        /// <summary>
+        /// Gets or sets the out year9.
+        /// </summary>
+        /// <value>
+        /// The out year9.
+        /// </value>
         public double OutYear9 { get; set; }
 
-        /// <summary> Gets or sets the sort. </summary>
-        /// <value> The sort. </value>
+        /// <summary>
+        /// Gets or sets the sort.
+        /// </summary>
+        /// <value>
+        /// The sort.
+        /// </value>
         public string Sort { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="GrowthRate"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
         /// </summary>
         public GrowthRate( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="GrowthRate"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public GrowthRate( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -118,11 +185,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="GrowthRate"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public GrowthRate( IDataModel builder )
         {
             Record = builder.Record;
@@ -144,11 +209,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="GrowthRate"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public GrowthRate( DataRow dataRow )
         {
             Record = dataRow;
@@ -169,6 +232,10 @@ namespace BudgetExecution
             Sort = Record[ "Sort" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GrowthRate"/> class.
+        /// </summary>
+        /// <param name="rate">The rate.</param>
         public GrowthRate( GrowthRate rate )
         {
             ID = rate.ID;

@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "MonthlyActual.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -13,9 +13,9 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.Actual"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class MonthlyActual : Actual 
     {
-
         /// <summary> Gets or sets the balance. </summary>
         /// <value> The balance. </value>
         public double NetOutlays { get; set; }

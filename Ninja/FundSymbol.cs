@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "FundSymbol.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -9,8 +9,11 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeMadeStatic.Local" ) ]
@@ -19,109 +22,211 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class FundSymbol : BudgetUnit
     {
-        /// <summary> Gets or sets the short name. </summary>
-        /// <value> The short name. </value>
+        /// <summary>
+        /// Gets or sets the short name.
+        /// </summary>
+        /// <value>
+        /// The short name.
+        /// </value>
         public virtual string ShortName { get; set; }
 
-        /// <summary> Gets or sets the status. </summary>
-        /// <value> The status. </value>
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
+        /// <value>
+        /// The status.
+        /// </value>
         public virtual string Status { get; set; }
 
-        /// <summary> Gets or sets the start date. </summary>
-        /// <value> The start date. </value>
+        /// <summary>
+        /// Gets or sets the start date.
+        /// </summary>
+        /// <value>
+        /// The start date.
+        /// </value>
         public virtual DateOnly StartDate { get; set; }
 
-        /// <summary> Gets or sets the end date. </summary>
-        /// <value> The end date. </value>
+        /// <summary>
+        /// Gets or sets the end date.
+        /// </summary>
+        /// <value>
+        /// The end date.
+        /// </value>
         public virtual DateOnly EndDate { get; set; }
 
-        /// <summary> Gets or sets the sub level prefix. </summary>
-        /// <value> The sub level prefix. </value>
+        /// <summary>
+        /// Gets or sets the sub level prefix.
+        /// </summary>
+        /// <value>
+        /// The sub level prefix.
+        /// </value>
         public virtual string SubLevelPrefix { get; set; }
 
-        /// <summary> Gets or sets the ata. </summary>
-        /// <value> The ata. </value>
+        /// <summary>
+        /// Gets or sets the allocation transfer agency.
+        /// </summary>
+        /// <value>
+        /// The allocation transfer agency.
+        /// </value>
         public virtual string AllocationTransferAgency { get; set; }
 
-        /// <summary> Gets or sets the aid. </summary>
-        /// <value> The aid. </value>
+        /// <summary>
+        /// Gets or sets the agency identifier.
+        /// </summary>
+        /// <value>
+        /// The agency identifier.
+        /// </value>
         public virtual string AgencyIdentifier { get; set; }
 
-        /// <summary> Gets or sets the beginning period of availability. </summary>
-        /// <value> The beginning period of availability. </value>
+        /// <summary>
+        /// Gets or sets the beginning period of availability.
+        /// </summary>
+        /// <value>
+        /// The beginning period of availability.
+        /// </value>
         public virtual string BeginningPeriodOfAvailability { get; set; }
 
-        /// <summary> Gets or sets the ending period of availability. </summary>
-        /// <value> The ending period of availability. </value>
+        /// <summary>
+        /// Gets or sets the ending period of availability.
+        /// </summary>
+        /// <value>
+        /// The ending period of availability.
+        /// </value>
         public virtual string EndingPeriodOfAvailability { get; set; }
 
-        /// <summary> Gets or sets a. </summary>
-        /// <value> a. </value>
+        /// <summary>
+        /// Gets or sets the multi year indicator.
+        /// </summary>
+        /// <value>
+        /// The multi year indicator.
+        /// </value>
         public virtual string MultiYearIndicator { get; set; }
 
-        /// <summary> Gets or sets the main. </summary>
-        /// <value> The main. </value>
+        /// <summary>
+        /// Gets or sets the main account.
+        /// </summary>
+        /// <value>
+        /// The main account.
+        /// </value>
         public virtual string MainAccount { get; set; }
 
-        /// <summary> Gets or sets the sub. </summary>
-        /// <value> The sub. </value>
+        /// <summary>
+        /// Gets or sets the sub account.
+        /// </summary>
+        /// <value>
+        /// The sub account.
+        /// </value>
         public virtual string SubAccount { get; set; }
 
-        /// <summary> Gets or sets the fund category. </summary>
-        /// <value> The fund category. </value>
+        /// <summary>
+        /// Gets or sets the fund category.
+        /// </summary>
+        /// <value>
+        /// The fund category.
+        /// </value>
         public virtual string FundCategory { get; set; }
 
-        /// <summary> Gets or sets the appropriation code. </summary>
-        /// <value> The appropriation code. </value>
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
         public virtual string AppropriationCode { get; set; }
 
-        /// <summary> Gets or sets the sub appropriation code. </summary>
-        /// <value> The sub appropriation code. </value>
+        /// <summary>
+        /// Gets or sets the sub appropriation code.
+        /// </summary>
+        /// <value>
+        /// The sub appropriation code.
+        /// </value>
         public virtual string SubAppropriationCode { get; set; }
 
-        /// <summary> Gets or sets the fund group. </summary>
-        /// <value> The fund group. </value>
+        /// <summary>
+        /// Gets or sets the fund group.
+        /// </summary>
+        /// <value>
+        /// The fund group.
+        /// </value>
         public virtual string FundGroup { get; set; }
 
-        /// <summary> Gets or sets the no year. </summary>
-        /// <value> The no year. </value>
+        /// <summary>
+        /// Gets or sets the no year.
+        /// </summary>
+        /// <value>
+        /// The no year.
+        /// </value>
         public virtual string NoYear { get; set; }
 
-        /// <summary> Gets or sets the carryover. </summary>
-        /// <value> The carryover. </value>
+        /// <summary>
+        /// Gets or sets the carryover.
+        /// </summary>
+        /// <value>
+        /// The carryover.
+        /// </value>
         public virtual string Carryover { get; set; }
 
-        /// <summary> Gets or sets the canceled year spending account. </summary>
-        /// <value> The canceled year spending account. </value>
+        /// <summary>
+        /// Gets or sets the cancelled year spending account.
+        /// </summary>
+        /// <value>
+        /// The cancelled year spending account.
+        /// </value>
         public virtual string CancelledYearSpendingAccount { get; set; }
 
-        /// <summary> Gets or sets the apply at all levels. </summary>
-        /// <value> The apply at all levels. </value>
+        /// <summary>
+        /// Gets or sets the apply at all levels.
+        /// </summary>
+        /// <value>
+        /// The apply at all levels.
+        /// </value>
         public virtual string ApplyAtAllLevels { get; set; }
 
-        /// <summary> Gets or sets the bats fund. </summary>
-        /// <value> The bats fund. </value>
+        /// <summary>
+        /// Gets or sets the bats fund.
+        /// </summary>
+        /// <value>
+        /// The bats fund.
+        /// </value>
         public virtual string BatsFund { get; set; }
 
-        /// <summary> Gets or sets the bats end date. </summary>
-        /// <value> The bats end date. </value>
+        /// <summary>
+        /// Gets or sets the bats end date.
+        /// </summary>
+        /// <value>
+        /// The bats end date.
+        /// </value>
         public virtual DateOnly BatsEndDate { get; set; }
 
-        /// <summary> Gets or sets the bats option identifier. </summary>
-        /// <value> The bats option identifier. </value>
+        /// <summary>
+        /// Gets or sets the bats option identifier.
+        /// </summary>
+        /// <value>
+        /// The bats option identifier.
+        /// </value>
         public virtual string BatsOptionId { get; set; }
 
-        /// <summary> Gets or sets the security org. </summary>
-        /// <value> The security org. </value>
+        /// <summary>
+        /// Gets or sets the security org.
+        /// </summary>
+        /// <value>
+        /// The security org.
+        /// </value>
         public virtual string SecurityOrg { get; set; }
 
-        /// <summary> Gets or sets the apportionment account code. </summary>
-        /// <value> The apportionment account code. </value>
+        /// <summary>
+        /// Gets or sets the apportionment account code.
+        /// </summary>
+        /// <value>
+        /// The apportionment account code.
+        /// </value>
         public virtual string ApportionmentAccountCode { get; set; }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="fundCode"> The fundCode. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <param name="fundCode">The fund code.</param>
+        /// <returns></returns>
         protected IDictionary<string, object> GetArgs( string fundCode )
         {
             if( !string.IsNullOrEmpty( fundCode )
@@ -155,9 +260,11 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="fundCode"> The fundCode. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <param name="fundCode">The fund code.</param>
+        /// <returns></returns>
         protected IDictionary<string, object> GetArgs( FundCode fundCode )
         {
             try

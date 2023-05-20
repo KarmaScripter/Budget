@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "FullTimeEquivalent.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -22,7 +22,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class FullTimeEquivalent : OperatingPlan
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="T:BudgetExecution.FullTimeEquivalent"/>

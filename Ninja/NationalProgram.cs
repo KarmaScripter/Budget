@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "NationalProgram.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,65 +10,53 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="INationalProgram"/>
-    /// <seealso cref="ISource"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.DataUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "Performance", "CA1822:Mark members as static" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class NationalProgram : DataUnit 
     {
-        /// <summary> The source </summary>
-        public override Source Source { get; set; } = Source.NationalPrograms;
-
-        /// <summary> Gets the record. </summary>
-        /// <value> The record. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the code. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
-        /// <summary> Gets the title. </summary>
-        /// <value> The title. </value>
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
         public string Title { get; set; }
 
-        /// <summary> Gets the rpio code. </summary>
-        /// <value> The rpio code. </value>
+        /// <summary>
+        /// Gets or sets the rpio code.
+        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
         public string RpioCode { get; set; }
 
-        /// <summary> Gets or sets the NPM. </summary>
-        /// <value> The NPM. </value>
+        /// <summary>
+        /// Gets or sets the NPM.
+        /// </summary>
+        /// <value>
+        /// The NPM.
+        /// </value>
         public NPM NPM { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="NationalProgram"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="NationalProgram"/> class.
         /// </summary>
         public NationalProgram( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="NationalProgram"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="NationalProgram"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public NationalProgram( IQuery query )
         {
             Record = new DataBuilder( query )?.Record;
@@ -82,11 +70,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="NationalProgram"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="NationalProgram"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public NationalProgram( IDataModel builder )
         {
             Record = builder?.Record;
@@ -100,11 +86,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="NationalProgram"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="NationalProgram"/> class.
         /// </summary>
-        /// <param name="dataRow"> The dataRow. </param>
+        /// <param name="dataRow">The data row.</param>
         public NationalProgram( DataRow dataRow )
         {
             Record = dataRow;
@@ -118,11 +102,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="NationalProgram"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="NationalProgram"/> class.
         /// </summary>
-        /// <param name="code"> The code. </param>
+        /// <param name="code">The code.</param>
         public NationalProgram( string code )
         {
             Record = new DataBuilder( Source, GetArgs( code ) )?.Record;
@@ -135,6 +117,10 @@ namespace BudgetExecution
             NPM = (NPM)Enum.Parse( typeof( NPM ), Code );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NationalProgram"/> class.
+        /// </summary>
+        /// <param name="npm">The NPM.</param>
         public NationalProgram( NationalProgram npm )
         {
             ID = npm.ID;
@@ -145,9 +131,11 @@ namespace BudgetExecution
             RpioCode = npm.RpioCode;
         }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
         private IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )
