@@ -1,8 +1,6 @@
-CREATE TABLE BudgetObjectClasses
+﻿CREATE TABLE [BudgetObjectClasses]
 (
-    BudgetObjectClassId INTEGER NOT NULL UNIQUE
-        CONSTRAINT PK_BudgetObjectClasses PRIMARY KEY AUTOINCREMENT,
-    Code                TEXT(255) NOT NULL,
-    Name                TEXT(255) NULL
+   [BudgetObjectClassesId] INT NOT NULL IDENTITY (18,1),
+   [Code] NVARCHAR(80),
+   [Name] NVARCHAR(80)
 );
-

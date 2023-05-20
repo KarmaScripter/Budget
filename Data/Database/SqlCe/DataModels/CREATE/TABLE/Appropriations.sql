@@ -1,10 +1,8 @@
-CREATE TABLE Appropriations
+﻿CREATE TABLE [Appropriations]
 (
-    AppropriationId INTEGER NOT NULL UNIQUE
-        CONSTRAINT PK_Appropriations PRIMARY KEY AUTOINCREMENT,
-    BFY             TEXT(255) NOT NULL,
-    Title           TEXT(255) NULL,
-    PublicLaw       TEXT(255) NULL,
-    EnactedDate     DATETIME NULL
+   [AppropriationsId] INT NOT NULL IDENTITY (11,1),
+   [BFY] NVARCHAR(80) NOT NULL,
+   [Title] NVARCHAR(80),
+   [PublicLaw] NVARCHAR(80),
+   [EnactedDate] DATETIME
 );
-

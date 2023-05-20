@@ -1,0 +1,26 @@
+﻿CREATE TABLE [BudgetOutlays]
+(
+   [BudgetOutlaysId] INT NOT NULL IDENTITY (279,1),
+   [ReportYear] NVARCHAR(80),
+   [AgencyName] NVARCHAR(80),
+   [OmbAccount] NVARCHAR(80),
+   [Line] NVARCHAR(80),
+   [LineNumber] NVARCHAR(80),
+   [LineSection] NVARCHAR(80),
+   [LineName] NVARCHAR(80),
+   [BeaCatery] NVARCHAR(80),
+   [BeaCateryName] NVARCHAR(80),
+   [LineCatery] NVARCHAR(80),
+   [PriorYear] DECIMAL(18,0),
+   [CurrentYear] DECIMAL(18,0),
+   [BudgetYear] DECIMAL(18,0),
+   [OutYear1] DECIMAL(18,0),
+   [OutYear2] DECIMAL(18,0),
+   [OutYear3] DECIMAL(18,0),
+   [OutYear4] DECIMAL(18,0),
+   [OutYear5] DECIMAL(18,0),
+   [OutYear6] DECIMAL(18,0),
+   [OutYear7] DECIMAL(18,0),
+   [OutYear8] DECIMAL(18,0),
+   [OutYear9] DECIMAL(18,0)
+);
