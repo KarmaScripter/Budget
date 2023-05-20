@@ -1,27 +1,6 @@
-CREATE TABLE [ExecutionTables]
+﻿CREATE TABLE [ExecutionTables]
 (
-    [
-    ExecutionTablesId ]
-    INT
-    NOT
-    NULL
-    IDENTITY
-(
-    1,
-    1
-),
-    [TableName] NVARCHAR
-(
-    255
-) NULL,
-    [Type] NVARCHAR
-(
-    255
-) NULL,
-    CONSTRAINT PK_ExecutionTables
-    PRIMARY KEY
-(
-    ExecutionTablesId
-)
-    );
-
+   [ExecutionTablesId] INT NOT NULL IDENTITY (571,1),
+   [TableName] NVARCHAR(80),
+   [Type] NVARCHAR(80)
+);
