@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "PRC.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,9 +10,10 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.BudgetUnit"/>
-    /// <seealso cref="BudgetExecution.IAccount"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
@@ -20,127 +21,209 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public abstract class PRC : BudgetUnit 
     {
-        /// <summary> Gets or sets the budget level. </summary>
-        /// <value> The budget level. </value>
+        /// <summary>
+        /// Gets or sets the budget level.
+        /// </summary>
+        /// <value>
+        /// The budget level.
+        /// </value>
         public virtual string BudgetLevel { get; set; }
 
-        /// <summary> Gets or sets the rpio code. </summary>
-        /// <value> The rpio code. </value>
+        /// <summary>
+        /// Gets or sets the rpio code.
+        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
         public virtual string RpioCode { get; set; }
 
-        /// <summary> Gets or sets the name of the rpio. </summary>
-        /// <value> The name of the rpio. </value>
+        /// <summary>
+        /// Gets or sets the name of the rpio.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio.
+        /// </value>
         public virtual string RpioName { get; set; }
 
-        /// <summary> Gets or sets the ah code. </summary>
-        /// <value> The ah code. </value>
+        /// <summary>
+        /// Gets or sets the ah code.
+        /// </summary>
+        /// <value>
+        /// The ah code.
+        /// </value>
         public virtual string AhCode { get; set; }
 
-        /// <summary> Gets or sets the name of the ah. </summary>
-        /// <value> The name of the ah. </value>
+        /// <summary>
+        /// Gets or sets the name of the ah.
+        /// </summary>
+        /// <value>
+        /// The name of the ah.
+        /// </value>
         public virtual string AhName { get; set; }
 
-        /// <summary> Gets or sets the org code. </summary>
-        /// <value> The org code. </value>
+        /// <summary>
+        /// Gets or sets the org code.
+        /// </summary>
+        /// <value>
+        /// The org code.
+        /// </value>
         public virtual string OrgCode { get; set; }
 
-        /// <summary> Gets or sets the name of the org. </summary>
-        /// <value> The name of the org. </value>
+        /// <summary>
+        /// Gets or sets the name of the org.
+        /// </summary>
+        /// <value>
+        /// The name of the org.
+        /// </value>
         public virtual string OrgName { get; set; }
 
-        /// <summary> Gets or sets the account code. </summary>
-        /// <value> The account code. </value>
+        /// <summary>
+        /// Gets or sets the account code.
+        /// </summary>
+        /// <value>
+        /// The account code.
+        /// </value>
         public virtual string AccountCode { get; set; }
 
-        /// <summary> Gets or sets the boc code. </summary>
-        /// <value> The boc code. </value>
+        /// <summary>
+        /// Gets or sets the boc code.
+        /// </summary>
+        /// <value>
+        /// The boc code.
+        /// </value>
         public virtual string BocCode { get; set; }
 
-        /// <summary> Gets or sets the name of the boc. </summary>
-        /// <value> The name of the boc. </value>
+        /// <summary>
+        /// Gets or sets the name of the boc.
+        /// </summary>
+        /// <value>
+        /// The name of the boc.
+        /// </value>
         public virtual string BocName { get; set; }
 
-        /// <summary> Gets or sets the rc code. </summary>
-        /// <value> The rc code. </value>
+        /// <summary>
+        /// Gets or sets the rc code.
+        /// </summary>
+        /// <value>
+        /// The rc code.
+        /// </value>
         public virtual string RcCode { get; set; }
 
-        /// <summary> Gets or sets the name of the rc. </summary>
-        /// <value> The name of the rc. </value>
+        /// <summary>
+        /// Gets or sets the name of the rc.
+        /// </summary>
+        /// <value>
+        /// The name of the rc.
+        /// </value>
         public virtual string RcName { get; set; }
 
-        /// <summary> Gets the source. </summary>
-        public override Source Source { get; set; }
-
-        /// <summary> </summary>
-        public override Provider Provider { get; set; }
-
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the agency activity. </summary>
-        /// <value> The agency activity. </value>
+        /// <summary>
+        /// Gets or sets the activity code.
+        /// </summary>
+        /// <value>
+        /// The activity code.
+        /// </value>
         public virtual string ActivityCode { get; set; }
 
-        /// <summary> Gets or sets the name of the activity. </summary>
-        /// <value> The name of the activity. </value>
+        /// <summary>
+        /// Gets or sets the name of the activity.
+        /// </summary>
+        /// <value>
+        /// The name of the activity.
+        /// </value>
         public virtual string ActivityName { get; set; }
 
-        /// <summary> Gets or sets the NPM code. </summary>
-        /// <value> The NPM code. </value>
+        /// <summary>
+        /// Gets or sets the NPM code.
+        /// </summary>
+        /// <value>
+        /// The NPM code.
+        /// </value>
         public virtual string NpmCode { get; set; }
 
-        /// <summary> Gets or sets the name of the NPM. </summary>
-        /// <value> The name of the NPM. </value>
+        /// <summary>
+        /// Gets or sets the name of the NPM.
+        /// </summary>
+        /// <value>
+        /// The name of the NPM.
+        /// </value>
         public virtual string NpmName { get; set; }
 
-        /// <summary> Gets or sets the goal code. </summary>
-        /// <value> The goal code. </value>
+        /// <summary>
+        /// Gets or sets the goal code.
+        /// </summary>
+        /// <value>
+        /// The goal code.
+        /// </value>
         public virtual string GoalCode { get; set; }
 
-        /// <summary> Gets or sets the name of the goal. </summary>
-        /// <value> The name of the goal. </value>
+        /// <summary>
+        /// Gets or sets the name of the goal.
+        /// </summary>
+        /// <value>
+        /// The name of the goal.
+        /// </value>
         public virtual string GoalName { get; set; }
 
-        /// <summary> Gets or sets the objective code. </summary>
-        /// <value> The objective code. </value>
+        /// <summary>
+        /// Gets or sets the objective code.
+        /// </summary>
+        /// <value>
+        /// The objective code.
+        /// </value>
         public virtual string ObjectiveCode { get; set; }
 
-        /// <summary> Gets or sets the name of the objective. </summary>
-        /// <value> The name of the objective. </value>
+        /// <summary>
+        /// Gets or sets the name of the objective.
+        /// </summary>
+        /// <value>
+        /// The name of the objective.
+        /// </value>
         public virtual string ObjectiveName { get; set; }
 
-        /// <summary> Gets or sets the program project code. </summary>
-        /// <value> The program project code. </value>
+        /// <summary>
+        /// Gets or sets the program project code.
+        /// </summary>
+        /// <value>
+        /// The program project code.
+        /// </value>
         public virtual string ProgramProjectCode { get; set; }
 
-        /// <summary> Gets or sets the name of the program project. </summary>
-        /// <value> The name of the program project. </value>
+        /// <summary>
+        /// Gets or sets the name of the program project.
+        /// </summary>
+        /// <value>
+        /// The name of the program project.
+        /// </value>
         public virtual string ProgramProjectName { get; set; }
 
-        /// <summary> Gets or sets the program area code. </summary>
-        /// <value> The program area code. </value>
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
         public virtual string ProgramAreaCode { get; set; }
 
-        /// <summary> Gets or sets the name of the program area. </summary>
-        /// <value> The name of the program area. </value>
+        /// <summary>
+        /// Gets or sets the name of the program area.
+        /// </summary>
+        /// <value>
+        /// The name of the program area.
+        /// </value>
         public virtual string ProgramAreaName { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PRC"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="PRC"/> class.
         /// </summary>
         protected PRC( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PRC"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="PRC"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         protected PRC( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -175,11 +258,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PRC"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="PRC"/> class.
         /// </summary>
-        /// <param name="dataBuilder"> The data builder. </param>
+        /// <param name="dataBuilder">The data builder.</param>
         protected PRC( IDataModel dataBuilder )
         {
             Record = dataBuilder.Record;
@@ -214,11 +295,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PRC"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="PRC"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         protected PRC( DataRow dataRow )
         {
             Record = dataRow;
@@ -249,11 +328,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PRC"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="PRC"/> class.
         /// </summary>
-        /// <param name="map"> The map. </param>
+        /// <param name="map">The map.</param>
         protected PRC( IDictionary<string, object> map )
         {
             Record = new DataBuilder( Source, map )?.Record;
@@ -287,10 +364,12 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
-        /// <summary> Gets the field. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <param name="field"> The field. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the field.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="field">The field.</param>
+        /// <returns></returns>
         public virtual string GetField( DataRow dataRow, string field )
         {
             if( dataRow != null
@@ -310,10 +389,12 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary> Gets the amount. </summary>
-        /// <param name="dataRow"> The data row. </param>
-        /// <param name="numeric"> The numeric. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the amount.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="numeric">The numeric.</param>
+        /// <returns></returns>
         public virtual double GetAmount( DataRow dataRow, string numeric )
         {
             if( dataRow != null
@@ -333,8 +414,10 @@ namespace BudgetExecution
             return default;
         }
 
-        /// <summary> Converts to dictionary. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Converts to dictionary.
+        /// </summary>
+        /// <returns></returns>
         public virtual IDictionary<string, object> ToDictionary( )
         {
             try

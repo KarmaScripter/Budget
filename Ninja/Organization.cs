@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Organization.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -13,36 +13,13 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="DataUnit"/>
-    /// <seealso cref="BudgetExecution.IOrganization"/>
     /// <seealso cref="BudgetExecution.ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
-    public class Organization : DataUnit, IOrganization
+    public class Organization : DataUnit 
     {
-        /// <summary> The source </summary>
-        public override Source Source { get; set; } = Source.Organizations;
-
-        /// <summary> Gets the dataRow. </summary>
-        /// <value> The dataRow. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the code. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Organization"/>
@@ -98,6 +75,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Organization"/> class.
+        /// </summary>
+        /// <param name="org">The org.</param>
+        public Organization( Organization org )
+        {
+            ID = org.ID;
+            Code = org.Code;
+            Name = org.Name;
+        }
+        
+        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Organization"/>
         /// class.
@@ -128,22 +116,7 @@ namespace BudgetExecution
                 return default;
             }
         }
-
-        /// <summary> Gets the organization. </summary>
-        /// <returns> </returns>
-        public IOrganization GetOrganization( )
-        {
-            try
-            {
-                return MemberwiseClone( ) as Organization;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default;
-            }
-        }
-
+        
         /// <summary> Sets the arguments. </summary>
         /// <param name="code"> The code. </param>
         /// <returns> </returns>

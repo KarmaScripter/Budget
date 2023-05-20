@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ProgramProject.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -12,24 +12,12 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="BudgetExecution.DescriptionBase"/>
-    /// <seealso cref="BudgetExecution.ISource"/>
     [ SuppressMessage( "ReSharper", "ConvertToConstant.Local" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public class ProgramProject : DescriptionBase, ISource
+    public class ProgramProject : DescriptionBase 
     {
-        /// <summary> Gets or sets the code. </summary>
-        /// <value> The code. </value>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
-        /// <summary> The source </summary>
-        public override Source Source { get; set; } = Source.ProgramDescriptions;
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ProgramProject"/>

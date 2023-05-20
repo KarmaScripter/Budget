@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Objective.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -87,6 +87,10 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Objective"/> class.
+        /// </summary>
+        /// <param name="objective">The objective.</param>
         public Objective( Objective objective )
         {
             ID = objective.ID;
