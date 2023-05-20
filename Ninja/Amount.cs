@@ -13,11 +13,12 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.IAmount" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    public class Amount : IAmount
+    [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    public class Amount 
     {
         /// <summary>
         /// Gets or sets the initial.
@@ -44,24 +45,7 @@ namespace BudgetExecution
         /// Gets the numeric column.
         /// </summary>
         public string Numeric { get; set; }
-
-        /// <summary>
-        /// Gets the IAmount
-        /// </summary>
-        /// <returns></returns>
-        public IAmount GetAmount( )
-        {
-            try
-            {
-                return new Amount( Value );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( IAmount );
-            }
-        }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="Amount"/> class.
         /// </summary>
@@ -97,7 +81,7 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Amount"/> class.
         /// </summary>
         /// <param name="amount">The amount.</param>
-        public Amount( IAmount amount )
+        public Amount( Amount amount )
         {
             Numeric = amount.Numeric;
             Value = amount.Value;
@@ -151,7 +135,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return ( amount?.Value == Value && amount?.Numeric?.Equals( Numeric ) == true );
+                    return ( amount?.Value == Value 
+                        && amount?.Numeric?.Equals( Numeric ) == true );
                 }
                 catch( Exception ex )
                 {
@@ -171,14 +156,15 @@ namespace BudgetExecution
         /// <returns>
         ///   <c>true</c> if the specified first is equal; otherwise, <c>false</c>.
         /// </returns>
-        public static bool IsEqual( IAmount first, IAmount second )
+        public virtual bool IsEqual( IAmount first, IAmount second )
         {
             if( first != null
                && second != null )
             {
                 try
                 {
-                    return ( first?.Numeric == second?.Numeric && first.Value == second.Value );
+                    return ( first?.Numeric == second?.Numeric 
+                        && first.Value == second.Value );
                 }
                 catch( Exception ex )
                 {
@@ -212,7 +198,7 @@ namespace BudgetExecution
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        static protected void Fail( Exception ex )
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

@@ -41,6 +41,12 @@ csharp_preferred_modifier_order = public, virtual, static, internal, override, p
 csharp_preserve_single_line_blocks = true
 csharp_space_after_cast = false
 
+# CA1305: Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# CA1822: Mark members as static
+dotnet_diagnostic.CA1822.severity = none
+
 [*.css]
 ij_css_align_closing_brace_with_properties = false
 ij_css_blank_lines_around_nested_selector = 1

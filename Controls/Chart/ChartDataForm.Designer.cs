@@ -2100,7 +2100,6 @@
         public Syncfusion.Windows.Forms.Tools.TabPageAdv GroupTabPage;
         public HeaderPanel FieldTable;
         public Layout FieldPanel;
-        private ListBox listBox1;
         private Layout NumericPanel;
         public HeaderPanel NumericTable;
         public ListBox NumericListBox;
@@ -2120,7 +2119,6 @@
         public ToolStripLabel FunctionLabel;
         public ToolSeparator FunctionLabelSeparator;
         public ToolStripLabel ApplicationLabel;
-        private Label label3;
         public System.Windows.Forms.DataVisualization.Charting.Chart Chart;
         private System.Windows.Forms.TableLayoutPanel ChartHeaderTable;
         public System.Windows.Forms.PictureBox PictureBox;

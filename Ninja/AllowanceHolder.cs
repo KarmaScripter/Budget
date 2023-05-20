@@ -43,48 +43,6 @@ namespace BudgetExecution
     public class AllowanceHolder : DataUnit 
     {
         /// <summary>
-        /// The source
-        /// </summary>
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dict.
-        /// </summary>
-        /// <value>
-        /// The dict.
-        /// </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>
-        /// The arguments.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public override int ID { get; set; }
-
-        /// <summary>
-        /// Gets the code.
-        /// </summary>
-        public override string Code { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public override string Name { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the
         /// <see cref="AllowanceHolder"/>
         /// class.
@@ -105,8 +63,8 @@ namespace BudgetExecution
         {
             Record = dataBuilder.Record;
             ID = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
-            Name = Record?[ "AhName" ].ToString( );
-            Code = Record?[ "AhCode" ].ToString( );
+            Name = Record?[ "Name" ].ToString( );
+            Code = Record?[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -121,8 +79,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query )?.Record;
             ID = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
-            Name = Record?[ "AhName" ].ToString( );
-            Code = Record?[ "AhCode" ].ToString( );
+            Name = Record?[ "Name" ].ToString( );
+            Code = Record?[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -137,8 +95,8 @@ namespace BudgetExecution
         {
             Record = data;
             ID = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
-            Name = Record?[ "AhName" ].ToString( );
-            Code = Record?[ "AhCode" ].ToString( );
+            Name = Record?[ "Name" ].ToString( );
+            Code = Record?[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 
@@ -153,8 +111,8 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( Source, SetArgs( ahCode ) )?.Record;
             ID = int.Parse( Record[ "AllowanceHoldersId" ].ToString( ) ?? "0" );
-            Name = Record?[ "AhName" ].ToString( );
-            Code = Record?[ "AhCode" ].ToString( );
+            Name = Record?[ "Name" ].ToString( );
+            Code = Record?[ "Code" ].ToString( );
             Data = Record?.ToDictionary( );
         }
 

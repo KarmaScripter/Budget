@@ -8,7 +8,7 @@
         <Nullable>disable</Nullable>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>BudExNinja.png</PackageIcon>
-        <AnalysisLevel>latest-recommended</AnalysisLevel>
+        <AnalysisLevel>6.0</AnalysisLevel>
         <LangVersion>10</LangVersion>
         <TargetFramework>net6.0-windows</TargetFramework>
         <RootNamespace>BudgetExecution</RootNamespace>
@@ -27,20 +27,21 @@
         <IsPublishable>False</IsPublishable>
         <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
         <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <NoWarn>1701;1702;2201;1051</NoWarn>
+        <NoWarn>1701;1702;2201;1051;1305;1822</NoWarn>
         <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
         <Optimize>True</Optimize>
         <Deterministic>False</Deterministic>
-        <DebugType>full</DebugType>
+        <DebugType>portable</DebugType>
         <DefineConstants>$(DefineConstants);TRACE;DEBUG;NET;NET6_0;NETCOREAPP</DefineConstants>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <NoWarn>1701;1702;2201;1051</NoWarn>
+        <NoWarn>1701;1702;2201;1051;1305;1822</NoWarn>
         <Optimize>False</Optimize>
         <Deterministic>False</Deterministic>
-        <DebugType>full</DebugType>
+        <DebugType>portable</DebugType>
     </PropertyGroup>
     <ItemGroup>
         <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />
