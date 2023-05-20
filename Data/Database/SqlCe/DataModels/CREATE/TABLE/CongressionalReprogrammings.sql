@@ -1,0 +1,27 @@
+﻿CREATE TABLE [CongressionalReprogrammings]
+(
+   [CongressionalReprogrammingsId] INT NOT NULL IDENTITY (2,1),
+   [ReprogrammingNumber] NVARCHAR(80),
+   [BFY] NVARCHAR(80),
+   [EFY] NVARCHAR(80),
+   [RpioCode] NVARCHAR(80),
+   [AhCode] NVARCHAR(80),
+   [AhName] NVARCHAR(80),
+   [FundCode] NVARCHAR(80),
+   [FundName] NVARCHAR(80),
+   [AccountCode] NVARCHAR(80),
+   [ProgramProjectCode] NVARCHAR(80),
+   [ProgramProjectName] NVARCHAR(80),
+   [ProgramAreaCode] NVARCHAR(80),
+   [ProgramAreaName] NVARCHAR(80),
+   [OrgCode] NVARCHAR(80),
+   [OrgName] NVARCHAR(80),
+   [BocCode] NVARCHAR(80),
+   [BocName] NVARCHAR(80),
+   [ActivityCode] NVARCHAR(80),
+   [Amount] DECIMAL(18,0),
+   [Description] NVARCHAR(155),
+   [ExtendedDescription] NTEXT,
+   [FromTo] NVARCHAR(80),
+   [Cycle] NVARCHAR(80)
+);

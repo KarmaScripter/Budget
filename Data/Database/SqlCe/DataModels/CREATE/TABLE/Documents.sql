@@ -1,9 +1,8 @@
-CREATE TABLE Documents
+﻿CREATE TABLE [Documents]
 (
-    DocumentId INTEGER NOT NULL UNIQUE IDENTITY(1,1),
-    Code       NVARCHAR(255) NULL,
-    Category   NVARCHAR(255) NULL,
-    Name       NVARCHAR(255) NULL,
-    System     NVARCHAR(255) NULL
+   [DocumentsId] INT NOT NULL IDENTITY (188,1),
+   [Code] NVARCHAR(80),
+   [Catery] NVARCHAR(80),
+   [Name] NVARCHAR(80),
+   [System] NVARCHAR(80)
 );
-

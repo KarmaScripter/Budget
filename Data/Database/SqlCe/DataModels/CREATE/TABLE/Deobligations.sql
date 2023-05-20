@@ -1,56 +1,29 @@
-CREATE TABLE [Deobligations]
+﻿CREATE TABLE [Deobligations]
 (
-    [
-    DeobligationsId ]
-    INT
-    NOT
-    NULL
-    IDENTITY
-(
-    1,
-    1
-),
-    [RPIO] NVARCHAR
-(
-    255
-) NULL,
-    [BFY] NVARCHAR
-(
-    255
-) NULL,
-    [FundCode] NVARCHAR
-(
-    255
-) NULL,
-    [DocumentNumber] NVARCHAR
-(
-    255
-) NULL,
-    [CalendarYear] NVARCHAR
-(
-    255
-) NULL,
-    [OrgCode] NVARCHAR
-(
-    255
-) NULL,
-    [ProgramProjectCode] NVARCHAR
-(
-    255
-) NULL,
-    [AccountCode] NVARCHAR
-(
-    255
-) NULL,
-    [BocCode] NVARCHAR
-(
-    255
-) NULL,
-    [Date] DATETIME NULL,
-    [Amount] [float] NULL,
-    CONSTRAINT PK_Deobligations
-    PRIMARY KEY
-(
-    DeobligationsId
-)
-    );
+   [DeobligationsId] INT NOT NULL IDENTITY (2673710,1),
+   [BFY] NVARCHAR(80),
+   [EFY] NVARCHAR(80),
+   [FundCode] NVARCHAR(80),
+   [FundName] NVARCHAR(80),
+   [TreasurySymbol] NVARCHAR(80),
+   [OmbAccountCode] NVARCHAR(80),
+   [OmbAccountName] NVARCHAR(80),
+   [RpioCode] NVARCHAR(80),
+   [RpioName] NVARCHAR(80),
+   [AhCode] NVARCHAR(80),
+   [AhName] NVARCHAR(80),
+   [AccountCode] NVARCHAR(80),
+   [NpmCode] NVARCHAR(80),
+   [NpmName] NVARCHAR(80),
+   [ProgramProjectCode] NVARCHAR(80),
+   [ProgramProjectName] NVARCHAR(80),
+   [OrgCode] NVARCHAR(80),
+   [OrgName] NVARCHAR(80),
+   [BocCode] NVARCHAR(80),
+   [BocName] NVARCHAR(80),
+   [DocumentNumber] NVARCHAR(80),
+   [FocCode] NVARCHAR(80),
+   [FocName] NVARCHAR(80),
+   [ProcessedDate] DATETIME,
+   [Amount] DECIMAL(18,0)
+);
