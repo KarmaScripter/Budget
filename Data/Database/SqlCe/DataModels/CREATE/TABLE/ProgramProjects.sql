@@ -1,14 +1,12 @@
 CREATE TABLE ProgramProjects
 (
-    ProgramProjectId INTEGER NOT NULL UNIQUE
-        CONSTRAINT PK_ProgramProjects PRIMARY KEY AUTOINCREMENT,
-    Code             TEXT(255) NOT NULL,
-    Name             TEXT(255) NULL,
-    Title            TEXT(255) NULL,
-    Laws             TEXT(255) NULL,
-    Narrative        TEXT(255) NULL,
-    Definition       TEXT(255) NULL,
-    ProgramAreaCode  TEXT(255) NULL,
-    ProgramAreaName  TEXT(255) NULL
+    ProgramProjectId  INT NOT NULL IDENTITY (1,1),
+    Code NVARCHAR(80) NOT NULL,
+    Name NVARCHAR(80) NULL,
+    Title NVARCHAR(80) NULL,
+    Laws NVARCHAR(80) NULL,
+    Description NVARCHAR(80) NULL,
+    ProgramAreaCode NVARCHAR(80) NULL,
+    ProgramAreaName NVARCHAR(80) NULL
 );
 

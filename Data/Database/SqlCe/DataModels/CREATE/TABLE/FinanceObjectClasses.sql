@@ -1,8 +1,7 @@
 CREATE TABLE FinanceObjectClasses
 (
-    FinanceObjectClassId INTEGER NOT NULL UNIQUE
-        CONSTRAINT PK_FinanceObjectClasses PRIMARY KEY AUTOINCREMENT,
-    Code                 TEXT(255) NOT NULL,
-    Name                 TEXT(255) NULL
+    FinanceObjectClassesId INT NOT NULL IDENTITY(1,1), 
+    Code  NVARCHAR(80) NOT NULL,
+    Name NVARCHAR(80) NULL
 );
 

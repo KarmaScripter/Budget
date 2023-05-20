@@ -1,16 +1,16 @@
 ﻿CREATE TABLE [CongressionalControls]
 (
    [CongressionalControlsId] INT NOT NULL IDENTITY (187,1),
-   [FundCode] NVARCHAR(80),
-   [FundName] NVARCHAR(80),
-   [ProgramAreaCode] NVARCHAR(80),
-   [ProgramAreaName] NVARCHAR(80),
-   [ProgramProjectCode] NVARCHAR(80),
-   [ProgramProjectName] NVARCHAR(80),
-   [SubProjectCode] NVARCHAR(80),
-   [SubProjectName] NVARCHAR(80),
-   [ReprogrammingRestriction] NVARCHAR(80),
-   [IncreaseRestriction] NVARCHAR(80),
-   [DecreaseRestriction] NVARCHAR(80),
+   [FundCode] NVARCHAR(80) NULL,
+   [FundName] NVARCHAR(80) NULL,
+   [ProgramAreaCode] NVARCHAR(80) NULL,
+   [ProgramAreaName] NVARCHAR(80) NULL,
+   [ProgramProjectCode] NVARCHAR(80) NULL,
+   [ProgramProjectName] NVARCHAR(80) NULL,
+   [SubProjectCode] NVARCHAR(80) NULL,
+   [SubProjectName] NVARCHAR(80) NULL,
+   [ReprogrammingRestriction] NVARCHAR(80) NULL,
+   [IncreaseRestriction] NVARCHAR(80) NULL,
+   [DecreaseRestriction] NVARCHAR(80) NULL,
    [MemoRequirement] NVARCHAR(80)
 );

@@ -1,107 +1,37 @@
 ﻿CREATE TABLE [Transfers]
 (
-    [
-    TransfersId ]
-    INT
-    NOT
-    NULL
-    IDENTITY
-(
-    1,
-    1
-),
-    [BudgetLevel] NVARCHAR
-(
-    255
-),
-    [DocType] NVARCHAR
-(
-    255
-),
-    [BFY] NVARCHAR
-(
-    255
-),
-    [RPIO] NVARCHAR
-(
-    255
-),
-    [FundCode] NVARCHAR
-(
-    255
-),
-    [FundName] NVARCHAR
-(
-    255
-),
-    [DocumentNumber] NVARCHAR
-(
-    255
-),
-    [ProcessedDate] DATETIME,
-    [AhCode] NVARCHAR
-(
-    255
-),
-    [AhName] NVARCHAR
-(
-    255
-),
-    [OrgCode] NVARCHAR
-(
-    255
-),
-    [OrgName] NVARCHAR
-(
-    255
-),
-    [RcCode] NVARCHAR
-(
-    255
-),
-    [DivisionName] NVARCHAR
-(
-    255
-),
-    [Code] NVARCHAR
-(
-    255
-) NOT NULL,
-    [ProgramAreaCode] NVARCHAR
-(
-    255
-),
-    [ProgramAreaName] NVARCHAR
-(
-    255
-),
-    [ProgramProjectCode] NVARCHAR
-(
-    255
-),
-    [ResourceType] NVARCHAR
-(
-    255
-),
-    [Line] FLOAT,
-    [Subline] FLOAT,
-    [FromTo] NVARCHAR
-(
-    255
-),
-    [BocCode] NVARCHAR
-(
-    255
-),
-    [BocName] NVARCHAR
-(
-    255
-),
-    [Amount] FLOAT NOT NULL,
-    [Purpose] NTEXT,
-    CONSTRAINT PK_Transfers
-    PRIMARY KEY
-(
-    TransfersId
-)
-    );
+   [TransfersId] INT NOT NULL IDENTITY (1,1),
+   [BudgetLevel] NVARCHAR(80) NULL,
+   [DocPrefix] NVARCHAR(80) NULL,
+   [DocType] NVARCHAR(80) NULL,
+   [BFY] NVARCHAR(80) NULL,
+   [RpioCode] NVARCHAR(80) NULL,
+   [RpioName] NVARCHAR(80) NULL,
+   [FundCode] NVARCHAR(80) NULL,
+   [FundName] NVARCHAR(80) NULL,
+   [ReprogrammingNumber] NVARCHAR(80) NULL,
+   [ControlNumber] NVARCHAR(80) NULL,
+   [ProcessedDate] DATETIME,
+   [Quarter] NVARCHAR(80) NULL,
+   [Line] NVARCHAR(80) NULL,
+   [Subline] NVARCHAR(80) NULL,
+   [AhCode] NVARCHAR(80) NULL,
+   [AhName] NVARCHAR(80) NULL,
+   [OrgCode] NVARCHAR(80) NULL,
+   [OrgName] NVARCHAR(80) NULL,
+   [RcCode] NVARCHAR(80) NULL,
+   [RcName] NVARCHAR(80) NULL,
+   [AccountCode] NVARCHAR(80) NULL,
+   [ProgramAreaCode] NVARCHAR(80) NULL,
+   [ProgramAreaName] NVARCHAR(80) NULL,
+   [ProgramProjectName] NVARCHAR(80) NULL,
+   [ProgramProjectCode] NVARCHAR(80) NULL,
+   [FromTo] NVARCHAR(80) NULL,
+   [BocCode] NVARCHAR(80) NULL,
+   [BocName] NVARCHAR(80) NULL,
+   [NpmCode] NVARCHAR(80) NULL,
+   [Amount] DECIMAL(18,0),
+   [Purpose] NVARCHAR(MAX) NULL,
+   [ExtendedPurpose] NVARCHAR(MAX) NULL,
+   [ResourceType] NVARCHAR(80) NULL
+);

@@ -1,8 +1,7 @@
 CREATE TABLE ProgramAreas
 (
-    ProgramAreasId INTEGER NOT NULL UNIQUE
-        CONSTRAINT PK_ProgramAreas PRIMARY KEY AUTOINCREMENT,
-    Code           TEXT(255) NOT NULL,
-    Name           TEXT(255) NULL
+    ProgramAreasId INT NOT NULL IDENTITY (1,1),
+    Code NVARCHAR(80) NOT NULL,
+    Name NVARCHAR(80) NULL
 );
 

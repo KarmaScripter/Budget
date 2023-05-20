@@ -1,126 +1,40 @@
 ﻿CREATE TABLE [StatusOfFunds]
 (
-    [
-    StatusOfFundsId ]
-    INT
-    NOT
-    NULL
-    IDENTITY
-(
-    1,
-    1
-),
-    [BudgetLevel] NVARCHAR
-(
-    255
-),
-    [BFY] NVARCHAR
-(
-    255
-),
-    [EFY] NVARCHAR
-(
-    255
-),
-    [RpioCode] NVARCHAR
-(
-    255
-),
-    [RpioName] NVARCHAR
-(
-    255
-),
-    [AhCode] NVARCHAR
-(
-    255
-),
-    [AhName] NVARCHAR
-(
-    255
-),
-    [ProgramAreaName] NVARCHAR
-(
-    255
-),
-    [ProgramProjectCode] NVARCHAR
-(
-    255
-),
-    [ProgramProjectName] NVARCHAR
-(
-    255
-),
-    [AccountCode] NVARCHAR
-(
-    255
-),
-    [LowerName] NVARCHAR
-(
-    255
-),
-    [RcCode] NVARCHAR
-(
-    255
-),
-    [RcName] NVARCHAR
-(
-    255
-),
-    [DivisionName] NVARCHAR
-(
-    255
-),
-    [OrgCode] NVARCHAR
-(
-    255
-),
-    [OrgName] NVARCHAR
-(
-    255
-),
-    [BocCode] NVARCHAR
-(
-    255
-),
-    [BocName] NVARCHAR
-(
-    255
-),
-    [FundCode] NVARCHAR
-(
-    255
-),
-    [FundName] NVARCHAR
-(
-    255
-),
-    [Amount] FLOAT,
-    [OpenCommitments] FLOAT,
-    [ULO] FLOAT,
-    [ExpenseAccruals] FLOAT,
-    [Expenditures] FLOAT,
-    [Obligations] FLOAT,
-    [Used] FLOAT,
-    [Available] FLOAT,
-    [NpmCode] NVARCHAR
-(
-    255
-),
-    [NpmName] NVARCHAR
-(
-    255
-),
-    [NpmTitle] NVARCHAR
-(
-    255
-),
-    [ProgramAreaCode] NVARCHAR
-(
-    255
-),
-    CONSTRAINT PK_StatusOfFunds
-    PRIMARY KEY
-(
-    StatusOfFundsId
-)
-    );
+   [StatusOfFundsId] INT NOT NULL IDENTITY (16413,1),
+   [BudgetLevel] NVARCHAR(80) NULL,
+   [BFY] NVARCHAR(80) NULL,
+   [EFY] NVARCHAR(80) NULL,
+   [RpioCode] NVARCHAR(80) NULL,
+   [RpioName] NVARCHAR(80) NULL,
+   [AhCode] NVARCHAR(80) NULL,
+   [AhName] NVARCHAR(80) NULL,
+   [FundCode] NVARCHAR(80) NULL,
+   [FundName] NVARCHAR(80) NOT NULL,
+   [OrgCode] NVARCHAR(80) NULL,
+   [OrgName] NVARCHAR(80) NULL,
+   [AccountCode] NVARCHAR(80) NULL,
+   [BocCode] NVARCHAR(80) NULL,
+   [BocName] NVARCHAR(80) NULL,
+   [ProgramProjectCode] NVARCHAR(80) NULL,
+   [ProgramProjectName] NVARCHAR(80) NULL,
+   [ProgramAreaCode] NVARCHAR(80) NULL,
+   [ProgramAreaName] NVARCHAR(80) NULL,
+   [RcCode] NVARCHAR(80) NULL,
+   [RcName] NVARCHAR(80) NULL,
+   [LowerName] NVARCHAR(80) NULL,
+   [Amount] DECIMAL(18,0),
+   [Budgeted] DECIMAL(18,0),
+   [Posted] DECIMAL(18,0),
+   [OpenCommitments] DECIMAL(18,0),
+   [UnliquidatedObligations] DECIMAL(18,0),
+   [Expenditures] DECIMAL(18,0),
+   [Obligations] DECIMAL(18,0),
+   [Used] DECIMAL(18,0),
+   [Available] DECIMAL(18,0),
+   [NpmCode] NVARCHAR(80) NULL,
+   [NpmName] NVARCHAR(80) NULL,
+   [TreasuryAccountCode] NVARCHAR(80) NULL, 
+   [TreasuryAccountName] NVARCHAR(80) NULL, 
+   [BudgetAccountCode] NVARCHAR(80) NULL, 
+   [BudgetAccountName] NVARCHAR(80) NULL
+);

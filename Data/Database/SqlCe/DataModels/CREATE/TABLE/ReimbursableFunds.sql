@@ -1,64 +1,18 @@
 CREATE TABLE [ReimbursableFunds]
 (
-    [
-    ReimbursableFundsId ] [
-    int ]
-    NOT
-    NULL
-    IDENTITY
-(
-    1,
-    1
-),
-    [RpioCode] NVARCHAR
-(
-    255
-) NULL,
-    [RpioName] NVARCHAR
-(
-    255
-) NULL,
-    [BFY] NVARCHAR
-(
-    255
-) NULL,
-    [FundCode] NVARCHAR
-(
-    255
-) NULL,
-    [AccountCode] NVARCHAR
-(
-    255
-) NULL,
-    [RcCode] NVARCHAR
-(
-    255
-) NULL,
-    [DivisionName] NVARCHAR
-(
-    255
-) NULL,
-    [BocCode] NVARCHAR
-(
-    255
-) NULL,
-    [DocumentControlNumber] NVARCHAR
-(
-    255
-) NULL,
-    [AgreeementNumber] NVARCHAR
-(
-    255
-) NULL,
-    [Amount] [money] NULL,
-    [OpenCommitments] [money] NULL,
-    [Obligations] [money] NULL,
-    [ULO] [money] NULL,
-    [Available] [money] NULL,
-    CONSTRAINT PK_ReimbursableFunds
-    PRIMARY KEY
-(
-    ReimbursableFundsId
-)
-    );
-
+   [ReimbursableFundsId] INT NOT NULL IDENTITY (1,1),
+   [RpioCode] NVARCHAR(80) NULL,
+   [BFY] NVARCHAR(80) NULL,
+   [FundCode] NVARCHAR(80) NULL,
+   [AccountCode] NVARCHAR(80) NULL,
+   [RcCode] NVARCHAR(80) NULL,
+   [RcName] NVARCHAR(80) NULL,
+   [BocCode] NVARCHAR(80) NULL,
+   [DocumentControlNumber] NVARCHAR(80) NULL,
+   [AgreeementNumber] NVARCHAR(80) NULL,
+   [Amount] DECIMAL(18,0),
+   [OpenCommitments] DECIMAL(18,0),
+   [Obligations] DECIMAL(18,0),
+   [UnliquatedObligations] DECIMAL(18,0),
+   [Available] DECIMAL(18,0)
+);
