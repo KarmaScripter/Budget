@@ -1,180 +1,28 @@
 ﻿CREATE TABLE [Allocations]
 (
-    [
-    AllocationsId ]
-    INT
-    NOT
-    NULL
-    IDENTITY
-(
-    1,
-    1
-),
-    [BudgetLevel] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [RPIO] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [BFY] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [FundCode] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [AhCode] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [OrgCode] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [RcCode] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [AccountCode] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [BocCode] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [Amount] FLOAT NOT NULL DEFAULT 0.0,
-    [ActivityCode] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [ActivityName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [FundName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [BocName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [NpmName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [Division] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [DivisionName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [ProgramProjectCode] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [ProgramProjectName] NVARCHAR
-(
-    100
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [ProgramAreaName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [AhName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [OrgName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [GoalName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    [ObjectiveName] NVARCHAR
-(
-    50
-) NOT NULL DEFAULT
-(
-    'NS'
-),
-    CONSTRAINT PK_Allocations
-    PRIMARY KEY
-(
-    AllocationsId
-)
-    );
+   [AllocationsId] INT NOT NULL IDENTITY (82051,1),
+   [StatusOfFundsId] INT NOT NULL,
+   [BudgetLevel] NVARCHAR(80),
+   [RpioCode] NVARCHAR(80),
+   [BFY] NVARCHAR(80),
+   [EFY] NVARCHAR(80),
+   [AhCode] NVARCHAR(80),
+   [FundCode] NVARCHAR(80),
+   [OrgCode] NVARCHAR(80),
+   [AccountCode] NVARCHAR(80),
+   [BocCode] NVARCHAR(80),
+   [RcCode] NVARCHAR(80),
+   [Amount] DECIMAL(18,0) NOT NULL DEFAULT (0),
+   [RpioName] NVARCHAR(80),
+   [FundName] NVARCHAR(80),
+   [AhName] NVARCHAR(80),
+   [BocName] NVARCHAR(80),
+   [RcName] NVARCHAR(80),
+   [OrgName] NVARCHAR(80),
+   [NpmName] NVARCHAR(80),
+   [NpmCode] NVARCHAR(80),
+   [ProgramProjectCode] NVARCHAR(80),
+   [ProgramProjectName] NVARCHAR(80),
+   [ProgramAreaCode] NVARCHAR(80),
+   [ProgramAreaName] NVARCHAR(80)
+);

@@ -1,22 +1,7 @@
-CREATE TABLE [dbo].[Activity]
+﻿CREATE TABLE [ActivityCodes]
 (
-    [
-    ActivityId ] [
-    float ]
-    NOT
-    NULL, [
-    Code ] [
-    nvarchar ]
-(
-    255
-) NOT NULL,
-    [Name] [nvarchar]
-(
-    255
-) NULL,
-    [Title] [nvarchar]
-(
-    255
-) NULL
-    );
-
+   [ActivityId] INT NOT NULL IDENTITY (607,1),
+   [Code] NVARCHAR(80) NOT NULL,
+   [Name] NVARCHAR(80),
+   [Description] NVARCHAR(80)
+);

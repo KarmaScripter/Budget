@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "CompassLevel.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,101 +10,105 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.PRC" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class CompassLevel : PRC 
     {
-        /// <summary> Gets or sets the type of the document. </summary>
-        /// <value> The type of the document. </value>
+        /// <summary>
+        /// Gets or sets the type of the document.
+        /// </summary>
+        /// <value>
+        /// The type of the document.
+        /// </value>
         public string DocumentType { get; set; }
 
-        /// <summary> Gets or sets the document date. </summary>
-        /// <value> The document date. </value>
+        /// <summary>
+        /// Gets or sets the document date.
+        /// </summary>
+        /// <value>
+        /// The document date.
+        /// </value>
         public DateOnly DocumentDate { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public override string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public override string EFY { get; set; }
-
-        /// <summary> </summary>
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
         public string AppropriationCode { get; set; }
 
-        /// <summary> </summary>
+        /// <summary>
+        /// Gets or sets the sub appropriation code.
+        /// </summary>
+        /// <value>
+        /// The sub appropriation code.
+        /// </value>
         public string SubAppropriationCode { get; set; }
 
-        /// <summary> Gets or sets the name of the fund. </summary>
-        /// <value> The name of the fund. </value>
+        /// <summary>
+        /// Gets or sets the name of the appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
         public string AppropriationName { get; set; }
 
-        /// <summary> Gets or sets the treasury symbol. </summary>
-        /// <value> The treasury symbol. </value>
+        /// <summary>
+        /// Gets or sets the treasury symbol.
+        /// </summary>
+        /// <value>
+        /// The treasury symbol.
+        /// </value>
         public string TreasurySymbol { get; set; }
 
-        /// <summary> Gets or sets the budget level. </summary>
-        /// <value> The budget level. </value>
-        public override string BudgetLevel { get; set; }
-
-        /// <summary> Gets or sets the total authority. </summary>
-        /// <value> The total authority. </value>
+        /// <summary>
+        /// Gets or sets the authority.
+        /// </summary>
+        /// <value>
+        /// The authority.
+        /// </value>
         public double Authority { get; set; }
 
-        /// <summary> Gets or sets the carry in. </summary>
-        /// <value> The carry in. </value>
+        /// <summary>
+        /// Gets or sets the carryover in.
+        /// </summary>
+        /// <value>
+        /// The carryover in.
+        /// </value>
         public double CarryoverIn { get; set; }
 
-        /// <summary> Gets or sets the carry out. </summary>
-        /// <value> The carry out. </value>
+        /// <summary>
+        /// Gets or sets the carryover out.
+        /// </summary>
+        /// <value>
+        /// The carryover out.
+        /// </value>
         public double CarryoverOut { get; set; }
 
-        /// <summary> Gets or sets the actual recoveries. </summary>
-        /// <value> The actual recoveries. </value>
+        /// <summary>
+        /// Gets or sets the recoveries.
+        /// </summary>
+        /// <value>
+        /// The recoveries.
+        /// </value>
         public double Recoveries { get; set; }
 
-        /// <summary> Gets or sets the actual reimbursements. </summary>
-        /// <value> The actual reimbursements. </value>
+        /// <summary>
+        /// Gets or sets the reimbursements.
+        /// </summary>
+        /// <value>
+        /// The reimbursements.
+        /// </value>
         public double Reimbursements { get; set; }
 
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
-        public override string TreasuryAccountCode { get; set; }
-
-        /// <summary> Gets or sets the treasury agency code. </summary>
-        /// <value> The treasury agency code. </value>
-        public override string TreasuryAccountName { get; set; }
-
-        /// <summary> Gets or sets the budget account code. </summary>
-        /// <value> The budget account code. </value>
-        public override string BudgetAccountCode { get; set; }
-
-        /// <summary> Gets or sets the name of the budget account. </summary>
-        /// <value> The name of the budget account. </value>
-        public override string BudgetAccountName { get; set; }
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassLevel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
         public CompassLevel( )
         {
@@ -112,11 +116,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassLevel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public CompassLevel( IQuery query )
             : base( query )
         {
@@ -146,11 +148,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassLevel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder"></param>
         public CompassLevel( IDataModel builder )
             : base( builder )
         {
@@ -180,11 +180,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassLevel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public CompassLevel( DataRow dataRow )
             : base( dataRow )
         {
@@ -213,32 +211,36 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public CompassLevel( CompassLevel compassLevel )
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CompassLevel"/> class.
+        /// </summary>
+        /// <param name="level">The compass level.</param>
+        public CompassLevel( CompassLevel level )
         {
-            ID = compassLevel.ID;
-            BFY = compassLevel.BFY;
-            EFY = compassLevel.EFY;
-            AppropriationCode = compassLevel.AppropriationCode;
-            SubAppropriationCode = compassLevel.SubAppropriationCode;
-            AppropriationName = compassLevel.AppropriationName;
-            FundCode = compassLevel.FundCode;
-            FundName = compassLevel.FundName;
-            RpioCode = compassLevel.RpioCode;
-            RpioName = compassLevel.RpioName;
-            AccountCode = compassLevel.AccountCode;
-            ProgramProjectCode = compassLevel.ProgramProjectCode;
-            ProgramAreaCode = compassLevel.ProgramAreaCode;
-            ProgramAreaName = compassLevel.ProgramAreaName;
-            BudgetLevel = compassLevel.BudgetLevel;
-            Authority = compassLevel.Authority;
-            CarryoverOut = compassLevel.CarryoverOut;
-            CarryoverIn = compassLevel.CarryoverIn;
-            Recoveries = compassLevel.Recoveries;
-            Reimbursements = compassLevel.Reimbursements;
-            TreasuryAccountCode = compassLevel.TreasuryAccountCode;
-            TreasuryAccountName = compassLevel.TreasuryAccountName;
-            BudgetAccountCode = compassLevel.BudgetAccountName;
-            BudgetAccountName = compassLevel.BudgetAccountName;
+            ID = level.ID;
+            BFY = level.BFY;
+            EFY = level.EFY;
+            AppropriationCode = level.AppropriationCode;
+            SubAppropriationCode = level.SubAppropriationCode;
+            AppropriationName = level.AppropriationName;
+            FundCode = level.FundCode;
+            FundName = level.FundName;
+            RpioCode = level.RpioCode;
+            RpioName = level.RpioName;
+            AccountCode = level.AccountCode;
+            ProgramProjectCode = level.ProgramProjectCode;
+            ProgramAreaCode = level.ProgramAreaCode;
+            ProgramAreaName = level.ProgramAreaName;
+            BudgetLevel = level.BudgetLevel;
+            Authority = level.Authority;
+            CarryoverOut = level.CarryoverOut;
+            CarryoverIn = level.CarryoverIn;
+            Recoveries = level.Recoveries;
+            Reimbursements = level.Reimbursements;
+            TreasuryAccountCode = level.TreasuryAccountCode;
+            TreasuryAccountName = level.TreasuryAccountName;
+            BudgetAccountCode = level.BudgetAccountName;
+            BudgetAccountName = level.BudgetAccountName;
         }
     }
 }

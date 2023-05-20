@@ -1,8 +1,6 @@
-CREATE TABLE AllowanceHolders
+﻿CREATE TABLE [AllowanceHolders]
 (
-    AllowanceHoldersId INTEGER NOT NULL UNIQUE
-        CONSTRAINT PK_AllowanceHolders PRIMARY KEY AUTOINCREMENT,
-    Code               TEXT(255) NOT NULL,
-    Name               TEXT(255) NULL
+   [AllowanceHoldersId] INT NOT NULL IDENTITY (6126,1),
+   [Code] NVARCHAR(80),
+   [Name] NVARCHAR(80)
 );
-

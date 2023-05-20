@@ -1,2 +1,1 @@
-DELETE
-FROM {TableName};
+DELETE FROM {TableName};

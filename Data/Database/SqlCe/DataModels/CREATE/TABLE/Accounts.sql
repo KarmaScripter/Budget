@@ -1,14 +1,16 @@
-CREATE TABLE Accounts
+﻿CREATE TABLE [Accounts]
 (
-    AccountId          INTEGER NOT NULL UNIQUE
-        CONSTRAINT PK_Accounts PRIMARY KEY AUTOINCREMENT,
-    Code               TEXT(255) NOT NULL,
-    ActivityCode       TEXT(255) NULL,
-    Name               TEXT(255) NULL,
-    Title              TEXT(255) NULL,
-    ProgramAreaCode    TEXT(255) NULL,
-    ProgramProjectCode TEXT(255) NULL,
-    GoalCode           TEXT(255) NULL,
-    ObjectiveCode      TEXT(255) NULL
+   [AccountsId] INT NOT NULL IDENTITY (64047,1),
+   [Code] NVARCHAR(80),
+   [alCode] NVARCHAR(80),
+   [ObjectiveCode] NVARCHAR(80),
+   [NpmCode] NVARCHAR(80),
+   [NpmName] NVARCHAR(80),
+   [ProgramProjectCode] NVARCHAR(80),
+   [ProgramProjectName] NVARCHAR(80),
+   [ProgramAreaCode] NVARCHAR(80),
+   [ProgramAreaName] NVARCHAR(80),
+   [ActivityCode] NVARCHAR(80),
+   [ActivityName] NVARCHAR(80),
+   [AgencyActivity] NVARCHAR(80)
 );
-

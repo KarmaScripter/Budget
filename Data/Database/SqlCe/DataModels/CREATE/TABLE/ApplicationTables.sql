@@ -1,27 +1,6 @@
-CREATE TABLE [ApplicationTables]
+﻿CREATE TABLE [ApplicationTables]
 (
-    [
-    ApplicationTablesId ]
-    INT
-    NOT
-    NULL
-    IDENTITY
-(
-    1,
-    1
-),
-    [TableName] NVARCHAR
-(
-    255
-) NULL,
-    [Model] NVARCHAR
-(
-    255
-) NULL,
-    CONSTRAINT PK_ApplicationTables
-    PRIMARY KEY
-(
-    ApplicationTablesId
-)
-    );
-
+   [ApplicationTablesId] INT NOT NULL IDENTITY (1869,1),
+   [TableName] NVARCHAR(80),
+   [Model] NVARCHAR(80)
+);
