@@ -1,55 +1,54 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "DescriptionBase.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
-    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     public abstract class DescriptionBase : DataUnit
     {
-        /// <summary> Gets the record. </summary>
-        /// <value> The record. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the identifier. </summary>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the code. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets the definition. </summary>
-        /// <value> The definition. </value>
+        /// <summary>
+        /// Gets or sets the definition.
+        /// </summary>
+        /// <value>
+        /// The definition.
+        /// </value>
         public string Definition { get; set; }
 
-        /// <summary> Gets the laws. </summary>
-        /// <value> The laws. </value>
+        /// <summary>
+        /// Gets or sets the laws.
+        /// </summary>
+        /// <value>
+        /// The laws.
+        /// </value>
         public string Laws { get; set; }
 
-        /// <summary> Gets the title. </summary>
-        /// <value> The title. </value>
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
         public string Title { get; set; }
 
-        /// <summary> Gets the program area code. </summary>
-        /// <value> The program area code. </value>
+        /// <summary>
+        /// Gets or sets the program area code.
+        /// </summary>
+        /// <value>
+        /// The program area code.
+        /// </value>
         public string ProgramAreaCode { get; set; }
 
-        /// <summary> Gets the name of the program area. </summary>
-        /// <value> The name of the program area. </value>
+        /// <summary>
+        /// Gets or sets the name of the program area.
+        /// </summary>
+        /// <value>
+        /// The name of the program area.
+        /// </value>
         public string ProgramAreaName { get; set; }
     }
 }

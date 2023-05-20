@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary> </summary>
     public interface IPictureBox

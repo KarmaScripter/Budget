@@ -4,8 +4,6 @@
 
 namespace BudgetExecution
 {
-    using System.Data;
-
     /// <summary> </summary>
     /// <seealso cref = "ISource"/>
     public interface IProgramResultsCode : ISource
