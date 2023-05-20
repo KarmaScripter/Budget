@@ -32,10 +32,6 @@ namespace BudgetExecution
     /// the Agency's funding with the Regional Administrator being identified as the primary regional
     /// Allowance Holder.
     /// </summary>
-    /// <seealso cref="IAllowanceHolder"/>
-    /// <seealso cref="IProgram"/>
-    /// <seealso cref="ISource"/>
-    /// <seealso cref="IAllowanceHolder"/>
     /// <seealso cref="ISource"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameter" ) ]
@@ -46,26 +42,46 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class AllowanceHolder : DataUnit 
     {
-        /// <summary> The source </summary>
+        /// <summary>
+        /// The source
+        /// </summary>
         public override Source Source { get; set; }
 
-        /// <summary> Gets or sets the dict. </summary>
-        /// <value> The dict. </value>
+        /// <summary>
+        /// Gets or sets the dict.
+        /// </summary>
+        /// <value>
+        /// The dict.
+        /// </value>
         public override DataRow Record { get; set; }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <value>
+        /// The arguments.
+        /// </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public override int ID { get; set; }
 
-        /// <summary> Gets the code. </summary>
+        /// <summary>
+        /// Gets the code.
+        /// </summary>
         public override string Code { get; set; }
 
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public override string Name { get; set; }
 
         /// <summary>

@@ -10,23 +10,32 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> c </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.StatusOfFunds" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class AmericanRescuePlan : StatusOfFunds
     {
-        /// <summary> Gets or sets the status of funds identifier. </summary>
-        /// <value> The status of funds identifier. </value>
+        /// <summary>
+        /// Gets or sets the status of funds identifier.
+        /// </summary>
+        /// <value>
+        /// The status of funds identifier.
+        /// </value>
         public int StatusOfFundsId { get; set; }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AmericanRescuePlan"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
         /// </summary>
         public AmericanRescuePlan( )
         {
@@ -34,11 +43,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AmericanRescuePlan"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public AmericanRescuePlan( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -83,11 +90,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AmericanRescuePlan"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder"></param>
         public AmericanRescuePlan( IDataModel builder )
         {
             Record = builder.Record;
@@ -132,11 +137,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AmericanRescuePlan"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public AmericanRescuePlan( DataRow dataRow )
         {
             Record = dataRow;
@@ -180,34 +183,38 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public AmericanRescuePlan( AmericanRescuePlan allocation )
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// </summary>
+        /// <param name="account">The allocation.</param>
+        public AmericanRescuePlan( AmericanRescuePlan account )
         {
-            ID = allocation.ID;
-            BudgetLevel = allocation.BudgetLevel;
-            BFY = allocation.BFY;
-            EFY = allocation.EFY;
-            FundCode = allocation.FundCode;
-            FundName = allocation.FundName;
-            RpioCode = allocation.RpioCode;
-            RpioName = allocation.RpioName;
-            AhCode = allocation.AhCode;
-            AhName = allocation.AhName;
-            OrgCode = allocation.OrgCode;
-            OrgName = allocation.OrgName;
-            AccountCode = allocation.AccountCode;
-            BocCode = allocation.BocCode;
-            BocName = allocation.BocName;
-            Amount = allocation.Amount;
-            ProgramProjectCode = allocation.ProgramProjectCode;
-            ProgramProjectName = allocation.ProgramProjectName;
-            ProgramAreaCode = allocation.ProgramAreaCode;
-            ProgramAreaName = allocation.ProgramAreaName;
-            NpmCode = allocation.NpmCode;
-            NpmName = allocation.NpmName;
-            TreasuryAccountCode = allocation.TreasuryAccountCode;
-            TreasuryAccountName = allocation.TreasuryAccountName;
-            BudgetAccountCode = allocation.BudgetAccountCode;
-            BudgetAccountName = allocation.BudgetAccountName;
+            ID = account.ID;
+            BudgetLevel = account.BudgetLevel;
+            BFY = account.BFY;
+            EFY = account.EFY;
+            FundCode = account.FundCode;
+            FundName = account.FundName;
+            RpioCode = account.RpioCode;
+            RpioName = account.RpioName;
+            AhCode = account.AhCode;
+            AhName = account.AhName;
+            OrgCode = account.OrgCode;
+            OrgName = account.OrgName;
+            AccountCode = account.AccountCode;
+            BocCode = account.BocCode;
+            BocName = account.BocName;
+            Amount = account.Amount;
+            ProgramProjectCode = account.ProgramProjectCode;
+            ProgramProjectName = account.ProgramProjectName;
+            ProgramAreaCode = account.ProgramAreaCode;
+            ProgramAreaName = account.ProgramAreaName;
+            NpmCode = account.NpmCode;
+            NpmName = account.NpmName;
+            TreasuryAccountCode = account.TreasuryAccountCode;
+            TreasuryAccountName = account.TreasuryAccountName;
+            BudgetAccountCode = account.BudgetAccountCode;
+            BudgetAccountName = account.BudgetAccountName;
         }
     }
 }
