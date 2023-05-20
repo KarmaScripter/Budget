@@ -9,46 +9,74 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.PRC"/>
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.PRC" />
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class Actual : PRC 
     {
-
-        /// <summary> Gets or sets the appropriation code. </summary>
-        /// <value> The appropriation code. </value>
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
         public virtual string AppropriationCode { get; set; }
 
-        /// <summary> Gets or sets the name of the appropriation. </summary>
-        /// <value> The name of the appropriation. </value>
+        /// <summary>
+        /// Gets or sets the name of the appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
         public virtual string AppropriationName { get; set; }
 
-        /// <summary> Gets or sets the appropriation code. </summary>
-        /// <value> The appropriation code. </value>
+        /// <summary>
+        /// Gets or sets the sub appropriation code.
+        /// </summary>
+        /// <value>
+        /// The sub appropriation code.
+        /// </value>
         public virtual string SubAppropriationCode { get; set; }
 
-        /// <summary> Gets or sets the name of the appropriation. </summary>
-        /// <value> The name of the appropriation. </value>
+        /// <summary>
+        /// Gets or sets the name of the sub appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the sub appropriation.
+        /// </value>
         public virtual string SubAppropriationName { get; set; }
 
-        /// <summary> Gets or sets the ulo. </summary>
-        /// <value> The ulo. </value>
+        /// <summary>
+        /// Gets or sets the commitments.
+        /// </summary>
+        /// <value>
+        /// The commitments.
+        /// </value>
         public virtual double Commitments { get; set; }
 
-        /// <summary> Gets or sets the obligations. </summary>
-        /// <value> The obligations. </value>
+        /// <summary>
+        /// Gets or sets the obligations.
+        /// </summary>
+        /// <value>
+        /// The obligations.
+        /// </value>
         public virtual double Obligations { get; set; }
 
-        /// <summary> Gets or sets the balance. </summary>
-        /// <value> The balance. </value>
+        /// <summary>
+        /// Gets or sets the balance.
+        /// </summary>
+        /// <value>
+        /// The balance.
+        /// </value>
         public virtual double Balance { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Actual"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
         public Actual( )
         {
@@ -56,11 +84,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Actual"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public Actual( IQuery query )
             : this( )
         {
@@ -84,8 +110,8 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            ActivityCode = Record[ "RpioActivityCode" ].ToString( );
-            ActivityName = Record[ "RpioActivityName" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            ActivityName = Record[ "ActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             Commitments = double.Parse( Record[ "Commitments" ].ToString( ) ?? "0" );
@@ -104,11 +130,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Actual"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
-        /// <param name="builder"> </param>
+        /// <param name="builder"></param>
         public Actual( IDataModel builder )
             : this( )
         {
@@ -132,8 +156,8 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            ActivityCode = Record[ "RpioActivityCode" ].ToString( );
-            ActivityName = Record[ "RpioActivityName" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            ActivityName = Record[ "ActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             Commitments = double.Parse( Record[ "Commitments" ].ToString( ) ?? "0" );
@@ -152,11 +176,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Actual"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Actual"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public Actual( DataRow dataRow )
             : this( )
         {
@@ -181,8 +203,8 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            ActivityCode = dataRow[ "RpioActivityCode" ].ToString( );
-            ActivityName = dataRow[ "RpioActivityName" ].ToString( );
+            ActivityCode = dataRow[ "ActivityCode" ].ToString( );
+            ActivityName = dataRow[ "ActivityName" ].ToString( );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             Commitments = double.Parse( Record[ "Commitments" ].ToString( ) ?? "0" );
@@ -200,6 +222,10 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Actual"/> class.
+        /// </summary>
+        /// <param name="actual">The actual.</param>
         public Actual( Actual actual )
         {
             Source = Source.Actuals;

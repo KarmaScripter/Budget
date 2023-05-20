@@ -12,11 +12,11 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class BudgetControlValue : BudgetControl 
+    public class BudgetControlValue : BudgetControl
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetControlValue"/>
+        /// <see cref = "BudgetControlValue"/>
         /// class.
         /// </summary>
         public BudgetControlValue( )
@@ -26,10 +26,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetControlValue"/>
+        /// <see cref = "BudgetControlValue"/>
         /// class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name = "query"> The query. </param>
         public BudgetControlValue( IQuery query )
             : this( )
         {
@@ -77,10 +77,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetControlValue"/>
+        /// <see cref = "BudgetControlValue"/>
         /// class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name = "builder"> The builder. </param>
         public BudgetControlValue( IDataModel builder )
             : this( )
         {
@@ -128,10 +128,10 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="BudgetControlValue"/>
+        /// <see cref = "BudgetControlValue"/>
         /// class.
         /// </summary>
-        /// <param name="row"> The data row. </param>
+        /// <param name = "row"> The data row. </param>
         public BudgetControlValue( DataRow row )
             : this( )
         {

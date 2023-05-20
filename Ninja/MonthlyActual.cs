@@ -61,8 +61,8 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            ActivityCode = Record[ "RpioActivityCode" ].ToString( );
-            ActivityName = Record[ "RpioActivityName" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            ActivityName = Record[ "ActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
@@ -107,8 +107,8 @@ namespace BudgetExecution
             AccountCode = Record[ "AccountCode" ].ToString( );
             BocCode = Record[ "BocCode" ].ToString( );
             BocName = Record[ "BocName" ].ToString( );
-            ActivityCode = Record[ "RpioActivityCode" ].ToString( );
-            ActivityName = Record[ "RpioActivityName" ].ToString( );
+            ActivityCode = Record[ "ActivityCode" ].ToString( );
+            ActivityName = Record[ "ActivityName" ].ToString( );
             ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
@@ -153,8 +153,8 @@ namespace BudgetExecution
             AccountCode = dataRow[ "AccountCode" ].ToString( );
             BocCode = dataRow[ "BocCode" ].ToString( );
             BocName = dataRow[ "BocName" ].ToString( );
-            ActivityCode = dataRow[ "RpioActivityCode" ].ToString( );
-            ActivityName = dataRow[ "RpioActivityName" ].ToString( );
+            ActivityCode = dataRow[ "ActivityCode" ].ToString( );
+            ActivityName = dataRow[ "ActivityName" ].ToString( );
             ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
             ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );

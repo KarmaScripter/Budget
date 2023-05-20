@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Amount.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -9,27 +9,46 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="IAmount"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.IAmount" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class Amount : IAmount
     {
-        /// <summary> The initial </summary>
+        /// <summary>
+        /// Gets or sets the initial.
+        /// </summary>
+        /// <value>
+        /// The initial.
+        /// </value>
         public double Initial { get; set; }
 
-        /// <summary> The delta </summary>
+        /// <summary>
+        /// Gets or sets the delta.
+        /// </summary>
+        /// <value>
+        /// The delta.
+        /// </value>
         public double Delta { get; set; }
 
-        /// <summary> The funding </summary>
+        /// <summary>
+        /// Gets the funding.
+        /// </summary>
         public double Value { get; set; }
 
-        /// <summary> The numeric column name </summary>
+        /// <summary>
+        /// Gets the numeric column.
+        /// </summary>
         public string Numeric { get; set; }
 
-        /// <summary> Called to get the Amount </summary>
+        /// <summary>
+        /// Gets the IAmount
+        /// </summary>
+        /// <returns></returns>
         public IAmount GetAmount( )
         {
             try
@@ -44,9 +63,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Amount"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Amount"/> class.
         /// </summary>
         public Amount( )
         {
@@ -54,11 +71,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Amount"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Amount"/> class.
         /// </summary>
-        /// <param name="value"> The value. </param>
+        /// <param name="value">The value.</param>
         public Amount( double value = 0.0 )
             : this( )
         {
@@ -66,6 +81,11 @@ namespace BudgetExecution
             Delta = Initial - Value;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Amount"/> class.
+        /// </summary>
+        /// <param name="dataRow">The data row.</param>
+        /// <param name="numeric">The numeric.</param>
         public Amount( DataRow dataRow, string numeric )
         {
             Numeric = numeric;
@@ -73,6 +93,10 @@ namespace BudgetExecution
             Delta = Initial - Value;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Amount"/> class.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
         public Amount( IAmount amount )
         {
             Numeric = amount.Numeric;
@@ -80,8 +104,10 @@ namespace BudgetExecution
             Delta = 0.0;
         }
 
-        /// <summary> Increases the specified amount. </summary>
-        /// <param name="increment"> The amount. </param>
+        /// <summary>
+        /// Increases the specified increment.
+        /// </summary>
+        /// <param name="increment">The increment.</param>
         public void Increase( int increment )
         {
             try
@@ -95,8 +121,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Decreases the specified amount. </summary>
-        /// <param name="decrement"> The amount. </param>
+        /// <summary>
+        /// Decreases the specified decrement.
+        /// </summary>
+        /// <param name="decrement">The decrement.</param>
         public void Decrease( int decrement )
         {
             try
@@ -110,13 +138,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Determines whether the specified amount is equal. </summary>
-        /// <param name="amount"> The amount. </param>
+        /// <summary>
+        /// Determines whether the specified amount is equal.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
         /// <returns>
-        /// <c> true </c>
-        /// if the specified amount is equal; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if the specified amount is equal; otherwise, <c>false</c>.
         /// </returns>
         public bool IsEqual( IAmount amount )
         {
@@ -136,14 +163,13 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Determines whether the specified first is equal. </summary>
-        /// <param name="first"> The first. </param>
-        /// <param name="second"> The second. </param>
+        /// <summary>
+        /// Determines whether the specified first is equal.
+        /// </summary>
+        /// <param name="first">The first.</param>
+        /// <param name="second">The second.</param>
         /// <returns>
-        /// <c> true </c>
-        /// if the specified first is equal; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if the specified first is equal; otherwise, <c>false</c>.
         /// </returns>
         public static bool IsEqual( IAmount first, IAmount second )
         {
@@ -164,13 +190,11 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Called when [changed]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event Data.
-        /// </param>
+        /// <summary>
+        /// Called when [changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnChanged( object sender, EventArgs e )
         {
             try
@@ -184,8 +208,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

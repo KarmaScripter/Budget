@@ -1,44 +1,11 @@
-CREATE TABLE [Changes]
+﻿CREATE TABLE [Changes]
 (
-    [
-    ChangesId ]
-    INT
-    NOT
-    NULL
-    IDENTITY
-(
-    1,
-    1
-),
-    [TableName] NVARCHAR
-(
-    255
-) NULL,
-    [FieldName] NVARCHAR
-(
-    255
-) NULL,
-    [Action] NVARCHAR
-(
-    255
-) NULL,
-    [OldValue] NVARCHAR
-(
-    255
-) NULL,
-    [NewValue] NVARCHAR
-(
-    255
-) NULL,
-    [TimeStamp] DATETIME NULL,
-    [Message] NVARCHAR
-(
-    255
-) NULL,
-    CONSTRAINT PK_Changes
-    PRIMARY KEY
-(
-    ChangesId
-)
-    );
-
+   [ChangesId] INT NOT NULL IDENTITY (4194,1),
+   [TableName] NVARCHAR(80),
+   [FieldName] NVARCHAR(80),
+   [Action] NVARCHAR(80),
+   [OldValue] NVARCHAR(80),
+   [NewValue] NVARCHAR(80),
+   [TimeStamp] DATETIME,
+   [Message] NVARCHAR(80)
+);

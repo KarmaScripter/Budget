@@ -10,42 +10,33 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.DataUnit" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ActivityCode : DataUnit 
     {
-        /// <summary> Gets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
         public override Source Source { get; set; }
 
-        /// <summary> Gets the dataRow. </summary>
-        /// <value> The dataRow. </value>
+        /// <summary>
+        /// </summary>
         public override DataRow Record { get; set; }
 
-        /// <summary> Gets or sets the description. </summary>
-        /// <value> The description. </value>
-        public string Description { get; set; }
-
-        /// <summary> Gets or sets the description. </summary>
-        /// <value> The description. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the code. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
-        /// class.
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
+        public string Description { get; set; }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityCode"/> class.
         /// </summary>
         public ActivityCode( )
         {
@@ -53,11 +44,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ActivityCode"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public ActivityCode( IQuery query )
             : this( )
         {
@@ -69,11 +58,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ActivityCode"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public ActivityCode( IDataModel builder )
             : this( )
         {
@@ -85,11 +72,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ActivityCode"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ActivityCode"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public ActivityCode( DataRow dataRow )
             : this( )
         {
@@ -100,6 +85,10 @@ namespace BudgetExecution
             Data = dataRow?.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityCode"/> class.
+        /// </summary>
+        /// <param name="code">The code.</param>
         public ActivityCode( string code )
             : this( )
         {
@@ -110,6 +99,10 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActivityCode"/> class.
+        /// </summary>
+        /// <param name="activityCode">The activity code.</param>
         public ActivityCode( ActivityCode activityCode )
             : this( )
         {
@@ -118,9 +111,11 @@ namespace BudgetExecution
             Name = activityCode.Name;
         }
 
-        /// <summary> Sets the arguments. </summary>
-        /// <param name="code"> The code. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the arguments.
+        /// </summary>
+        /// <param name="code">The code.</param>
+        /// <returns></returns>
         private IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )

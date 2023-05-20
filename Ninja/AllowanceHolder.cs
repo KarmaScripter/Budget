@@ -158,18 +158,17 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AllowanceHolder"/> class.
+        /// </summary>
+        /// <param name="allowanceHolder">The allowance holder.</param>
         public AllowanceHolder( AllowanceHolder allowanceHolder )
         {
             ID = allowanceHolder.ID;
             Name = allowanceHolder.Name;
             Code = allowanceHolder.Code;
         }
-
-        public AllowanceHolder GetAllowanceHolder( )
-        {
-            return MemberwiseClone( ) as AllowanceHolder;
-        }
-
+        
         /// <summary> Sets the arguments. </summary>
         /// <param name="code"> The code. </param>
         /// <returns> </returns>

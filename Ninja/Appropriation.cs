@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Appropriation.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,30 +14,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Appropriation : DataUnit 
     {
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets or sets the code. </summary>
-        /// <value> The code. </value>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="Appropriation"/>

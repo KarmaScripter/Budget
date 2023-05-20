@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "CompassOutlay.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,55 +10,65 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class CompassOutlay : BudgetUnit 
     {
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public override Provider Provider { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets or sets the appropriation code. </summary>
-        /// <value> The appropriation code. </value>
+        /// <summary>
+        /// Gets or sets the appropriation code.
+        /// </summary>
+        /// <value>
+        /// The appropriation code.
+        /// </value>
         public string AppropriationCode { get; set; }
 
-        /// <summary> Gets or sets the name of the appropriation. </summary>
-        /// <value> The name of the appropriation. </value>
+        /// <summary>
+        /// Gets or sets the name of the appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
         public string AppropriationName { get; set; }
 
-        /// <summary> Gets or sets the month processed. </summary>
-        /// <value> The month processed. </value>
+        /// <summary>
+        /// Gets or sets the month processed.
+        /// </summary>
+        /// <value>
+        /// The month processed.
+        /// </value>
         public string MonthProcessed { get; set; }
 
-        /// <summary> Gets or sets the total obligations. </summary>
-        /// <value> The total obligations. </value>
+        /// <summary>
+        /// Gets or sets the total obligations.
+        /// </summary>
+        /// <value>
+        /// The total obligations.
+        /// </value>
         public double TotalObligations { get; set; }
 
-        /// <summary> Gets or sets the unliquidated obligations. </summary>
-        /// <value> The unliquidated obligations. </value>
+        /// <summary>
+        /// Gets or sets the unliquidated obligations.
+        /// </summary>
+        /// <value>
+        /// The unliquidated obligations.
+        /// </value>
         public double UnliquidatedObligations { get; set; }
 
-        /// <summary> Gets or sets the obligations paid. </summary>
-        /// <value> The obligations paid. </value>
+        /// <summary>
+        /// Gets or sets the obligations paid.
+        /// </summary>
+        /// <value>
+        /// The obligations paid.
+        /// </value>
         public double ObligationsPaid { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
         /// </summary>
         public CompassOutlay( )
         {
@@ -66,11 +76,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public CompassOutlay( IQuery query )
             : this( )
         {
@@ -93,11 +101,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public CompassOutlay( IDataModel builder )
             : this( )
         {
@@ -120,11 +126,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public CompassOutlay( DataRow dataRow )
             : this( )
         {
@@ -147,11 +151,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CompassOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CompassOutlay"/> class.
         /// </summary>
-        /// <param name="outlay"> The outlay. </param>
+        /// <param name="outlay">The outlay.</param>
         public CompassOutlay( CompassOutlay outlay )
         {
             ID = outlay.ID;

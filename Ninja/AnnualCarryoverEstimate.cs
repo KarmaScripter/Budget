@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "AnnualCarryoverEstimate.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,90 +10,71 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class AnnualCarryoverEstimate : BudgetUnit 
     {
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public override string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public override string EFY { get; set; }
-
-        /// <summary> Gets or sets the fund code. </summary>
-        /// <value> The fund code. </value>
-        public override string FundCode { get; set; }
-
-        /// <summary> Gets or sets the name of the fund. </summary>
-        /// <value> The name of the fund. </value>
-        public override string FundName { get; set; }
-
-        /// <summary> Gets or sets the rpio code. </summary>
-        /// <value> The rpio code. </value>
+        /// <summary>
+        /// Gets or sets the rpio code.
+        /// </summary>
+        /// <value>
+        /// The rpio code.
+        /// </value>
         public string RpioCode { get; set; }
 
-        /// <summary> Gets or sets the name of the rpio. </summary>
-        /// <value> The name of the rpio. </value>
+        /// <summary>
+        /// Gets or sets the name of the rpio.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio.
+        /// </value>
         public string RpioName { get; set; }
 
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
+        /// <summary>
+        /// Gets or sets the amount.
+        /// </summary>
+        /// <value>
+        /// The amount.
+        /// </value>
         public double Amount { get; set; }
 
-        /// <summary> Gets or sets the open commitments. </summary>
-        /// <value> The open commitments. </value>
+        /// <summary>
+        /// Gets or sets the open commitments.
+        /// </summary>
+        /// <value>
+        /// The open commitments.
+        /// </value>
         public double OpenCommitments { get; set; }
 
-        /// <summary> Gets or sets the obligations. </summary>
-        /// <value> The obligations. </value>
+        /// <summary>
+        /// Gets or sets the obligations.
+        /// </summary>
+        /// <value>
+        /// The obligations.
+        /// </value>
         public double Obligations { get; set; }
 
-        /// <summary> Gets or sets the available. </summary>
-        /// <value> The available. </value>
+        /// <summary>
+        /// Gets or sets the available.
+        /// </summary>
+        /// <value>
+        /// The available.
+        /// </value>
         public double Available { get; set; }
 
-        /// <summary> Gets or sets the estimate. </summary>
-        /// <value> The estimate. </value>
+        /// <summary>
+        /// Gets or sets the estimate.
+        /// </summary>
+        /// <value>
+        /// The estimate.
+        /// </value>
         public double Estimate { get; set; }
 
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
-        public override string TreasuryAccountCode { get; set; }
-
-        /// <summary> Gets or sets the treasury agency code. </summary>
-        /// <value> The treasury agency code. </value>
-        public override string TreasuryAccountName { get; set; }
-
-        /// <summary> Gets or sets the budget account code. </summary>
-        /// <value> The budget account code. </value>
-        public override string BudgetAccountCode { get; set; }
-
-        /// <summary> Gets or sets the name of the budget account. </summary>
-        /// <value> The name of the budget account. </value>
-        public override string BudgetAccountName { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; }
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AnnualCarryoverEstimate"/> class.
         /// </summary>
         public AnnualCarryoverEstimate( )
         {
@@ -101,11 +82,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AnnualCarryoverEstimate"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public AnnualCarryoverEstimate( IQuery query )
             : this( )
         {
@@ -129,11 +108,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AnnualCarryoverEstimate"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public AnnualCarryoverEstimate( IDataModel builder )
             : this( )
         {
@@ -158,11 +135,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AnnualCarryoverEstimate"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AnnualCarryoverEstimate"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public AnnualCarryoverEstimate( DataRow dataRow )
             : this( )
         {
@@ -185,6 +160,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AnnualCarryoverEstimate"/> class.
+        /// </summary>
+        /// <param name="carryover">The carryover.</param>
         public AnnualCarryoverEstimate( AnnualCarryoverEstimate carryover )
             : this( )
         {

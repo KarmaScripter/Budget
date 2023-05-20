@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Contact.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,52 +10,64 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.DataUnit" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class Contact : DataUnit
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets or sets the First Name property </summary>
+        /// <summary>
+        /// Gets or sets the first name.
+        /// </summary>
+        /// <value>
+        /// The first name.
+        /// </value>
         public string FirstName { get; set; }
 
-        /// <summary> Gets or sets the Last Name property </summary>
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
         public string LastName { get; set; }
 
-        /// <summary> Gets or sets the Full Name  property </summary>
+        /// <summary>
+        /// Gets or sets the full name.
+        /// </summary>
+        /// <value>
+        /// The full name.
+        /// </value>
         public string FullName { get; set; }
 
-        /// <summary> Gets or sets the Email Address property </summary>
+        /// <summary>
+        /// Gets or sets the email address.
+        /// </summary>
+        /// <value>
+        /// The email address.
+        /// </value>
         public string EmailAddress { get; set; }
 
-        /// <summary> Gets or sets the RPIO property </summary>
+        /// <summary>
+        /// Gets or sets the rpio.
+        /// </summary>
+        /// <value>
+        /// The rpio.
+        /// </value>
         public string RPIO { get; set; }
 
-        /// <summary> Gets or sets the Section property </summary>
+        /// <summary>
+        /// Gets or sets the section.
+        /// </summary>
+        /// <value>
+        /// The section.
+        /// </value>
         public string Section { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public override Provider Provider { get; set; }
-
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Contact"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
         public Contact( )
         {
@@ -63,11 +75,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Contact"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public Contact( IQuery query )
             : this( )
         {
@@ -83,11 +93,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Contact"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public Contact( IDataModel builder )
             : this( )
         {
@@ -103,11 +111,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Contact"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Contact"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public Contact( DataRow dataRow )
             : this( )
         {

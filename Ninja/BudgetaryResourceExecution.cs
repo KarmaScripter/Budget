@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "BudgetaryResourceExecution.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,108 +10,193 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class BudgetaryResourceExecution : BudgetUnit 
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets or sets the fiscal year. </summary>
-        /// <value> The fiscal year. </value>
+        /// <summary>
+        /// Gets or sets the fiscal year.
+        /// </summary>
+        /// <value>
+        /// The fiscal year.
+        /// </value>
         public string FiscalYear { get; set; }
 
-        /// <summary> Gets or sets the last update. </summary>
-        /// <value> The last update. </value>
+        /// <summary>
+        /// Gets or sets the last update.
+        /// </summary>
+        /// <value>
+        /// The last update.
+        /// </value>
         public DateOnly LastUpdate { get; set; }
 
-        /// <summary> Gets or sets the stat. </summary>
-        /// <value> The stat. </value>
+        /// <summary>
+        /// Gets or sets the stat.
+        /// </summary>
+        /// <value>
+        /// The stat.
+        /// </value>
         public string STAT { get; set; }
 
-        /// <summary> Gets or sets the credit indicator. </summary>
-        /// <value> The credit indicator. </value>
+        /// <summary>
+        /// Gets or sets the credit indicator.
+        /// </summary>
+        /// <value>
+        /// The credit indicator.
+        /// </value>
         public string CreditIndicator { get; set; }
 
-        /// <summary> Gets or sets the line number. </summary>
-        /// <value> The line number. </value>
+        /// <summary>
+        /// Gets or sets the line number.
+        /// </summary>
+        /// <value>
+        /// The line number.
+        /// </value>
         public string LineNumber { get; set; }
 
-        /// <summary> Gets or sets the line description. </summary>
-        /// <value> The line description. </value>
+        /// <summary>
+        /// Gets or sets the line description.
+        /// </summary>
+        /// <value>
+        /// The line description.
+        /// </value>
         public string LineDescription { get; set; }
 
-        /// <summary> Gets or sets the name of the section. </summary>
-        /// <value> The name of the section. </value>
+        /// <summary>
+        /// Gets or sets the name of the section.
+        /// </summary>
+        /// <value>
+        /// The name of the section.
+        /// </value>
         public string SectionName { get; set; }
 
-        /// <summary> Gets or sets the section number. </summary>
-        /// <value> The section number. </value>
+        /// <summary>
+        /// Gets or sets the section number.
+        /// </summary>
+        /// <value>
+        /// The section number.
+        /// </value>
         public string SectionNumber { get; set; }
 
-        /// <summary> Gets or sets the type of the line. </summary>
-        /// <value> The type of the line. </value>
+        /// <summary>
+        /// Gets or sets the type of the line.
+        /// </summary>
+        /// <value>
+        /// The type of the line.
+        /// </value>
         public string LineType { get; set; }
 
-        /// <summary> Gets or sets the financing accounts. </summary>
-        /// <value> The financing accounts. </value>
+        /// <summary>
+        /// Gets or sets the financing accounts.
+        /// </summary>
+        /// <value>
+        /// The financing accounts.
+        /// </value>
         public string FinancingAccounts { get; set; }
 
-        /// <summary> Gets or sets the november. </summary>
-        /// <value> The november. </value>
+        /// <summary>
+        /// Gets or sets the november.
+        /// </summary>
+        /// <value>
+        /// The november.
+        /// </value>
         public double November { get; set; }
 
-        /// <summary> Gets or sets the january. </summary>
-        /// <value> The january. </value>
+        /// <summary>
+        /// Gets or sets the january.
+        /// </summary>
+        /// <value>
+        /// The january.
+        /// </value>
         public double January { get; set; }
 
-        /// <summary> Gets or sets the feburary. </summary>
-        /// <value> The feburary. </value>
+        /// <summary>
+        /// Gets or sets the february.
+        /// </summary>
+        /// <value>
+        /// The february.
+        /// </value>
         public double February { get; set; }
 
-        /// <summary> Gets or sets the april. </summary>
-        /// <value> The april. </value>
+        /// <summary>
+        /// Gets or sets the april.
+        /// </summary>
+        /// <value>
+        /// The april.
+        /// </value>
         public double April { get; set; }
 
-        /// <summary> Gets or sets the may. </summary>
-        /// <value> The may. </value>
+        /// <summary>
+        /// Gets or sets the may.
+        /// </summary>
+        /// <value>
+        /// The may.
+        /// </value>
         public double May { get; set; }
 
-        /// <summary> Gets or sets the june. </summary>
-        /// <value> The june. </value>
+        /// <summary>
+        /// Gets or sets the june.
+        /// </summary>
+        /// <value>
+        /// The june.
+        /// </value>
         public double June { get; set; }
 
-        /// <summary> Gets or sets the august. </summary>
-        /// <value> The august. </value>
+        /// <summary>
+        /// Gets or sets the august.
+        /// </summary>
+        /// <value>
+        /// The august.
+        /// </value>
         public double August { get; set; }
 
-        /// <summary> Gets or sets the october. </summary>
-        /// <value> The october. </value>
+        /// <summary>
+        /// Gets or sets the october.
+        /// </summary>
+        /// <value>
+        /// The october.
+        /// </value>
         public double October { get; set; }
 
-        /// <summary> Gets or sets the amount1. </summary>
-        /// <value> The amount1. </value>
+        /// <summary>
+        /// Gets or sets the amount1.
+        /// </summary>
+        /// <value>
+        /// The amount1.
+        /// </value>
         public double Amount1 { get; set; }
 
-        /// <summary> Gets or sets the amount2. </summary>
-        /// <value> The amount2. </value>
+        /// <summary>
+        /// Gets or sets the amount2.
+        /// </summary>
+        /// <value>
+        /// The amount2.
+        /// </value>
         public double Amount2 { get; set; }
 
-        /// <summary> Gets or sets the amount3. </summary>
-        /// <value> The amount3. </value>
+        /// <summary>
+        /// Gets or sets the amount3.
+        /// </summary>
+        /// <value>
+        /// The amount3.
+        /// </value>
         public double Amount3 { get; set; }
 
-        /// <summary> Gets or sets the amount4. </summary>
-        /// <value> The amount4. </value>
+        /// <summary>
+        /// Gets or sets the amount4.
+        /// </summary>
+        /// <value>
+        /// The amount4.
+        /// </value>
         public double Amount4 { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetaryResourceExecution"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="BudgetaryResourceExecution"/> class.
         /// </summary>
         public BudgetaryResourceExecution( )
         {
@@ -119,11 +204,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetaryResourceExecution"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="BudgetaryResourceExecution"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public BudgetaryResourceExecution( IQuery query )
             : this( )
         {
@@ -160,11 +243,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetaryResourceExecution"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="BudgetaryResourceExecution"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public BudgetaryResourceExecution( IDataModel builder )
             : this( )
         {
@@ -201,11 +282,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetaryResourceExecution"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="BudgetaryResourceExecution"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public BudgetaryResourceExecution( DataRow dataRow )
             : this( )
         {
@@ -241,6 +320,10 @@ namespace BudgetExecution
             Amount4 = double.Parse( Record[ "Amount4" ].ToString( ) ?? "0" );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BudgetaryResourceExecution"/> class.
+        /// </summary>
+        /// <param name="budget">The budget.</param>
         public BudgetaryResourceExecution( BudgetaryResourceExecution budget )
             : this( )
         {

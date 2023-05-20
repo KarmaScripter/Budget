@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "BudgetDocument.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,107 +10,101 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class BudgetDocument : BudgetUnit
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
+        /// <summary>
+        /// </summary>
         public override int ID { get; set; }
 
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public string BFY { get; set; }
-
-        /// <summary> Gets or sets the efy. </summary>
-        /// <value> The efy. </value>
-        public string EFY { get; set; }
-
-        /// <summary> Gets or sets the budget level. </summary>
-        /// <value> The budget level. </value>
+        /// <summary>
+        /// Gets or sets the budget level.
+        /// </summary>
+        /// <value>
+        /// The budget level.
+        /// </value>
         public string BudgetLevel { get; set; }
 
-        /// <summary> Gets or sets the type of the document. </summary>
-        /// <value> The type of the document. </value>
+        /// <summary>
+        /// Gets or sets the type of the document.
+        /// </summary>
+        /// <value>
+        /// The type of the document.
+        /// </value>
         public string DocumentType { get; set; }
 
-        /// <summary> Gets or sets the document number. </summary>
-        /// <value> The document number. </value>
+        /// <summary>
+        /// Gets or sets the document number.
+        /// </summary>
+        /// <value>
+        /// The document number.
+        /// </value>
         public string DocumentNumber { get; set; }
 
-        /// <summary> Gets or sets the fund code. </summary>
-        /// <value> The fund code. </value>
-        public string FundCode { get; set; }
-
-        /// <summary> Gets or sets the name of the fund. </summary>
-        /// <value> The name of the fund. </value>
-        public string FundName { get; set; }
-
-        /// <summary> Gets or sets the document date. </summary>
-        /// <value> The document date. </value>
+        /// <summary>
+        /// Gets or sets the document date.
+        /// </summary>
+        /// <value>
+        /// The document date.
+        /// </value>
         public DateOnly DocumentDate { get; set; }
 
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
         public double Budgeted { get; set; }
 
-        /// <summary> Gets or sets the posted. </summary>
-        /// <value> The posted. </value>
+        /// <summary>
+        /// Gets or sets the posted.
+        /// </summary>
+        /// <value>
+        /// The posted.
+        /// </value>
         public double Posted { get; set; }
 
-        /// <summary> Gets or sets the carry out. </summary>
-        /// <value> The carry out. </value>
+        /// <summary>
+        /// Gets or sets the carryover out.
+        /// </summary>
+        /// <value>
+        /// The carryover out.
+        /// </value>
         public double CarryoverOut { get; set; }
 
-        /// <summary> Gets or sets the carry in. </summary>
-        /// <value> The carry in. </value>
+        /// <summary>
+        /// Gets or sets the carryover in.
+        /// </summary>
+        /// <value>
+        /// The carryover in.
+        /// </value>
         public double CarryoverIn { get; set; }
 
-        /// <summary> Gets or sets the estimated recoveries. </summary>
-        /// <value> The estimated recoveries. </value>
+        /// <summary>
+        /// Gets or sets the recoveries.
+        /// </summary>
+        /// <value>
+        /// The recoveries.
+        /// </value>
         public double Recoveries { get; set; }
 
-        /// <summary> Gets or sets the estimated reimbursements. </summary>
-        /// <value> The estimated reimbursements. </value>
+        /// <summary>
+        /// Gets or sets the reimbursements.
+        /// </summary>
+        /// <value>
+        /// The reimbursements.
+        /// </value>
         public double Reimbursements { get; set; }
 
-        /// <summary> Gets or sets the treasury agency code. </summary>
-        /// <value> The treasury agency code. </value>
-        public string TreasuryAccountName { get; set; }
-
-        /// <summary> Gets or sets the treasury account code. </summary>
-        /// <value> The treasury account code. </value>
-        public string TreasuryAccountCode { get; set; }
-
-        /// <summary> Gets or sets the budget account code. </summary>
-        /// <value> The budget account code. </value>
-        public string BudgetAccountCode { get; set; }
-
-        /// <summary> Gets or sets the name of the budget account. </summary>
-        /// <value> The name of the budget account. </value>
-        public string BudgetAccountName { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public override Provider Provider { get; set; }
-
-        /// <summary> Gets or sets the record. </summary>
-        /// <value> The record. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetDocument"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
         /// </summary>
         public BudgetDocument( )
         {
@@ -118,11 +112,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetDocument"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public BudgetDocument( IQuery query )
             : this( )
         {
@@ -149,11 +141,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetDocument"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public BudgetDocument( IDataModel builder )
             : this( builder.Query )
         {
@@ -180,11 +170,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BudgetDocument"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="BudgetDocument"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public BudgetDocument( DataRow dataRow )
             : this( )
         {

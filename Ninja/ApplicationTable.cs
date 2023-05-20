@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ApplicationTable.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,38 +10,62 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ApplicationTable
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public int ID { get; set; }
 
-        /// <summary> Gets or sets the name of the table. </summary>
-        /// <value> The name of the table. </value>
+        /// <summary>
+        /// Gets or sets the name of the table.
+        /// </summary>
+        /// <value>
+        /// The name of the table.
+        /// </value>
         public string TableName { get; set; }
 
-        /// <summary> Gets or sets the model. </summary>
-        /// <value> The model. </value>
+        /// <summary>
+        /// Gets or sets the model.
+        /// </summary>
+        /// <value>
+        /// The model.
+        /// </value>
         public string Model { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
+        /// <summary>
+        /// Gets or sets the record.
+        /// </summary>
+        /// <value>
+        /// The record.
+        /// </value>
         public DataRow Record { get; set; }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ApplicationTable"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ApplicationTable"/> class.
         /// </summary>
         public ApplicationTable( )
         {
@@ -49,11 +73,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ApplicationTable"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ApplicationTable"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public ApplicationTable( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
@@ -64,11 +86,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ApplicationTable"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ApplicationTable"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public ApplicationTable( IDataModel builder )
         {
             Record = builder.Record;
@@ -79,11 +99,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ApplicationTable"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ApplicationTable"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public ApplicationTable( DataRow dataRow )
         {
             Record = dataRow;

@@ -1,4 +1,4 @@
-﻿//  <copyright file=" <File Name> .cs" company="Terry D. Eppler">
+﻿//  <copyright file="AppropriationDocument.cs" company="Terry D. Eppler">
 //  Copyright (c) Terry Eppler. All rights reserved.
 //  </copyright>
 
@@ -10,123 +10,217 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     public class AppropriationDocument : BudgetUnit 
     {
-        /// <summary> Gets or sets the last document date. </summary>
-        /// <value> The last document date. </value>
+        /// <summary>
+        /// Gets or sets the last document date.
+        /// </summary>
+        /// <value>
+        /// The last document date.
+        /// </value>
         public DateOnly LastDocumentDate { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
         public override Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// </summary>
         public override Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
+        /// <summary>
+        /// </summary>
         public override DataRow Record { get; set; }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public override IDictionary<string, object> Data { get; set; }
 
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
+        /// <summary>
+        /// </summary>
         public override int ID { get; set; }
 
-        /// <summary> Gets or sets the fund. </summary>
-        /// <value> The fund. </value>
+        /// <summary>
+        /// Gets or sets the fund.
+        /// </summary>
+        /// <value>
+        /// The fund.
+        /// </value>
         public string Fund { get; set; }
 
-        /// <summary> Gets or sets the type of the document. </summary>
-        /// <value> The type of the document. </value>
+        /// <summary>
+        /// Gets or sets the type of the document.
+        /// </summary>
+        /// <value>
+        /// The type of the document.
+        /// </value>
         public string DocumentType { get; set; }
 
-        /// <summary> Gets or sets the document number. </summary>
-        /// <value> The document number. </value>
+        /// <summary>
+        /// Gets or sets the document number.
+        /// </summary>
+        /// <value>
+        /// The document number.
+        /// </value>
         public string DocumentNumber { get; set; }
 
-        /// <summary> Gets or sets the document date. </summary>
-        /// <value> The document date. </value>
+        /// <summary>
+        /// Gets or sets the document date.
+        /// </summary>
+        /// <value>
+        /// The document date.
+        /// </value>
         public DateOnly DocumentDate { get; set; }
 
-        /// <summary> Gets or sets the budget level. </summary>
-        /// <value> The budget level. </value>
+        /// <summary>
+        /// Gets or sets the budget level.
+        /// </summary>
+        /// <value>
+        /// The budget level.
+        /// </value>
         public string BudgetLevel { get; set; }
 
-        /// <summary> Gets or sets the budgeting controls. </summary>
-        /// <value> The budgeting controls. </value>
+        /// <summary>
+        /// Gets or sets the budgeting controls.
+        /// </summary>
+        /// <value>
+        /// The budgeting controls.
+        /// </value>
         public string BudgetingControls { get; set; }
 
-        /// <summary> Gets or sets the posting controls. </summary>
-        /// <value> The posting controls. </value>
+        /// <summary>
+        /// Gets or sets the posting controls.
+        /// </summary>
+        /// <value>
+        /// The posting controls.
+        /// </value>
         public string PostingControls { get; set; }
 
-        /// <summary> Gets or sets the pre commitment controls. </summary>
-        /// <value> The pre commitment controls. </value>
+        /// <summary>
+        /// Gets or sets the pre commitment controls.
+        /// </summary>
+        /// <value>
+        /// The pre commitment controls.
+        /// </value>
         public string PreCommitmentControls { get; set; }
 
-        /// <summary> Gets or sets the commitment controls. </summary>
-        /// <value> The commitment controls. </value>
+        /// <summary>
+        /// Gets or sets the commitment controls.
+        /// </summary>
+        /// <value>
+        /// The commitment controls.
+        /// </value>
         public string CommitmentControls { get; set; }
 
-        /// <summary> Gets or sets the obligation controls. </summary>
-        /// <value> The obligation controls. </value>
+        /// <summary>
+        /// Gets or sets the obligation controls.
+        /// </summary>
+        /// <value>
+        /// The obligation controls.
+        /// </value>
         public string ObligationControls { get; set; }
 
-        /// <summary> Gets or sets the accrual controls. </summary>
-        /// <value> The accrual controls. </value>
+        /// <summary>
+        /// Gets or sets the accrual controls.
+        /// </summary>
+        /// <value>
+        /// The accrual controls.
+        /// </value>
         public string AccrualControls { get; set; }
 
-        /// <summary> Gets or sets the expenditure controls. </summary>
-        /// <value> The expenditure controls. </value>
+        /// <summary>
+        /// Gets or sets the expenditure controls.
+        /// </summary>
+        /// <value>
+        /// The expenditure controls.
+        /// </value>
         public string ExpenditureControls { get; set; }
 
-        /// <summary> Gets or sets the expense controls. </summary>
-        /// <value> The expense controls. </value>
+        /// <summary>
+        /// Gets or sets the expense controls.
+        /// </summary>
+        /// <value>
+        /// The expense controls.
+        /// </value>
         public string ExpenseControls { get; set; }
 
-        /// <summary> Gets or sets the reimbursement controls. </summary>
-        /// <value> The reimbursement controls. </value>
+        /// <summary>
+        /// Gets or sets the reimbursement controls.
+        /// </summary>
+        /// <value>
+        /// The reimbursement controls.
+        /// </value>
         public string ReimbursementControls { get; set; }
 
-        /// <summary> Gets or sets the reimbursable agreement controls. </summary>
-        /// <value> The reimbursable agreement controls. </value>
+        /// <summary>
+        /// Gets or sets the reimbursable agreement controls.
+        /// </summary>
+        /// <value>
+        /// The reimbursable agreement controls.
+        /// </value>
         public string ReimbursableAgreementControls { get; set; }
 
-        /// <summary> Gets or sets the budgeted. </summary>
-        /// <value> The budgeted. </value>
+        /// <summary>
+        /// Gets or sets the budgeted.
+        /// </summary>
+        /// <value>
+        /// The budgeted.
+        /// </value>
         public double Budgeted { get; set; }
 
-        /// <summary> Gets or sets the posted. </summary>
-        /// <value> The posted. </value>
+        /// <summary>
+        /// Gets or sets the posted.
+        /// </summary>
+        /// <value>
+        /// The posted.
+        /// </value>
         public double Posted { get; set; }
 
-        /// <summary> Gets or sets the carry out. </summary>
-        /// <value> The carry out. </value>
+        /// <summary>
+        /// Gets or sets the carryover out.
+        /// </summary>
+        /// <value>
+        /// The carryover out.
+        /// </value>
         public double CarryoverOut { get; set; }
 
-        /// <summary> Gets or sets the carry in. </summary>
-        /// <value> The carry in. </value>
+        /// <summary>
+        /// Gets or sets the carryover in.
+        /// </summary>
+        /// <value>
+        /// The carryover in.
+        /// </value>
         public double CarryoverIn { get; set; }
 
-        /// <summary> Gets or sets the estimated reimbursements. </summary>
-        /// <value> The estimated reimbursements. </value>
+        /// <summary>
+        /// Gets or sets the reimbursements.
+        /// </summary>
+        /// <value>
+        /// The reimbursements.
+        /// </value>
         public double Reimbursements { get; set; }
 
-        /// <summary> Gets or sets the estimated recoveries. </summary>
-        /// <value> The estimated recoveries. </value>
+        /// <summary>
+        /// Gets or sets the recoveries.
+        /// </summary>
+        /// <value>
+        /// The recoveries.
+        /// </value>
         public double Recoveries { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AppropriationDocument"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
         /// </summary>
         public AppropriationDocument( )
         {
@@ -134,11 +228,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AppropriationDocument"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public AppropriationDocument( IQuery query )
             : this( )
         {
@@ -177,11 +269,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AppropriationDocument"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public AppropriationDocument( IDataModel builder )
             : this( )
         {
@@ -220,11 +310,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AppropriationDocument"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public AppropriationDocument( DataRow dataRow )
         {
             Record = dataRow;
@@ -259,6 +347,10 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AppropriationDocument"/> class.
+        /// </summary>
+        /// <param name="document">The document.</param>
         public AppropriationDocument( AppropriationDocument document )
         {
             ID = document.ID;

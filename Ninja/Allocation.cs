@@ -10,16 +10,17 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.DataUnit"/>
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.StatusOfFunds" />
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public class Allocation : StatusOfFunds 
     {
-
         /// <summary>
         /// Gets or sets the appropriation code.
         /// </summary>
@@ -28,26 +29,24 @@ namespace BudgetExecution
         /// </value>
         public virtual string AppropriationCode { get; set; }
 
-        /// <summary> Gets or sets the name of the appropriation. </summary>
-        /// <value> The name of the appropriation. </value>
-        public virtual string AppropriationName { get; set; }
-
-        /// <summary> Gets or sets the rpio activity code. </summary>
-        /// <value> The rpio activity code. </value>
-        public virtual string RpioActivityCode { get; set; }
-
-        /// <summary> Gets or sets the name of the rpio activity. </summary>
-        /// <value> The name of the rpio activity. </value>
-        public virtual string RpioActivityName { get; set; }
-
-        /// <summary> Gets or sets the amount. </summary>
-        /// <value> The amount. </value>
-        public virtual double Amount { get; set; }
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
-        /// class.
+        /// Gets or sets the name of the appropriation.
+        /// </summary>
+        /// <value>
+        /// The name of the appropriation.
+        /// </value>
+        public virtual string AppropriationName { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the name of the rpio activity.
+        /// </summary>
+        /// <value>
+        /// The name of the rpio activity.
+        /// </value>
+        public virtual string ActivityName { get; set; }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Allocation"/> class.
         /// </summary>
         public Allocation( )
         {
@@ -55,11 +54,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Allocation"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public Allocation( IQuery query )
             : base( query )
         {
@@ -97,11 +94,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Allocation"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder"></param>
         public Allocation( IDataModel builder )
         {
             Record = builder.Record;
@@ -138,11 +133,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Allocation"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Allocation"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public Allocation( DataRow dataRow )
             : base( dataRow )
         {
@@ -179,6 +172,10 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// </summary>
+        /// <param name="map">The map.</param>
         public Allocation( IDictionary<string, object> map )
             : base( map )
         {
@@ -215,6 +212,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Allocation"/> class.
+        /// </summary>
+        /// <param name="allocation">The allocation.</param>
         public Allocation( Allocation allocation )
         {
             ID = allocation.ID;

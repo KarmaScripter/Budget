@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "CarryoverOutlay.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,115 +10,205 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.BudgetUnit" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class CarryoverOutlay : BudgetUnit
     {
-        /// <summary> Gets or sets the report year. </summary>
-        /// <value> The report year. </value>
+        /// <summary>
+        /// Gets or sets the report year.
+        /// </summary>
+        /// <value>
+        /// The report year.
+        /// </value>
         public string ReportYear { get; set; }
 
-        /// <summary> Gets or sets the name of the agency. </summary>
-        /// <value> The name of the agency. </value>
+        /// <summary>
+        /// Gets or sets the name of the agency.
+        /// </summary>
+        /// <value>
+        /// The name of the agency.
+        /// </value>
         public string AgencyName { get; set; }
 
-        /// <summary> Gets or sets the line. </summary>
-        /// <value> The line. </value>
+        /// <summary>
+        /// Gets or sets the line.
+        /// </summary>
+        /// <value>
+        /// The line.
+        /// </value>
         public string Line { get; set; }
 
-        /// <summary> Gets or sets the carryover. </summary>
-        /// <value> The carryover. </value>
+        /// <summary>
+        /// Gets or sets the carryover.
+        /// </summary>
+        /// <value>
+        /// The carryover.
+        /// </value>
         public double Carryover { get; set; }
 
-        /// <summary> Gets or sets the carryover outlays. </summary>
-        /// <value> The carryover outlays. </value>
+        /// <summary>
+        /// Gets or sets the carryover outlays.
+        /// </summary>
+        /// <value>
+        /// The carryover outlays.
+        /// </value>
         public double CarryoverOutlays { get; set; }
 
-        /// <summary> Gets or sets the delta. </summary>
-        /// <value> The delta. </value>
+        /// <summary>
+        /// Gets or sets the delta.
+        /// </summary>
+        /// <value>
+        /// The delta.
+        /// </value>
         public double Delta { get; set; }
 
-        /// <summary> Gets or sets the available balance. </summary>
-        /// <value> The available balance. </value>
+        /// <summary>
+        /// Gets or sets the available balance.
+        /// </summary>
+        /// <value>
+        /// The available balance.
+        /// </value>
         public double AvailableBalance { get; set; }
 
-        /// <summary> Gets or sets the ulo. </summary>
-        /// <value> The ulo. </value>
+        /// <summary>
+        /// Gets or sets the ulo.
+        /// </summary>
+        /// <value>
+        /// The ulo.
+        /// </value>
         public double ULO { get; set; }
 
-        /// <summary> Gets or sets the current year adjustment. </summary>
-        /// <value> The current year adjustment. </value>
+        /// <summary>
+        /// Gets or sets the current year adjustment.
+        /// </summary>
+        /// <value>
+        /// The current year adjustment.
+        /// </value>
         public double CurrentYearAdjustment { get; set; }
 
-        /// <summary> Gets or sets the budget year adjustment. </summary>
-        /// <value> The budget year adjustment. </value>
+        /// <summary>
+        /// Gets or sets the budget year adjustment.
+        /// </summary>
+        /// <value>
+        /// The budget year adjustment.
+        /// </value>
         public double BudgetYearAdjustment { get; set; }
 
-        /// <summary> Gets or sets the current year. </summary>
-        /// <value> The current year. </value>
+        /// <summary>
+        /// Gets or sets the current year.
+        /// </summary>
+        /// <value>
+        /// The current year.
+        /// </value>
         public double CurrentYear { get; set; }
 
-        /// <summary> Gets or sets the budget year. </summary>
-        /// <value> The budget year. </value>
+        /// <summary>
+        /// Gets or sets the budget year.
+        /// </summary>
+        /// <value>
+        /// The budget year.
+        /// </value>
         public double BudgetYear { get; set; }
 
-        /// <summary> Gets or sets the out year1. </summary>
-        /// <value> The out year1. </value>
+        /// <summary>
+        /// Gets or sets the out year1.
+        /// </summary>
+        /// <value>
+        /// The out year1.
+        /// </value>
         public double OutYear1 { get; set; }
 
-        /// <summary> Gets or sets the out year2. </summary>
-        /// <value> The out year2. </value>
+        /// <summary>
+        /// Gets or sets the out year2.
+        /// </summary>
+        /// <value>
+        /// The out year2.
+        /// </value>
         public double OutYear2 { get; set; }
 
-        /// <summary> Gets or sets the out year3. </summary>
-        /// <value> The out year3. </value>
+        /// <summary>
+        /// Gets or sets the out year3.
+        /// </summary>
+        /// <value>
+        /// The out year3.
+        /// </value>
         public double OutYear3 { get; set; }
 
-        /// <summary> Gets or sets the out year4. </summary>
-        /// <value> The out year4. </value>
+        /// <summary>
+        /// Gets or sets the out year4.
+        /// </summary>
+        /// <value>
+        /// The out year4.
+        /// </value>
         public double OutYear4 { get; set; }
 
-        /// <summary> Gets or sets the out year5. </summary>
-        /// <value> The out year5. </value>
+        /// <summary>
+        /// Gets or sets the out year5.
+        /// </summary>
+        /// <value>
+        /// The out year5.
+        /// </value>
         public double OutYear5 { get; set; }
 
-        /// <summary> Gets or sets the out year6. </summary>
-        /// <value> The out year6. </value>
+        /// <summary>
+        /// Gets or sets the out year6.
+        /// </summary>
+        /// <value>
+        /// The out year6.
+        /// </value>
         public double OutYear6 { get; set; }
 
-        /// <summary> Gets or sets the out year7. </summary>
-        /// <value> The out year7. </value>
+        /// <summary>
+        /// Gets or sets the out year7.
+        /// </summary>
+        /// <value>
+        /// The out year7.
+        /// </value>
         public double OutYear7 { get; set; }
 
-        /// <summary> Gets or sets the out year8. </summary>
-        /// <value> The out year8. </value>
+        /// <summary>
+        /// Gets or sets the out year8.
+        /// </summary>
+        /// <value>
+        /// The out year8.
+        /// </value>
         public double OutYear8 { get; set; }
 
-        /// <summary> Gets or sets the out year9. </summary>
-        /// <value> The out year9. </value>
+        /// <summary>
+        /// Gets or sets the out year9.
+        /// </summary>
+        /// <value>
+        /// The out year9.
+        /// </value>
         public double OutYear9 { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
         public override Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// </summary>
         public override Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
+        /// <summary>
+        /// </summary>
         public override DataRow Record { get; set; }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CarryoverOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CarryoverOutlay"/> class.
         /// </summary>
         public CarryoverOutlay( )
         {
@@ -126,11 +216,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CarryoverOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CarryoverOutlay"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public CarryoverOutlay( IQuery query )
             : this( )
         {
@@ -162,11 +250,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CarryoverOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CarryoverOutlay"/> class.
         /// </summary>
-        /// <param name="builder"> The builder. </param>
+        /// <param name="builder">The builder.</param>
         public CarryoverOutlay( IDataModel builder )
             : this( )
         {
@@ -198,11 +284,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CarryoverOutlay"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CarryoverOutlay"/> class.
         /// </summary>
-        /// <param name="dataRow"> The data row. </param>
+        /// <param name="dataRow">The data row.</param>
         public CarryoverOutlay( DataRow dataRow )
             : this( )
         {

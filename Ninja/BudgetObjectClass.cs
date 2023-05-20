@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "BudgetObjectClass.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -18,14 +18,15 @@ namespace BudgetExecution
     /// smaller classes known as Finance Object Classes. EPA uses the categories defined by the values of
     /// the ObjectClasses enumeration.
     /// </summary>
-    /// <seealso cref="IBudgetObjectClass"/>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class BudgetObjectClass : DataUnit 
     {
-        /// <summary> The codes </summary>
+        /// <summary>
+        /// The codes
+        /// </summary>
         public readonly IEnumerable<string> Codes = new[ ]
         {
             "10",
@@ -38,38 +39,22 @@ namespace BudgetExecution
             "41"
         };
 
-        /// <summary> The source </summary>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
-        public override Provider Provider { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
-
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
         public object Value { get; set; }
 
-        /// <summary> Gets the category. </summary>
-        /// <value> The category. </value>
+        /// <summary>
+        /// Gets or sets the category.
+        /// </summary>
+        /// <value>
+        /// The category.
+        /// </value>
         public BOC Category { get; set; }
-
-        /// <summary> Gets the Data. </summary>
-        /// <value> The Data. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets the code. </summary>
-        public override string Code { get; set; }
-
-        /// <summary> Gets or sets the name. </summary>
-        /// <value> The name. </value>
-        public override string Name { get; set; }
-
+        
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="BudgetObjectClass"/>
