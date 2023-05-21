@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Workbook.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -17,7 +17,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.ExcelBase" />
-    [SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
+    [ SuppressMessage( "ReSharper", "MergeIntoPattern" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Workbook : ExcelBase
     {
@@ -251,11 +251,11 @@ namespace BudgetExecution
         /// <param name="range">The range.</param>
         public void SetAlternatingRowColor( ExcelRange range )
         {
-            if( Worksheet != null
-               && range?.Start?.Row > -1
-               && range.Start.Column > -1
-               && range.End?.Row > -1
-               && range.End.Column > -1 )
+            if( ( Worksheet != null )
+               && ( range?.Start?.Row > -1 )
+               && ( range.Start.Column > -1 )
+               && ( range.End?.Row > -1 )
+               && ( range.End.Column > -1 ) )
             {
                 try
                 {
@@ -290,11 +290,11 @@ namespace BudgetExecution
         /// <param name="range">The range.</param>
         public void SetNumericRowFormat( ExcelRange range )
         {
-            if( Worksheet != null
-               && range.Start.Row > -1
-               && range.Start.Column > -1
-               && range.End.Row > -1
-               && range.End.Column > -1 )
+            if( ( Worksheet != null )
+               && ( range.Start.Row > -1 )
+               && ( range.Start.Column > -1 )
+               && ( range.End.Row > -1 )
+               && ( range.End.Column > -1 ) )
             {
                 try
                 {
@@ -342,16 +342,20 @@ namespace BudgetExecution
         /// <param name="range">The range.</param>
         public void SetTotalRowFormat( ExcelRange range )
         {
-            if( Worksheet != null
-               && range.Start.Row > -1
-               && range.Start.Column > -1
-               && range.End.Row > -1
-               && range.End.Column > -1 )
+            if( ( Worksheet != null )
+               && ( range.Start.Row > -1 )
+               && ( range.Start.Column > -1 )
+               && ( range.End.Row > -1 )
+               && ( range.End.Column > -1 ) )
             {
                 try
                 {
-                    var _total = Worksheet.Cells[ range.Start.Row, range.Start.Column, range.Start.Row, range.Start.Column + 6 ];
-                    var _range = Worksheet.Cells[ range.Start.Row, range.Start.Column + 1, range.Start.Row, range.Start.Column + 6 ];
+                    var _total = Worksheet.Cells[ range.Start.Row, range.Start.Column, 
+                        range.Start.Row, range.Start.Column + 6 ];
+                    
+                    var _range = Worksheet.Cells[ range.Start.Row, range.Start.Column + 1, 
+                        range.Start.Row, range.Start.Column + 6 ];
+                    
                     _total.Style.Fill.PatternType = ExcelFillStyle.Solid;
                     _total.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;

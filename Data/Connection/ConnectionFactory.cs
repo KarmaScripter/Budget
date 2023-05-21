@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ConnectionFactory.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -20,7 +20,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ConnectionFactory : ConnectionBase, ISource, IProvider, IConnectionFactory
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ConnectionFactory"/>
@@ -65,8 +64,10 @@ namespace BudgetExecution
         {
         }
 
-        /// <summary> Gets the connection. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the connection.
+        /// </summary>
+        /// <returns></returns>
         public DbConnection GetConnection( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider ) )

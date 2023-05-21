@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ExcelBase.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -15,60 +15,104 @@ namespace BudgetExecution
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
 
-    /// <summary> </summary>
-    /// <seealso cref="ExcelConfig"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ExcelConfig" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class ExcelBase : ExcelConfig
     {
-        /// <summary> Gets or sets the data connection. </summary>
-        /// <value> The data connection. </value>
+        /// <summary>
+        /// Gets or sets the data connection.
+        /// </summary>
+        /// <value>
+        /// The data connection.
+        /// </value>
         public OleDbConnection DataConnection { get; set; }
 
-        /// <summary> Gets or sets the data command. </summary>
-        /// <value> The data command. </value>
+        /// <summary>
+        /// Gets or sets the data command.
+        /// </summary>
+        /// <value>
+        /// The data command.
+        /// </value>
         public OleDbCommand DataCommand { get; set; }
 
-        /// <summary> Gets or sets the data adapter. </summary>
-        /// <value> The data adapter. </value>
+        /// <summary>
+        /// Gets or sets the data adapter.
+        /// </summary>
+        /// <value>
+        /// The data adapter.
+        /// </value>
         public OleDbDataAdapter DataAdapter { get; set; }
 
-        /// <summary> Gets or sets the ext. </summary>
-        /// <value> The ext. </value>
+        /// <summary>
+        /// Gets or sets the ext.
+        /// </summary>
+        /// <value>
+        /// The ext.
+        /// </value>
         public EXT Ext { get; set; }
 
-        /// <summary> Gets or sets the file information. </summary>
-        /// <value> The file information. </value>
+        /// <summary>
+        /// Gets or sets the file information.
+        /// </summary>
+        /// <value>
+        /// The file information.
+        /// </value>
         public FileInfo FileInfo { get; set; }
 
-        /// <summary> Gets or sets the excel. </summary>
-        /// <value> The excel. </value>
+        /// <summary>
+        /// Gets or sets the application.
+        /// </summary>
+        /// <value>
+        /// The application.
+        /// </value>
         public ExcelPackage Application { get; set; }
 
-        /// <summary> Gets or sets the workbook. </summary>
-        /// <value> The workbook. </value>
+        /// <summary>
+        /// Gets or sets the workbook.
+        /// </summary>
+        /// <value>
+        /// The workbook.
+        /// </value>
         public ExcelWorkbook Workbook { get; set; }
 
-        /// <summary> Gets or sets the worksheet. </summary>
-        /// <value> The worksheet. </value>
+        /// <summary>
+        /// Gets or sets the worksheet.
+        /// </summary>
+        /// <value>
+        /// The worksheet.
+        /// </value>
         public ExcelWorksheet Worksheet { get; set; }
 
-        /// <summary> Gets or sets the comment. </summary>
-        /// <value> The comment. </value>
+        /// <summary>
+        /// Gets or sets the comment.
+        /// </summary>
+        /// <value>
+        /// The comment.
+        /// </value>
         public IEnumerable<ExcelComment> Comment { get; set; }
 
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public IEnumerable<DataRow> Data { get; set; }
 
-        /// <summary> Sets the width of the column. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="width"> The width. </param>
+        /// <summary>
+        /// Sets the width of the column.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="width">The width.</param>
         public void SetColumnWidth( Grid grid, double width )
         {
-            if( grid?.Worksheet != null
-               && width > 0d )
+            if( ( grid?.Worksheet != null )
+               && ( width > 0d ) )
             {
                 try
                 {
@@ -82,14 +126,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the color of the background. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the color of the background.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="color">The color.</param>
         public void SetBackgroundColor( Grid grid, Color color )
         {
-            if( grid?.Worksheet != null
-               && grid?.Range != null
-               && color != Color.Empty )
+            if( ( grid?.Worksheet != null )
+               && ( grid?.Range != null )
+               && ( color != Color.Empty ) )
             {
                 try
                 {
@@ -105,14 +151,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the range font. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="font"> The font. </param>
+        /// <summary>
+        /// Sets the range font.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="font">The font.</param>
         public void SetRangeFont( Grid grid, Font font )
         {
-            if( grid?.Worksheet != null
-               && grid?.Range != null
-               && font != null )
+            if( ( grid?.Worksheet != null )
+               && ( grid?.Range != null )
+               && ( font != null ) )
             {
                 try
                 {
@@ -126,14 +174,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the color of the font. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the color of the font.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="color">The color.</param>
         public void SetFontColor( Grid grid, Color color )
         {
-            if( grid?.Worksheet != null
-               && grid?.Range != null
-               && color != Color.Empty )
+            if( ( grid?.Worksheet != null )
+               && ( grid?.Range != null )
+               && ( color != Color.Empty ) )
             {
                 try
                 {
@@ -148,14 +198,16 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the border style. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="side"> The side. </param>
-        /// <param name="style"> The style. </param>
+        /// <summary>
+        /// Sets the border style.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="side">The side.</param>
+        /// <param name="style">The style.</param>
         public void SetBorderStyle( Grid grid, BorderSide side, ExcelBorderStyle style )
         {
-            if( grid?.Worksheet != null
-               && grid?.Range != null
+            if( ( grid?.Worksheet != null )
+               && ( grid?.Range != null )
                && Enum.IsDefined( typeof( ExcelBorderStyle ), style )
                && Enum.IsDefined( typeof( BorderSide ), side ) )
             {
@@ -198,13 +250,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the horizontal alignment. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="align"> The align. </param>
+        /// <summary>
+        /// Sets the horizontal alignment.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="align">The align.</param>
         public void SetHorizontalAlignment( Grid grid, ExcelHorizontalAlignment align )
         {
-            if( grid?.Worksheet != null
-               && grid?.Range != null
+            if( ( grid?.Worksheet != null )
+               && ( grid?.Range != null )
                && Enum.IsDefined( typeof( ExcelHorizontalAlignment ), align ) )
             {
                 try
@@ -219,12 +273,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the vertical aligment. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="align"> The align. </param>
+        /// <summary>
+        /// Sets the vertical alignment.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="align">The align.</param>
         public void SetVerticalAlignment( Grid grid, ExcelVerticalAlignment align )
         {
-            if( grid?.Worksheet != null
+            if( ( grid?.Worksheet != null )
                && Enum.IsDefined( typeof( ExcelVerticalAlignment ), align ) )
             {
                 try
@@ -239,12 +295,14 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Merges the cells. </summary>
-        /// <param name="grid"> The grid. </param>
+        /// <summary>
+        /// Merges the cells.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
         public void MergeCells( Grid grid )
         {
-            if( grid?.Worksheet != null
-               && grid?.Range != null )
+            if( ( grid?.Worksheet != null )
+               && ( grid?.Range != null ) )
             {
                 try
                 {

@@ -251,7 +251,7 @@ namespace BudgetExecution
             BrowseButton.Style =  MetroSet_UI.Enums.Style.Custom ;
             BrowseButton.StyleManager =  null ;
             BrowseButton.TabIndex =  6 ;
-            BrowseButton.Text =  "Browse" ;
+            BrowseButton.Text =  "FromBrowser" ;
             BrowseButton.ThemeAuthor =  "Terry D. Eppler" ;
             BrowseButton.ThemeName =  "Budget Execution" ;
             BrowseButton.ToolTip =  null ;

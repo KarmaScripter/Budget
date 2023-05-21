@@ -284,7 +284,7 @@ namespace BudgetExecution
 
         /// <summary> Get ErrorDialog Dialog. </summary>
         /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

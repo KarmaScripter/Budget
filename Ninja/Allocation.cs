@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Allocation.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,7 +14,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.StatusOfFunds" />
-    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
@@ -36,14 +36,6 @@ namespace BudgetExecution
         /// The name of the appropriation.
         /// </value>
         public virtual string AppropriationName { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the name of the rpio activity.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio activity.
-        /// </value>
-        public virtual string ActivityName { get; set; }
         
         /// <summary>
         /// Initializes a new instance of the <see cref="Allocation"/> class.

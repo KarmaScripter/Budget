@@ -28,6 +28,7 @@ resharper_keep_existing_declaration_block_arrangement = false
 resharper_modifiers_order = private protected internal public virtual override static readonly abstract sealed extern unsafe volatile async new
 resharper_object_creation_when_type_evident = explicitly_typed
 resharper_parentheses_non_obvious_operations = none, shift, conditional_and, conditional_or, conditional
+resharper_parentheses_redundancy_style = remove_if_not_clarifies_precedence
 resharper_place_simple_initializer_on_single_line = true
 resharper_space_within_new_parentheses = false
 resharper_space_within_single_line_array_initializer_braces = true

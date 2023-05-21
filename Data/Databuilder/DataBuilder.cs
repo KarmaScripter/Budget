@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "DataBuilder.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -15,9 +15,9 @@ namespace BudgetExecution
     /// <summary> </summary>
     /// <seealso cref="DataModel"/>
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class DataBuilder : DataModel, IDataModel
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="DataBuilder"/>
@@ -74,8 +74,8 @@ namespace BudgetExecution
         /// <param name="updates"> The updates. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public DataBuilder( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
-            SQL commandType = SQL.UPDATE )
+        public DataBuilder( Source source, Provider provider, IDictionary<string, object> updates, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
@@ -90,8 +90,8 @@ namespace BudgetExecution
         /// <param name="columns"> The columns. </param>
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public DataBuilder( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECT )
+        public DataBuilder( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -107,8 +107,8 @@ namespace BudgetExecution
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public DataBuilder( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where, SQL commandType )
+        public DataBuilder( Source source, Provider provider, IEnumerable<string> fields, 
+            IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
             : base( source, provider, fields, numerics, where,
                 commandType )
         {
@@ -163,19 +163,21 @@ namespace BudgetExecution
         }
 
         /// <summary> Filters the dataRows. </summary>
-        /// <param name="dataRows"> The dataRows. </param>
         /// <param name="name"> The field. </param>
         /// <param name="value"> The filter. </param>
         /// <returns> </returns>
         public IEnumerable<DataRow> FilterData( string name, string value )
         {
-            if( DataTable != null
+            if( ( DataTable != null )
                && !string.IsNullOrEmpty( name )
                && !string.IsNullOrEmpty( value ) )
             {
                 try
                 {
-                    var _query = DataTable.AsEnumerable( )?.Where( r => r.Field<string>( name ).Equals( value ) )?.Select( r => r );
+                    var _query = DataTable.AsEnumerable( )
+                        ?.Where( r => r.Field<string>( name ).Equals( value ) )
+                        ?.Select( r => r );
+                    
                     return _query?.Any( ) == true
                         ? _query.ToArray( )
                         : default( DataRow[ ] );
@@ -191,14 +193,13 @@ namespace BudgetExecution
         }
 
         /// <summary> Gets the series. </summary>
-        /// <param name="dataRows"> The dataRows. </param>
         /// <param name="name"> The field. </param>
         /// <param name="value"> The filter. </param>
         /// <returns> </returns>
         [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
         public IDictionary<string, IEnumerable<string>> GetSeries( string name, string value )
         {
-            if( DataTable != null
+            if( ( DataTable != null )
                && !string.IsNullOrEmpty( name )
                && !string.IsNullOrEmpty( value ) )
             {
@@ -214,7 +215,7 @@ namespace BudgetExecution
                         {
                             var _columnName = _columns[ i ].ColumnName;
                             if( !string.IsNullOrEmpty( _columnName )
-                               && _columns[ i ]?.DataType == typeof( string ) )
+                               && ( _columns[ i ]?.DataType == typeof( string ) ) )
                             {
                                 _dictionary.Add( _columns[ i ].ColumnName, _values );
                             }
@@ -367,8 +368,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public IEnumerable<DataRow> FilterData( IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && DataTable != null )
+            if( ( where?.Any( ) == true )
+               && ( DataTable != null ) )
             {
                 try
                 {

@@ -13,36 +13,36 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using static System.IO.Directory;
 
-    /// <summary> </summary>
-    /// <seealso cref="PathBase"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.FileBase" />
+    /// <seealso cref="BudgetExecution.IDataFile" />
     public class DataFile : FileBase, IDataFile
     {
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataFile"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataFile"/> class.
         /// </summary>
         public DataFile( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataFile"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataFile"/> class.
         /// </summary>
-        /// <param name="input"> The input. </param>
+        /// <param name="input">The input.</param>
         public DataFile( string input )
             : base( input )
         {
         }
 
-        /// <summary> Transfers the specified folder. </summary>
-        /// <param name="folder"> The folder. </param>
+        /// <summary>
+        /// Transfers the specified folder.
+        /// </summary>
+        /// <param name="folder">The folder.</param>
         public void Transfer( DirectoryInfo folder )
         {
-            if( folder != null
+            if( ( folder != null )
                && !Exists( folder.FullName ) )
             {
                 CreateDirectory( folder.FullName );
@@ -65,8 +65,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Determines whether this instance contains the object. </summary>
-        /// <param name="search"> The search. </param>
+        /// <summary>
+        /// Determines whether this instance contains the object.
+        /// </summary>
+        /// <param name="search">The search.</param>
         /// <returns>
         /// <c> true </c>
         /// if [contains] [the specified search]; otherwise,
@@ -110,9 +112,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Searches the specified pattern. </summary>
-        /// <param name="pattern"> The pattern. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Searches the specified pattern.
+        /// </summary>
+        /// <param name="pattern">The pattern.</param>
+        /// <returns></returns>
         public IEnumerable<FileInfo> Search( string pattern )
         {
             if( !string.IsNullOrEmpty( pattern ) )
@@ -145,8 +149,10 @@ namespace BudgetExecution
             return default( IEnumerable<FileInfo> );
         }
 
-        /// <summary> Gets the parent. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the parent.
+        /// </summary>
+        /// <returns></returns>
         public string GetParentDirectory( )
         {
             if( !string.IsNullOrEmpty( Buffer ) )
@@ -167,8 +173,12 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Returns a string that represents the current object. </summary>
-        /// <returns> A string that represents the current object. </returns>
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
         public override string ToString( )
         {
             try
@@ -184,9 +194,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Creates the specified file path. </summary>
-        /// <param name="filePath"> The file path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the specified file path.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
         public static FileInfo Create( string filePath )
         {
             try
@@ -202,9 +214,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Browses this instance. </summary>
-        /// <returns> </returns>
-        public static string Browse( )
+        /// <summary>
+        /// Browses this instance.
+        /// </summary>
+        /// <returns></returns>
+        public static string OpenDialog( )
         {
             try
             {
@@ -221,9 +235,31 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Saves this instance. </summary>
-        /// <returns> </returns>
-        public static string Save( )
+        /// <summary>
+        /// Browses this instance.
+        /// </summary>
+        /// <returns></returns>
+        public static string SaveDialog( )
+        {
+            try
+            {
+                var _dialog = new SaveFileDialog(  );
+                _dialog.CheckFileExists = true;
+                _dialog.CheckPathExists = true;
+                return _dialog.FileName;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
+        /// <returns></returns>
+        public string Save( )
         {
             try
             {
