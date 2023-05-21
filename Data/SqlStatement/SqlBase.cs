@@ -247,7 +247,7 @@ namespace BudgetExecution
 
         /// <summary> Get ErrorDialog Dialog. </summary>
         /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
+        protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
@@ -255,7 +255,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the select statement. </summary>
-        protected private string GetSelectStatement( )
+        private protected string GetSelectStatement( )
         {
             if( Fields?.Any( ) == true
                && Criteria?.Any( ) == true
@@ -308,12 +308,12 @@ namespace BudgetExecution
                 return $"SELECT * FROM {Source};";
             }
 
-            return default;
+            return default( string );
         }
 
         /// <summary> Gets the update statement. </summary>
         /// <returns> </returns>
-        protected private string GetUpdateStatement( )
+        private protected string GetUpdateStatement( )
         {
             if( Updates?.Any( ) == true
                && Criteria?.Any( ) == true
@@ -352,7 +352,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the insert statement. </summary>
-        protected private string GetInsertStatement( )
+        private protected string GetInsertStatement( )
         {
             if( Updates?.Any( ) == true
                && Enum.IsDefined( typeof( Source ), Source ) )
@@ -393,7 +393,7 @@ namespace BudgetExecution
 
         /// <summary> Gets the delete statement. </summary>
         /// <returns> </returns>
-        protected private string GetDeleteStatement( )
+        private protected string GetDeleteStatement( )
         {
             if( Criteria?.Any( ) == true )
             {

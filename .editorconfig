@@ -25,7 +25,8 @@ resharper_csharp_align_multiline_parameter = false
 resharper_csharp_max_line_length = 915
 resharper_csharp_wrap_multiple_type_parameter_constraints_style = chop_always
 resharper_keep_existing_declaration_block_arrangement = false
-resharper_modifiers_order = public virtual static internal override protected private readonly abstract sealed extern unsafe volatile async new
+resharper_modifiers_order = private protected internal public virtual override static readonly abstract sealed extern unsafe volatile async new
+resharper_object_creation_when_type_evident = explicitly_typed
 resharper_parentheses_non_obvious_operations = none, shift, conditional_and, conditional_or, conditional
 resharper_place_simple_initializer_on_single_line = true
 resharper_space_within_new_parentheses = false
@@ -37,15 +38,21 @@ resharper_wrap_parameters_style = wrap_if_long
 
 # Microsoft .NET properties
 csharp_new_line_before_members_in_object_initializers = false
-csharp_preferred_modifier_order = public, virtual, static, internal, override, protected, private, readonly, abstract, sealed, extern, unsafe, volatile, async, new:warning
+csharp_preferred_modifier_order = private, protected, internal, public, virtual, override, static, readonly, abstract, sealed, extern, unsafe, volatile, async, new:warning
 csharp_preserve_single_line_blocks = true
 csharp_space_after_cast = false
+csharp_style_namespace_declarations = block_scoped:warning
 
 # CA1305: Specify IFormatProvider
-dotnet_diagnostic.CA1305.severity = none
+dotnet_diagnostic.ca1305.severity = none
 
 # CA1822: Mark members as static
-dotnet_diagnostic.CA1822.severity = none
+dotnet_diagnostic.ca1822.severity = none
+
+# ReSharper inspection severities
+resharper_arrange_default_value_when_type_not_evident_highlighting = warning
+resharper_arrange_object_creation_when_type_evident_highlighting = warning
+resharper_arrange_object_creation_when_type_not_evident_highlighting = warning
 
 [*.css]
 ij_css_align_closing_brace_with_properties = false

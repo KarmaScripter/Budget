@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "FileBrowser.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -17,42 +17,72 @@ namespace BudgetExecution
     using static System.IO.Directory;
     using CheckState = MetroSet_UI.Enums.CheckState;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class FileBrowser
     {
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
+        /// <summary>
+        /// Gets or sets the extension.
+        /// </summary>
+        /// <value>
+        /// The extension.
+        /// </value>
         public EXT Extension { get; set; }
 
-        /// <summary> Gets or sets the extension. </summary>
-        /// <value> The extension. </value>
+        /// <summary>
+        /// Gets or sets the file extension.
+        /// </summary>
+        /// <value>
+        /// The file extension.
+        /// </value>
         public string FileExtension { get; set; }
 
-        /// <summary> Gets or sets the initial path. </summary>
-        /// <value> The initial path. </value>
+        /// <summary>
+        /// Gets or sets the initial dir paths.
+        /// </summary>
+        /// <value>
+        /// The initial dir paths.
+        /// </value>
         public IEnumerable<string> InitialDirPaths { get; set; }
 
-        /// <summary> Gets or sets the initial path. </summary>
-        /// <value> The initial path. </value>
+        /// <summary>
+        /// Gets or sets the file paths.
+        /// </summary>
+        /// <value>
+        /// The file paths.
+        /// </value>
         public IEnumerable<string> FilePaths { get; set; }
 
-        /// <summary> Gets or sets the check boxes. </summary>
-        /// <value> The check boxes. </value>
+        /// <summary>
+        /// Gets or sets the radio buttons.
+        /// </summary>
+        /// <value>
+        /// The radio buttons.
+        /// </value>
         public IEnumerable<RadioButton> RadioButtons { get; set; }
 
-        /// <summary> Gets or sets the selected path. </summary>
-        /// <value> The selected path. </value>
+        /// <summary>
+        /// Gets or sets the selected path.
+        /// </summary>
+        /// <value>
+        /// The selected path.
+        /// </value>
         public string SelectedPath { get; set; }
 
-        /// <summary> Gets or sets the selected file. </summary>
-        /// <value> The selected file. </value>
+        /// <summary>
+        /// Gets or sets the selected file.
+        /// </summary>
+        /// <value>
+        /// The selected file.
+        /// </value>
         public string SelectedFile { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FileBrowser"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="FileBrowser"/> class.
         /// </summary>
         public FileBrowser( )
         {
@@ -94,11 +124,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="FileBrowser"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="FileBrowser"/> class.
         /// </summary>
-        /// <param name="extension"> The extension. </param>
+        /// <param name="extension">The extension.</param>
         public FileBrowser( EXT extension )
             : this( )
         {
@@ -106,13 +134,11 @@ namespace BudgetExecution
             FileExtension = Extension.ToString( ).ToLower( );
         }
 
-        /// <summary> Called when [browser loaded]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             if( FilePaths?.Any( ) == true )
@@ -132,8 +158,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the ListView. </summary>
-        /// <param name="filePaths"> The file paths. </param>
+        /// <summary>
+        /// Populates the ListBox.
+        /// </summary>
+        /// <param name="filePaths">The file paths.</param>
         public virtual void PopulateListBox( IEnumerable<string> filePaths )
         {
             try
@@ -158,18 +186,22 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The exception. </param>
-        static private void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }
 
-        /// <summary> Gets the image. </summary>
-        /// <returns> </returns>
-        protected private Image GetImage( )
+        /// <summary>
+        /// Gets the image.
+        /// </summary>
+        /// <returns></returns>
+        private protected Image GetImage( )
         {
             if( !string.IsNullOrEmpty( FileExtension ) )
             {
@@ -199,8 +231,10 @@ namespace BudgetExecution
             return default( Bitmap );
         }
 
-        /// <summary> Clears the check boxes. </summary>
-        protected private void ClearRadioButtons( )
+        /// <summary>
+        /// Clears the radio buttons.
+        /// </summary>
+        private protected void ClearRadioButtons( )
         {
             try
             {
@@ -216,8 +250,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the RadioButton events. </summary>
-        protected private void SetRadioButtonEvents( )
+        /// <summary>
+        /// Sets the RadioButton events.
+        /// </summary>
+        private protected void SetRadioButtonEvents( )
         {
             try
             {
@@ -232,9 +268,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the ListView file paths. </summary>
-        /// <returns> </returns>
-        protected private IEnumerable<string> GetListViewPaths( )
+        /// <summary>
+        /// Gets the ListView paths.
+        /// </summary>
+        /// <returns></returns>
+        private protected IEnumerable<string> GetListViewPaths( )
         {
             if( InitialDirPaths?.Any( ) == true )
             {
@@ -243,14 +281,22 @@ namespace BudgetExecution
                     var _list = new List<string>( );
                     foreach( var path in InitialDirPaths )
                     {
-                        var _first = GetFiles( path )?.Where( f => f.EndsWith( FileExtension ) )?.Select( f => Path.GetFullPath( f ) )?.ToList( );
+                        var _first = GetFiles( path )
+                            ?.Where( f => f.EndsWith( FileExtension ) )
+                            ?.Select( f => Path.GetFullPath( f ) )
+                            ?.ToList( );
+                        
                         _list.AddRange( _first );
                         var _dirs = GetDirectories( path );
                         foreach( var dir in _dirs )
                         {
                             if( !dir.Contains( "My " ) )
                             {
-                                var _second = GetFiles( dir )?.Where( s => s.EndsWith( FileExtension ) )?.Select( s => Path.GetFullPath( s ) )?.ToList( );
+                                var _second = GetFiles( dir )
+                                    ?.Where( s => s.EndsWith( FileExtension ) )
+                                    ?.Select( s => Path.GetFullPath( s ) )
+                                    ?.ToList( );
+                                
                                 if( _second?.Any( ) == true )
                                 {
                                     _list.AddRange( _second );
@@ -262,7 +308,11 @@ namespace BudgetExecution
                                     var _path = _subDir[ i ];
                                     if( !string.IsNullOrEmpty( _path ) )
                                     {
-                                        var _last = GetFiles( _path )?.Where( l => l.EndsWith( FileExtension ) )?.Select( l => Path.GetFullPath( l ) )?.ToList( );
+                                        var _last = GetFiles( _path )?
+                                            .Where( l => l.EndsWith( FileExtension ) )
+                                            ?.Select( l => Path.GetFullPath( l ) )
+                                            ?.ToList( );
+                                        
                                         if( _last?.Any( ) == true )
                                         {
                                             _list.AddRange( _last );
@@ -280,16 +330,18 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<string> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<string> );
         }
 
-        /// <summary> Called when [selection]. </summary>
-        /// <param name="sender"> The sender instance containing the event data. </param>
-        virtual protected private void OnRadioButtonSelected( object sender )
+        /// <summary>
+        /// Called when [RadioButton selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private protected virtual void OnRadioButtonSelected( object sender )
         {
             if( sender is RadioButton _radioButton
                && !string.IsNullOrEmpty( _radioButton.Tag?.ToString( ) ) )
@@ -313,9 +365,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the check boxex. </summary>
-        /// <returns> </returns>
-        virtual protected private IEnumerable<RadioButton> GetRadioButtons( )
+        /// <summary>
+        /// Gets the radio buttons.
+        /// </summary>
+        /// <returns></returns>
+        private protected virtual IEnumerable<RadioButton> GetRadioButtons( )
         {
             try
             {
@@ -342,13 +396,15 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<RadioButton> );
             }
         }
 
-        /// <summary> Gets the initial paths. </summary>
-        /// <returns> </returns>
-        virtual protected private IEnumerable<string> GetInitialDirPaths( )
+        /// <summary>
+        /// Gets the initial dir paths.
+        /// </summary>
+        /// <returns></returns>
+        private protected virtual IEnumerable<string> GetInitialDirPaths( )
         {
             try
             {
@@ -369,12 +425,14 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<string> );
             }
         }
 
-        /// <summary> Populates the ListView. </summary>
-        virtual protected private void PopulateListBox( )
+        /// <summary>
+        /// Populates the ListBox.
+        /// </summary>
+        private protected virtual void PopulateListBox( )
         {
             if( FilePaths?.Any( ) == true )
             {
@@ -392,9 +450,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [path selected]. </summary>
-        /// <param name="sender"> The sender. </param>
-        virtual protected private void OnPathSelected( object sender )
+        /// <summary>
+        /// Called when [path selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        private protected virtual void OnPathSelected( object sender )
         {
             if( sender is ListBox listBox
                && !string.IsNullOrEmpty( listBox.SelectedItem?.ToString( ) ) )
@@ -411,14 +471,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [find button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        virtual protected private void OnFindButtonClicked( object sender, EventArgs e )
+        /// <summary>
+        /// Called when [find button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private protected virtual void OnFindButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
             {
@@ -447,14 +505,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        virtual protected private void OnCloseButtonClicked( object sender, EventArgs e )
+        /// <summary>
+        /// Called when [close button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private protected virtual void OnCloseButtonClicked( object sender, EventArgs e )
         {
             if( sender is Button )
             {

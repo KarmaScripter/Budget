@@ -13,9 +13,9 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class Message : MetroForm
     {
-
         /// <summary> </summary>
         public Message( )
         {
@@ -118,7 +118,7 @@ namespace BudgetExecution
 
         /// <summary> Get ErrorDialog Dialog. </summary>
         /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

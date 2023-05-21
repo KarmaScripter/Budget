@@ -1,10 +1,11 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ColorDialog.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
@@ -12,9 +13,9 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class ColorDialog : MetroForm
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ColorDialog"/>

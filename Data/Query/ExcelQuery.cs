@@ -261,7 +261,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -298,11 +298,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary> CSVs the import. </summary>
@@ -342,18 +342,18 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary> Releases the specified range. </summary>
         /// <param name="range"> The range. </param>
         /// <param name="workSheet"> The work sheet. </param>
         /// <param name="excel"> The excel. </param>
-        virtual protected void Release( ExcelRange range, ExcelWorksheet workSheet, ExcelPackage excel )
+        protected virtual void Release( ExcelRange range, ExcelWorksheet workSheet, ExcelPackage excel )
         {
             try
             {
@@ -376,7 +376,7 @@ namespace BudgetExecution
         /// <c> false </c>
         /// to release only unmanaged resources.
         /// </param>
-        override protected void Dispose( bool disposing )
+        protected override void Dispose( bool disposing )
         {
             if( disposing )
             {
@@ -389,7 +389,7 @@ namespace BudgetExecution
         /// <summary> Reads the excel file. </summary>
         /// <param name="filePath"> The file path. </param>
         /// <returns> </returns>
-        static private ExcelPackage ReadExcelFile( string filePath )
+        private static ExcelPackage ReadExcelFile( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath ) )
             {
@@ -401,11 +401,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( ExcelPackage );
                 }
             }
 
-            return default;
+            return default( ExcelPackage );
         }
 
         /// <summary> Gets the connection. </summary>

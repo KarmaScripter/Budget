@@ -192,7 +192,7 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default;
+                        : default( BindingList<T> );
                 }
                 catch( Exception ex )
                 {
@@ -206,7 +206,7 @@ namespace BudgetExecution
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

@@ -132,17 +132,17 @@ namespace BudgetExecution
 
                         return _list?.Any( ) == true
                             ? _list
-                            : default;
+                            : default( List<FileInfo> );
                     }
                 }
                 catch( IOException ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<FileInfo> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<FileInfo> );
         }
 
         /// <summary> Gets the parent. </summary>
@@ -193,12 +193,12 @@ namespace BudgetExecution
             {
                 return !string.IsNullOrEmpty( filePath )
                     ? new FileInfo( filePath )
-                    : default;
+                    : default( FileInfo );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( FileInfo );
             }
         }
 

@@ -60,12 +60,12 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
-        /// <param name="updates"> The updates. </param>
+        /// <param name="update"> The updates. </param>
         /// <param name="where"> The criteria. </param>
         /// <param name="commandType"> </param>
-        public CommandFactory( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
+        public CommandFactory( Source source, Provider provider, IDictionary<string, object> update, IDictionary<string, object> where,
             SQL commandType = SQL.UPDATE )
-            : base( source, provider, updates, where, commandType )
+            : base( source, provider, update, where, commandType )
         {
         }
 
@@ -142,18 +142,18 @@ namespace BudgetExecution
                         }
                         default:
                         {
-                            return default;
+                            return default( DbCommand );
                         }
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
     }
 }

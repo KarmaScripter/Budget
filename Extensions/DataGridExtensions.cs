@@ -60,7 +60,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( DataTable );
             }
         }
 
@@ -92,18 +92,18 @@ namespace BudgetExecution
                             var _table = _view.ToTable( true, columns );
                             return _table?.Columns?.Count > 0
                                 ? _table
-                                : default;
+                                : default( DataTable );
                         }
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary> The SetColumns </summary>
@@ -371,7 +371,7 @@ namespace BudgetExecution
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

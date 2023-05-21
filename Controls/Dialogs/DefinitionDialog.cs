@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "DefinitionDialog.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,27 +14,56 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    /// <seealso cref="EditBase"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.EditBase" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class DefinitionDialog : EditBase
     {
-        /// <summary> Gets or sets the sqlite data types. </summary>
-        /// <value> The sqlite data types. </value>
+        /// <summary>
+        /// Gets or sets the data types.
+        /// </summary>
+        /// <value>
+        /// The data types.
+        /// </value>
         public override IEnumerable<string> DataTypes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
         public override string SelectedTable { get; set; }
 
+        /// <summary>
+        /// Gets or sets the selected provider.
+        /// </summary>
+        /// <value>
+        /// The selected provider.
+        /// </value>
         public Provider SelectedProvider { get; set; }
 
+        /// <summary>
+        /// Gets or sets the type of the selected.
+        /// </summary>
+        /// <value>
+        /// The type of the selected.
+        /// </value>
         public string SelectedType { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name of the column.
+        /// </summary>
+        /// <value>
+        /// The name of the column.
+        /// </value>
         public string ColumnName { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DefinitionDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DefinitionDialog"/> class.
         /// </summary>
         public DefinitionDialog( )
         {
@@ -68,11 +97,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DefinitionDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DefinitionDialog"/> class.
         /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
+        /// <param name="toolType">Type of the tool.</param>
         public DefinitionDialog( ToolType toolType )
             : this( )
         {
@@ -80,12 +107,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DefinitionDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DefinitionDialog"/> class.
         /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="bindingSource">The binding source.</param>
         public DefinitionDialog( ToolType toolType, BindingSource bindingSource )
             : this( toolType )
         {
@@ -96,13 +121,11 @@ namespace BudgetExecution
             Columns = DataTable.GetColumnNames( );
         }
 
-        /// <summary> Called when [visible]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -119,7 +142,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the table ListBox items. </summary>
+        /// <summary>
+        /// Populates the table ComboBox items.
+        /// </summary>
         public void PopulateTableComboBoxItems( )
         {
             try
@@ -141,7 +166,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the data type combo boxes. </summary>
+        /// <summary>
+        /// Populates the data type ComboBox items.
+        /// </summary>
         public void PopulateDataTypeComboBoxItems( )
         {
             if( DataTypes?.Any( ) == true )
@@ -166,8 +193,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [provider button checked]. </summary>
-        /// <param name="sender"> The sender. </param>
+        /// <summary>
+        /// Called when [provider button checked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
         public virtual void OnProviderButtonChecked( object sender )
         {
             if( sender is RadioButton button )
@@ -190,7 +219,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the activet tab. </summary>
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
         public void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
@@ -256,8 +287,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the tab pages. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the tab pages.
+        /// </summary>
+        /// <returns></returns>
         public IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl?.TabPages?.Count > 0 )
@@ -281,20 +314,18 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, TabPageAdv> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, TabPageAdv> );
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )

@@ -40,7 +40,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolSeparator );
             }
         }
 
@@ -60,7 +60,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -80,7 +80,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -100,7 +100,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -120,7 +120,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -140,7 +140,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -160,7 +160,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -180,7 +180,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -200,7 +200,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -220,7 +220,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -240,7 +240,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -260,7 +260,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -280,7 +280,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -300,7 +300,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripButton );
             }
         }
 
@@ -316,7 +316,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripLabel );
             }
         }
 
@@ -332,7 +332,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripComboBoxEx );
             }
         }
 
@@ -348,7 +348,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripProgressBar );
             }
         }
 
@@ -364,13 +364,13 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( ToolStripTextBox );
             }
         }
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

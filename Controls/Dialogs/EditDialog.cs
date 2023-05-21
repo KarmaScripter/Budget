@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "EditDialog.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,24 +14,36 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.EditBase" />
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public partial class EditDialog : EditBase
     {
-        /// <summary> Gets or sets the current. </summary>
-        /// <value> The current. </value>
+        /// <summary>
+        /// Gets or sets the current.
+        /// </summary>
+        /// <value>
+        /// The current.
+        /// </value>
         public DataRow Current { get; set; }
 
-        /// <summary> Gets or sets the frames. </summary>
-        /// <value> The frames. </value>
+        /// <summary>
+        /// Gets or sets the frames.
+        /// </summary>
+        /// <value>
+        /// The frames.
+        /// </value>
         public IEnumerable<Frame> Frames { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="EditDialog"/> class.
         /// </summary>
         public EditDialog( )
         {
@@ -54,12 +66,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="EditDialog"/> class.
         /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="bindingSource">The binding source.</param>
         public EditDialog( ToolType toolType, BindingSource bindingSource )
             : this( )
         {
@@ -75,12 +85,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="EditDialog"/> class.
         /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="dataModel"> The data model. </param>
+        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="dataModel">The data model.</param>
         public EditDialog( ToolType toolType, DataBuilder dataModel )
             : this( )
         {
@@ -98,13 +106,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="EditDialog"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="EditDialog"/> class.
         /// </summary>
-        /// <param name="toolType"> Type of the tool. </param>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
+        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
         public EditDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
             : this( )
         {
@@ -120,7 +126,9 @@ namespace BudgetExecution
             Numerics = DataModel?.Numerics;
         }
 
-        /// <summary> Sets the frame visibility. </summary>
+        /// <summary>
+        /// Sets the frame visibility.
+        /// </summary>
         public void SetFrameVisibility( )
         {
             if( Frames?.Any( ) == true )
@@ -145,8 +153,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the tab pages. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the tab pages.
+        /// </summary>
+        /// <returns></returns>
         public IDictionary<string, TabPageAdv> GetTabPages( )
         {
             if( TabControl?.TabPages?.Count > 0 )
@@ -169,15 +179,17 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IDictionary<string, TabPageAdv> );
                 }
             }
 
-            return default;
+            return default( IDictionary<string, TabPageAdv> );
         }
 
-        /// <summary> Gets the frames. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the frames.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Frame> GetFrames( )
         {
             try
@@ -203,17 +215,15 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<Frame> );
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -231,7 +241,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the activet tab. </summary>
+        /// <summary>
+        /// Sets the active tab.
+        /// </summary>
         private void SetActiveTab( )
         {
             if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
@@ -280,7 +292,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the frame dock style. </summary>
+        /// <summary>
+        /// Sets the frame dock style.
+        /// </summary>
         private void SetFrameDockStyle( )
         {
             if( Frames?.Any( ) == true )
@@ -299,7 +313,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the frame colors. </summary>
+        /// <summary>
+        /// Sets the frame colors.
+        /// </summary>
         private void SetFrameColors( )
         {
             if( Frames?.Any( ) == true )
@@ -314,7 +330,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the row location. </summary>
+        /// <summary>
+        /// Sets the table location.
+        /// </summary>
         private void SetTableLocation( )
         {
             if( FrameTable != null
@@ -345,7 +363,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Binds the record data. </summary>
+        /// <summary>
+        /// Binds the record data.
+        /// </summary>
         private void BindRecordData( )
         {
             if( Current != null
@@ -382,13 +402,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )

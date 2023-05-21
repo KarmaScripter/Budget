@@ -82,7 +82,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -108,7 +108,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -153,7 +153,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -181,7 +181,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -206,13 +206,13 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    return default;
+                    return default( string );
                 }
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -234,16 +234,16 @@ namespace BudgetExecution
                     var _date = DateTime.TryParse( text, out var _dateTime );
                     return _date
                         ? _dateTime
-                        : default;
+                        : default( DateTime );
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DateTime );
                 }
             }
 
-            return default;
+            return default( DateTime );
         }
 
         /// <summary> The ToStream </summary>
@@ -265,7 +265,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( MemoryStream );
             }
         }
 
@@ -285,7 +285,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( XmlDocument );
             }
         }
 
@@ -304,7 +304,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( byte[ ] );
             }
         }
 
@@ -434,7 +434,7 @@ namespace BudgetExecution
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

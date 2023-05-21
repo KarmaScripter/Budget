@@ -167,17 +167,17 @@ namespace BudgetExecution
                         _dataAdapter.Fill( _dataSet );
                         return _dataTable.Columns.Count > 0
                             ? _dataTable
-                            : default;
+                            : default( DataTable );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary> Creates the table from CSV file. </summary>
@@ -210,21 +210,21 @@ namespace BudgetExecution
                         _dataAdapter?.Fill( _dataSet, sheetName );
                         return _dataTable.Columns.Count > 0
                             ? _dataTable
-                            : default;
+                            : default( DataTable );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DataTable );
                 }
             }
 
-            return default;
+            return default( DataTable );
         }
 
         /// <summary> The Dispose </summary>
-        override protected void Dispose( bool disposing )
+        protected override void Dispose( bool disposing )
         {
             if( disposing )
             {
@@ -261,7 +261,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( string );
             }
         }
 

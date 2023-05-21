@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "CommandBase.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,54 +14,71 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.ISource"/>
-    /// <seealso cref="BudgetExecution.IProvider"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ISource" />
+    /// <seealso cref="BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class CommandBase : ISource, IProvider
     {
-        /// <summary> Gets or sets the command. </summary>
-        /// <value> The command. </value>
+        /// <summary>
+        /// Gets or sets the command.
+        /// </summary>
+        /// <value>
+        /// The command.
+        /// </value>
         public DbCommand Command { get; set; }
 
-        /// <summary> Gets or sets the connection factory. </summary>
-        /// <value> The connection factory. </value>
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
         public IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary> Gets or sets the type of the command. </summary>
-        /// <value> The type of the command. </value>
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
         public SQL CommandType { get; set; }
 
-        /// <summary> Gets or sets the SQL statement. </summary>
-        /// <value> The SQL statement. </value>
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public ISqlStatement SqlStatement { get; set; }
 
-        /// <summary> </summary>
+        /// <summary>
+        /// </summary>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets the source. </summary>
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
         public Source Source { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CommandBase"/> class.
         /// </summary>
         protected CommandBase( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CommandBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="sqlText"> The SQL text. </param>
-        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="commandType">Type of the command.</param>
         protected CommandBase( Source source, Provider provider, string sqlText, SQL commandType )
         {
             Source = source;
@@ -72,15 +89,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CommandBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected CommandBase( Source source, Provider provider, IDictionary<string, object> where, 
+            SQL commandType = SQL.SELECTALL )
         {
             Source = source;
             Provider = provider;
@@ -90,37 +106,33 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CommandBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="updates"> The updates. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
-            SQL commandType = SQL.UPDATE )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="update">The update.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected CommandBase( Source source, Provider provider, IDictionary<string, object> update, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             Source = source;
             Provider = provider;
             CommandType = commandType;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, updates, where, commandType );
+            SqlStatement = new SqlStatement( source, provider, update, where, commandType );
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CommandBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECT )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected CommandBase( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             Source = source;
             Provider = provider;
@@ -130,18 +142,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CommandBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="fields"> The fields. </param>
-        /// <param name="numerics"> The numerics. </param>
-        /// <param name="having"> The having. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected CommandBase( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="having">The having.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected CommandBase( Source source, Provider provider, IEnumerable<string> fields, 
+            IEnumerable<string> numerics, IDictionary<string, object> having, 
+            SQL commandType = SQL.SELECT )
         {
             Source = source;
             Provider = provider;
@@ -152,11 +163,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="CommandBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="CommandBase"/> class.
         /// </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
+        /// <param name="sqlStatement">The SQL statement.</param>
         protected CommandBase( ISqlStatement sqlStatement )
         {
             SqlStatement = sqlStatement;
@@ -166,18 +175,11 @@ namespace BudgetExecution
             ConnectionFactory = new ConnectionFactory( sqlStatement.Source, sqlStatement.Provider );
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
-        /// <summary> Gets the sq lite command. </summary>
-        /// <returns> </returns>
-        protected private DbCommand GetSQLiteCommand( )
+        /// <summary>
+        /// Gets the sq lite command.
+        /// </summary>
+        /// <returns></returns>
+        private protected DbCommand GetSQLiteCommand( )
         {
             if( SqlStatement != null
                && Enum.IsDefined( typeof( SQL ), SqlStatement.CommandType )
@@ -194,7 +196,7 @@ namespace BudgetExecution
                             var _sql = SqlStatement?.GetCommandText( );
                             return !string.IsNullOrEmpty( _sql )
                                 ? new SQLiteCommand( _sql, _connection )
-                                : default;
+                                : default( SQLiteCommand );
                         }
                         case SQL.INSERT:
                         {
@@ -221,16 +223,18 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
-        /// <summary> Gets the SQL ce command. </summary>
-        /// <returns> </returns>
-        protected private DbCommand GetSqlCeCommand( )
+        /// <summary>
+        /// Gets the SQL ce command.
+        /// </summary>
+        /// <returns></returns>
+        private protected DbCommand GetSqlCeCommand( )
         {
             if( SqlStatement != null
                && Enum.IsDefined( typeof( SQL ), SqlStatement.CommandType )
@@ -282,16 +286,18 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
-        /// <summary> Gets the SQL command. </summary>
-        /// <returns> </returns>
-        protected private DbCommand GetSqlCommand( )
+        /// <summary>
+        /// Gets the SQL command.
+        /// </summary>
+        /// <returns></returns>
+        private protected DbCommand GetSqlCommand( )
         {
             if( SqlStatement != null
                && Enum.IsDefined( typeof( SQL ), SqlStatement.CommandType )
@@ -333,16 +339,18 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
         }
 
-        /// <summary> Gets the OLE database command. </summary>
-        /// <returns> </returns>
-        protected private DbCommand GetOleDbCommand( )
+        /// <summary>
+        /// Gets the OLE database command.
+        /// </summary>
+        /// <returns></returns>
+        private protected DbCommand GetOleDbCommand( )
         {
             if( SqlStatement != null
                && Enum.IsDefined( typeof( SQL ), SqlStatement.CommandType )
@@ -384,11 +392,22 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( DbCommand );
                 }
             }
 
-            return default;
+            return default( DbCommand );
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        protected static void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

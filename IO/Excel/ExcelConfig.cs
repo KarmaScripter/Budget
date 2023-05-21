@@ -151,15 +151,15 @@ namespace BudgetExecution
                     var _extension = (EXT)Enum.Parse( typeof( EXT ), _path );
                     return Enum.IsDefined( typeof( EXT ), _extension )
                         ? _extension
-                        : default;
+                        : default( EXT );
                 }
 
-                return default;
+                return default( EXT );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( EXT );
             }
         }
 
@@ -289,7 +289,7 @@ namespace BudgetExecution
 
         /// <summary> Get ErrorDialog Dialog. </summary>
         /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
+        protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

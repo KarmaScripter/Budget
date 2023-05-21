@@ -382,11 +382,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( string );
                 }
             }
 
-            return default;
+            return default( string );
         }
 
         /// <summary>
@@ -407,11 +407,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( double );
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         /// <summary>
@@ -424,12 +424,12 @@ namespace BudgetExecution
             {
                 return Record.ItemArray != null
                     ? Record.ToDictionary( )
-                    : default;
+                    : default( IDictionary<string, object> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
     }

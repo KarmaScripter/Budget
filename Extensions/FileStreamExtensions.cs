@@ -67,11 +67,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( StreamReader );
                 }
             }
 
-            return default;
+            return default( StreamReader );
         }
 
         /// <summary> Opens a StreamReader using the specified encoding. </summary>
@@ -90,11 +90,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( StreamReader );
                 }
             }
 
-            return default;
+            return default( StreamReader );
         }
 
         /// <summary> Opens a StreamWriter using the default encoding. </summary>
@@ -111,11 +111,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( StreamWriter );
                 }
             }
 
-            return default;
+            return default( StreamWriter );
         }
 
         /// <summary> Opens a StreamWriter using the specified encoding. </summary>
@@ -134,11 +134,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( StreamWriter );
                 }
             }
 
-            return default;
+            return default( StreamWriter );
         }
 
         /// <summary> Reads all str from the stream using the default encoding. </summary>
@@ -165,11 +165,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( string );
                 }
             }
 
-            return default;
+            return default( string );
         }
 
         /// <summary> Sets the stream cursor to the beginning of the stream. </summary>
@@ -187,11 +187,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( Stream );
                 }
             }
 
-            return default;
+            return default( Stream );
         }
 
         /// <summary> Sets the stream cursor to the end of the stream. </summary>
@@ -209,11 +209,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( Stream );
                 }
             }
 
-            return default;
+            return default( Stream );
         }
 
         /// <summary> Copies one stream into a another one. </summary>
@@ -265,11 +265,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( MemoryStream );
                 }
             }
 
-            return default;
+            return default( MemoryStream );
         }
 
         /// <summary> Reads the entire stream and returns an IEnumerable byte. </summary>
@@ -287,11 +287,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<byte> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<byte> );
         }
 
         /// <summary> Reads a fixed number of bytes. </summary>
@@ -323,11 +323,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( IEnumerable<byte> );
                 }
             }
 
-            return default;
+            return default( IEnumerable<byte> );
         }
 
         /// <summary> Writes all passed bytes to the specified stream. </summary>
@@ -350,7 +350,7 @@ namespace BudgetExecution
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

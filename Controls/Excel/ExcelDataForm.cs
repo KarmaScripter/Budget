@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ExcelDataForm.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -18,76 +18,143 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class ExcelDataForm : MetroForm
     {
-        /// <summary> Gets or sets the row count. </summary>
-        /// <value> The row count. </value>
+        /// <summary>
+        /// Gets or sets the row count.
+        /// </summary>
+        /// <value>
+        /// The row count.
+        /// </value>
         public int RowCount { get; set; }
 
-        /// <summary> Gets or sets the col count. </summary>
-        /// <value> The col count. </value>
+        /// <summary>
+        /// Gets or sets the col count.
+        /// </summary>
+        /// <value>
+        /// The col count.
+        /// </value>
         public int ColCount { get; set; }
 
-        /// <summary> Gets or sets the file path. </summary>
-        /// <value> The file path. </value>
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
         public string FilePath { get; set; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
         public string FileName { get; set; }
 
-        /// <summary> Gets or sets the selected table. </summary>
-        /// <value> The selected table. </value>
+        /// <summary>
+        /// Gets or sets the selected table.
+        /// </summary>
+        /// <value>
+        /// The selected table.
+        /// </value>
         public string SelectedTable { get; set; }
 
-        /// <summary> Gets or sets the form filter. </summary>
-        /// <value> The form filter. </value>
+        /// <summary>
+        /// Gets or sets the form filter.
+        /// </summary>
+        /// <value>
+        /// The form filter.
+        /// </value>
         public IDictionary<string, object> FormFilter { get; set; }
 
-        /// <summary> Gets or sets the selected columns. </summary>
-        /// <value> The selected columns. </value>
+        /// <summary>
+        /// Gets or sets the selected columns.
+        /// </summary>
+        /// <value>
+        /// The selected columns.
+        /// </value>
         public IList<string> SelectedColumns { get; set; }
 
-        /// <summary> Gets or sets the selected fields. </summary>
-        /// <value> The selected fields. </value>
+        /// <summary>
+        /// Gets or sets the selected fields.
+        /// </summary>
+        /// <value>
+        /// The selected fields.
+        /// </value>
         public IList<string> SelectedFields { get; set; }
 
-        /// <summary> Gets or sets the selected numerics. </summary>
-        /// <value> The selected numerics. </value>
+        /// <summary>
+        /// Gets or sets the selected numerics.
+        /// </summary>
+        /// <value>
+        /// The selected numerics.
+        /// </value>
         public IList<string> SelectedNumerics { get; set; }
 
-        /// <summary> Gets or sets the grid. </summary>
-        /// <value> The grid. </value>
+        /// <summary>
+        /// Gets or sets the grid.
+        /// </summary>
+        /// <value>
+        /// The grid.
+        /// </value>
         public SpreadsheetGrid Grid { get; set; }
 
-        /// <summary> Gets or sets the model. </summary>
-        /// <value> The model. </value>
+        /// <summary>
+        /// Gets or sets the model.
+        /// </summary>
+        /// <value>
+        /// The model.
+        /// </value>
         public SpreadsheetGridModel Model { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary> Gets or sets the data model. </summary>
-        /// <value> The data model. </value>
+        /// <summary>
+        /// Gets or sets the data model.
+        /// </summary>
+        /// <value>
+        /// The data model.
+        /// </value>
         public DataBuilder DataModel { get; set; }
 
-        /// <summary> </summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
+        /// </summary>
         public ExcelDataForm( )
         {
             InitializeComponent( );
@@ -137,11 +204,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelDataForm"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
         /// </summary>
-        /// <param name="filePath"> The file path. </param>
+        /// <param name="filePath">The file path.</param>
         public ExcelDataForm( string filePath )
             : this( )
         {
@@ -151,11 +216,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelDataForm"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
         /// </summary>
-        /// <param name="fileStream"> The file. </param>
+        /// <param name="fileStream">The file stream.</param>
         public ExcelDataForm( Stream fileStream )
             : this( )
         {
@@ -163,11 +226,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelDataForm"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
         /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
+        /// <param name="bindingSource">The binding source.</param>
         public ExcelDataForm( BindingSource bindingSource )
             : this( )
         {
@@ -179,11 +240,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ExcelDataForm"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
         /// </summary>
-        /// <param name="dataTable"> The data table. </param>
+        /// <param name="dataTable">The data table.</param>
         public ExcelDataForm( DataTable dataTable )
             : this( )
         {
@@ -193,14 +252,11 @@ namespace BudgetExecution
             Header.Text = $"{DataTable.TableName.SplitPascal( )} ";
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="System.EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -224,13 +280,408 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [chart button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Sets the tool strip properties.
+        /// </summary>
+        private void SetToolStripProperties( )
+        {
+            try
+            {
+                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
+                ToolStrip.Visible = true;
+                ToolStrip.Text = string.Empty;
+                ToolStrip.Office12Mode = true;
+                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
+                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
+                ToolStrip.LauncherStyle = LauncherStyle.Office12;
+                ToolStrip.ShowCaption = false;
+                ToolStrip.ImageSize = new Size( 16, 16 );
+                ToolStrip.ImageScalingSize = new Size( 16, 16 );
+                ToolStripTextBox.Size = new Size( 190, 28 );
+                ToolStripTextBox.ForeColor = Color.LightSteelBlue;
+                ToolStripTextBox.Font = new Font( "Roboto", 8 );
+                ToolStripTextBox.ForeColor = Color.White;
+                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the table properties.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        private void SetTableProperties( DataTable table )
+        {
+            if( table != null
+               && table?.Rows?.Count > 0 )
+            {
+                try
+                {
+                    Spreadsheet?.SetActiveSheet( "Sheet1" );
+                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
+                    Spreadsheet?.SetZoomFactor( "Data", 100 );
+                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
+                    Spreadsheet?.SetGridLinesVisibility( false );
+                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
+                    var _usedRange = _activeSheet?.UsedRange;
+                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
+                    _usedRange.CellStyle.Font.FontName = "Roboto";
+                    _usedRange.CellStyle.Font.Size = 10;
+                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
+                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
+                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
+                    RowCount = DataTable.Rows.Count;
+                    ColCount = DataTable.Columns.Count;
+                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
+                    _topRow?.FreezePanes( );
+                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
+                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the worksheet properties.
+        /// </summary>
+        private void SetWorksheetProperties( )
+        {
+            try
+            {
+                Spreadsheet.DisplayAlerts = false;
+                Spreadsheet.Font = new Font( "Roboto", 10 );
+                Spreadsheet.AllowCellContextMenu = true;
+                Spreadsheet.CanApplyTheme = true;
+                Spreadsheet.CanOverrideStyle = true;
+                Spreadsheet.Margin = new Padding( 1 );
+                Spreadsheet.Padding = new Padding( 1 );
+                Spreadsheet.ForeColor = Color.Black;
+                Spreadsheet.DefaultColumnCount = RowCount;
+                Spreadsheet.DefaultRowCount = ColCount;
+                Spreadsheet.AllowZooming = true;
+                Spreadsheet.AllowFiltering = true;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the active grid properties.
+        /// </summary>
+        private void SetActiveGridProperties( )
+        {
+            try
+            {
+                Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
+                Spreadsheet.ActiveGrid.FrozenRows = 3;
+                Spreadsheet.ActiveGrid.AllowSelection = true;
+                Spreadsheet.ActiveGrid.CanOverrideStyle = true;
+                Spreadsheet.ActiveGrid.CanApplyTheme = true;
+                Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
+                Spreadsheet.ActiveGrid.MetroScrollBars = true;
+                Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = SystemColors.ControlDarkDark;
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = Color.FromArgb( 17, 69, 97 );
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor = Color.LightSteelBlue;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = Color.FromArgb( 17, 69, 97 );
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = Color.FromArgb( 17, 69, 97 );
+                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
+                Spreadsheet.ActiveGrid.ForeColor = Color.Black;
+                Spreadsheet.ActiveGrid.ColumnCount = ColCount;
+                Spreadsheet.ActiveGrid.RowCount = RowCount;
+                Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
+                Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
+                Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellClick;
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the table dialog.
+        /// </summary>
+        private void ShowTableDialog( )
+        {
+            try
+            {
+                var _group = new FilterDialog( );
+                _group.ShowDialog( this );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Shows the filter dialog.
+        /// </summary>
+        private void ShowFilterDialog( )
+        {
+            try
+            {
+                var _group = new FilterDialog( BindingSource );
+                _group.ShowDialog( this );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
+        private void OpenMainForm( )
+        {
+            try
+            {
+                if( Owner != null
+                   && Owner.Visible == false
+                   && Owner.GetType( ) == typeof( MainForm ) )
+                {
+                    Owner.Visible = true;
+                    Visible = false;
+                }
+                else if( Owner != null
+                        && Owner.Visible == false
+                        && Owner.GetType( ) != typeof( MainForm ) )
+                {
+                    Owner.Close( );
+                    var _mainForm = Program.Windows[ "Main" ];
+                    _mainForm.Refresh( );
+                    _mainForm.Visible = true;
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the data grid form.
+        /// </summary>
+        private void OpenDataGridForm( )
+        {
+            try
+            {
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                {
+                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )?.First( );
+                    _dataGridForm.Visible = true;
+                }
+                else
+                {
+                    var _dataGridForm = new DataGridForm( BindingSource );
+                    _dataGridForm.Owner = this;
+                    _dataGridForm.Show( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Opens the chart data form.
+        /// </summary>
+        private void OpenChartDataForm( )
+        {
+            try
+            {
+                var _forms = Program.Windows.Values;
+                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                {
+                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
+                    _chartDataForm.Visible = true;
+                }
+                else
+                {
+                    var _chartDataForm = new ChartDataForm( BindingSource );
+                    _chartDataForm.Owner = this;
+                    _chartDataForm.Show( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [work book loaded].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnWorkBookLoaded( object sender, EventArgs e )
+        {
+            try
+            {
+                SetTableProperties( DataTable );
+                SetActiveGridProperties( );
+                SetWorksheetProperties( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [table button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnTableButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                if( BindingSource.DataSource != null )
+                {
+                    OpenDataGridForm( );
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [back button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnBackButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Owner != null
+                   && Owner.Visible == false )
+                {
+                    Owner.Visible = true;
+                    Owner.Refresh( );
+                    Visible = false;
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [exit button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnExitButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+                Application.Exit( );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnShown( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !Program.Windows.ContainsKey( "ExcelDataForm" ) )
+                {
+                    Program.Windows.Add( "ExcelDataForm", this );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClose( object sender, EventArgs e )
+        {
+            try
+            {
+                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
+                {
+                    Program.Windows.Remove( "ExcelDataForm" );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [filter button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnFilterButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [group button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnGroupButtonClick( object sender, EventArgs e )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
+        /// Called when [chart button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnChartButtonClicked( object sender, EventArgs e )
         {
             try
@@ -247,13 +698,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         public void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -269,13 +718,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [lookup button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [lookup button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLookupButtonClicked( object sender, EventArgs e )
         {
             try
@@ -288,13 +735,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [remove filter button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [remove filter button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
         {
             try
@@ -307,13 +752,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -339,13 +782,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [upload button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [upload button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnUploadButtonClicked( object sender, EventArgs e )
         {
             try
@@ -363,13 +804,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [cell enter]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [cell click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnCellClick( object sender, EventArgs e )
         {
             try
@@ -414,393 +853,15 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         static protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
-        }
-
-        /// <summary> Sets the tool strip properties. </summary>
-        private void SetToolStripProperties( )
-        {
-            try
-            {
-                ToolStrip.Margin = new Padding( 1, 1, 1, 3 );
-                ToolStrip.Visible = true;
-                ToolStrip.Text = string.Empty;
-                ToolStrip.Office12Mode = true;
-                ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
-                ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
-                ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ShowCaption = false;
-                ToolStrip.ImageSize = new Size( 16, 16 );
-                ToolStrip.ImageScalingSize = new Size( 16, 16 );
-                ToolStripTextBox.Size = new Size( 190, 28 );
-                ToolStripTextBox.ForeColor = Color.LightSteelBlue;
-                ToolStripTextBox.Font = new Font( "Roboto", 8 );
-                ToolStripTextBox.ForeColor = Color.White;
-                ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the table properties. </summary>
-        private void SetTableProperties( DataTable table )
-        {
-            if( table != null
-               && table?.Rows?.Count > 0 )
-            {
-                try
-                {
-                    Spreadsheet?.SetActiveSheet( "Sheet1" );
-                    Spreadsheet?.RenameSheet( "Sheet1", "Data" );
-                    Spreadsheet?.SetZoomFactor( "Data", 100 );
-                    Spreadsheet?.ActiveSheet?.ImportDataTable( table, true, 1, 1 );
-                    Spreadsheet?.SetGridLinesVisibility( false );
-                    var _activeSheet = Spreadsheet?.Workbook?.ActiveSheet;
-                    var _usedRange = _activeSheet?.UsedRange;
-                    var _table = _activeSheet?.ListObjects?.Create( table.TableName, _usedRange );
-                    _usedRange.CellStyle.Font.FontName = "Roboto";
-                    _usedRange.CellStyle.Font.Size = 10;
-                    _usedRange.CellStyle.HorizontalAlignment = ExcelHAlign.HAlignCenter;
-                    _usedRange.CellStyle.VerticalAlignment = ExcelVAlign.VAlignBottom;
-                    var _topRow = _activeSheet?.Range[ 1, 1, 1, 60 ];
-                    RowCount = DataTable.Rows.Count;
-                    ColCount = DataTable.Columns.Count;
-                    ToolStripTextBox.Text = $"  Rows: {RowCount}  Columns: {ColCount}";
-                    _topRow?.FreezePanes( );
-                    _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
-                    Spreadsheet?.ActiveGrid?.InvalidateCells( );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary> Sets the worksheet properties. </summary>
-        private void SetWorksheetProperties( )
-        {
-            try
-            {
-                Spreadsheet.DisplayAlerts = false;
-                Spreadsheet.Font = new Font( "Roboto", 10 );
-                Spreadsheet.AllowCellContextMenu = true;
-                Spreadsheet.CanApplyTheme = true;
-                Spreadsheet.CanOverrideStyle = true;
-                Spreadsheet.Margin = new Padding( 1 );
-                Spreadsheet.Padding = new Padding( 1 );
-                Spreadsheet.ForeColor = Color.Black;
-                Spreadsheet.DefaultColumnCount = RowCount;
-                Spreadsheet.DefaultRowCount = ColCount;
-                Spreadsheet.AllowZooming = true;
-                Spreadsheet.AllowFiltering = true;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Sets the active grid properties. </summary>
-        private void SetActiveGridProperties( )
-        {
-            try
-            {
-                Spreadsheet.ActiveGrid.ContextMenuStrip = ContextMenu;
-                Spreadsheet.ActiveGrid.FrozenRows = 3;
-                Spreadsheet.ActiveGrid.AllowSelection = true;
-                Spreadsheet.ActiveGrid.CanOverrideStyle = true;
-                Spreadsheet.ActiveGrid.CanApplyTheme = true;
-                Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
-                Spreadsheet.ActiveGrid.MetroScrollBars = true;
-                Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = SystemColors.ControlDarkDark;
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = Color.FromArgb( 17, 69, 97 );
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor = Color.LightSteelBlue;
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = Color.FromArgb( 17, 69, 97 );
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = Color.FromArgb( 17, 69, 97 );
-                Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
-                Spreadsheet.ActiveGrid.ForeColor = Color.Black;
-                Spreadsheet.ActiveGrid.ColumnCount = ColCount;
-                Spreadsheet.ActiveGrid.RowCount = RowCount;
-                Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
-                Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
-                Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellClick;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Shows the table dialog. </summary>
-        private void ShowTableDialog( )
-        {
-            try
-            {
-                var _group = new FilterDialog( );
-                _group.ShowDialog( this );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Shows the filter dialog. </summary>
-        private void ShowFilterDialog( )
-        {
-            try
-            {
-                var _group = new FilterDialog( BindingSource );
-                _group.ShowDialog( this );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Opens the main form. </summary>
-        private void OpenMainForm( )
-        {
-            try
-            {
-                if( Owner != null
-                   && Owner.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
-                {
-                    Owner.Visible = true;
-                    Visible = false;
-                }
-                else if( Owner != null
-                        && Owner.Visible == false
-                        && Owner.GetType( ) != typeof( MainForm ) )
-                {
-                    Owner.Close( );
-                    var _mainForm = Program.Windows[ "Main" ];
-                    _mainForm.Refresh( );
-                    _mainForm.Visible = true;
-                    Visible = false;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Opens the data grid form. </summary>
-        private void OpenDataGridForm( )
-        {
-            try
-            {
-                var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
-                {
-                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )?.First( );
-                    _dataGridForm.Visible = true;
-                }
-                else
-                {
-                    var _dataGridForm = new DataGridForm( BindingSource );
-                    _dataGridForm.Owner = this;
-                    _dataGridForm.Show( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Opens the chart data form. </summary>
-        private void OpenChartDataForm( )
-        {
-            try
-            {
-                var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
-                {
-                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
-                    _chartDataForm.Visible = true;
-                }
-                else
-                {
-                    var _chartDataForm = new ChartDataForm( BindingSource );
-                    _chartDataForm.Owner = this;
-                    _chartDataForm.Show( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [work book loaded]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnWorkBookLoaded( object sender, EventArgs e )
-        {
-            try
-            {
-                SetTableProperties( DataTable );
-                SetActiveGridProperties( );
-                SetWorksheetProperties( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [table button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnTableButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null )
-                {
-                    OpenDataGridForm( );
-                    Visible = false;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [back button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnBackButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( Owner != null
-                   && Owner.Visible == false )
-                {
-                    Owner.Visible = true;
-                    Owner.Refresh( );
-                    Visible = false;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [exit button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnExitButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-                Application.Exit( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Called when [shown]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnShown( object sender, EventArgs e )
-        {
-            try
-            {
-                if( !Program.Windows.ContainsKey( "ExcelDataForm" ) )
-                {
-                    Program.Windows.Add( "ExcelDataForm", this );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary> Raises the Close event. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        private void OnClose( object sender, EventArgs e )
-        {
-            try
-            {
-                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
-                {
-                    Program.Windows.Remove( "ExcelDataForm" );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        private void OnFilterButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        private void OnGroupButtonClick( object sender, EventArgs e )
-        {
-            try
-            {
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
         }
     }
 }

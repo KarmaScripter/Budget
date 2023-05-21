@@ -157,7 +157,7 @@ namespace BudgetExecution
                     var _list = new List<Control> { item };
                     return _list?.Any( ) == true
                         ? _list
-                        : default;
+                        : default( List<Control> );
                 }
                 catch( Exception ex )
                 {
@@ -165,7 +165,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( IEnumerable<Control> );
         }
 
         /// <summary> Adds the control item. </summary>
@@ -176,12 +176,12 @@ namespace BudgetExecution
             {
                 return Children?.Any( ) == true
                     ? Children
-                    : default;
+                    : default( IEnumerable<Control> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( IEnumerable<Control> );
             }
         }
 
@@ -207,7 +207,7 @@ namespace BudgetExecution
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static protected private void Fail( Exception ex )
+        private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

@@ -53,7 +53,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -75,12 +75,12 @@ namespace BudgetExecution
                 _command.CommandText = sql;
                 return !string.IsNullOrEmpty( _command?.CommandText )
                     ? _command
-                    : default;
+                    : default( IDbCommand );
             }
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default;
+                return default( IDbCommand );
             }
         }
 
@@ -100,7 +100,7 @@ namespace BudgetExecution
                 catch( Exception _ex )
                 {
                     Fail( _ex );
-                    return default;
+                    return default( int );
                 }
             }
 
@@ -182,7 +182,7 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default;
+                return default( string );
             }
         }
 
@@ -207,13 +207,13 @@ namespace BudgetExecution
             catch( Exception _ex )
             {
                 Fail( _ex );
-                return default;
+                return default( IDictionary<string, object> );
             }
         }
 
         /// <summary> Get ErrorDialog Dialog. </summary>
         /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

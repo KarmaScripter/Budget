@@ -40,7 +40,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( TValue );
                 }
             }
             else
@@ -115,7 +115,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( SortedDictionary<TKey, TValue> );
             }
         }
 
@@ -134,12 +134,12 @@ namespace BudgetExecution
 
                 return _bindingList?.Any( ) == true
                     ? _bindingList
-                    : default;
+                    : default( BindingList<KeyValuePair<string, object>> );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( BindingList<KeyValuePair<string, object>> );
             }
         }
 
@@ -157,7 +157,7 @@ namespace BudgetExecution
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( SortedList<TKey, TValue> );
             }
         }
 
@@ -295,7 +295,7 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( bool );
                 }
             }
 
@@ -324,11 +324,11 @@ namespace BudgetExecution
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( KeyValuePair<string, object> );
                 }
             }
 
-            return default;
+            return default( KeyValuePair<string, object> );
         }
 
         /// <summary> Converts to Key bindinglist. </summary>
@@ -349,7 +349,7 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default;
+                        : default( BindingList<string> );
                 }
                 catch( Exception ex )
                 {
@@ -379,7 +379,7 @@ namespace BudgetExecution
 
                     return _list?.Any( ) == true
                         ? _list
-                        : default;
+                        : default( BindingList<object> );
                 }
                 catch( Exception ex )
                 {
@@ -393,7 +393,7 @@ namespace BudgetExecution
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static private void Fail( Exception ex )
+        private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

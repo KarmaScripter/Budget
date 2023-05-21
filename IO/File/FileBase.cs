@@ -81,7 +81,7 @@ namespace BudgetExecution
             catch( IOException ex )
             {
                 Fail( ex );
-                return default;
+                return default( FileSecurity );
             }
         }
 
@@ -94,12 +94,12 @@ namespace BudgetExecution
                 var _path = Path.GetFullPath( Buffer );
                 return !string.IsNullOrEmpty( _path ) && File.Exists( _path )
                     ? new FileInfo( _path )?.Create( )
-                    : default;
+                    : default( FileStream );
             }
             catch( Exception ex )
             {
                 Fail( ex );
-                return default;
+                return default( FileStream );
             }
         }
 

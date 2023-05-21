@@ -84,17 +84,17 @@ namespace BudgetExecution
                         var _image = Image.FromStream( _stream );
                         return ( _image != null )
                             ? _image
-                            : default;
+                            : default( Image );
                     }
                 }
                 catch( Exception ex )
                 {
                     Fail( ex );
-                    return default;
+                    return default( Image );
                 }
             }
 
-            return default;
+            return default( Image );
         }
 
         /// <summary> Called when [mouse over]. </summary>

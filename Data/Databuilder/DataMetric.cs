@@ -138,7 +138,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         public double CalculateTotal( string numeric, IDictionary<string, object> where )
@@ -161,7 +161,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         /// <summary> Calculates the average. </summary>
@@ -238,7 +238,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         /// <summary> Calculates the percentage. </summary>
@@ -265,7 +265,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         /// <summary> Calculates the deviation. </summary>
@@ -293,7 +293,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         public double CalculateDeviation( string numeric, IDictionary<string, object> where )
@@ -317,7 +317,7 @@ namespace BudgetExecution
                 }
             }
 
-            return default;
+            return default( double );
         }
 
         /// <summary> Calculates the variance. </summary>
@@ -374,7 +374,7 @@ namespace BudgetExecution
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static protected void Fail( Exception ex )
+        protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
