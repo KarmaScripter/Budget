@@ -53,7 +53,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
             Used = double.Parse( Record[ "Used" ].ToString( ) );
@@ -98,7 +98,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
             Used = double.Parse( Record[ "Used" ].ToString( ) );
@@ -143,7 +143,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( dataRow[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( dataRow[ "ULO" ].ToString( ) );
+            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString( ) );
             Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) );
             Used = double.Parse( dataRow[ "Used" ].ToString( ) );
@@ -182,7 +182,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) );
             Used = double.Parse( Record[ "Used" ].ToString( ) );

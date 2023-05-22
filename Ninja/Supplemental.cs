@@ -133,7 +133,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the ulo. </summary>
         /// <value> The ulo. </value>
-        public override double ULO { get; set; }
+        public override double UnliquidatedObligations { get; set; }
 
         /// <summary> Gets or sets the expenditures. </summary>
         /// <value> The expenditures. </value>

@@ -55,7 +55,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
@@ -106,7 +106,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            ULO = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
@@ -157,7 +157,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            ULO = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
             Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
@@ -199,7 +199,7 @@ namespace BudgetExecution
             Budgeted = pay.Budgeted;
             Posted = pay.Posted;
             OpenCommitments = pay.OpenCommitments;
-            ULO = pay.ULO;
+            UnliquidatedObligations = pay.UnliquidatedObligations;
             Obligations = pay.Obligations;
             Expenditures = pay.Expenditures;
             Used = pay.Used;

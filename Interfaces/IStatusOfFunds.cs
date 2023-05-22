@@ -33,7 +33,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the ulo. </summary>
         /// <value> The ulo. </value>
-        public double ULO { get; set; }
+        public double UnliquidatedObligations { get; set; }
 
         /// <summary> Gets or sets the expenditures. </summary>
         /// <value> The expenditures. </value>
