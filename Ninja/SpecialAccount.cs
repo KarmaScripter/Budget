@@ -14,22 +14,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SpecialAccount : PRC
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public override string BFY { get; set; }
-
-        /// <summary> Gets or sets the rpio code. </summary>
-        /// <value> The rpio code. </value>
-        public override string RpioCode { get; set; }
-
-        /// <summary> Gets or sets the fund code. </summary>
-        /// <value> The fund code. </value>
-        public override string FundCode { get; set; }
-
         /// <summary> Gets or sets the special account fund. </summary>
         /// <value> The special account fund. </value>
         public string SpecialAccountFund { get; set; }
@@ -81,18 +65,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the pipeline description. </summary>
         /// <value> The pipeline description. </value>
         public string PipelineDescription { get; set; }
-
-        /// <summary> Gets or sets the account code. </summary>
-        /// <value> The account code. </value>
-        public override string AccountCode { get; set; }
-
-        /// <summary> Gets or sets the boc code. </summary>
-        /// <value> The boc code. </value>
-        public override string BocCode { get; set; }
-
-        /// <summary> Gets or sets the name of the boc. </summary>
-        /// <value> The name of the boc. </value>
-        public override string BocName { get; set; }
 
         /// <summary> Gets or sets the type of the transaction. </summary>
         /// <value> The type of the transaction. </value>

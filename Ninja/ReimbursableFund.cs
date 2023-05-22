@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ReimbursableFund.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,38 +14,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ReimbursableFund : PRC
     {
-        /// <summary> Gets or sets the identifier. </summary>
-        /// <value> The identifier. </value>
-        public override int ID { get; set; }
-
-        /// <summary> Gets or sets the rpio code. </summary>
-        /// <value> The rpio code. </value>
-        public override string RpioCode { get; set; }
-
-        /// <summary> Gets or sets the bfy. </summary>
-        /// <value> The bfy. </value>
-        public override string BFY { get; set; }
-
-        /// <summary> Gets or sets the fund code. </summary>
-        /// <value> The fund code. </value>
-        public override string FundCode { get; set; }
-
-        /// <summary> Gets or sets the account code. </summary>
-        /// <value> The account code. </value>
-        public override string AccountCode { get; set; }
-
-        /// <summary> Gets or sets the rc code. </summary>
-        /// <value> The rc code. </value>
-        public override string RcCode { get; set; }
-
-        /// <summary> Gets or sets the name of the rc. </summary>
-        /// <value> The name of the rc. </value>
-        public override string RcName { get; set; }
-
-        /// <summary> Gets or sets the boc code. </summary>
-        /// <value> The boc code. </value>
-        public override string BocCode { get; set; }
-
         /// <summary> Gets or sets the document control number. </summary>
         /// <value> The document control number. </value>
         public string DocumentControlNumber { get; set; }
@@ -73,18 +41,6 @@ namespace BudgetExecution
         /// <summary> Gets or sets the available. </summary>
         /// <value> The available. </value>
         public double Available { get; set; }
-
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
-        public override Source Source { get; set; }
-
-        /// <summary> Gets or sets the Record property. </summary>
-        /// <value> The data row. </value>
-        public override DataRow Record { get; set; }
-
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
-        public override IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the
