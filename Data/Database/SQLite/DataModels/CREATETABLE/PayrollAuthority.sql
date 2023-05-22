@@ -26,5 +26,9 @@ CREATE TABLE IF NOT EXISTS PayrollAuthority
 	ProgramAreaName	TEXT(80) NULL DEFAULT NS,
 	NpmCode	TEXT(80) NULL DEFAULT NS,
 	NpmName	TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountCode	TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName	TEXT(80) NULL DEFAULT NS,
+	BudgetAccountCode	TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName	TEXT(80) NULL DEFAULT NS,
 	PRIMARY KEY(PayrollAuthorityId AUTOINCREMENT)
 );

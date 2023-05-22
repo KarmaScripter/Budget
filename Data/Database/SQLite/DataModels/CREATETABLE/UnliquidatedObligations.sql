@@ -20,9 +20,10 @@ CREATE TABLE IF NOT EXISTS UnliquidatedObligations
     DocumentType TEXT(80) NULL DEFAULT NS,
     DocumentNumber TEXT(80) NULL DEFAULT NS,
     DocumentControlNumber TEXT(80) NULL DEFAULT NS,
-    TreasurySymbol TEXT(80) NULL DEFAULT NS,
-    OmbAccountCode TEXT(80) NULL DEFAULT NS,
-    OmbAccountName TEXT(80) NULL DEFAULT NS,
+    TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+    TreasuryAccountNmae TEXT(80) NULL DEFAULT NS,
+    BudgetAccountCode TEXT(80) NULL DEFAULT NS,
+    BudgetAccountName TEXT(80) NULL DEFAULT NS,
     ProcessedDate TEXT(80) NULL DEFAULT NS,
     LastActivityDate TEXT(80) NULL DEFAULT NS,
     Age DECIMAL NULL DEFAULT 0.0,
@@ -35,5 +36,9 @@ CREATE TABLE IF NOT EXISTS UnliquidatedObligations
     VendorCode TEXT(80) NULL DEFAULT NS,
     VendorName TEXT(80) NULL DEFAULT NS,
     Amount DECIMAL NULL DEFAULT 0.0,
+	TreasuryAccountCode	TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName	TEXT(80) NULL DEFAULT NS,
+	BudgetAccountCode	TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName	TEXT(80) NULL DEFAULT NS,
 	    PRIMARY KEY(UnliquidatedObligationsId AUTOINCREMENT)
 );

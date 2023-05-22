@@ -1,4 +1,4 @@
-﻿// <copyright file = "AmericanRescuePlan.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "StatusOfAmericanRescuePlanFunds.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -16,41 +16,25 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.StatusOfFunds" />
     [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class AmericanRescuePlan : StatusOfFunds
+    public class StatusOfAmericanRescuePlanFunds : StatusOfFunds
     {
         /// <summary>
-        /// Gets or sets the status of funds identifier.
+        /// Initializes a new instance of the <see cref="StatusOfAmericanRescuePlanFunds"/> class.
         /// </summary>
-        /// <value>
-        /// The status of funds identifier.
-        /// </value>
-        public int StatusOfFundsId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
-        /// </summary>
-        public AmericanRescuePlan( )
+        public StatusOfAmericanRescuePlanFunds( )
         {
-            Source = Source.AmericanRescuePlan;
+            Source = Source.StatusOfAmericanRescuePlanFunds;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// Initializes a new instance of the <see cref="StatusOfAmericanRescuePlanFunds"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public AmericanRescuePlan( IQuery query )
+        public StatusOfAmericanRescuePlanFunds( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AmericanRescuePlanId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "StatusOfAmericanRescuePlanFundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -68,7 +52,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
@@ -90,14 +74,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// Initializes a new instance of the <see cref="StatusOfAmericanRescuePlanFunds"/> class.
         /// </summary>
         /// <param name="builder"></param>
-        public AmericanRescuePlan( IDataModel builder )
+        public StatusOfAmericanRescuePlanFunds( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
-            ID = int.Parse( Record[ "AmericanRescuePlanId" ].ToString( ) ?? "0" );
+            ID = int.Parse( Record[ "StatusOfAmericanRescuePlanFundsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
             EFY = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
@@ -115,7 +99,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "UnliquidatedObligations" ].ToString( ) );
             Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
@@ -137,14 +121,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// Initializes a new instance of the <see cref="StatusOfAmericanRescuePlanFunds"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public AmericanRescuePlan( DataRow dataRow )
+        public StatusOfAmericanRescuePlanFunds( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
-            ID = int.Parse( dataRow[ "AmericanRescuePlanId" ].ToString( ) ?? "0" );
+            ID = int.Parse( dataRow[ "StatusOfAmericanRescuePlanFundsId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
             EFY = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
@@ -162,7 +146,7 @@ namespace BudgetExecution
             Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
             Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
             OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
-            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( dataRow[ "UnliquidatedObligations" ].ToString( ) );
             Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
             Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
             Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
@@ -184,10 +168,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AmericanRescuePlan"/> class.
+        /// Initializes a new instance of the <see cref="StatusOfAmericanRescuePlanFunds"/> class.
         /// </summary>
         /// <param name="account">The allocation.</param>
-        public AmericanRescuePlan( AmericanRescuePlan account )
+        public StatusOfAmericanRescuePlanFunds( StatusOfAmericanRescuePlanFunds account )
         {
             ID = account.ID;
             BudgetLevel = account.BudgetLevel;

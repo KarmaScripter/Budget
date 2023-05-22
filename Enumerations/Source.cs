@@ -22,9 +22,6 @@ namespace BudgetExecution
         /// <summary> The allocations </summary>
         Allocations,
 
-        /// <summary> The american rescue plan </summary>
-        AmericanRescuePlan,
-
         /// <summary> The american rescue plan carryover estimates </summary>
         AmericanRescuePlanCarryoverEstimates,
 
@@ -346,6 +343,12 @@ namespace BudgetExecution
         /// <summary> The status of funds </summary>
         StatusOfFunds,
 
+        /// <summary> The status of funds </summary>
+        StatusOfAmericanRescuePlanFunds,
+
+        /// <summary> The status of funds </summary>
+        StatusOfInflationReductionActFunds,
+        
         /// <summary> The status of jobs act funding </summary>
         StatusOfJobsActFunding,
 

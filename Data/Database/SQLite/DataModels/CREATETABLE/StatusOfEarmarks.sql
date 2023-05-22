@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS StatusOfEarmarks
     Budgeted DECIMAL DEFAULT 0.0,
     Posted DECIMAL DEFAULT 0.0,
     OpenCommitments DECIMAL DEFAULT 0.0,
-    ULO DECIMAL DEFAULT 0.0,
+    UnliquidatedObligations DECIMAL DEFAULT 0.0,
     Expenditures DECIMAL DEFAULT 0.0,
     Obligations DECIMAL DEFAULT 0.0,
     Used DECIMAL DEFAULT 0.0,
