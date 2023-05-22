@@ -174,5 +174,46 @@ namespace BudgetExecution
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
+
+        public OpenCommitment( OpenCommitment commitment )
+        {
+            ID = commitment.ID;
+            BFY = commitment.BFY;
+            EFY = commitment.EFY;
+            FundCode = commitment.FundCode;
+            FundName = commitment.FundName;
+            RpioCode = commitment.RpioCode;
+            RpioName = commitment.RpioName;
+            AhCode = commitment.AhCode;
+            AhName = commitment.AhName;
+            OrgCode = commitment.OrgCode;
+            OrgName = commitment.OrgName;
+            AccountCode = commitment.AccountCode;
+            BocCode = commitment.BocCode;
+            BocName = commitment.BocName;
+            Amount = commitment.Amount;
+            Budgeted = commitment.Budgeted;
+            Posted = commitment.Posted;
+            OpenCommitments = commitment.OpenCommitments;
+            ULO = commitment.ULO;
+            Obligations = commitment.Obligations;
+            Expenditures = commitment.Expenditures;
+            Used = commitment.Used;
+            Available = commitment.Available;
+            ProgramProjectCode = commitment.ProgramProjectCode;
+            ProgramProjectName = commitment.ProgramProjectName;
+            ProgramAreaCode = commitment.ProgramAreaCode;
+            ProgramAreaName = commitment.ProgramAreaName;
+            NpmCode = commitment.NpmCode;
+            NpmName = commitment.NpmName;
+            GoalCode = commitment.GoalCode;
+            GoalName = commitment.GoalName;
+            ObjectiveCode = commitment.ObjectiveCode;
+            ObjectiveName = commitment.ObjectiveName;
+            TreasuryAccountCode = commitment.TreasuryAccountCode;
+            TreasuryAccountName = commitment.TreasuryAccountName;
+            BudgetAccountCode = commitment.BudgetAccountCode;
+            BudgetAccountName = commitment.BudgetAccountName;
+        }
     }
 }
