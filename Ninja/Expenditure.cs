@@ -150,34 +150,34 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
-        public Expenditure( Expenditure status )
+        public Expenditure( Expenditure expense )
         {
-            ID = status.ID;
-            BudgetLevel = status.BudgetLevel;
-            BFY = status.BFY;
-            EFY = status.EFY;
-            FundCode = status.FundCode;
-            FundName = status.FundName;
-            RpioCode = status.RpioCode;
-            RpioName = status.RpioName;
-            AhCode = status.AhCode;
-            AhName = status.AhName;
-            OrgCode = status.OrgCode;
-            OrgName = status.OrgName;
-            AccountCode = status.AccountCode;
-            BocCode = status.BocCode;
-            BocName = status.BocName;
-            Amount = status.Expenditures;
-            ProgramProjectCode = status.ProgramProjectCode;
-            ProgramProjectName = status.ProgramProjectName;
-            ProgramAreaCode = status.ProgramAreaCode;
-            ProgramAreaName = status.ProgramAreaName;
-            NpmCode = status.NpmCode;
-            NpmName = status.NpmName;
-            TreasuryAccountCode = status.TreasuryAccountCode;
-            TreasuryAccountName = status.TreasuryAccountName;
-            BudgetAccountCode = status.BudgetAccountCode;
-            BudgetAccountName = status.BudgetAccountName;
+            ID = expense.ID;
+            BudgetLevel = expense.BudgetLevel;
+            BFY = expense.BFY;
+            EFY = expense.EFY;
+            FundCode = expense.FundCode;
+            FundName = expense.FundName;
+            RpioCode = expense.RpioCode;
+            RpioName = expense.RpioName;
+            AhCode = expense.AhCode;
+            AhName = expense.AhName;
+            OrgCode = expense.OrgCode;
+            OrgName = expense.OrgName;
+            AccountCode = expense.AccountCode;
+            BocCode = expense.BocCode;
+            BocName = expense.BocName;
+            Amount = expense.Amount;
+            ProgramProjectCode = expense.ProgramProjectCode;
+            ProgramProjectName = expense.ProgramProjectName;
+            ProgramAreaCode = expense.ProgramAreaCode;
+            ProgramAreaName = expense.ProgramAreaName;
+            NpmCode = expense.NpmCode;
+            NpmName = expense.NpmName;
+            TreasuryAccountCode = expense.TreasuryAccountCode;
+            TreasuryAccountName = expense.TreasuryAccountName;
+            BudgetAccountCode = expense.BudgetAccountCode;
+            BudgetAccountName = expense.BudgetAccountName;
         }
     }
 }
