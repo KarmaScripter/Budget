@@ -13,7 +13,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.AdministrativeRequest" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class CarryoverRequest : AdministrativeRequest
     {
@@ -99,6 +99,20 @@ namespace BudgetExecution
             Comments = dataRow[ "Comments" ].ToString( );
             OriginalRequestDate = DateOnly.Parse( dataRow[ "OriginalRequestDate" ].ToString( ) ?? "" );
             LastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ].ToString( ) ?? "" );
+        }
+
+        public CarryoverRequest( CarryoverRequest request )
+        {
+            ID = request.ID;
+            Analyst = request.Analyst;
+            DocumentTitle = request.DocumentTitle;
+            Amount = request.Amount;
+            FundCode = request.FundCode;
+            Status = request.Status;
+            BudgetFormulationSystem = request.BudgetFormulationSystem;
+            Comments = request.Comments;
+            OriginalRequestDate = request.OriginalRequestDate;
+            LastActivityDate = request.LastActivityDate;
         }
     }
 }

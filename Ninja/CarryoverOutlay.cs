@@ -187,27 +187,6 @@ namespace BudgetExecution
         public double OutYear9 { get; set; }
 
         /// <summary>
-        /// Gets the source.
-        /// </summary>
-        public override Source Source { get; set; }
-
-        /// <summary>
-        /// </summary>
-        public override Provider Provider { get; set; }
-
-        /// <summary>
-        /// </summary>
-        public override DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public override IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="CarryoverOutlay"/> class.
         /// </summary>
         public CarryoverOutlay( )
@@ -315,6 +294,31 @@ namespace BudgetExecution
             OutYear7 = double.Parse( dataRow[ "OutYear7" ].ToString( ) ?? "0" );
             OutYear8 = double.Parse( dataRow[ "OutYear8" ].ToString( ) ?? "0" );
             OutYear9 = double.Parse( dataRow[ "OutYear9" ].ToString( ) ?? "0" );
+        }
+
+        public CarryoverOutlay( CarryoverOutlay outlay )
+        {
+            ID = outlay.ID;
+            ReportYear = outlay.ReportYear;
+            AgencyName = outlay.AgencyName;
+            BudgetAccountName = outlay.BudgetAccountName;
+            Line = outlay.Line;
+            Carryover = outlay.Carryover;
+            Delta = outlay.Delta;
+            AvailableBalance = outlay.AvailableBalance;
+            ULO = outlay.ULO;
+            CurrentYearAdjustment = outlay.CurrentYearAdjustment;
+            BudgetYearAdjustment = outlay.BudgetYearAdjustment;
+            CurrentYear = outlay.CurrentYear;
+            BudgetYear = outlay.BudgetYear;
+            OutYear1 = outlay.OutYear1;
+            OutYear2 = outlay.OutYear2;
+            OutYear3 = outlay.OutYear3;
+            OutYear4 = outlay.OutYear4;
+            OutYear5 = outlay.OutYear5;
+            OutYear6 = outlay.OutYear6;
+            OutYear7 = outlay.OutYear7;
+            OutYear8 = outlay.OutYear8;
         }
     }
 }
