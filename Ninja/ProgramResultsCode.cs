@@ -191,6 +191,30 @@ namespace BudgetExecution
         public ProgramResultsCode( ProgramResultsCode prc )
         {
             ID = prc.ID;
+            BFY = prc.BFY;
+            EFY = prc.EFY;
+            FundCode = prc.FundCode;
+            FundName = prc.FundName;
+            RpioCode = prc.RpioCode;
+            RpioName = prc.RpioName;
+            AhCode = prc.AhCode;
+            AhName = prc.AhName;
+            OrgCode = prc.OrgCode;
+            OrgName = prc.OrgName;
+            AccountCode = prc.AccountCode;
+            BocCode = prc.BocCode;
+            BocName = prc.BocName;
+            ProgramProjectCode = prc.ProgramProjectCode;
+            ProgramProjectName = prc.ProgramProjectName;
+            ProgramAreaCode = prc.ProgramAreaCode;
+            ProgramAreaName = prc.ProgramAreaName;
+            Amount = prc.Amount;
+            NpmCode = prc.NpmCode;
+            NpmName = prc.NpmName;
+            GoalCode = prc.GoalCode;
+            GoalName = prc.GoalName;
+            ObjectiveCode = prc.ObjectiveCode;
+            ObjectiveName = prc.ObjectiveName;
         }
         
         /// <summary> </summary>
