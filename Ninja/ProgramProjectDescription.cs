@@ -15,32 +15,8 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class ProgramProjectDescription
+    public class ProgramProjectDescription : DescriptionBase
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
@@ -64,6 +40,15 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Definition = Record[ "Definition" ].ToString( );
+            Laws = Record[ "Laws" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -74,6 +59,15 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "ProgramProjectsId" ].ToString( ) );
+            Code = Record[ "Code" ].ToString( );
+            Name = Record[ "Name" ].ToString( );
+            Title = Record[ "Title" ].ToString( );
+            Definition = Record[ "Definition" ].ToString( );
+            Laws = Record[ "Laws" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            Data = Record?.ToDictionary( );
         }
 
         /// <summary>
@@ -84,6 +78,15 @@ namespace BudgetExecution
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "ProgramProjectsId" ].ToString( ) );
+            Code = dataRow[ "Code" ].ToString( );
+            Name = dataRow[ "Name" ].ToString( );
+            Title = dataRow[ "Title" ].ToString( );
+            Definition = dataRow[ "Definition" ].ToString( );
+            Laws = dataRow[ "Laws" ].ToString( );
+            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            Data = dataRow?.ToDictionary( );
         }
     }
 }

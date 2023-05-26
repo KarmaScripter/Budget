@@ -27,6 +27,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     public class ProgramResultsCode : StatusOfFunds, IProgramResultsCode
     {
         /// <summary>

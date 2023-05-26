@@ -18,6 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     public class Obligation : StatusOfFunds 
     {
         /// <summary>

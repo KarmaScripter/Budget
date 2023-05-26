@@ -107,6 +107,18 @@ namespace BudgetExecution
             Data = Record?.ToDictionary( );
         }
 
+        public ProgramProject( ProgramProject project )
+        {
+            ID = project.ID;
+            Code = project.Code;
+            Name = project.Name;
+            Title = project.Title;
+            Definition = project.Definition;
+            Laws = project.Laws;
+            ProgramAreaCode = project.ProgramAreaCode;
+            ProgramAreaName = project.ProgramAreaName;
+        }
+
         /// <summary> Gets the identifier. </summary>
         /// <param name="dataRow"> The data row. </param>
         /// <returns> </returns>
