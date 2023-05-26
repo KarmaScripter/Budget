@@ -12,6 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class SiteActivity
     {
         /// <summary> Gets or sets the identifier. </summary>
@@ -177,6 +178,7 @@ namespace BudgetExecution
         /// </summary>
         public SiteActivity( )
         {
+            Source = Source.SiteActivity;
         }
 
         /// <summary>

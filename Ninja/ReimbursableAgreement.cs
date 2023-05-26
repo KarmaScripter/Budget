@@ -12,6 +12,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class ReimbursableAgreement
     {
         /// <summary> Gets or sets the identifier. </summary>

@@ -218,23 +218,5 @@ namespace BudgetExecution
             ObjectiveCode = prc.ObjectiveCode;
             ObjectiveName = prc.ObjectiveName;
         }
-        
-        /// <summary> </summary>
-        /// <param name="dataRow"> </param>
-        /// <returns> </returns>
-        public override int GetId( DataRow dataRow )
-        {
-            try
-            {
-                return dataRow != null
-                    ? int.Parse( dataRow[ 0 ].ToString( ) )
-                    : -1;
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-                return default( int );
-            }
-        }
     }
 }
