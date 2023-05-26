@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "OutlookManager.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -20,6 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeModifiersOrder" ) ]
+    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     public class OutlookManager
     {
         /// <summary> Gets or sets the name of the host. </summary>
@@ -51,8 +52,8 @@ namespace BudgetExecution
         /// <param name="content"> The content. </param>
         public void SendMail( OutlookConfig config, EmailContent content )
         {
-            if( config != null
-               && content != null )
+            if( ( config != null )
+               && ( content != null ) )
             {
                 try
                 {
@@ -109,8 +110,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         private MailMessage CreateMessage( OutlookConfig config, EmailContent content )
         {
-            if( config != null
-               && content != null )
+            if( ( config != null )
+               && ( content != null ) )
             {
                 try
                 {
@@ -163,8 +164,8 @@ namespace BudgetExecution
         /// <param name="config"> The configuration. </param>
         private void Send( MailMessage message, OutlookConfig config )
         {
-            if( message != null
-               && config != null )
+            if( ( message != null )
+               && ( config != null ) )
             {
                 try
                 {

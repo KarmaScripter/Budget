@@ -131,7 +131,7 @@ namespace BudgetExecution
         public void OnMouseHover( object sender, EventArgs e )
         {
             if( sender is ToolStripProgressBar progress
-               && progress != null )
+               && ( progress != null ) )
             {
                 try
                 {

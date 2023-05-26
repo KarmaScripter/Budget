@@ -41,7 +41,7 @@ namespace BudgetExecution
             try
             {
                 if( bindingList is BindingSource _binder
-                   && _binder?.DataSource != null )
+                   && ( _binder?.DataSource != null ) )
                 {
                     try
                     {
@@ -70,8 +70,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( bindingList != null
-                   && dict?.Any( ) == true )
+                if( ( bindingList != null )
+                   && ( dict?.Any( ) == true ) )
                 {
                     try
                     {
@@ -80,14 +80,14 @@ namespace BudgetExecution
                         foreach( var kvp in dict )
                         {
                             if( !string.IsNullOrEmpty( kvp.Key )
-                               && kvp.Value != null )
+                               && ( kvp.Value != null ) )
                             {
                                 _filter += $"{kvp.Key} = {kvp.Value} AND";
                             }
                         }
 
-                        if( _filter?.Length > 0
-                           && _list?.DataSource != null )
+                        if( ( _filter?.Length > 0 )
+                           && ( _list?.DataSource != null ) )
                         {
                             BindingSource.DataSource = _list?.DataSource;
                             BindingSource.Filter = _filter?.TrimEnd( " AND".ToCharArray( ) );
@@ -138,7 +138,7 @@ namespace BudgetExecution
                     foreach( var kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( kvp.Key )
-                           && kvp.Value != null )
+                           && ( kvp.Value != null ) )
                         {
                             _filter += $"{kvp.Key} = {kvp.Value} AND";
                         }
@@ -165,7 +165,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1>
             where T2 : struct
         {
-            if( data?.Any( ) == true
+            if( ( data?.Any( ) == true )
                && Enum.IsDefined( typeof( Field ), field ) )
             {
                 try
@@ -225,8 +225,8 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1>
             where T2 : IDictionary<string, object>
         {
-            if( data?.Any( ) == true
-               && dict?.Any( ) == true )
+            if( ( data?.Any( ) == true )
+               && ( dict?.Any( ) == true ) )
             {
                 try
                 {
@@ -234,7 +234,7 @@ namespace BudgetExecution
                     foreach( var kvp in dict )
                     {
                         if( !string.IsNullOrEmpty( kvp.Key )
-                           && kvp.Value != null )
+                           && ( kvp.Value != null ) )
                         {
                             filter += $"{kvp.Key} = {kvp.Value} AND";
                         }
@@ -258,7 +258,7 @@ namespace BudgetExecution
             where T1 : IEnumerable<T1>
             where T2 : struct
         {
-            if( data?.Any( ) == true
+            if( ( data?.Any( ) == true )
                && Enum.IsDefined( typeof( Field ), field ) )
             {
                 try

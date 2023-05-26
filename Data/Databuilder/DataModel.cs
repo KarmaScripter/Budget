@@ -308,7 +308,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string column )
         {
-            if( dataRows?.Any( ) == true
+            if( ( dataRows?.Any( ) == true )
                && !string.IsNullOrEmpty( column ) )
             {
                 try
@@ -335,7 +335,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name, string value )
         {
-            if( dataRows?.Any( ) == true
+            if( ( dataRows?.Any( ) == true )
                && !string.IsNullOrEmpty( value ) )
             {
                 try
@@ -455,7 +455,7 @@ namespace BudgetExecution
                     for( var i = 0; i < _columns?.Count; i++ )
                     {
                         if( !string.IsNullOrEmpty( _columns[ i ]?.ColumnName )
-                           && _columns[ i ]?.DataType == typeof( string ) )
+                           && ( _columns[ i ]?.DataType == typeof( string ) ) )
                         {
                             _dict?.Add( _columns[ i ]?.ColumnName, GetValues( _rows, _columns[ i ]?.ColumnName ) );
                         }

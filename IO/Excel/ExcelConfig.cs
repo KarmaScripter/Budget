@@ -204,7 +204,7 @@ namespace BudgetExecution
         /// <param name="text"> The text. </param>
         public void AddComment( Grid grid, string text )
         {
-            if( grid != null
+            if( ( grid != null )
                && !string.IsNullOrEmpty( text ) )
             {
                 try
@@ -262,8 +262,8 @@ namespace BudgetExecution
         /// <param name="text"> The text. </param>
         public void SetText( Grid grid, IEnumerable<string> text )
         {
-            if( grid != null
-               && text?.Any( ) == true
+            if( ( grid != null )
+               && ( text?.Any( ) == true )
                && grid.Range.Any( ) )
             {
                 try
@@ -272,7 +272,7 @@ namespace BudgetExecution
                     {
                         foreach( var caption in text )
                         {
-                            if( cell != null
+                            if( ( cell != null )
                                && !string.IsNullOrEmpty( caption ) )
                             {
                                 cell.Value = caption;

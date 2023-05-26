@@ -141,15 +141,15 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
                     Owner.Visible = true;
                 }
-                else if( Owner != null
-                        && Owner.Visible == false
-                        && Owner.GetType( ) != typeof( MainForm ) )
+                else if( ( Owner != null )
+                        && ( Owner.Visible == false )
+                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
                     var _mainForm = Program.Windows[ "Main" ];
@@ -167,16 +167,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
                     Owner.Visible = true;
                     Visible = false;
                 }
-                else if( Owner != null
-                        && Owner.Visible == false
-                        && Owner.GetType( ) != typeof( MainForm ) )
+                else if( ( Owner != null )
+                        && ( Owner.Visible == false )
+                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
                     var _mainForm = Program.Windows[ "Main" ];
@@ -274,8 +274,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false ) )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );
@@ -299,8 +299,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false ) )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );

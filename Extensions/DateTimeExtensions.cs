@@ -178,7 +178,7 @@ namespace BudgetExecution
         {
             try
             {
-                return dateTime.DayOfWeek != DayOfWeek.Saturday && dateTime.DayOfWeek != DayOfWeek.Sunday;
+                return ( dateTime.DayOfWeek != DayOfWeek.Saturday ) && ( dateTime.DayOfWeek != DayOfWeek.Sunday );
             }
             catch( Exception ex )
             {
@@ -196,7 +196,7 @@ namespace BudgetExecution
         {
             try
             {
-                return dateTime.DayOfWeek == DayOfWeek.Saturday || dateTime.DayOfWeek == DayOfWeek.Sunday;
+                return ( dateTime.DayOfWeek == DayOfWeek.Saturday ) || ( dateTime.DayOfWeek == DayOfWeek.Sunday );
             }
             catch( Exception ex )
             {
@@ -225,8 +225,8 @@ namespace BudgetExecution
             try
             {
                 return compareTime
-                    ? dateTime >= startDate && dateTime <= endDate
-                    : dateTime.Date >= startDate.Date && dateTime.Date <= endDate.Date;
+                    ? ( dateTime >= startDate ) && ( dateTime <= endDate )
+                    : ( dateTime.Date >= startDate.Date ) && ( dateTime.Date <= endDate.Date );
             }
             catch( Exception ex )
             {
@@ -358,46 +358,46 @@ namespace BudgetExecution
             var _thursday = _date == DayOfWeek.Thursday;
             var _friday = _date == DayOfWeek.Friday;
             var _monday = _date == DayOfWeek.Monday;
-            var _weekend = _date == DayOfWeek.Saturday || _date == DayOfWeek.Sunday;
+            var _weekend = ( _date == DayOfWeek.Saturday ) || ( _date == DayOfWeek.Sunday );
             switch( dateTime.Month )
             {
                 // New Years Day (Jan 1, or preceding Friday/following Monday if weekend)
-                case 12 when dateTime.Day == 31 && _friday:
-                case 1 when dateTime.Day == 1 && !_weekend:
-                case 1 when dateTime.Day == 2 && _monday:
+                case 12 when ( dateTime.Day == 31 ) && _friday:
+                case 1 when ( dateTime.Day == 1 ) && !_weekend:
+                case 1 when ( dateTime.Day == 2 ) && _monday:
 
                 // MLK day (3rd monday in January)
-                case 1 when _monday && _nthDay == 3:
+                case 1 when _monday && ( _nthDay == 3 ):
 
                 // President’s Day (3rd Monday in February)
-                case 2 when _monday && _nthDay == 3:
+                case 2 when _monday && ( _nthDay == 3 ):
 
                 // MemorialDay Day (Last Monday in May)
-                case 5 when _monday && dateTime.AddDays( 7 ).Month == 6:
+                case 5 when _monday && ( dateTime.AddDays( 7 ).Month == 6 ):
 
                 // IndependenceDay Day (July 4, or preceding Friday/following Monday if weekend)
-                case 7 when dateTime.Day == 3 && _friday:
-                case 7 when dateTime.Day == 4 && !_weekend:
-                case 7 when dateTime.Day == 5 && _monday:
+                case 7 when ( dateTime.Day == 3 ) && _friday:
+                case 7 when ( dateTime.Day == 4 ) && !_weekend:
+                case 7 when ( dateTime.Day == 5 ) && _monday:
 
                 // LaborDay Day (1st Monday in September)
-                case 9 when _monday && _nthDay == 1:
+                case 9 when _monday && ( _nthDay == 1 ):
 
                 // ColumbusDay Day (2nd Monday in October)
-                case 10 when _monday && _nthDay == 2:
+                case 10 when _monday && ( _nthDay == 2 ):
 
                 // Veteran’s Day (November 11, or preceding Friday/following Monday if weekend))
-                case 11 when dateTime.Day == 10 && _friday:
-                case 11 when dateTime.Day == 11 && !_weekend:
-                case 11 when dateTime.Day == 12 && _monday:
+                case 11 when ( dateTime.Day == 10 ) && _friday:
+                case 11 when ( dateTime.Day == 11 ) && !_weekend:
+                case 11 when ( dateTime.Day == 12 ) && _monday:
 
                 // ThanksgivingDay Day (4th Thursday in November)
-                case 11 when _thursday && _nthDay == 4:
+                case 11 when _thursday && ( _nthDay == 4 ):
 
                 // ChristmasDay Day (December 25, or preceding Friday/following Monday if weekend))
-                case 12 when dateTime.Day == 24 && _friday:
-                case 12 when dateTime.Day == 25 && !_weekend:
-                case 12 when dateTime.Day == 26 && _monday:
+                case 12 when ( dateTime.Day == 24 ) && _friday:
+                case 12 when ( dateTime.Day == 25 ) && !_weekend:
+                case 12 when ( dateTime.Day == 26 ) && _monday:
                     return true;
                 default:
                     return false;

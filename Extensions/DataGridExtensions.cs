@@ -53,7 +53,7 @@ namespace BudgetExecution
                     _dataTable.Rows.Add( _values );
                 }
 
-                return _dataTable?.Columns?.Count > 0 && _dataTable?.Rows?.Count > 0
+                return ( _dataTable?.Columns?.Count > 0 ) && ( _dataTable?.Rows?.Count > 0 )
                     ? _dataTable
                     : default( DataTable );
             }
@@ -78,8 +78,8 @@ namespace BudgetExecution
         /// </returns>
         public static DataTable SetColumns( this DataGridView dataGridView, string[ ] columns )
         {
-            if( dataGridView?.DataSource != null
-               && columns?.Length > 0 )
+            if( ( dataGridView?.DataSource != null )
+               && ( columns?.Length > 0 ) )
             {
                 try
                 {
@@ -124,13 +124,13 @@ namespace BudgetExecution
             try
             {
                 using var _dataTable = dataGridView?.GetDataTable( );
-                if( _dataTable?.Columns?.Count > 0
-                   && index?.Length > 0 )
+                if( ( _dataTable?.Columns?.Count > 0 )
+                   && ( index?.Length > 0 ) )
                 {
                     var _columns = _dataTable.Columns;
                     var _names = new string[ index.Length ];
-                    if( _columns?.Count > 0
-                       && _names?.Length > 0 )
+                    if( ( _columns?.Count > 0 )
+                       && ( _names?.Length > 0 ) )
                     {
                         for( var i = 0; i < index.Length; i++ )
                         {
@@ -213,7 +213,7 @@ namespace BudgetExecution
         public static void ExportToCommaDelimitedFile( this DataGridView dataGridView, string fileName )
         {
             if( !string.IsNullOrEmpty( fileName )
-               && dataGridView != null )
+               && ( dataGridView != null ) )
             {
                 try
                 {
@@ -265,8 +265,8 @@ namespace BudgetExecution
         /// </param>
         public static void PascalizeHeaders( this DataGridView dataGridView, DataTable dataTable )
         {
-            if( dataGridView != null
-               && dataTable?.Columns?.Count > 0 )
+            if( ( dataGridView != null )
+               && ( dataTable?.Columns?.Count > 0 ) )
             {
                 try
                 {
@@ -333,13 +333,13 @@ namespace BudgetExecution
                         for( var _i = 0; _i < dataGridView.Columns.Count; _i++ )
                         {
                             var _column = _table.Columns[ _i ];
-                            if( _column.DataType == typeof( int )
+                            if( ( _column.DataType == typeof( int ) )
                                || _column.ColumnName.EndsWith( "Id" ) )
                             {
                                 dataGridView.Columns[ _i ].DefaultCellStyle.Format = "G0";
                             }
-                            else if( _column.DataType == typeof( double )
-                                    || _column.DataType == typeof( float ) )
+                            else if( ( _column.DataType == typeof( double ) )
+                                    || ( _column.DataType == typeof( float ) ) )
                             {
                                 dataGridView.Columns[ _i ].DefaultCellStyle.Format = "N2";
                             }

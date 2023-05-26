@@ -135,8 +135,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return ( amount?.Value == Value 
-                        && amount?.Numeric?.Equals( Numeric ) == true );
+                    return ( ( amount?.Value == Value ) 
+                        && ( amount?.Numeric?.Equals( Numeric ) == true ) );
                 }
                 catch( Exception ex )
                 {
@@ -158,13 +158,13 @@ namespace BudgetExecution
         /// </returns>
         public virtual bool IsEqual( IAmount first, IAmount second )
         {
-            if( first != null
-               && second != null )
+            if( ( first != null )
+               && ( second != null ) )
             {
                 try
                 {
-                    return ( first?.Numeric == second?.Numeric 
-                        && first.Value == second.Value );
+                    return ( ( first?.Numeric == second?.Numeric ) 
+                        && ( first.Value == second.Value ) );
                 }
                 catch( Exception ex )
                 {

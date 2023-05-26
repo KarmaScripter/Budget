@@ -149,8 +149,8 @@ namespace BudgetExecution
         /// </param>
         public void OnItemSelected( object sender, EventArgs e )
         {
-            if( sender != null
-               && e != null )
+            if( ( sender != null )
+               && ( e != null ) )
             {
                 try
                 {
@@ -168,7 +168,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public object GetSelectedItem( )
         {
-            if( Selected && SelectedIndex > -1 )
+            if( Selected && ( SelectedIndex > -1 ) )
             {
                 try
                 {

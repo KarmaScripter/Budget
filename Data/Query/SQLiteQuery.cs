@@ -197,7 +197,7 @@ namespace BudgetExecution
                     var _connection = _excelQuery.DataConnection as OleDbConnection;
                     _connection?.Open( );
                     var _table = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
-                    if( _table?.Rows.Count > 0
+                    if( ( _table?.Rows.Count > 0 )
                        && CheckIfSheetNameExists( sheetName, _table ) )
                     {
                         var _message = new Message( _msg );
@@ -358,8 +358,8 @@ namespace BudgetExecution
         private bool CheckIfSheetNameExists( string sheetName, DataTable dataSchema )
         {
             if( !string.IsNullOrEmpty( sheetName )
-               && dataSchema != null
-               && dataSchema.Columns.Count > 0 )
+               && ( dataSchema != null )
+               && ( dataSchema.Columns.Count > 0 ) )
             {
                 for( var i = 0; i < dataSchema.Rows.Count; i++ )
                 {

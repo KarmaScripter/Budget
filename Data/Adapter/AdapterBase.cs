@@ -113,7 +113,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         protected private SQLiteDataAdapter GetSQLiteAdapter( )
         {
-            if( DataConnection != null
+            if( ( DataConnection != null )
                && !string.IsNullOrEmpty( CommandText ) )
             {
                 try
@@ -152,7 +152,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         protected private SqlDataAdapter GetSqlAdapter( )
         {
-            if( DataConnection != null
+            if( ( DataConnection != null )
                && !string.IsNullOrEmpty( CommandText ) )
             {
                 try
@@ -191,7 +191,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         protected private OleDbDataAdapter GetOleDbAdapter( )
         {
-            if( DataConnection != null
+            if( ( DataConnection != null )
                && !string.IsNullOrEmpty( CommandText ) )
             {
                 try
@@ -230,7 +230,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         protected private DbDataAdapter GetSqlCeAdapter( )
         {
-            if( DataConnection != null
+            if( ( DataConnection != null )
                && !string.IsNullOrEmpty( CommandText ) )
             {
                 try

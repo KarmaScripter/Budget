@@ -846,8 +846,8 @@ namespace BudgetExecution
                     BindingSource.DataSource = null;
                     DataTable = null;
                     DataModel = null;
-                    if( Owner != null
-                       && Owner.Visible == false )
+                    if( ( Owner != null )
+                       && ( Owner.Visible == false ) )
                     {
                         Owner.Visible = true;
                     }
@@ -1137,9 +1137,9 @@ namespace BudgetExecution
         /// <returns></returns>
         private string GetSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true
-               && numerics?.Any( ) == true )
+            if( ( where?.Any( ) == true )
+               && ( fields?.Any( ) == true )
+               && ( numerics?.Any( ) == true ) )
             {
                 try
                 {
@@ -1178,8 +1178,8 @@ namespace BudgetExecution
         /// <returns></returns>
         private string GetSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && columns?.Any( ) == true
+            if( ( where?.Any( ) == true )
+               && ( columns?.Any( ) == true )
                && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
@@ -1269,7 +1269,7 @@ namespace BudgetExecution
         {
             if( Enum.IsDefined( typeof( Source ), source )
                && Enum.IsDefined( typeof( Provider ), provider )
-               && where?.Any( ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -1297,8 +1297,8 @@ namespace BudgetExecution
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
-               && where?.Any( ) == true
-               && cols?.Any( ) == true )
+               && ( where?.Any( ) == true )
+               && ( cols?.Any( ) == true ) )
             {
                 try
                 {
@@ -1327,8 +1327,8 @@ namespace BudgetExecution
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
-               && where?.Any( ) == true
-               && fields?.Any( ) == true )
+               && ( where?.Any( ) == true )
+               && ( fields?.Any( ) == true ) )
             {
                 try
                 {
@@ -1448,7 +1448,7 @@ namespace BudgetExecution
         private void OnRadioButtonChecked( object sender )
         {
             if( sender is RadioButton _radio
-               && _radio.Tag != null )
+               && ( _radio.Tag != null ) )
             {
                 try
                 {

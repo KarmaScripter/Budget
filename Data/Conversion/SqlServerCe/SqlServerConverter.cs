@@ -722,8 +722,8 @@ namespace BudgetExecution
                 }
             }
 
-            if( schema.PrimaryKey != null
-               && schema.PrimaryKey.Count > 0 & !_key )
+            if( ( schema.PrimaryKey != null )
+               && ( schema.PrimaryKey.Count > 0 & !_key ) )
             {
                 _stringBuilder.Append( ",\n" );
                 _stringBuilder.Append( "    PRIMARY KEY (" );
@@ -822,8 +822,8 @@ namespace BudgetExecution
             _stringBuilder.Append( "\t[" + column.ColumnName + "]\t" );
             if( column.IsIdentity )
             {
-                if( schema.PrimaryKey.Count == 1
-                   && ( column.ColumnType == "tinyint" || column.ColumnType == "int" || column.ColumnType == "smallint" || column.ColumnType == "bigint" || column.ColumnType == "integer" ) )
+                if( ( schema.PrimaryKey.Count == 1 )
+                   && ( ( column.ColumnType == "tinyint" ) || ( column.ColumnType == "int" ) || ( column.ColumnType == "smallint" ) || ( column.ColumnType == "bigint" ) || ( column.ColumnType == "integer" ) ) )
                 {
                     _stringBuilder.Append( "integer PRIMARY KEY AUTOINCREMENT" );
                     primaryKey = true;
@@ -1161,8 +1161,8 @@ namespace BudgetExecution
                         }
                     }
 
-                    if( _dataType == "bit"
-                       || _dataType == "int" )
+                    if( ( _dataType == "bit" )
+                       || ( _dataType == "int" ) )
                     {
                     }
 
@@ -1253,35 +1253,35 @@ namespace BudgetExecution
         /// <exception cref="System.ApplicationException">Validation failed for Data type [" + dataType + "]</exception>
         private void ValidateDataType( string dataType )
         {
-            if( dataType == "int"
-               || dataType == "smallint"
-               || dataType == "bit"
-               || dataType == "float"
-               || dataType == "real"
-               || dataType == "nvarchar"
-               || dataType == "varchar"
-               || dataType == "timestamp"
-               || dataType == "varbinary"
-               || dataType == "image"
-               || dataType == "text"
-               || dataType == "ntext"
-               || dataType == "bigint"
-               || dataType == "char"
-               || dataType == "numeric"
-               || dataType == "binary"
-               || dataType == "smalldatetime"
-               || dataType == "smallmoney"
-               || dataType == "money"
-               || dataType == "tinyint"
-               || dataType == "uniqueidentifier"
-               || dataType == "xml"
-               || dataType == "sqlvariant"
-               || dataType == "datetime2"
-               || dataType == "date"
-               || dataType == "time"
-               || dataType == "decimal"
-               || dataType == "nchar"
-               || dataType == "datetime" )
+            if( ( dataType == "int" )
+               || ( dataType == "smallint" )
+               || ( dataType == "bit" )
+               || ( dataType == "float" )
+               || ( dataType == "real" )
+               || ( dataType == "nvarchar" )
+               || ( dataType == "varchar" )
+               || ( dataType == "timestamp" )
+               || ( dataType == "varbinary" )
+               || ( dataType == "image" )
+               || ( dataType == "text" )
+               || ( dataType == "ntext" )
+               || ( dataType == "bigint" )
+               || ( dataType == "char" )
+               || ( dataType == "numeric" )
+               || ( dataType == "binary" )
+               || ( dataType == "smalldatetime" )
+               || ( dataType == "smallmoney" )
+               || ( dataType == "money" )
+               || ( dataType == "tinyint" )
+               || ( dataType == "uniqueidentifier" )
+               || ( dataType == "xml" )
+               || ( dataType == "sqlvariant" )
+               || ( dataType == "datetime2" )
+               || ( dataType == "date" )
+               || ( dataType == "time" )
+               || ( dataType == "decimal" )
+               || ( dataType == "nchar" )
+               || ( dataType == "datetime" ) )
             {
                 return;
             }
@@ -1302,22 +1302,22 @@ namespace BudgetExecution
             var _last = -1;
             for( var i = 0; i < _res.Length; i++ )
             {
-                if( _res[ i ] == '\''
-                   && _first == -1 )
+                if( ( _res[ i ] == '\'' )
+                   && ( _first == -1 ) )
                 {
                     _first = i;
                 }
 
-                if( _res[ i ] == '\''
-                   && _first != -1
-                   && i > _last )
+                if( ( _res[ i ] == '\'' )
+                   && ( _first != -1 )
+                   && ( i > _last ) )
                 {
                     _last = i;
                 }
             }
 
-            if( _first != -1
-               && _last > _first )
+            if( ( _first != -1 )
+               && ( _last > _first ) )
             {
                 return _res.Substring( _first, _last - _first + 1 );
             }
@@ -1325,8 +1325,8 @@ namespace BudgetExecution
             var sb = new StringBuilder( );
             for( var i = 0; i < _res.Length; i++ )
             {
-                if( _res[ i ] != '('
-                   && _res[ i ] != ')' )
+                if( ( _res[ i ] != '(' )
+                   && ( _res[ i ] != ')' ) )
                 {
                     sb.Append( _res[ i ] );
                     _replaced = true;

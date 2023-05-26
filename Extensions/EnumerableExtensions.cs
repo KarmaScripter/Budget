@@ -121,7 +121,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, string name, string value )
         {
-            if( dataRow?.Any( ) == true
+            if( ( dataRow?.Any( ) == true )
                && !string.IsNullOrEmpty( name )
                && !string.IsNullOrEmpty( value ) )
             {
@@ -154,8 +154,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static IEnumerable<DataRow> Filter( this IEnumerable<DataRow> dataRow, IDictionary<string, object> where )
         {
-            if( dataRow?.Any( ) == true
-               && where?.Any( ) == true )
+            if( ( dataRow?.Any( ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -186,7 +186,7 @@ namespace BudgetExecution
         public static ExcelPackage ToExcel<T>( this IEnumerable<T> type, string path, TableStyles style = TableStyles.Light1 )
         {
             if( string.IsNullOrEmpty( path )
-               && type?.Any( ) == true
+               && ( type?.Any( ) == true )
                && Enum.IsDefined( typeof( TableStyles ), style ) )
             {
                 throw new ArgumentException( "Verify Path" );
@@ -251,8 +251,8 @@ namespace BudgetExecution
             {
                 var countdown = count;
                 var index = startIndex;
-                while( index < listCount
-                      && countdown-- > 0 )
+                while( ( index < listCount )
+                      && ( countdown-- > 0 ) )
                 {
                     yield return indexer( index++ );
                 }
@@ -267,9 +267,9 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static IEnumerable<T> LazySlice<T>( this IEnumerable<T> type, int start, int end )
         {
-            if( type?.Any( ) == true
-               && start > 0
-               && end > 0 )
+            if( ( type?.Any( ) == true )
+               && ( start > 0 )
+               && ( end > 0 ) )
             {
                 var _index = 0;
                 foreach( var item in type )

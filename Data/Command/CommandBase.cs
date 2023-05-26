@@ -181,9 +181,9 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected DbCommand GetSQLiteCommand( )
         {
-            if( SqlStatement != null
+            if( ( SqlStatement != null )
                && Enum.IsDefined( typeof( SQL ), SqlStatement.CommandType )
-               && ConnectionFactory != null )
+               && ( ConnectionFactory != null ) )
             {
                 try
                 {
@@ -236,9 +236,9 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected DbCommand GetSqlCeCommand( )
         {
-            if( SqlStatement != null
+            if( ( SqlStatement != null )
                && Enum.IsDefined( typeof( SQL ), SqlStatement.CommandType )
-               && ConnectionFactory != null )
+               && ( ConnectionFactory != null ) )
             {
                 try
                 {
@@ -299,9 +299,9 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected DbCommand GetSqlCommand( )
         {
-            if( SqlStatement != null
+            if( ( SqlStatement != null )
                && Enum.IsDefined( typeof( SQL ), SqlStatement.CommandType )
-               && ConnectionFactory != null )
+               && ( ConnectionFactory != null ) )
             {
                 try
                 {
@@ -352,9 +352,9 @@ namespace BudgetExecution
         /// <returns></returns>
         private protected DbCommand GetOleDbCommand( )
         {
-            if( SqlStatement != null
+            if( ( SqlStatement != null )
                && Enum.IsDefined( typeof( SQL ), SqlStatement.CommandType )
-               && ConnectionFactory != null )
+               && ( ConnectionFactory != null ) )
             {
                 try
                 {

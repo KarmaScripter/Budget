@@ -62,7 +62,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( unit.Code?.Equals( Code ) == true
+                    if( ( unit.Code?.Equals( Code ) == true )
                        && unit.Name.Equals( Name ) )
                     {
                         return true;
@@ -154,7 +154,7 @@ namespace BudgetExecution
         {
             try
             {
-                return !string.IsNullOrEmpty( primaryKey ) && dataRow != null
+                return !string.IsNullOrEmpty( primaryKey ) && ( dataRow != null )
                     ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) ?? "0" )
                     : -1;
             }

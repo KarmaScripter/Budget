@@ -100,8 +100,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict )
         {
-            if( dict?.Any( ) == true
-               && dataRows?.Any( ) == true )
+            if( ( dict?.Any( ) == true )
+               && ( dataRows?.Any( ) == true ) )
             {
                 try
                 {

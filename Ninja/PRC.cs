@@ -372,7 +372,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public virtual string GetField( DataRow dataRow, string field )
         {
-            if( dataRow != null
+            if( ( dataRow != null )
                && !string.IsNullOrEmpty( field ) )
             {
                 try
@@ -397,7 +397,7 @@ namespace BudgetExecution
         /// <returns></returns>
         public virtual double GetAmount( DataRow dataRow, string numeric )
         {
-            if( dataRow != null
+            if( ( dataRow != null )
                && !string.IsNullOrEmpty( numeric ) )
             {
                 try

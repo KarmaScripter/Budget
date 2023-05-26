@@ -257,9 +257,9 @@ namespace BudgetExecution
         /// <summary> Sets the select statement. </summary>
         private protected string GetSelectStatement( )
         {
-            if( Fields?.Any( ) == true
-               && Criteria?.Any( ) == true
-               && Numerics?.Any( ) == true )
+            if( ( Fields?.Any( ) == true )
+               && ( Criteria?.Any( ) == true )
+               && ( Numerics?.Any( ) == true ) )
             {
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
@@ -279,9 +279,9 @@ namespace BudgetExecution
                 return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} " + $"GROUP BY {_groups};";
             }
 
-            if( Fields?.Any( ) == true
-               && Criteria?.Any( ) == true
-               && Numerics?.Any( ) == false )
+            if( ( Fields?.Any( ) == true )
+               && ( Criteria?.Any( ) == true )
+               && ( Numerics?.Any( ) == false ) )
             {
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
@@ -294,16 +294,16 @@ namespace BudgetExecution
                 var _columns = _cols.TrimEnd( ", ".ToCharArray( ) );
                 return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} " + $"GROUP BY {_columns};";
             }
-            else if( Fields?.Any( ) == false
-                    && Criteria?.Any( ) == true
-                    && Numerics?.Any( ) == false )
+            else if( ( Fields?.Any( ) == false )
+                    && ( Criteria?.Any( ) == true )
+                    && ( Numerics?.Any( ) == false ) )
             {
                 var _criteria = Criteria.ToCriteria( );
                 return $"SELECT * FROM {Source} WHERE {_criteria};";
             }
-            else if( Fields?.Any( ) == false
-                    && Criteria?.Any( ) == false
-                    && Numerics?.Any( ) == false )
+            else if( ( Fields?.Any( ) == false )
+                    && ( Criteria?.Any( ) == false )
+                    && ( Numerics?.Any( ) == false ) )
             {
                 return $"SELECT * FROM {Source};";
             }
@@ -315,8 +315,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         private protected string GetUpdateStatement( )
         {
-            if( Updates?.Any( ) == true
-               && Criteria?.Any( ) == true
+            if( ( Updates?.Any( ) == true )
+               && ( Criteria?.Any( ) == true )
                && Enum.IsDefined( typeof( Source ), Source ) )
             {
                 try
@@ -354,7 +354,7 @@ namespace BudgetExecution
         /// <summary> Sets the insert statement. </summary>
         private protected string GetInsertStatement( )
         {
-            if( Updates?.Any( ) == true
+            if( ( Updates?.Any( ) == true )
                && Enum.IsDefined( typeof( Source ), Source ) )
             {
                 try

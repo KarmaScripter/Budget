@@ -199,7 +199,7 @@ namespace BudgetExecution
         /// <param name="filePath"> The file path. </param>
         public void WriteExcelFile( DataTable table, string filePath )
         {
-            if( table?.Columns.Count > 0
+            if( ( table?.Columns.Count > 0 )
                && !string.IsNullOrEmpty( filePath ) )
             {
                 try
@@ -279,7 +279,7 @@ namespace BudgetExecution
                     _connection?.Open( );
                     var _sql = $"SELECT * FROM {sheetName}";
                     var _schema = _connection?.GetOleDbSchemaTable( OleDbSchemaGuid.Tables, null );
-                    if( _schema?.Columns?.Count > 0
+                    if( ( _schema?.Columns?.Count > 0 )
                        && !SheetExists( sheetName, _schema ) )
                     {
                         const string _msg = "Sheet Does Not Exist!";
@@ -435,8 +435,8 @@ namespace BudgetExecution
                 {
                     for( var j = 1; j <= _columns; j++ )
                     {
-                        if( _range[ i, j ].Address != null
-                           && _range[ i, j ].Value != null )
+                        if( ( _range[ i, j ].Address != null )
+                           && ( _range[ i, j ].Value != null ) )
                         {
                             dataGrid.Rows[ i - 1 ].Cells[ j - 1 ].Value = _range[ i, j ].Address;
                         }
@@ -458,8 +458,8 @@ namespace BudgetExecution
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
             if( !string.IsNullOrEmpty( sheetName )
-               && dataTable?.Columns.Count > 0
-               && dataTable.Rows.Count > 0 )
+               && ( dataTable?.Columns.Count > 0 )
+               && ( dataTable.Rows.Count > 0 ) )
             {
                 try
                 {

@@ -255,7 +255,7 @@ namespace BudgetExecution
         {
             try
             {
-                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && dataRow != null
+                return Enum.IsDefined( typeof( PrimaryKey ), primaryKey ) && ( dataRow != null )
                     ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
                     : -1;
             }

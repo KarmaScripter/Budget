@@ -246,7 +246,7 @@ namespace BudgetExecution
         private IDictionary<string, object> SetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code )
-               && code.Length == 2
+               && ( code.Length == 2 )
                && Codes.Contains( code ) )
             {
                 try
@@ -260,7 +260,7 @@ namespace BudgetExecution
                 }
             }
             else if( !string.IsNullOrEmpty( code )
-                    && code.Length > 2
+                    && ( code.Length > 2 )
                     && Enum.GetNames( typeof( BOC ) ).Contains( code ) )
             {
                 try
@@ -283,7 +283,7 @@ namespace BudgetExecution
         private IDictionary<string, object> SetArgs( BOC boc )
         {
             if( !string.IsNullOrEmpty( boc.ToString( ) )
-               && boc.ToString( ).Length == 2
+               && ( boc.ToString( ).Length == 2 )
                && Codes.Contains( boc.ToString( ) ) )
             {
                 try

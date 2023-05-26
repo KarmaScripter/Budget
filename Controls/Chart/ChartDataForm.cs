@@ -529,7 +529,7 @@ namespace BudgetExecution
         private string CreateSqlText( IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && where?.Any( ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -555,9 +555,9 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && where?.Any( ) == true
-               && fields?.Any( ) == true
-               && numerics?.Any( ) == true )
+               && ( where?.Any( ) == true )
+               && ( fields?.Any( ) == true )
+               && ( numerics?.Any( ) == true ) )
             {
                 try
                 {
@@ -597,8 +597,8 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
-               && where?.Any( ) == true
-               && columns?.Any( ) == true )
+               && ( where?.Any( ) == true )
+               && ( columns?.Any( ) == true ) )
             {
                 try
                 {
@@ -742,8 +742,8 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
+            if( ( where?.Any( ) == true )
+               && ( cols?.Any( ) == true ) )
             {
                 try
                 {
@@ -784,9 +784,9 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && numerics?.Any( ) == true
-               && fields?.Any( ) == true )
+            if( ( where?.Any( ) == true )
+               && ( numerics?.Any( ) == true )
+               && ( fields?.Any( ) == true ) )
             {
                 try
                 {
@@ -826,8 +826,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( SelectedFields?.Any( ) == true
-                   && SelectedNumerics?.Any( ) == true )
+                if( ( SelectedFields?.Any( ) == true )
+                   && ( SelectedNumerics?.Any( ) == true ) )
                 {
                     if( Chart.Series[ 0 ].Points.Count > 0 )
                     {
@@ -1071,16 +1071,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
                     Owner.Visible = true;
                     Close( );
                 }
-                else if( Owner != null
-                        && Owner.Visible == false
-                        && Owner.GetType( ) != typeof( MainForm ) )
+                else if( ( Owner != null )
+                        && ( Owner.Visible == false )
+                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     var _mainForm = Program.Windows[ "Main" ];
                     _mainForm.Refresh( );
@@ -1982,8 +1982,8 @@ namespace BudgetExecution
                     NumericTable.Visible = true;
                 }
 
-                if( SelectedFields.Count >= 2
-                   && SelectedNumerics.Count >= 1 )
+                if( ( SelectedFields.Count >= 2 )
+                   && ( SelectedNumerics.Count >= 1 ) )
                 {
                     ResetData( SelectedFields, SelectedNumerics, FormFilter );
                     SqlQuery = CreateSqlText( SelectedFields, SelectedNumerics, FormFilter );
@@ -2162,8 +2162,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false ) )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );

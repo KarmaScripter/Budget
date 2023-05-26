@@ -28,7 +28,7 @@ namespace BudgetExecution
             try
             {
                 if( !string.IsNullOrEmpty( text )
-                   && text.Length > 4 )
+                   && ( text.Length > 4 ) )
                 {
                     var _pascal = Regex.Replace( text, "([A-Z])", " $1", RegexOptions.Compiled )?.Trim( );
                     if( _pascal.StartsWith( "Rpio " ) )

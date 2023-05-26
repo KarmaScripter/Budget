@@ -181,7 +181,7 @@ namespace BudgetExecution
             var _budgetLabel = sender as Label;
             try
             {
-                if( _budgetLabel != null
+                if( ( _budgetLabel != null )
                    && !string.IsNullOrEmpty( HoverText ) )
                 {
                     if( !string.IsNullOrEmpty( HoverText ) )

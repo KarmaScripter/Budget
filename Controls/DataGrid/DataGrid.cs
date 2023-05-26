@@ -248,8 +248,8 @@ namespace BudgetExecution
                 if( CurrentCell.ValueType == typeof( string ) )
                 {
                     var _cellValue = CurrentCell?.Value?.ToString( );
-                    if( _cellValue?.Length >= 6
-                       && _cellValue.Length <= 9 )
+                    if( ( _cellValue?.Length >= 6 )
+                       && ( _cellValue.Length <= 9 ) )
                     {
                         var _code = _cellValue.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );

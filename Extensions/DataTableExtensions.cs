@@ -84,7 +84,7 @@ namespace BudgetExecution
                 var _worksheet = _excel?.Workbook?.Worksheets[ 0 ];
                 for( var i = 0; i < dataTable?.Columns?.Count; i++ )
                 {
-                    if( _worksheet != null
+                    if( ( _worksheet != null )
                        && !string.IsNullOrEmpty( dataTable.Columns[ i ]?.ColumnName ) )
                     {
                         _worksheet.Cells[ 1, i + 1 ].Value = dataTable.Columns[ i ]?.ColumnName;
@@ -168,7 +168,7 @@ namespace BudgetExecution
                 {
                     foreach( DataColumn col in dataTable.Columns )
                     {
-                        if( col?.Ordinal > 0
+                        if( ( col?.Ordinal > 0 )
                            && !col.ColumnName.EndsWith( "Id" )
                            && ( col.DataType == typeof( double ) | col.DataType == typeof( decimal ) | col.DataType == typeof( float ) | col.DataType == typeof( int ) ) )
                         {
@@ -202,8 +202,8 @@ namespace BudgetExecution
                     {
                         for( var i = 0; i < dataTable.Rows.Count; i++ )
                         {
-                            if( col.DataType == typeof( int )
-                               && col.Ordinal == 0 )
+                            if( ( col.DataType == typeof( int ) )
+                               && ( col.Ordinal == 0 ) )
                             {
                                 var row = dataTable.Rows[ i ];
                                 var _value = row[ col.ColumnName ]?.ToString( );
@@ -238,8 +238,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( dataTable?.Rows?.Count > 0
-                   && where?.Any( ) == true )
+                if( ( dataTable?.Rows?.Count > 0 )
+                   && ( where?.Any( ) == true ) )
                 {
                     var _list = new List<int>( );
                     var _criteria = where.ToCriteria( );
@@ -279,7 +279,7 @@ namespace BudgetExecution
         public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName )
         {
             if( !string.IsNullOrEmpty( columnName )
-               && dataTable?.Columns?.Contains( columnName ) == true )
+               && ( dataTable?.Columns?.Contains( columnName ) == true ) )
             {
                 try
                 {
@@ -306,8 +306,8 @@ namespace BudgetExecution
         public static string[ ] GetUniqueColumnValues( this DataTable dataTable, string columnName, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( columnName )
-               && dataTable?.Columns?.Contains( columnName ) == true
-               && where?.Any( ) == true )
+               && ( dataTable?.Columns?.Contains( columnName ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -341,7 +341,7 @@ namespace BudgetExecution
                     var _values = new List<double>( );
                     foreach( DataColumn col in dataTable.Columns )
                     {
-                        if( col.Ordinal > 1
+                        if( ( col.Ordinal > 1 )
                            && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float ) | col.DataType == typeof( double ) | col.DataType == typeof( int ) ) )
                         {
                             _names.Add( col.ColumnName );
@@ -384,8 +384,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static IEnumerable<DataRow> Filter( this DataTable dataTable, IDictionary<string, object> dict )
         {
-            if( dataTable?.Columns?.Count > 0
-               && dict?.Any( ) == true )
+            if( ( dataTable?.Columns?.Count > 0 )
+               && ( dict?.Any( ) == true ) )
             {
                 try
                 {
@@ -500,7 +500,7 @@ namespace BudgetExecution
         /// <param name="columnName"> The column name. </param>
         public static void RemoveColumn( this DataTable dataTable, string columnName )
         {
-            if( dataTable != null
+            if( ( dataTable != null )
                && !string.IsNullOrEmpty( columnName )
                && dataTable.Columns.Contains( columnName ) )
             {

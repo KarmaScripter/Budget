@@ -1,14 +1,16 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "OutlookConfig.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Net.Mail;
     using System.Threading;
 
     /// <summary> </summary>
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class OutlookConfig
     {
         /// <summary> Gets or sets the t os. </summary>

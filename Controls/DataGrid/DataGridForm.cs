@@ -539,8 +539,8 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         private void ResetData( IEnumerable<string> cols, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && cols?.Any( ) == true )
+            if( ( where?.Any( ) == true )
+               && ( cols?.Any( ) == true ) )
             {
                 try
                 {
@@ -572,8 +572,8 @@ namespace BudgetExecution
         private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics, 
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true )
+            if( ( where?.Any( ) == true )
+               && ( fields?.Any( ) == true ) )
             {
                 try
                 {
@@ -737,8 +737,8 @@ namespace BudgetExecution
         /// <returns></returns>
         private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && columns?.Any( ) == true
+            if( ( where?.Any( ) == true )
+               && ( columns?.Any( ) == true )
                && !string.IsNullOrEmpty( SelectedTable ) )
             {
                 try
@@ -775,9 +775,9 @@ namespace BudgetExecution
         private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, 
             IDictionary<string, object> where )
         {
-            if( where?.Any( ) == true
-               && fields?.Any( ) == true
-               && numerics?.Any( ) == true )
+            if( ( where?.Any( ) == true )
+               && ( fields?.Any( ) == true )
+               && ( numerics?.Any( ) == true ) )
             {
                 try
                 {
@@ -1157,16 +1157,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
                     Owner.Visible = true;
                     Visible = false;
                 }
-                else if( Owner != null
-                        && Owner.Visible == false
-                        && Owner.GetType( ) != typeof( MainForm ) )
+                else if( ( Owner != null )
+                        && ( Owner.Visible == false )
+                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
                     var _mainForm = Program.Windows[ "Main" ];
@@ -1986,8 +1986,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false ) )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );

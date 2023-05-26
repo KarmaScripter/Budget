@@ -135,9 +135,9 @@ namespace BudgetExecution
         protected private IDictionary<string, object> SetArgs( string bfy )
         {
             if( !string.IsNullOrEmpty( bfy )
-               && bfy.Length == 4
-               && int.Parse( bfy ) > 2018
-               && int.Parse( bfy ) < 2040 )
+               && ( bfy.Length == 4 )
+               && ( int.Parse( bfy ) > 2018 )
+               && ( int.Parse( bfy ) < 2040 ) )
             {
                 try
                 {

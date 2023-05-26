@@ -289,8 +289,8 @@ namespace BudgetExecution
         /// <param name="filePath"> The filePath. </param>
         public void CsvExport( DataTable table, string filePath )
         {
-            if( table?.Columns.Count > 0
-               && table.Rows.Count > 0
+            if( ( table?.Columns.Count > 0 )
+               && ( table.Rows.Count > 0 )
                && !string.IsNullOrEmpty( filePath ) )
             {
                 try
@@ -324,8 +324,8 @@ namespace BudgetExecution
         /// <param name="dataGrid"> The dataGrid. </param>
         public void CsvExport( DataGridView dataGrid )
         {
-            if( dataGrid?.DataSource != null
-               && ConnectionFactory != null )
+            if( ( dataGrid?.DataSource != null )
+               && ( ConnectionFactory != null ) )
             {
                 try
                 {
@@ -415,8 +415,8 @@ namespace BudgetExecution
         private bool SheetExists( string sheetName, DataTable dataTable )
         {
             if( !string.IsNullOrEmpty( sheetName )
-               && dataTable?.Columns.Count > 0
-               && dataTable.Rows.Count > 0 )
+               && ( dataTable?.Columns.Count > 0 )
+               && ( dataTable.Rows.Count > 0 ) )
             {
                 try
                 {

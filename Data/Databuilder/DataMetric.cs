@@ -65,8 +65,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public int CountValues( string numeric )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
             {
@@ -92,9 +92,9 @@ namespace BudgetExecution
         /// <returns> </returns>
         public int CountValues( string numeric, IDictionary<string, object> where )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
-               && where?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
+               && ( where?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
             {
@@ -120,8 +120,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public double CalculateTotal( string numeric )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
             {
@@ -143,10 +143,10 @@ namespace BudgetExecution
 
         public double CalculateTotal( string numeric, IDictionary<string, object> where )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
-               && where?.Any( ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -169,8 +169,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public double CalculateAverage( string numeric )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
             {
@@ -193,10 +193,10 @@ namespace BudgetExecution
 
         public double CalculateAverage( string numeric, IDictionary<string, object> where )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
-               && where?.Any( ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -220,8 +220,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public double CalculatePercentage( string numeric )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
             {
@@ -247,10 +247,10 @@ namespace BudgetExecution
         /// <returns> </returns>
         public double CalculatePercentage( string numeric, IDictionary<string, object> where )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
-               && where?.Any( ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -274,8 +274,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public double CalculateDeviation( string numeric )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
             {
@@ -298,10 +298,10 @@ namespace BudgetExecution
 
         public double CalculateDeviation( string numeric, IDictionary<string, object> where )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
-               && where?.Any( ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -326,8 +326,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public double CalculateVariance( string numeric )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
             {
@@ -350,10 +350,10 @@ namespace BudgetExecution
 
         public double CalculateVariance( string numeric, IDictionary<string, object> where )
         {
-            if( DataTable != null
-               && Numerics?.Any( ) == true
+            if( ( DataTable != null )
+               && ( Numerics?.Any( ) == true )
                && !string.IsNullOrEmpty( numeric )
-               && where?.Any( ) == true )
+               && ( where?.Any( ) == true ) )
             {
                 try
                 {
@@ -393,12 +393,12 @@ namespace BudgetExecution
                     foreach( DataColumn col in DataTable.Columns )
                     {
                         if( !col.ColumnName.EndsWith( "Id" )
-                           && col.DataType != typeof( int )
-                           && col.DataType != typeof( string )
-                           && col.DataType != typeof( DateTime )
-                           && col.DataType != typeof( DateOnly )
-                           && col.DataType != typeof( DateTimeOffset )
-                           && ( col.DataType == typeof( double ) || col.DataType == typeof( decimal ) || col.DataType == typeof( float ) ) )
+                           && ( col.DataType != typeof( int ) )
+                           && ( col.DataType != typeof( string ) )
+                           && ( col.DataType != typeof( DateTime ) )
+                           && ( col.DataType != typeof( DateOnly ) )
+                           && ( col.DataType != typeof( DateTimeOffset ) )
+                           && ( ( col.DataType == typeof( double ) ) || ( col.DataType == typeof( decimal ) ) || ( col.DataType == typeof( float ) ) ) )
                         {
                             _numerics.Add( col.ColumnName );
                         }

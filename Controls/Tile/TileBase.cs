@@ -55,8 +55,8 @@ namespace BudgetExecution
         /// <param name="y"> The y. </param>
         public virtual void SetLocation( int x = 1, int y = 1 )
         {
-            if( x > 0
-               && y > 0 )
+            if( ( x > 0 )
+               && ( y > 0 ) )
             {
                 try
                 {
@@ -74,8 +74,8 @@ namespace BudgetExecution
         /// <param name="height"> The height. </param>
         public virtual void SetSize( int width = 140, int height = 140 )
         {
-            if( width > -1
-               && height > -1 )
+            if( ( width > -1 )
+               && ( height > -1 ) )
             {
                 try
                 {
@@ -93,8 +93,8 @@ namespace BudgetExecution
         /// <param name="speed"> The speed. </param>
         public virtual void SetImageConfiguration( Image image, int speed = 1 )
         {
-            if( speed > 0
-               && image != null )
+            if( ( speed > 0 )
+               && ( image != null ) )
             {
                 try
                 {
@@ -130,7 +130,7 @@ namespace BudgetExecution
         public virtual void SetTitleText( string message )
         {
             if( !string.IsNullOrEmpty( message )
-               && Title != null )
+               && ( Title != null ) )
             {
                 try
                 {
@@ -148,8 +148,8 @@ namespace BudgetExecution
         /// <param name="color"> The color. </param>
         public virtual void SetTitleConfiguration( Font font, Color color )
         {
-            if( font != null
-               && color != Color.Empty )
+            if( ( font != null )
+               && ( color != Color.Empty ) )
             {
                 try
                 {
@@ -168,7 +168,7 @@ namespace BudgetExecution
         public virtual void SetBodyText( string message )
         {
             if( !string.IsNullOrEmpty( message )
-               && Body != null )
+               && ( Body != null ) )
             {
                 try
                 {
@@ -186,8 +186,8 @@ namespace BudgetExecution
         /// <param name="color"> The color. </param>
         public virtual void SetBodyConfiguration( Font font, Color color )
         {
-            if( font != null
-               && color != Color.Empty )
+            if( ( font != null )
+               && ( color != Color.Empty ) )
             {
                 try
                 {
@@ -206,7 +206,7 @@ namespace BudgetExecution
         public virtual void SetBannerText( string message )
         {
             if( !string.IsNullOrEmpty( message )
-               && Banner != null
+               && ( Banner != null )
                && ShowBanner )
             {
                 try
@@ -226,8 +226,8 @@ namespace BudgetExecution
         /// <param name="height"> The height. </param>
         public virtual void SetBannerConfiguration( Font font, Color color, int height )
         {
-            if( font != null
-               && color != Color.Empty )
+            if( ( font != null )
+               && ( color != Color.Empty ) )
             {
                 try
                 {
@@ -247,8 +247,8 @@ namespace BudgetExecution
         /// <param name="image"> The image. </param>
         public virtual void SetBannerIcon( Image image )
         {
-            if( image != null
-               && Banner != null )
+            if( ( image != null )
+               && ( Banner != null ) )
             {
                 try
                 {

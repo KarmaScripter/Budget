@@ -286,7 +286,7 @@ namespace BudgetExecution
         private void OnItemClicked( object sender, MouseEventArgs e )
         {
             if( sender is MetroSetToolStripMenuItem item
-               && e?.Button == MouseButtons.Left )
+               && ( e?.Button == MouseButtons.Left ) )
             {
                 try
                 {

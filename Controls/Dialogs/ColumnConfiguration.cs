@@ -106,8 +106,8 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="DataGridViewCellMouseEventArgs"/> instance containing the event data.</param>
         public void OnDataGridRightClick( object sender, DataGridViewCellMouseEventArgs e )
         {
-            if( e.Button == MouseButtons.Right
-               && Grid?.Columns != null )
+            if( ( e.Button == MouseButtons.Right )
+               && ( Grid?.Columns != null ) )
             {
                 try
                 {

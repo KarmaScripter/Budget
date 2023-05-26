@@ -25,7 +25,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static bool AddIf<T>( this ICollection<T> collection, Func<T, bool> predicate, T value )
         {
-            if( collection?.Count > 0
+            if( ( collection?.Count > 0 )
                && predicate( value ) )
             {
                 try
@@ -49,8 +49,8 @@ namespace BudgetExecution
         /// <param name="values"> The values. </param>
         public static void AddRange<T>( this ICollection<T> collection, params T[ ] values )
         {
-            if( values?.Length > 0
-               && collection?.Any( ) == true )
+            if( ( values?.Length > 0 )
+               && ( collection?.Any( ) == true ) )
             {
                 try
                 {
@@ -113,8 +113,8 @@ namespace BudgetExecution
         /// <param name="values"> The values. </param>
         public static void RemoveRange<T>( this ICollection<T> collection, params T[ ] values )
         {
-            if( collection?.Any( ) == true
-               && values?.Any( ) == true )
+            if( ( collection?.Any( ) == true )
+               && ( values?.Any( ) == true ) )
             {
                 try
                 {

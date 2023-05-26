@@ -109,7 +109,7 @@ namespace BudgetExecution
             try
             {
                 var _button = sender as ToolStripButton;
-                if( _button != null
+                if( ( _button != null )
                    && !string.IsNullOrEmpty( HoverText ) )
                 {
                     _button.Tag = HoverText;

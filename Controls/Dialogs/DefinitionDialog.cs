@@ -300,7 +300,7 @@ namespace BudgetExecution
                     var _tabPages = new Dictionary<string, TabPageAdv>( );
                     foreach( TabPageAdv page in TabControl.TabPages )
                     {
-                        if( page != null
+                        if( ( page != null )
                            && !string.IsNullOrEmpty( page.Name ) )
                         {
                             _tabPages.Add( page.Name, page );

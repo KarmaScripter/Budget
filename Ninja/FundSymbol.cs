@@ -230,7 +230,7 @@ namespace BudgetExecution
         protected IDictionary<string, object> GetArgs( string fundCode )
         {
             if( !string.IsNullOrEmpty( fundCode )
-               && fundCode.Length < 5 )
+               && ( fundCode.Length < 5 ) )
             {
                 try
                 {
@@ -244,7 +244,7 @@ namespace BudgetExecution
             }
 
             if( !string.IsNullOrEmpty( fundCode )
-               && fundCode.Length > 5 )
+               && ( fundCode.Length > 5 ) )
             {
                 try
                 {

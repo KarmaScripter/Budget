@@ -39,7 +39,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public bool CreateExcelDocument<T>( IEnumerable<T> data, string path )
         {
-            if( data != null
+            if( ( data != null )
                && !string.IsNullOrEmpty( path ) )
             {
                 try
@@ -65,8 +65,8 @@ namespace BudgetExecution
         public bool CreateExcelDocument( DataTable dataTable, string path )
         {
             if( !string.IsNullOrEmpty( path )
-               && dataTable?.Rows?.Count > 0
-               && dataTable?.Columns?.Count > 0 )
+               && ( dataTable?.Rows?.Count > 0 )
+               && ( dataTable?.Columns?.Count > 0 ) )
             {
                 try
                 {
@@ -93,7 +93,7 @@ namespace BudgetExecution
         public bool CreateExcelDocument( DataSet dataSet, string fileName )
         {
             if( !string.IsNullOrEmpty( fileName )
-               && dataSet != null )
+               && ( dataSet != null ) )
             {
                 try
                 {
@@ -165,7 +165,7 @@ namespace BudgetExecution
             {
                 var _returnType = type;
                 if( type.IsGenericType
-                   && type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) )
+                   && ( type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) ) )
                 {
                     _returnType = Nullable.GetUnderlyingType( type );
                 }
@@ -209,7 +209,7 @@ namespace BudgetExecution
         {
             if( !string.IsNullOrEmpty( cellReference )
                && !string.IsNullOrEmpty( cellStringValue )
-               && excelRow != null )
+               && ( excelRow != null ) )
             {
                 try
                 {
@@ -255,8 +255,8 @@ namespace BudgetExecution
         /// <param name="spreadSheet"> The spread sheet. </param>
         public void WriteExcelFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
         {
-            if( dataSet != null
-               && spreadSheet != null )
+            if( ( dataSet != null )
+               && ( spreadSheet != null ) )
             {
                 try
                 {
@@ -310,9 +310,9 @@ namespace BudgetExecution
         /// <param name="workSheetPart"> The work sheet part. </param>
         public void WriteDataTableToExcelWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
         {
-            if( dataTable?.Rows.Count > 0
-               && dataTable.Columns.Count > 0
-               && workSheetPart != null )
+            if( ( dataTable?.Rows.Count > 0 )
+               && ( dataTable.Columns.Count > 0 )
+               && ( workSheetPart != null ) )
             {
                 try
                 {
@@ -334,7 +334,7 @@ namespace BudgetExecution
                     {
                         var _column = dataTable.Columns[ colinx ];
                         AppendTextCell( _names[ colinx ] + "1", _column.ColumnName, _row );
-                        _isNumeric[ colinx ] = _column.DataType.FullName == "System.Decimal" || _column.DataType.FullName == "System.Int32";
+                        _isNumeric[ colinx ] = ( _column.DataType.FullName == "System.Decimal" ) || ( _column.DataType.FullName == "System.Int32" );
                     }
 
                     foreach( DataRow _dataRow in dataTable.Rows )
@@ -382,7 +382,7 @@ namespace BudgetExecution
         {
             try
             {
-                return type == typeof( string ) || type.IsArray || type.IsGenericType && type.GetGenericTypeDefinition( ) == typeof( Nullable<> );
+                return ( type == typeof( string ) ) || type.IsArray || ( type.IsGenericType && ( type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) ) );
             }
             catch( Exception ex )
             {

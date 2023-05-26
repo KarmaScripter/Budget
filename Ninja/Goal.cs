@@ -107,8 +107,8 @@ namespace BudgetExecution
         /// <returns> </returns>
         public IDictionary<string, object> GetArgs( int goal )
         {
-            if( goal > 0
-               && goal < 5 )
+            if( ( goal > 0 )
+               && ( goal < 5 ) )
             {
                 try
                 {

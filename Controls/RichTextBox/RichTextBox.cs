@@ -163,7 +163,7 @@ namespace BudgetExecution
         public void SetFontStyle( string fontFamily, Color fontColor, int fontSize = 10 )
         {
             if( !string.IsNullOrEmpty( fontFamily )
-               && fontColor != Color.Empty )
+               && ( fontColor != Color.Empty ) )
             {
                 try
                 {

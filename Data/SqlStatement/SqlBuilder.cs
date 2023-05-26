@@ -73,8 +73,8 @@ namespace BudgetExecution
         public string GetCommandText( string commandName )
         {
             if( !string.IsNullOrEmpty( commandName )
-               && Commands?.Any( ) == true
-               && Commands.Keys?.Contains( commandName ) == true )
+               && ( Commands?.Any( ) == true )
+               && ( Commands.Keys?.Contains( commandName ) == true ) )
             {
                 try
                 {
@@ -96,8 +96,8 @@ namespace BudgetExecution
         public string GetCommandText( SQL sqlCommand )
         {
             if( Enum.IsDefined( typeof( SQL ), sqlCommand )
-               && Commands?.Any( ) == true
-               && Commands.Keys?.Contains( $"{sqlCommand}" ) == true )
+               && ( Commands?.Any( ) == true )
+               && ( Commands.Keys?.Contains( $"{sqlCommand}" ) == true ) )
             {
                 try
                 {
@@ -150,7 +150,7 @@ namespace BudgetExecution
         private IDictionary<string, string> GetCommands( )
         {
             if( Enum.IsDefined( typeof( SQL ), CommandType )
-               && Files?.Any( ) == true )
+               && ( Files?.Any( ) == true ) )
             {
                 var _repository = new Dictionary<string, string>( );
                 foreach( var file in Files )

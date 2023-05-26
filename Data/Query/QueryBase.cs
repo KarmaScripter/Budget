@@ -271,7 +271,7 @@ namespace BudgetExecution
         public virtual DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )
-               && SqlStatement != null )
+               && ( SqlStatement != null ) )
             {
                 try
                 {

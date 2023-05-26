@@ -167,7 +167,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static IEnumerable<DbParameter> ToSqlDbParameters( this IDictionary<string, object> dict, Provider provider )
         {
-            if( dict?.Keys?.Count > 0
+            if( ( dict?.Keys?.Count > 0 )
                && Enum.IsDefined( typeof( Provider ), provider ) )
             {
                 try
@@ -307,7 +307,7 @@ namespace BudgetExecution
         /// <returns> </returns>
         public static KeyValuePair<string, object> GetPrimaryKey( this IDictionary<string, object> dict )
         {
-            if( dict?.Any( ) == true
+            if( ( dict?.Any( ) == true )
                && dict.HasPrimaryKey( ) )
             {
                 try

@@ -114,7 +114,7 @@ namespace BudgetExecution
         {
             try
             {
-                return width > 0 && height > 0
+                return ( width > 0 ) && ( height > 0 )
                     ? new Size( width, height )
                     : Size.Empty;
             }
@@ -132,8 +132,8 @@ namespace BudgetExecution
         /// <returns></returns>
         public static Size GetSize( Size size )
         {
-            if( size.Width > -1
-               && size.Height > -1 )
+            if( ( size.Width > -1 )
+               && ( size.Height > -1 ) )
             {
                 try
                 {
@@ -155,8 +155,8 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public static void OnSizeChanged( object sender, EventArgs e )
         {
-            if( sender != null
-               && e != null )
+            if( ( sender != null )
+               && ( e != null ) )
             {
                 try
                 {

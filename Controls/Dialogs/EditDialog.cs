@@ -335,8 +335,8 @@ namespace BudgetExecution
         /// </summary>
         private void SetTableLocation( )
         {
-            if( FrameTable != null
-               && Columns?.Any( ) == true )
+            if( ( FrameTable != null )
+               && ( Columns?.Any( ) == true ) )
             {
                 try
                 {
@@ -368,9 +368,9 @@ namespace BudgetExecution
         /// </summary>
         private void BindRecordData( )
         {
-            if( Current != null
-               && Frames?.Any( ) == true
-               && Columns?.Any( ) == true )
+            if( ( Current != null )
+               && ( Frames?.Any( ) == true )
+               && ( Columns?.Any( ) == true ) )
             {
                 try
                 {
@@ -381,7 +381,7 @@ namespace BudgetExecution
                     {
                         _frames[ i ].Label.Text = _cols[ i ].SplitPascal( );
                         var _text = _items[ i ]?.ToString( );
-                        if( Numerics?.Contains( _cols[ i ] ) == true
+                        if( ( Numerics?.Contains( _cols[ i ] ) == true )
                            && !string.IsNullOrEmpty( _text ) )
                         {
                             var _value = double.Parse( _text );

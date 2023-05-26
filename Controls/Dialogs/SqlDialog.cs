@@ -553,8 +553,8 @@ namespace BudgetExecution
                 {
                     SqlEditor.Text = string.Empty;
                     SelectedQuery = _listBox.SelectedItem?.ToString( );
-                    if( SelectedQuery?.Contains( " " ) == true
-                       || SelectedCommand?.Contains( " " ) == true )
+                    if( ( SelectedQuery?.Contains( " " ) == true )
+                       || ( SelectedCommand?.Contains( " " ) == true ) )
                     {
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );

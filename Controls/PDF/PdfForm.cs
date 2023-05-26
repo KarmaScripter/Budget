@@ -185,16 +185,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
                     Owner.Visible = true;
                     Close( );
                 }
-                else if( Owner != null
-                        && Owner.Visible == false
-                        && Owner.GetType( ) != typeof( MainForm ) )
+                else if( ( Owner != null )
+                        && ( Owner.Visible == false )
+                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     var _mainForm = Program.Windows[ "MainForm" ];
                     _mainForm.Visible = true;
@@ -340,8 +340,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false ) )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );
@@ -369,8 +369,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false ) )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );
@@ -441,7 +441,7 @@ namespace BudgetExecution
         private void OnListBoxItemSelected( object sender )
         {
             if( sender is ListBox listBox
-               && DataTable != null )
+               && ( DataTable != null ) )
             {
                 try
                 {

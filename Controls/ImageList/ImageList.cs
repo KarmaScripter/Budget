@@ -140,8 +140,8 @@ namespace BudgetExecution
         /// <param name="image"> The paths. </param>
         public void Remove( Image image )
         {
-            if( image != null
-               && Images?.Contains( image ) == true )
+            if( ( image != null )
+               && ( Images?.Contains( image ) == true ) )
             {
                 try
                 {

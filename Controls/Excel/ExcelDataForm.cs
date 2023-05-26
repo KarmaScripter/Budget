@@ -316,8 +316,8 @@ namespace BudgetExecution
         /// <param name="table">The table.</param>
         private void SetTableProperties( DataTable table )
         {
-            if( table != null
-               && table?.Rows?.Count > 0 )
+            if( ( table != null )
+               && ( table?.Rows?.Count > 0 ) )
             {
                 try
                 {
@@ -449,16 +449,16 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
                     Owner.Visible = true;
                     Visible = false;
                 }
-                else if( Owner != null
-                        && Owner.Visible == false
-                        && Owner.GetType( ) != typeof( MainForm ) )
+                else if( ( Owner != null )
+                        && ( Owner.Visible == false )
+                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
                     var _mainForm = Program.Windows[ "Main" ];
@@ -574,8 +574,8 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false ) )
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );
@@ -761,15 +761,15 @@ namespace BudgetExecution
         {
             try
             {
-                if( Owner != null
-                   && Owner.Visible == false
-                   && Owner.GetType( ) == typeof( MainForm ) )
+                if( ( Owner != null )
+                   && ( Owner.Visible == false )
+                   && ( Owner.GetType( ) == typeof( MainForm ) ) )
                 {
                     Owner.Visible = true;
                 }
-                else if( Owner != null
-                        && Owner.Visible == false
-                        && Owner.GetType( ) != typeof( MainForm ) )
+                else if( ( Owner != null )
+                        && ( Owner.Visible == false )
+                        && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
                     var _mainForm = Program.Windows[ "Main" ];
@@ -792,7 +792,7 @@ namespace BudgetExecution
             try
             {
                 if( sender is ToolStripButton _button
-                   && _button.ToolType == ToolType.UploadButton )
+                   && ( _button.ToolType == ToolType.UploadButton ) )
                 {
                     var _dialog = new LoadingForm( Status.Waiting );
                     _dialog.ShowDialog( this );
@@ -817,8 +817,8 @@ namespace BudgetExecution
                 {
                     var _value = Spreadsheet.CurrentCellRange.DisplayText;
                     var _chars = _value.ToCharArray( );
-                    if( ( _value.Length >= 6 && _value.Length <= 9 )
-                       && ( _chars.Any( c => char.IsLetterOrDigit( c ) ) && _value.Substring( 0, 3 ) == "000" ) )
+                    if( ( ( _value.Length >= 6 ) && ( _value.Length <= 9 ) )
+                       && ( _chars.Any( c => char.IsLetterOrDigit( c ) ) && ( _value.Substring( 0, 3 ) == "000" ) ) )
                     {
                         var _code = _value.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );
@@ -830,8 +830,8 @@ namespace BudgetExecution
                         var _calculator = new CalculationForm( _numeric );
                         _calculator.ShowDialog( );
                     }
-                    else if( _value.Length <= 22
-                            && _value.Length >= 8
+                    else if( ( _value.Length <= 22 )
+                            && ( _value.Length >= 8 )
                             && ( _value.EndsWith( "AM" ) || _value.EndsWith( "PM" ) ) )
                     {
                         var _dateTime = DateTime.Parse( _value );
@@ -839,7 +839,7 @@ namespace BudgetExecution
                         _form.ShowDialog( );
                     }
                     else if( ( _value.Contains( "-" ) || _value.Contains( "/" ) )
-                            && ( _value.Length >= 8 && _value.Length <= 22 ) )
+                            && ( ( _value.Length >= 8 ) && ( _value.Length <= 22 ) ) )
                     {
                         var _dt = DateTime.Parse( _value );
                         var _form = new CalendarDialog( _dt );

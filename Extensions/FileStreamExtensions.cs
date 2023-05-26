@@ -36,8 +36,8 @@ namespace BudgetExecution
         /// <param name="action"> The action. </param>
         public static void IterateLines( this TextReader reader, Action<string> action )
         {
-            if( reader != null
-               && action != null )
+            if( ( reader != null )
+               && ( action != null ) )
             {
                 try
                 {
@@ -223,8 +223,8 @@ namespace BudgetExecution
         /// <returns> The source stream. </returns>
         public static Stream CopyTo( this Stream stream, Stream target, int buffer )
         {
-            if( stream != null
-               && target != null
+            if( ( stream != null )
+               && ( target != null )
                && stream.CanRead
                && target.CanWrite )
             {
