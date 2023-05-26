@@ -5,6 +5,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
@@ -31,5 +32,72 @@ namespace BudgetExecution
         /// The last activity date.
         /// </value>
         public virtual DateOnly LastActivityDate { get; set; }
+
+        public PayrollRequest( )
+        {
+            Source = Source.PayrollRequests;
+        }
+        
+        public PayrollRequest( IQuery query )
+        {
+            Record = new DataBuilder( query ).Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CarryoverRequestsId" ].ToString( ) ?? "0" );
+            Analyst = Record[ "Analyst" ].ToString( );
+            DocumentTitle = Record[ "DocumentTitle" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            FundCode = Record[ "FundCode" ].ToString( );
+            Status = Record[ "Status" ].ToString( );
+            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString( );
+            Comments = Record[ "Comments" ].ToString( );
+            OriginalRequestDate = DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            LastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) ?? "" );
+        }
+        
+        public PayrollRequest( IDataModel builder )
+        {
+            Record = builder.Record;
+            Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "CarryoverRequestsId" ].ToString( ) ?? "0" );
+            Analyst = Record[ "Analyst" ].ToString( );
+            DocumentTitle = Record[ "DocumentTitle" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            FundCode = Record[ "FundCode" ].ToString( );
+            Status = Record[ "Status" ].ToString( );
+            BudgetFormulationSystem = Record[ "BudgetFormulationSystem" ].ToString( );
+            Comments = Record[ "Comments" ].ToString( );
+            OriginalRequestDate = DateOnly.Parse( Record[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            LastActivityDate = DateOnly.Parse( Record[ "LastActivityDate" ].ToString( ) ?? "" );
+        }
+        
+        public PayrollRequest( DataRow dataRow )
+        {
+            Record = dataRow;
+            Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "CarryoverRequestsId" ].ToString( ) ?? "0" );
+            Analyst = dataRow[ "Analyst" ].ToString( );
+            DocumentTitle = dataRow[ "DocumentTitle" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            Status = dataRow[ "Status" ].ToString( );
+            BudgetFormulationSystem = dataRow[ "BudgetFormulationSystem" ].ToString( );
+            Comments = dataRow[ "Comments" ].ToString( );
+            OriginalRequestDate = DateOnly.Parse( dataRow[ "OriginalRequestDate" ].ToString( ) ?? "" );
+            LastActivityDate = DateOnly.Parse( dataRow[ "LastActivityDate" ].ToString( ) ?? "" );
+        }
+
+        public PayrollRequest( PayrollRequest request )
+        {
+            ID = request.ID;
+            Analyst = request.Analyst;
+            DocumentTitle = request.DocumentTitle;
+            Amount = request.Amount;
+            FundCode = request.FundCode;
+            Status = request.Status;
+            BudgetFormulationSystem = request.BudgetFormulationSystem;
+            Comments = request.Comments;
+            OriginalRequestDate = request.OriginalRequestDate;
+            LastActivityDate = request.LastActivityDate;
+        }
     }
 }
