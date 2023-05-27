@@ -12,31 +12,47 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using System.Windows.Forms.DataVisualization.Charting;
 
-    /// <summary> </summary>
-    /// <seealso cref="System.Windows.Forms.DataVisualization.Charting.Chart"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ChartBase" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class Chart : ChartBase
     {
-        /// <summary> Gets or sets the measure. </summary>
-        /// <value> The measure. </value>
+        /// <summary>
+        /// Gets or sets the measure.
+        /// </summary>
+        /// <value>
+        /// The measure.
+        /// </value>
         public STAT Measure { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the data table. </summary>
-        /// <value> The data table. </value>
+        /// <summary>
+        /// Gets or sets the data table.
+        /// </summary>
+        /// <value>
+        /// The data table.
+        /// </value>
         public DataTable DataTable { get; set; }
 
-        /// <summary> Gets or sets the data. </summary>
-        /// <value> The data. </value>
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
         public IEnumerable<DataRow> Data { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Chart"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Chart"/> class.
         /// </summary>
         public Chart( )
         {
@@ -47,15 +63,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Chart"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Chart"/> class.
         /// </summary>
-        /// <param name="bindingSource"> The binding source. </param>
-        /// <param name="category"> The category. </param>
-        /// <param name="values"> The values. </param>
-        /// <param name="type"> The type. </param>
-        /// <param name="stat"> The stat. </param>
+        /// <param name="bindingSource">The binding source.</param>
+        /// <param name="category">The category.</param>
+        /// <param name="values">The values.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="stat">The stat.</param>
         public Chart( BindingSource bindingSource, string category, IEnumerable<string> values, 
             SeriesChartType type = SeriesChartType.Column,
             STAT stat = STAT.Total )

@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ChartBase.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,13 +10,15 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms.DataVisualization.Charting;
 
+    /// <summary>
+    ///  
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.DataVisualization.Charting.Chart" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ChartBase : System.Windows.Forms.DataVisualization.Charting.Chart
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ChartBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ChartBase"/> class.
         /// </summary>
         protected ChartBase( )
         {
@@ -30,7 +32,9 @@ namespace BudgetExecution
             BorderSkin.BorderColor = Color.FromArgb( 20, 20, 20 );
         }
 
-        /// <summary> Sets the area properties. </summary>
+        /// <summary>
+        /// Sets the area properties.
+        /// </summary>
         private protected void SetAreaProperties( )
         {
             try
@@ -80,7 +84,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the title properties. </summary>
+        /// <summary>
+        /// Sets the title properties.
+        /// </summary>
         private protected void SetTitleProperties( )
         {
             try
@@ -96,7 +102,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the legend properties. </summary>
+        /// <summary>
+        /// Sets the legend properties.
+        /// </summary>
+        /// <param name="i">The i.</param>
+        /// <param name="enabled">if set to <c>true</c> [enabled].</param>
         private protected void SetLegendProperties( int i = 0, bool enabled = false )
         {
             try
@@ -115,7 +125,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the series. </summary>
+        /// <summary>
+        /// Sets the series properties.
+        /// </summary>
+        /// <param name="i">The i.</param>
         private protected void SetSeriesProperties( int i = 0 )
         {
             try
@@ -144,7 +157,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the chart palette colors. </summary>
+        /// <summary>
+        /// Sets the chart palette colors.
+        /// </summary>
         private protected void SetChartPaletteColors( )
         {
             try
@@ -173,9 +188,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
