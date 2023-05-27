@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Chart.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -56,7 +56,8 @@ namespace BudgetExecution
         /// <param name="values"> The values. </param>
         /// <param name="type"> The type. </param>
         /// <param name="stat"> The stat. </param>
-        public Chart( BindingSource bindingSource, string category, IEnumerable<string> values, SeriesChartType type = SeriesChartType.Column,
+        public Chart( BindingSource bindingSource, string category, IEnumerable<string> values, 
+            SeriesChartType type = SeriesChartType.Column,
             STAT stat = STAT.Total )
             : this( )
         {

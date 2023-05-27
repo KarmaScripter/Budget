@@ -13,7 +13,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ChartBase : System.Windows.Forms.DataVisualization.Charting.Chart
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ChartBase"/>
