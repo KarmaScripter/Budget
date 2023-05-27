@@ -32,7 +32,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the area properties. </summary>
-        protected private void SetAreaProperties( )
+        private protected void SetAreaProperties( )
         {
             try
             {
@@ -82,7 +82,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the title properties. </summary>
-        protected private void SetTitleProperties( )
+        private protected void SetTitleProperties( )
         {
             try
             {
@@ -98,7 +98,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the legend properties. </summary>
-        protected private void SetLegendProperties( int i = 0, bool enabled = false )
+        private protected void SetLegendProperties( int i = 0, bool enabled = false )
         {
             try
             {
@@ -117,7 +117,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Initializes the series. </summary>
-        protected private void SetSeriesProperties( int i = 0 )
+        private protected void SetSeriesProperties( int i = 0 )
         {
             try
             {
@@ -146,7 +146,7 @@ namespace BudgetExecution
         }
 
         /// <summary> Sets the chart palette colors. </summary>
-        protected private void SetChartPaletteColors( )
+        private protected void SetChartPaletteColors( )
         {
             try
             {
@@ -176,7 +176,7 @@ namespace BudgetExecution
 
         /// <summary> Fails the specified ex. </summary>
         /// <param name="ex"> The ex. </param>
-        static protected private void Fail( Exception ex )
+        private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

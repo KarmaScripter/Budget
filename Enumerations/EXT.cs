@@ -7,66 +7,104 @@ namespace BudgetExecution
     using System;
     using System.Threading;
 
-    /// <summary> Defines the EXT </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EXT
     {
-        /// <summary> Defines the DB on SQLite database files. </summary>
+        /// <summary>
+        /// The database
+        /// </summary>
         DB,
 
-        /// <summary> Defines the ACCDB on newer MS Access database files. </summary>
+        /// <summary>
+        /// The accdb
+        /// </summary>
         ACCDB,
 
-        /// <summary> Defines the MDB on older MS Access database files. </summary>
+        /// <summary>
+        /// The MDB
+        /// </summary>
         MDB,
 
         /// <summary>
-        /// Defines the SDF on MS SQL Server Compact Edition database files.
+        /// The SDF
         /// </summary>
         SDF,
 
-        /// <summary> Defines the MDF on MS SQL Server database files. </summary>
+        /// <summary>
+        /// The MDF
+        /// </summary>
         MDF,
 
-        /// <summary> Defines the XLS on older MS Excel files. </summary>
+        /// <summary>
+        /// The XLS
+        /// </summary>
         XLS,
 
-        /// <summary> Defines the XLSX on newer MS Excel files. </summary>
+        /// <summary>
+        /// The XLSX
+        /// </summary>
         XLSX,
 
-        /// <summary> Defines the CSV on Comma Separated Value files. </summary>
+        /// <summary>
+        /// The CSV
+        /// </summary>
         CSV,
 
-        /// <summary> Defines the TXT on Text files. </summary>
+        /// <summary>
+        /// The text
+        /// </summary>
         TXT,
 
-        /// <summary> Defines the PDF on Portable Document Codec files. </summary>
+        /// <summary>
+        /// The PDF
+        /// </summary>
         PDF,
 
-        /// <summary> Defines the DOCX on newer MS Word files. </summary>
+        /// <summary>
+        /// The docx
+        /// </summary>
         DOCX,
 
-        /// <summary> Defines the DOC on older MS Word files. </summary>
+        /// <summary>
+        /// The document
+        /// </summary>
         DOC,
 
-        /// <summary> Identifies SQL files </summary>
+        /// <summary>
+        /// The SQL
+        /// </summary>
         SQL,
 
-        /// <summary> Identifies .resx file extension for resource files </summary>
+        /// <summary>
+        /// The RESX
+        /// </summary>
         RESX,
 
-        /// <summary> Identifies .dll extension for libraries </summary>
+        /// <summary>
+        /// The DLL
+        /// </summary>
         DLL,
 
-        /// <summary> Identifies the .exe file extenstion for executables </summary>
+        /// <summary>
+        /// The executable
+        /// </summary>
         EXE,
 
-        /// <summary> Identifies the .ico file extension for icons </summary>
+        /// <summary>
+        /// The icon
+        /// </summary>
         ICO,
 
-        /// <summary> Identifies the .png file extension for images </summary>
+        /// <summary>
+        /// The PNG
+        /// </summary>
         PNG,
 
-        /// <summary> Identifies the .gif file extension for gif images </summary>
+        /// <summary>
+        /// The GIF
+        /// </summary>
         GIF
     }
 }

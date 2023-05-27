@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS AppropriationLevelAuthority
 	 BudgetAccountName TEXT(80) NULL DEFAULT NS,DEFAULT NS,
 	 TreasuryAccountCode TEXT(80) NULL DEFAULT NS,DEFAULT NS,
 	 TreasuryAccountName TEXT(80) NULL DEFAULT NS,DEFAULT NS,
-	 Budgeted DECIMAL NULL DEFAULT 0.0,
-	 CarryOver DECIMAL NULL DEFAULT 0.0,
-	 TotalReimbursements DECIMAL NULL DEFAULT 0.0,
-	 TotalRecoveries DECIMAL NULL DEFAULT 0.0,
-	 TotalAuthority DECIMAL NULL DEFAULT 0.0,
+	 Budgeted DOUBLE NULL DEFAULT 0.0,
+	 CarryOver DOUBLE NULL DEFAULT 0.0,
+	 TotalReimbursements DOUBLE NULL DEFAULT 0.0,
+	 TotalRecoveries DOUBLE NULL DEFAULT 0.0,
+	 TotalAuthority DOUBLE NULL DEFAULT 0.0,
 	PRIMARY KEY( AppropriationLevelAuthorityId  AUTOINCREMENT)
 );

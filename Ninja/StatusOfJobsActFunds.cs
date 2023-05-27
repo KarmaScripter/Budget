@@ -1,4 +1,4 @@
-﻿// <copyright file = "StatusOfJobsActFunding.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "StatusOfJobsActFunds.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -13,25 +13,25 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class StatusOfJobsActFunding : StatusOfFunds
+    public class StatusOfJobsActFunds : StatusOfFunds
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfJobsActFunding"/>
+        /// <see cref="StatusOfJobsActFunds"/>
         /// class.
         /// </summary>
-        public StatusOfJobsActFunding( )
+        public StatusOfJobsActFunds( )
         {
-            Source = Source.StatusOfJobsActFunding;
+            Source = Source.StatusOfJobsActFunds;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfJobsActFunding"/>
+        /// <see cref="StatusOfJobsActFunds"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public StatusOfJobsActFunding( IQuery query )
+        public StatusOfJobsActFunds( IQuery query )
             : base( query )
         {
             Record = new DataBuilder( query ).Record;
@@ -72,11 +72,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfJobsActFunding"/>
+        /// <see cref="StatusOfJobsActFunds"/>
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The builder. </param>
-        public StatusOfJobsActFunding( IDataModel dataBuilder )
+        public StatusOfJobsActFunds( IDataModel dataBuilder )
             : base( dataBuilder )
         {
             Record = dataBuilder.Record;
@@ -117,11 +117,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfJobsActFunding"/>
+        /// <see cref="StatusOfJobsActFunds"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public StatusOfJobsActFunding( DataRow dataRow )
+        public StatusOfJobsActFunds( DataRow dataRow )
             : base( dataRow )
         {
             Record = dataRow;
@@ -160,7 +160,7 @@ namespace BudgetExecution
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
         }
 
-        public StatusOfJobsActFunding( IDictionary<string, object> map )
+        public StatusOfJobsActFunds( IDictionary<string, object> map )
             : base( map )
         {
             Record = new DataBuilder( Source, map )?.Record;
@@ -199,7 +199,7 @@ namespace BudgetExecution
             ObjectiveName = Record[ "ObjectiveName" ].ToString( );
         }
 
-        public StatusOfJobsActFunding( StatusOfJobsActFunding allocation )
+        public StatusOfJobsActFunds( StatusOfJobsActFunds allocation )
             : this( )
         {
             ID = allocation.ID;

@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "AdapterBase.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -15,46 +15,77 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Data.Common.DbDataAdapter" />
+    /// <seealso cref="BudgetExecution.ISource" />
+    /// <seealso cref="BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     public class AdapterBase : DbDataAdapter, ISource, IProvider
     {
-        /// <summary> The connection </summary>
+        /// <summary>
+        /// Gets or sets the data connection.
+        /// </summary>
+        /// <value>
+        /// The data connection.
+        /// </value>
         public virtual DbConnection DataConnection { get; set; }
 
-        /// <summary> The SQL statement </summary>
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public virtual ISqlStatement SqlStatement { get; set; }
 
-        /// <summary> The connection builder </summary>
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
         public virtual IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary> Gets the command builder. </summary>
-        /// <value> The command builder. </value>
+        /// <summary>
+        /// Gets or sets the commands.
+        /// </summary>
+        /// <value>
+        /// The commands.
+        /// </value>
         public virtual IDictionary<string, DbCommand> Commands { get; set; }
 
-        /// <summary> Gets the command factory. </summary>
-        /// <value> The command factory. </value>
+        /// <summary>
+        /// Gets or sets the command factory.
+        /// </summary>
+        /// <value>
+        /// The command factory.
+        /// </value>
         public virtual ICommandFactory CommandFactory { get; set; }
 
-        /// <summary> Gets or sets the command text. </summary>
-        /// <value> The command text. </value>
+        /// <summary>
+        /// Gets or sets the command text.
+        /// </summary>
+        /// <value>
+        /// The command text.
+        /// </value>
         public virtual string CommandText { get; set; }
 
-        /// <summary> Gets or sets the provider. </summary>
-        /// <value> The provider. </value>
+        /// <summary>
+        /// </summary>
         public virtual Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the source. </summary>
-        /// <value> The source. </value>
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
         public virtual Source Source { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AdapterBase"/> class.
         /// </summary>
         protected AdapterBase( )
         {
@@ -67,11 +98,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AdapterBase"/> class.
         /// </summary>
-        /// <param name="commandFactory"> The command factory. </param>
+        /// <param name="commandFactory">The command factory.</param>
         protected AdapterBase( ICommandFactory commandFactory )
             : this( )
         {
@@ -84,11 +113,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AdapterBase"/> class.
         /// </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
+        /// <param name="sqlStatement">The SQL statement.</param>
         protected AdapterBase( ISqlStatement sqlStatement )
             : this( )
         {
@@ -100,8 +127,10 @@ namespace BudgetExecution
             CommandText = sqlStatement.CommandText;
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
@@ -109,9 +138,11 @@ namespace BudgetExecution
             _error?.ShowDialog( );
         }
 
-        /// <summary> Gets the sq lite adapter. </summary>
-        /// <returns> </returns>
-        protected private SQLiteDataAdapter GetSQLiteAdapter( )
+        /// <summary>
+        /// Gets the sq lite adapter.
+        /// </summary>
+        /// <returns></returns>
+        private protected SQLiteDataAdapter GetSQLiteAdapter( )
         {
             if( ( DataConnection != null )
                && !string.IsNullOrEmpty( CommandText ) )
@@ -148,9 +179,11 @@ namespace BudgetExecution
             return default( SQLiteDataAdapter );
         }
 
-        /// <summary> Gets the SQL adapter. </summary>
-        /// <returns> </returns>
-        protected private SqlDataAdapter GetSqlAdapter( )
+        /// <summary>
+        /// Gets the SQL adapter.
+        /// </summary>
+        /// <returns></returns>
+        private protected SqlDataAdapter GetSqlAdapter( )
         {
             if( ( DataConnection != null )
                && !string.IsNullOrEmpty( CommandText ) )
@@ -187,9 +220,11 @@ namespace BudgetExecution
             return default( SqlDataAdapter );
         }
 
-        /// <summary> Gets the OLE database adapter. </summary>
-        /// <returns> </returns>
-        protected private OleDbDataAdapter GetOleDbAdapter( )
+        /// <summary>
+        /// Gets the OLE database adapter.
+        /// </summary>
+        /// <returns></returns>
+        private protected OleDbDataAdapter GetOleDbAdapter( )
         {
             if( ( DataConnection != null )
                && !string.IsNullOrEmpty( CommandText ) )
@@ -226,9 +261,11 @@ namespace BudgetExecution
             return default( OleDbDataAdapter );
         }
 
-        /// <summary> Gets the SQL ce adapter. </summary>
-        /// <returns> </returns>
-        protected private DbDataAdapter GetSqlCeAdapter( )
+        /// <summary>
+        /// Gets the SQL ce adapter.
+        /// </summary>
+        /// <returns></returns>
+        private protected DbDataAdapter GetSqlCeAdapter( )
         {
             if( ( DataConnection != null )
                && !string.IsNullOrEmpty( CommandText ) )

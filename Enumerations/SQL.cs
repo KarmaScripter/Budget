@@ -7,37 +7,59 @@ namespace BudgetExecution
     using System;
     using System.Threading;
 
-    /// <summary> Defines the SQL </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public enum SQL
     {
-        /// <summary> Defines the SELECT </summary>
+        /// <summary>
+        /// The select
+        /// </summary>
         SELECT,
 
-        /// <summary> The select all </summary>
+        /// <summary>
+        /// The selectall
+        /// </summary>
         SELECTALL,
 
-        /// <summary> Defines the INSERT </summary>
+        /// <summary>
+        /// The insert
+        /// </summary>
         INSERT,
 
-        /// <summary> Defines the UPDATE </summary>
+        /// <summary>
+        /// The update
+        /// </summary>
         UPDATE,
 
-        /// <summary> Defines the DELETE </summary>
+        /// <summary>
+        /// The delete
+        /// </summary>
         DELETE,
 
-        /// <summary> Defines the CREATE </summary>
+        /// <summary>
+        /// The createdatabase
+        /// </summary>
         CREATEDATABASE,
 
-        /// <summary> The create table </summary>
+        /// <summary>
+        /// The createtable
+        /// </summary>
         CREATETABLE,
 
-        /// <summary> The create view </summary>
+        /// <summary>
+        /// The createview
+        /// </summary>
         CREATEVIEW,
 
-        /// <summary> Defines the DROP </summary>
+        /// <summary>
+        /// The drop
+        /// </summary>
         DROP,
 
-        /// <summary> Defines the ALTER </summary>
+        /// <summary>
+        /// The altertable
+        /// </summary>
         ALTERTABLE
     }
 }

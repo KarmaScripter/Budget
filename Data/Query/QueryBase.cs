@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "QueryBase.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,76 +14,110 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PropertyCanBeMadeInitOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class QueryBase
     {
-        /// <summary> Gets the source. </summary>
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public virtual Source Source { get; set; }
 
-        /// <summary> Gets the Provider </summary>
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public virtual Provider Provider { get; set; }
 
-        /// <summary> Gets or sets the type of the command. </summary>
-        /// <value> The type of the command. </value>
+        /// <summary>
+        /// Gets or sets the type of the command.
+        /// </summary>
+        /// <value>
+        /// The type of the command.
+        /// </value>
         public virtual SQL CommandType { get; set; }
 
-        /// <summary> Gets the arguments. </summary>
-        /// <value> The arguments. </value>
+        /// <summary>
+        /// Gets or sets the criteria.
+        /// </summary>
+        /// <value>
+        /// The criteria.
+        /// </value>
         public virtual IDictionary<string, object> Criteria { get; set; }
 
-        /// <summary> Gets the SQL statement. </summary>
-        /// <value> The SQL statement. </value>
+        /// <summary>
+        /// Gets or sets the SQL statement.
+        /// </summary>
+        /// <value>
+        /// The SQL statement.
+        /// </value>
         public virtual ISqlStatement SqlStatement { get; set; }
 
-        /// <summary> Gets the connector. </summary>
-        /// <value> The connector. </value>
+        /// <summary>
+        /// Gets or sets the connection factory.
+        /// </summary>
+        /// <value>
+        /// The connection factory.
+        /// </value>
         public virtual IConnectionFactory ConnectionFactory { get; set; }
 
-        /// <summary> Gets or sets the connection. </summary>
-        /// <value> The connection. </value>
+        /// <summary>
+        /// Gets or sets the data connection.
+        /// </summary>
+        /// <value>
+        /// The data connection.
+        /// </value>
         public virtual DbConnection DataConnection { get; set; }
 
-        /// <summary> Gets the adapter. </summary>
-        /// <value> The adapter. </value>
+        /// <summary>
+        /// Gets or sets the data adapter.
+        /// </summary>
+        /// <value>
+        /// The data adapter.
+        /// </value>
         public virtual DbDataAdapter DataAdapter { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is disposed.
         /// </summary>
         /// <value>
-        /// <c> true </c>
-        /// if this instance is disposed; otherwise,
-        /// <c> false </c>
-        /// .
+        ///   <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
         /// </value>
         public virtual bool IsDisposed { get; set; }
 
-        /// <summary> Gets or sets the Data reader. </summary>
-        /// <value> The Data reader. </value>
+        /// <summary>
+        /// Gets or sets the data reader.
+        /// </summary>
+        /// <value>
+        /// The data reader.
+        /// </value>
         public virtual DbDataReader DataReader { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
         protected QueryBase( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected QueryBase( Source source, Provider provider = Provider.Access, SQL commandType = SQL.SELECTALL )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider = Provider.Access, 
+            SQL commandType = SQL.SELECTALL )
         {
             Source = source;
             Provider = provider;
@@ -95,15 +129,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The dictionary. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected QueryBase( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> where, 
+            SQL commandType = SQL.SELECTALL )
         {
             Source = source;
             Provider = provider;
@@ -116,17 +149,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="updates"> </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected QueryBase( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
-            SQL commandType = SQL.UPDATE )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="updates">The updates.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IDictionary<string, object> updates, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             Source = source;
             Provider = provider;
@@ -139,17 +170,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="where"> The having. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected QueryBase( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECT )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             Source = source;
             Provider = provider;
@@ -163,18 +192,17 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="fields"> The fields. </param>
-        /// <param name="numerics"> The numerics. </param>
-        /// <param name="having"> The having. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        protected QueryBase( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="having">The having.</param>
+        /// <param name="commandType">Type of the command.</param>
+        protected QueryBase( Source source, Provider provider, IEnumerable<string> fields, 
+            IEnumerable<string> numerics, IDictionary<string, object> having, 
+            SQL commandType = SQL.SELECT )
         {
             Source = source;
             Provider = provider;
@@ -187,13 +215,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="sqlText">The SQL text.</param>
         protected QueryBase( Source source, Provider provider, string sqlText )
         {
             Source = source;
@@ -207,13 +233,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="fullPath"> The full path. </param>
-        /// <param name="sqlText"> </param>
-        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="commandType">Type of the command.</param>
         protected QueryBase( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
             Criteria = null;
@@ -221,19 +245,19 @@ namespace BudgetExecution
             Provider = ConnectionFactory.Provider;
             Source = ConnectionFactory.Source;
             DataConnection = ConnectionFactory.GetConnection( );
-            SqlStatement = new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider, sqlText );
+            SqlStatement = 
+                new SqlStatement( ConnectionFactory.Source, ConnectionFactory.Provider, sqlText );
+            
             DataAdapter = new AdapterFactory( SqlStatement ).GetAdapter( );
             IsDisposed = false;
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="fullPath"> The full path. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        /// <param name="where"> The dictionary. </param>
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="commandType">Type of the command.</param>
+        /// <param name="where">The where.</param>
         protected QueryBase( string fullPath, SQL commandType, IDictionary<string, object> where )
         {
             ConnectionFactory = new ConnectionFactory( fullPath );
@@ -248,11 +272,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="QueryBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="QueryBase"/> class.
         /// </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
+        /// <param name="sqlStatement">The SQL statement.</param>
         protected QueryBase( ISqlStatement sqlStatement )
         {
             Source = sqlStatement.Source;
@@ -265,9 +287,10 @@ namespace BudgetExecution
             IsDisposed = false;
         }
 
-        /// <inheritdoc/>
-        /// <summary> Gets the adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the adapter.
+        /// </summary>
+        /// <returns></returns>
         public virtual DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )
@@ -317,8 +340,10 @@ namespace BudgetExecution
             return default( DbDataAdapter );
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

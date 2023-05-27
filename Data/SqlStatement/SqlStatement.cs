@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "SqlStatement.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -15,7 +15,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SqlStatement : SqlBase, ISqlStatement
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SqlStatement"/>
@@ -74,7 +73,8 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
-        public SqlStatement( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
+        public SqlStatement( Source source, Provider provider, IDictionary<string, object> where, 
+            SQL commandType = SQL.SELECTALL )
             : base( source, provider, where, commandType )
         {
         }
@@ -89,8 +89,8 @@ namespace BudgetExecution
         /// <param name="updates"> </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
-            SQL commandType = SQL.UPDATE )
+        public SqlStatement( Source source, Provider provider, IDictionary<string, object> updates,
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
         {
         }
@@ -104,7 +104,8 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> Type of the command. </param>
         /// <param name="where"> The arguments. </param>
-        public SqlStatement( Source source, Provider provider, SQL commandType, IDictionary<string, object> where )
+        public SqlStatement( Source source, Provider provider, SQL commandType, 
+            IDictionary<string, object> where )
             : base( source, provider, where, commandType )
         {
         }
@@ -119,8 +120,8 @@ namespace BudgetExecution
         /// <param name="columns"> The columns. </param>
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECT )
+        public SqlStatement( Source source, Provider provider, IEnumerable<string> columns, 
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
         {
         }
@@ -136,8 +137,9 @@ namespace BudgetExecution
         /// <param name="numerics"> The aggregates. </param>
         /// <param name="having"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> having, SQL commandType = SQL.SELECT )
+        public SqlStatement( Source source, Provider provider, IEnumerable<string> fields,
+            IEnumerable<string> numerics, IDictionary<string, object> having, 
+            SQL commandType = SQL.SELECT )
             : base( source, provider, fields, numerics, having,
                 commandType )
         {

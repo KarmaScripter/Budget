@@ -7,34 +7,49 @@ namespace BudgetExecution
     using System;
     using System.Threading;
 
-    /// <summary> Defines the BOC </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public enum BOC
     {
-        /// <summary> Defines the None </summary>
-        NS = 0,
-
-        /// <summary> Defines the Payroll </summary>
+        /// <summary>
+        /// The payroll
+        /// </summary>
         Payroll = 10,
 
-        /// <summary> Defines the FullTimeEquivalent </summary>
+        /// <summary>
+        /// The fte
+        /// </summary>
         FTE = 17,
 
-        /// <summary> The travel </summary>
+        /// <summary>
+        /// The travel
+        /// </summary>
         Travel = 21,
 
-        /// <summary> The site travel </summary>
+        /// <summary>
+        /// The site travel
+        /// </summary>
         SiteTravel = 28,
 
-        /// <summary> Defines the Expenses </summary>
+        /// <summary>
+        /// The expenses
+        /// </summary>
         Expenses = 36,
 
-        /// <summary> Defines the Contracts </summary>
+        /// <summary>
+        /// The contracts
+        /// </summary>
         Contracts = 37,
 
-        /// <summary> Defines the WCF </summary>
+        /// <summary>
+        /// The WCF
+        /// </summary>
         WCF = 38,
 
-        /// <summary> Defines the HeadquartersAuthority </summary>
+        /// <summary>
+        /// The grants
+        /// </summary>
         Grants = 41
     }
 }

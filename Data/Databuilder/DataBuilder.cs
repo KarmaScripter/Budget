@@ -12,68 +12,61 @@ namespace BudgetExecution
     using System.Linq;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="DataModel"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.DataModel" />
+    /// <seealso cref="BudgetExecution.IDataModel" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class DataBuilder : DataModel, IDataModel
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
         public DataBuilder( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
         public DataBuilder( Source source, Provider provider = Provider.Access )
             : base( source, provider )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The arguments. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The dictionary.</param>
         public DataBuilder( Source source, Provider provider, IDictionary<string, object> where )
             : base( source, provider, where )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="dict"> The dictionary. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="dict"></param>
         public DataBuilder( Source source, IDictionary<string, object> dict )
             : base( source, dict )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="updates"> The updates. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="updates">The updates.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
         public DataBuilder( Source source, Provider provider, IDictionary<string, object> updates, 
             IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, provider, updates, where, commandType )
@@ -81,15 +74,13 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="where"> The criteria. </param>
-        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The criteria.</param>
+        /// <param name="commandType">Type of the command.</param>
         public DataBuilder( Source source, Provider provider, IEnumerable<string> columns, 
             IDictionary<string, object> where, SQL commandType = SQL.SELECT )
             : base( source, provider, columns, where, commandType )
@@ -97,16 +88,14 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="fields"> </param>
-        /// <param name="numerics"> The numerics. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="fields">The columns.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
         public DataBuilder( Source source, Provider provider, IEnumerable<string> fields, 
             IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
             : base( source, provider, fields, numerics, where,
@@ -115,57 +104,51 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="sqlText">The SQL text.</param>
         public DataBuilder( Source source, Provider provider, string sqlText )
             : base( source, provider, sqlText )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public DataBuilder( IQuery query )
             : base( query )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="fullPath"> The full path. </param>
-        /// <param name="sqlText"> The SQL text. </param>
-        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="commandType">Type of the command.</param>
         public DataBuilder( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
             : base( fullPath, sqlText, commandType )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataBuilder"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
         /// </summary>
-        /// <param name="row"> The row. </param>
+        /// <param name="row">The row.</param>
         public DataBuilder( DataRow row )
         {
             Record = row;
         }
 
-        /// <summary> Filters the dataRows. </summary>
-        /// <param name="name"> The field. </param>
-        /// <param name="value"> The filter. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Filters the data.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
         public IEnumerable<DataRow> FilterData( string name, string value )
         {
             if( ( DataTable != null )
@@ -192,10 +175,12 @@ namespace BudgetExecution
             return default( IEnumerable<DataRow> );
         }
 
-        /// <summary> Gets the series. </summary>
-        /// <param name="name"> The field. </param>
-        /// <param name="value"> The filter. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the series.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
         [ SuppressMessage( "ReSharper", "BadParensLineBreaks" ) ]
         public IDictionary<string, IEnumerable<string>> GetSeries( string name, string value )
         {
@@ -238,9 +223,11 @@ namespace BudgetExecution
             return default( IDictionary<string, IEnumerable<string>> );
         }
 
-        /// <summary> Gets the provider. </summary>
-        /// <param name="provider"> The provider. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <param name="provider">The provider.</param>
+        /// <returns></returns>
         public static Provider GetProvider( string provider )
         {
             if( !string.IsNullOrEmpty( provider ) )
@@ -291,9 +278,11 @@ namespace BudgetExecution
             return default( Provider );
         }
 
-        /// <summary> Gets the provider. </summary>
-        /// <param name="ext"> The ext. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the provider.
+        /// </summary>
+        /// <param name="ext">The ext.</param>
+        /// <returns></returns>
         public static Provider GetProvider( EXT ext )
         {
             if( Enum.IsDefined( typeof( EXT ), ext ) )
@@ -335,9 +324,11 @@ namespace BudgetExecution
             return default( Provider );
         }
 
-        /// <summary> Gets the source. </summary>
-        /// <param name="tableName"> The source. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        /// <param name="tableName">Name of the table.</param>
+        /// <returns></returns>
         public static Source GetSource( string tableName )
         {
             if( !string.IsNullOrEmpty( tableName ) )
@@ -363,9 +354,11 @@ namespace BudgetExecution
             return default( Source );
         }
 
-        /// <summary> Filters the data. </summary>
-        /// <param name="where"> The dictionary. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Filters the data.
+        /// </summary>
+        /// <param name="where">The dictionary.</param>
+        /// <returns></returns>
         public IEnumerable<DataRow> FilterData( IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )

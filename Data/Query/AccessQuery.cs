@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "AccessQuery.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -12,7 +12,6 @@ namespace BudgetExecution
     /// <seealso cref="BudgetExecution.Query"/>
     public class AccessQuery : Query
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="AccessQuery"/>
@@ -67,7 +66,8 @@ namespace BudgetExecution
         /// <param name="updates"> The updates. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AccessQuery( Source source, IDictionary<string, object> updates, IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+        public AccessQuery( Source source, IDictionary<string, object> updates, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.Access, updates, where, commandType )
         {
         }
@@ -81,7 +81,8 @@ namespace BudgetExecution
         /// <param name="columns"> The columns. </param>
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public AccessQuery( Source source, IEnumerable<string> columns, IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+        public AccessQuery( Source source, IEnumerable<string> columns, 
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.Access, columns, criteria, commandType )
         {
         }
@@ -142,7 +143,7 @@ namespace BudgetExecution
         /// <c> false </c>
         /// to release only unmanaged resources.
         /// </param>
-        override protected void Dispose( bool disposing )
+        protected override void Dispose( bool disposing )
         {
             if( disposing )
             {

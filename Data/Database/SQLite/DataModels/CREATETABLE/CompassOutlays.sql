@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS CompassOutlays
     BocName TEXT(80) NULL DEFAULT NS,
     ProcessedDate TEXT(80) NULL DEFAULT NS,
     LastActivityDate TEXT(80) NULL DEFAULT NS,
-    TotalObligations DECIMAL NULL DEFAULT 0.0,
-    UnliquidatedObligations DECIMAL NULL DEFAULT 0.0,
-    ObligationsPaid DECIMAL NULL DEFAULT 0.0,
+    TotalObligations DOUBLE NULL DEFAULT 0.0,
+    UnliquidatedObligations DOUBLE NULL DEFAULT 0.0,
+    ObligationsPaid DOUBLE NULL DEFAULT 0.0,
         CONSTRAINT PRIMARY KEY(CompassOutlaysId AUTOINCREMENT)
 );

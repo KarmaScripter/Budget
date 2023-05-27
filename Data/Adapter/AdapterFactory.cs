@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "AdapterFactory.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -9,45 +9,42 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="DbDataAdapter"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.AdapterBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class AdapterFactory : AdapterBase
     {
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterFactory"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
         /// </summary>
         public AdapterFactory( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterFactory"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
         /// </summary>
-        /// <param name="commandFactory"> The commandbuilder. </param>
+        /// <param name="commandFactory">The command factory.</param>
         public AdapterFactory( ICommandFactory commandFactory )
             : base( commandFactory )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="AdapterFactory"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="AdapterFactory"/> class.
         /// </summary>
-        /// <param name="sqlStatement"> The sqlstatement. </param>
+        /// <param name="sqlStatement">The SQL statement.</param>
         public AdapterFactory( ISqlStatement sqlStatement )
             : base( sqlStatement )
         {
         }
 
-        /// <summary> Gets the adapter. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the adapter.
+        /// </summary>
+        /// <returns></returns>
         public DbDataAdapter GetAdapter( )
         {
             if( Enum.IsDefined( typeof( Provider ), Provider )

@@ -169,7 +169,7 @@ namespace BudgetExecution
         /// <see cref="PaintEventArgs"/>
         /// instance containing the event data.
         /// </param>
-        override protected void OnPaint( PaintEventArgs e )
+        protected override void OnPaint( PaintEventArgs e )
         {
             try
             {
@@ -280,7 +280,7 @@ namespace BudgetExecution
 
         /// <summary> Get ErrorDialog Dialog. </summary>
         /// <param name="ex"> The ex. </param>
-        protected private void Fail( Exception ex )
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

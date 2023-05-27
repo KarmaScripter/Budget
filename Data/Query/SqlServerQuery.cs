@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "SqlServerQuery.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -12,7 +12,6 @@ namespace BudgetExecution
     /// <seealso cref="Query"/>
     public class SqlServerQuery : Query
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SqlServerQuery"/>
@@ -51,7 +50,6 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="source"> The source Data. </param>
-        /// <param name="provider"> The provider used. </param>
         /// <param name="dict"> The dictionary of parameters. </param>
         /// <param name="commandType"> The type of sql command. </param>
         public SqlServerQuery( Source source, IDictionary<string, object> dict, SQL commandType )
@@ -65,11 +63,11 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
         /// <param name="updates"> </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlServerQuery( Source source, IDictionary<string, object> updates, IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
+        public SqlServerQuery( Source source, IDictionary<string, object> updates, 
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
             : base( source, Provider.SqlServer, updates, where, commandType )
         {
         }
@@ -80,11 +78,11 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
         /// <param name="columns"> The columns. </param>
         /// <param name="criteria"> The criteria. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlServerQuery( Source source, IEnumerable<string> columns, IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
+        public SqlServerQuery( Source source, IEnumerable<string> columns, 
+            IDictionary<string, object> criteria, SQL commandType = SQL.SELECT )
             : base( source, Provider.SqlServer, columns, criteria, commandType )
         {
         }
@@ -106,7 +104,6 @@ namespace BudgetExecution
         /// class.
         /// </summary>
         /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
         /// <param name="sqlText"> The SQL text. </param>
         public SqlServerQuery( Source source, string sqlText )
             : base( source, Provider.SqlServer, sqlText )
@@ -146,7 +143,7 @@ namespace BudgetExecution
         /// <c> false </c>
         /// to release only unmanaged resources.
         /// </param>
-        override protected void Dispose( bool disposing )
+        protected override void Dispose( bool disposing )
         {
             if( disposing )
             {

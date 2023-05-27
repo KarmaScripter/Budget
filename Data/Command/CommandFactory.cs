@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "CommandFactory.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -15,7 +15,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class CommandFactory : CommandBase, ICommandFactory
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="CommandFactory"/>
@@ -110,9 +109,11 @@ namespace BudgetExecution
         {
         }
 
-        /// <summary> Sets the command. </summary>
-        /// <param name="sqlStatement"> The SQL statement. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Sets the command.
+        /// </summary>
+        /// <returns>
+        /// </returns>
         public DbCommand GetCommand( )
         {
             if( SqlStatement != null )

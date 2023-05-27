@@ -7,115 +7,189 @@ namespace BudgetExecution
     using System;
     using System.Threading;
 
-    /// <summary> Defines the ChartType </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ChartType
     {
-        /// <summary> Defines the None </summary>
+        /// <summary>
+        /// The ns
+        /// </summary>
         NS = 0,
 
-        /// <summary> Defines the Column </summary>
+        /// <summary>
+        /// The column
+        /// </summary>
         Column,
 
-        /// <summary> Defines the Area </summary>
+        /// <summary>
+        /// The area
+        /// </summary>
         Area,
 
-        /// <summary> Defines the Bar </summary>
+        /// <summary>
+        /// The bar
+        /// </summary>
         Bar,
 
-        /// <summary> Defines the BoxAndWhisker </summary>
+        /// <summary>
+        /// The box and whisker
+        /// </summary>
         BoxAndWhisker,
 
-        /// <summary> Defines the Bubble </summary>
+        /// <summary>
+        /// The bubble
+        /// </summary>
         Bubble,
 
-        /// <summary> Defines the Candle </summary>
+        /// <summary>
+        /// The candle
+        /// </summary>
         Candle,
 
-        /// <summary> Defines the ColumnRange </summary>
+        /// <summary>
+        /// The column range
+        /// </summary>
         ColumnRange,
 
-        /// <summary> The gannt </summary>
+        /// <summary>
+        /// The gannt
+        /// </summary>
         Gannt,
 
-        /// <summary> The rotated spline </summary>
+        /// <summary>
+        /// The rotated spline
+        /// </summary>
         RotatedSpline,
 
-        /// <summary> Defines the Funnel </summary>
+        /// <summary>
+        /// The funnel
+        /// </summary>
         Funnel,
 
-        /// <summary> Defines the HeatMap </summary>
+        /// <summary>
+        /// The heat map
+        /// </summary>
         HeatMap,
 
-        /// <summary> Defines the HiLo </summary>
+        /// <summary>
+        /// The hi lo
+        /// </summary>
         HiLo,
 
-        /// <summary> Defines the HiLoOpenClose </summary>
+        /// <summary>
+        /// The hi lo open close
+        /// </summary>
         HiLoOpenClose,
 
-        /// <summary> Defines the Histogram </summary>
+        /// <summary>
+        /// The histogram
+        /// </summary>
         Histogram,
 
-        /// <summary> Defines the Kagi </summary>
+        /// <summary>
+        /// The kagi
+        /// </summary>
         Kagi,
 
-        /// <summary> Defines the Line </summary>
+        /// <summary>
+        /// The line
+        /// </summary>
         Line,
 
-        /// <summary> Defines the Pie </summary>
+        /// <summary>
+        /// The pie
+        /// </summary>
         Pie,
 
-        /// <summary> Defines the PointAndFigure </summary>
+        /// <summary>
+        /// The point and figure
+        /// </summary>
         PointAndFigure,
 
-        /// <summary> Defines the Polar </summary>
+        /// <summary>
+        /// The polar
+        /// </summary>
         Polar,
 
-        /// <summary> Defines the Pyramid </summary>
+        /// <summary>
+        /// The pyramid
+        /// </summary>
         Pyramid,
 
-        /// <summary> Defines the Radar </summary>
+        /// <summary>
+        /// The radar
+        /// </summary>
         Radar,
 
-        /// <summary> Defines the RangeArea </summary>
+        /// <summary>
+        /// The range area
+        /// </summary>
         RangeArea,
 
-        /// <summary> Defines the Scatter </summary>
+        /// <summary>
+        /// The scatter
+        /// </summary>
         Scatter,
 
-        /// <summary> Defines the Spline </summary>
+        /// <summary>
+        /// The spline
+        /// </summary>
         Spline,
 
-        /// <summary> Defines the SplineArea </summary>
+        /// <summary>
+        /// The spline area
+        /// </summary>
         SplineArea,
 
-        /// <summary> Defines the StackingArea </summary>
+        /// <summary>
+        /// The stacking area
+        /// </summary>
         StackingArea,
 
-        /// <summary> Defines the StackingArea100 </summary>
+        /// <summary>
+        /// The stacking area100
+        /// </summary>
         StackingArea100,
 
-        /// <summary> Defines the StackingBar </summary>
+        /// <summary>
+        /// The stacking bar
+        /// </summary>
         StackingBar,
 
-        /// <summary> Defines the StackingBar100 </summary>
+        /// <summary>
+        /// The stacking bar100
+        /// </summary>
         StackingBar100,
 
-        /// <summary> Defines the StackingColumn </summary>
+        /// <summary>
+        /// The stacking column
+        /// </summary>
         StackingColumn,
 
-        /// <summary> Defines the StackingColumn100 </summary>
+        /// <summary>
+        /// The stacking column100
+        /// </summary>
         StackingColumn100,
 
-        /// <summary> Defines the StepArea </summary>
+        /// <summary>
+        /// The step area
+        /// </summary>
         StepArea,
 
-        /// <summary> Defines the StepLine </summary>
+        /// <summary>
+        /// The step line
+        /// </summary>
         StepLine,
 
-        /// <summary> Defines the ThreeLineBreak </summary>
+        /// <summary>
+        /// The three line break
+        /// </summary>
         ThreeLineBreak,
 
-        /// <summary> Defines the Tornado </summary>
+        /// <summary>
+        /// The tornado
+        /// </summary>
         Tornado
     }
 }

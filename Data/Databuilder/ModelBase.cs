@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ModelBase.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -11,23 +11,24 @@ namespace BudgetExecution
     using System.Linq;
     using System.Threading;
 
-    /// <summary> </summary>
-    /// <seealso cref="DataAccess"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.DataAccess" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public abstract class ModelBase : DataAccess
     {
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ModelBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ModelBase"/> class.
         /// </summary>
         protected ModelBase( )
         {
         }
 
-        /// <summary> Gets the column ordinals. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the ordinals.
+        /// </summary>
+        /// <returns></returns>
         public virtual IEnumerable<int> GetOrdinals( )
         {
             if( DataTable?.Columns?.Count > 0 )
@@ -58,8 +59,10 @@ namespace BudgetExecution
             return default( IEnumerable<int> );
         }
 
-        /// <summary> Gets the fields. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the column schema.
+        /// </summary>
+        /// <returns></returns>
         public IDictionary<string, Type> GetColumnSchema( )
         {
             if( DataTable?.Columns?.Count > 0 )
@@ -94,11 +97,14 @@ namespace BudgetExecution
             return default( IDictionary<string, Type> );
         }
 
-        /// <summary> Filters the data. </summary>
-        /// <param name="dataRows"> </param>
-        /// <param name="dict"> The dictionary. </param>
-        /// <returns> </returns>
-        public IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows, IDictionary<string, object> dict )
+        /// <summary>
+        /// Filters the data.
+        /// </summary>
+        /// <param name="dataRows">The data rows.</param>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
+        public IEnumerable<DataRow> FilterData( IEnumerable<DataRow> dataRows, 
+            IDictionary<string, object> dict )
         {
             if( ( dict?.Any( ) == true )
                && ( dataRows?.Any( ) == true ) )
@@ -122,8 +128,10 @@ namespace BudgetExecution
             return default( IEnumerable<DataRow> );
         }
 
-        /// <summary> Gets the columns. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the data columns.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<DataColumn> GetDataColumns( )
         {
             if( DataTable?.Columns?.Count > 0 )
@@ -161,8 +169,10 @@ namespace BudgetExecution
             return default( IEnumerable<DataColumn> );
         }
 
-        /// <summary> Gets the column names. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the column names.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<string> GetColumnNames( )
         {
             if( DataTable?.Columns?.Count > 0 )

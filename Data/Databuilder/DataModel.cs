@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "DataModel.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -165,8 +165,8 @@ namespace BudgetExecution
         /// <param name="numerics"> The numerics. </param>
         /// <param name="where"> The where. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> fields, IEnumerable<string> numerics,
-            IDictionary<string, object> where, SQL commandType )
+        public DataModel( Source source, Provider provider, IEnumerable<string> fields, 
+            IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
         {
             Source = source;
             Provider = provider;
@@ -340,7 +340,11 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = dataRows?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )?.Select( v => v.Field<string>( $"{name}" ) )?.Distinct( );
+                    var _query = dataRows
+                        ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
+                        ?.Select( v => v.Field<string>( $"{name}" ) )
+                        ?.Distinct( );
+                    
                     return _query?.Any( ) == true
                         ? _query
                         : default( IEnumerable<string> );
@@ -440,10 +444,15 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Gets the series. </summary>
-        /// <param name="dataTable"> The dataRows. </param>
-        /// <returns> </returns>
-        static private IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
+        /// <summary>
+        /// Gets the series.
+        /// </summary>
+        /// <param name="dataTable">
+        /// The dataRows.
+        /// </param>
+        /// <returns>
+        /// </returns>
+        private static IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
             {
@@ -457,7 +466,8 @@ namespace BudgetExecution
                         if( !string.IsNullOrEmpty( _columns[ i ]?.ColumnName )
                            && ( _columns[ i ]?.DataType == typeof( string ) ) )
                         {
-                            _dict?.Add( _columns[ i ]?.ColumnName, GetValues( _rows, _columns[ i ]?.ColumnName ) );
+                            var _name = GetValues( _rows, _columns[ i ]?.ColumnName );
+                            _dict?.Add( _columns[ i ]?.ColumnName, _name );
                         }
                     }
 

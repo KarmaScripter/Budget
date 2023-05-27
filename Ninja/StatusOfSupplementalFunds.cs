@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "StatusOfSupplementalFunds.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -12,28 +12,28 @@ namespace BudgetExecution
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    public class StatusOfSupplementalFunding : StatusOfFunds
+    public class StatusOfSupplementalFunds : StatusOfFunds
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSupplementalFunding"/>
+        /// <see cref="StatusOfSupplementalFunds"/>
         /// class.
         /// </summary>
-        public StatusOfSupplementalFunding( )
+        public StatusOfSupplementalFunds( )
         {
-            Source = Source.StatusOfSupplementalFunding;
+            Source = Source.StatusOfSupplementalFunds;
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSupplementalFunding"/>
+        /// <see cref="StatusOfSupplementalFunds"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public StatusOfSupplementalFunding( IQuery query )
+        public StatusOfSupplementalFunds( IQuery query )
             : base( query )
         {
-            Source = Source.StatusOfSupplementalFunding;
+            Source = Source.StatusOfSupplementalFunds;
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
@@ -72,14 +72,14 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSupplementalFunding"/>
+        /// <see cref="StatusOfSupplementalFunds"/>
         /// class.
         /// </summary>
         /// <param name="dataBuilder"> The builder. </param>
-        public StatusOfSupplementalFunding( IDataModel dataBuilder )
+        public StatusOfSupplementalFunds( IDataModel dataBuilder )
             : base( dataBuilder )
         {
-            Source = Source.StatusOfSupplementalFunding;
+            Source = Source.StatusOfSupplementalFunds;
             Record = dataBuilder.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
@@ -118,14 +118,14 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="StatusOfSupplementalFunding"/>
+        /// <see cref="StatusOfSupplementalFunds"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public StatusOfSupplementalFunding( DataRow dataRow )
+        public StatusOfSupplementalFunds( DataRow dataRow )
             : base( dataRow )
         {
-            Source = Source.StatusOfSupplementalFunding;
+            Source = Source.StatusOfSupplementalFunds;
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
@@ -162,7 +162,7 @@ namespace BudgetExecution
             ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
         }
 
-        public StatusOfSupplementalFunding( IAllocation allocation )
+        public StatusOfSupplementalFunds( IAllocation allocation )
         {
             ID = allocation.ID;
             BudgetLevel = allocation.BudgetLevel;

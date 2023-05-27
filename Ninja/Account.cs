@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="code">The code.</param>
         /// <returns></returns>
-        protected private IDictionary<string, object> GetArgs( string code )
+        private protected IDictionary<string, object> GetArgs( string code )
         {
             if( !string.IsNullOrEmpty( code ) )
             {

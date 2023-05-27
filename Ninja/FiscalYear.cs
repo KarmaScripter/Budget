@@ -132,7 +132,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="bfy">The bfy.</param>
         /// <returns></returns>
-        protected private IDictionary<string, object> SetArgs( string bfy )
+        private protected IDictionary<string, object> SetArgs( string bfy )
         {
             if( !string.IsNullOrEmpty( bfy )
                && ( bfy.Length == 4 )

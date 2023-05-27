@@ -101,7 +101,7 @@ namespace BudgetExecution
         /// <param name="foreignKey"> The FKS. </param>
         /// <param name="prefix"> The prefix. </param>
         /// <returns> </returns>
-        static private string MakeTriggerName( ForeignKeySchema foreignKey, string prefix )
+        private static string MakeTriggerName( ForeignKeySchema foreignKey, string prefix )
         {
             return prefix + "" + foreignKey.TableName + "" + foreignKey.ColumnName + "" + foreignKey.ForeignTableName + "" + foreignKey.ForeignColumnName;
         }
