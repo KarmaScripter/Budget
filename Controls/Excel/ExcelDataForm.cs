@@ -166,7 +166,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
+            BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
@@ -509,7 +509,10 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
                 {
-                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
+                    var _chartDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
+                        ?.First( );
+                    
                     _chartDataForm.Visible = true;
                 }
                 else
@@ -818,7 +821,8 @@ namespace BudgetExecution
                     var _value = Spreadsheet.CurrentCellRange.DisplayText;
                     var _chars = _value.ToCharArray( );
                     if( ( ( _value.Length >= 6 ) && ( _value.Length <= 9 ) )
-                       && ( _chars.Any( c => char.IsLetterOrDigit( c ) ) && ( _value.Substring( 0, 3 ) == "000" ) ) )
+                       && ( _chars.Any( c => char.IsLetterOrDigit( c ) ) 
+                           && ( _value.Substring( 0, 3 ) == "000" ) ) )
                     {
                         var _code = _value.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );

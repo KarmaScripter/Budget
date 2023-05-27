@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "DataGridForm.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -188,7 +188,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
+            BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
@@ -735,7 +735,8 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
+        private string CreateSqlText( IEnumerable<string> columns, 
+            IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
                && ( columns?.Any( ) == true )

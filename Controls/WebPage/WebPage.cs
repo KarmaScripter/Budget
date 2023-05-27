@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "WebPage.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -7,38 +7,53 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
     using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.HTMLUI;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public partial class WebPage : MetroForm
     {
-        /// <summary> Gets or sets the web address. </summary>
-        /// <value> The web address. </value>
+        /// <summary>
+        /// Gets or sets the web address.
+        /// </summary>
+        /// <value>
+        /// The web address.
+        /// </value>
         public Uri WebAddress { get; set; }
 
-        /// <summary> Gets or sets the file path. </summary>
-        /// <value> The file path. </value>
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
         public string FilePath { get; set; }
 
-        /// <summary> Gets or sets the folder path. </summary>
-        /// <value> The folder path. </value>
+        /// <summary>
+        /// Gets or sets the folder path.
+        /// </summary>
+        /// <value>
+        /// The folder path.
+        /// </value>
         public string FolderPath { get; set; }
 
-        /// <summary> Gets or sets the base address. </summary>
-        /// <value> The base address. </value>
+        /// <summary>
+        /// Gets or sets the base address.
+        /// </summary>
+        /// <value>
+        /// The base address.
+        /// </value>
         public Uri BaseAddress { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="WebPage"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="WebPage"/> class.
         /// </summary>
         public WebPage( )
         {
@@ -50,7 +65,7 @@ namespace BudgetExecution
             MaximumSize = new Size( 1350, 750 );
             MinimumSize = new Size( 1350, 750 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BorderThickness = 2;
+            BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
@@ -78,13 +93,11 @@ namespace BudgetExecution
             Closing += OnClose;
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -101,7 +114,6 @@ namespace BudgetExecution
                 WebAddress = new Uri( @"https://www.google.com/" );
                 WebControl.StartupDocument = FilePath;
                 WebControl.StartupFolder = FolderPath;
-                var _stream = File.Open( FilePath, FileMode.Open );
                 WebControl.LoadHTML( WebAddress );
             }
             catch( Exception ex )
@@ -110,7 +122,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Populates the tool bar drop down items. </summary>
+        /// <summary>
+        /// Populates the tool bar drop down items.
+        /// </summary>
         public void PopulateToolBarDropDownItems( )
         {
             try
@@ -130,13 +144,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [main menu button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnMainMenuButtonClicked( object sender, EventArgs e )
         {
             try
@@ -162,7 +174,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the main form. </summary>
+        /// <summary>
+        /// Opens the main form.
+        /// </summary>
         private void OpenMainForm( )
         {
             try
@@ -191,7 +205,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the data grid form. </summary>
+        /// <summary>
+        /// Opens the data grid form.
+        /// </summary>
         private void OpenDataGridForm( )
         {
             try
@@ -215,7 +231,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the chart data form. </summary>
+        /// <summary>
+        /// Opens the chart data form.
+        /// </summary>
         private void OpenChartDataForm( )
         {
             try
@@ -223,7 +241,10 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
                 {
-                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
+                    var _chartDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
+                        ?.First( );
+                    
                     _chartDataForm.Visible = true;
                 }
                 else
@@ -239,7 +260,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the excel data form. </summary>
+        /// <summary>
+        /// Opens the excel data form.
+        /// </summary>
         private void OpenExcelDataForm( )
         {
             try
@@ -263,13 +286,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [back button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [back button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnBackButtonClicked( object sender, EventArgs e )
         {
             try
@@ -288,13 +309,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [close button click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [close button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnCloseButtonClick( object sender, EventArgs e )
         {
             try
@@ -313,13 +332,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [shown]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnShown( object sender, EventArgs e )
         {
             try
@@ -335,13 +352,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Raises the Close event. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Raises the Close event.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnClose( object sender, EventArgs e )
         {
             try
@@ -357,9 +372,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

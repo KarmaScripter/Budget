@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "DataGrid.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -13,35 +13,51 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
-    /// <seealso cref="DataGridView"/>
-    /// <seealso/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.DataGridView" />
+    /// <seealso cref="BudgetExecution.IDataGrid" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class DataGrid : DataGridView, IDataGrid
     {
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public string HoverText { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGrid"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataGrid"/> class.
         /// </summary>
         public DataGrid( )
         {
@@ -113,12 +129,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGrid"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataGrid"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
         public DataGrid( Size size, Point location )
             : this( )
         {
@@ -127,33 +141,31 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGrid"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataGrid"/> class.
         /// </summary>
-        /// <param name="dataGrid"> The dataGrid. </param>
+        /// <param name="dataGrid">The data grid.</param>
         public DataGrid( Control dataGrid )
             : this( dataGrid.Size, dataGrid.Location )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataGrid"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataGrid"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
         public DataGrid( Size size, Point location, Control parent )
             : this( size, location )
         {
             Parent = parent;
         }
 
-        /// <summary> Gets the filter values. </summary>
-        /// <param name="dict"> The dictionary. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the filter values.
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns></returns>
         public string GetFilterValues( IDictionary<string, object> dict )
         {
             {
@@ -180,8 +192,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the current data row. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the current data row.
+        /// </summary>
+        /// <returns></returns>
         public DataRow GetCurrentDataRow( )
         {
             if( BindingSource.DataSource != null )
@@ -203,13 +217,13 @@ namespace BudgetExecution
             return default( DataRow );
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="DataGridViewCellMouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="DataGridViewCellMouseEventArgs" />
+        /// instance containing the event data.</param>
         public void OnRightClick( object sender, DataGridViewCellMouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -234,13 +248,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [cell enter]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [cell enter].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnCellEnter( object sender, EventArgs e )
         {
             try
@@ -298,9 +310,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
