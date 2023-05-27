@@ -178,6 +178,10 @@ namespace BudgetExecution
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PayrollAuthority"/> class.
+        /// </summary>
+        /// <param name="pay">The pay.</param>
         public PayrollAuthority( PayrollAuthority pay )
         {
             ID = pay.ID;

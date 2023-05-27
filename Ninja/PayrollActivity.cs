@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
@@ -15,168 +14,8 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class PayrollActivity
+    public class PayrollActivity : PayrollAuthority
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public int ID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the bfy.
-        /// </summary>
-        /// <value>
-        /// The bfy.
-        /// </value>
-        public string BFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the efy.
-        /// </summary>
-        /// <value>
-        /// The efy.
-        /// </value>
-        public string EFY { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rpio code.
-        /// </summary>
-        /// <value>
-        /// The rpio code.
-        /// </value>
-        public string RpioCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rpio.
-        /// </summary>
-        /// <value>
-        /// The name of the rpio.
-        /// </value>
-        public string RpioName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the fund code.
-        /// </summary>
-        /// <value>
-        /// The fund code.
-        /// </value>
-        public string FundCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the fund.
-        /// </summary>
-        /// <value>
-        /// The name of the fund.
-        /// </value>
-        public string FundName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ah code.
-        /// </summary>
-        /// <value>
-        /// The ah code.
-        /// </value>
-        public string AhCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the ah.
-        /// </summary>
-        /// <value>
-        /// The name of the ah.
-        /// </value>
-        public string AhName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the rc code.
-        /// </summary>
-        /// <value>
-        /// The rc code.
-        /// </value>
-        public string RcCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the rc.
-        /// </summary>
-        /// <value>
-        /// The name of the rc.
-        /// </value>
-        public string RcName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the sub rc code.
-        /// </summary>
-        /// <value>
-        /// The sub rc code.
-        /// </value>
-        public string SubRcCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the sub rc.
-        /// </summary>
-        /// <value>
-        /// The name of the sub rc.
-        /// </value>
-        public string SubRcName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the account code.
-        /// </summary>
-        /// <value>
-        /// The account code.
-        /// </value>
-        public string AccountCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program project code.
-        /// </summary>
-        /// <value>
-        /// The program project code.
-        /// </value>
-        public string ProgramProjectCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program project.
-        /// </summary>
-        /// <value>
-        /// The name of the program project.
-        /// </value>
-        public string ProgramProjectName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the program area code.
-        /// </summary>
-        /// <value>
-        /// The program area code.
-        /// </value>
-        public string ProgramAreaCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the program area.
-        /// </summary>
-        /// <value>
-        /// The name of the program area.
-        /// </value>
-        public string ProgramAreaName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the NPM code.
-        /// </summary>
-        /// <value>
-        /// The NPM code.
-        /// </value>
-        public string NpmCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name of the NPM.
-        /// </summary>
-        /// <value>
-        /// The name of the NPM.
-        /// </value>
-        public string NpmName { get; set; }
-
         /// <summary>
         /// Gets or sets the foc code.
         /// </summary>
@@ -256,15 +95,7 @@ namespace BudgetExecution
         /// The check date.
         /// </value>
         public DateOnly CheckDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the amount.
-        /// </summary>
-        /// <value>
-        /// The amount.
-        /// </value>
-        public double Amount { get; set; }
-
+        
         /// <summary>
         /// Gets or sets the hours.
         /// </summary>
@@ -312,66 +143,162 @@ namespace BudgetExecution
         /// The overtime hours.
         /// </value>
         public double OvertimeHours { get; set; }
-
-        /// <summary>
-        /// Gets or sets the source.
-        /// </summary>
-        /// <value>
-        /// The source.
-        /// </value>
-        public Source Source { get; set; }
-
-        /// <summary>
-        /// Gets or sets the record.
-        /// </summary>
-        /// <value>
-        /// The record.
-        /// </value>
-        public DataRow Record { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="PayrollActivity"/> class.
         /// </summary>
         public PayrollActivity( )
         {
+            Source = Source.PayrollActivity;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PayrollActivity"/> class.
         /// </summary>
         /// <param name="query">The query.</param>
-        public PayrollActivity( IQuery query )
+        public PayrollActivity( IQuery query ) 
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "PayrollActivityId" ].ToString( ) ?? "0" );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PayrollActivity"/> class.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        public PayrollActivity( IDataModel builder )
+        public PayrollActivity( IDataModel builder ) 
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
+            ID = int.Parse( Record[ "PayrollActivityId" ].ToString( ) ?? "0" );
+            BudgetLevel = Record[ "BudgetLevel" ].ToString( );
+            BFY = Record[ "BFY" ].ToString( );
+            EFY = Record[ "EFY" ].ToString( );
+            FundCode = Record[ "FundCode" ].ToString( );
+            FundName = Record[ "FundName" ].ToString( );
+            RpioCode = Record[ "RpioCode" ].ToString( );
+            RpioName = Record[ "RpioName" ].ToString( );
+            AhCode = Record[ "AhCode" ].ToString( );
+            AhName = Record[ "AhName" ].ToString( );
+            OrgCode = Record[ "OrgCode" ].ToString( );
+            OrgName = Record[ "OrgName" ].ToString( );
+            AccountCode = Record[ "AccountCode" ].ToString( );
+            BocCode = Record[ "BocCode" ].ToString( );
+            BocName = Record[ "BocName" ].ToString( );
+            Amount = double.Parse( Record[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( Record[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( Record[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( Record[ "OpenCommitments" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( Record[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( Record[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( Record[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( Record[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( Record[ "Available" ].ToString( ) ?? "0" );
+            ProgramProjectCode = Record[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = Record[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = Record[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = Record[ "ProgramAreaName" ].ToString( );
+            NpmCode = Record[ "NpmCode" ].ToString( );
+            NpmName = Record[ "NpmName" ].ToString( );
+            GoalCode = Record[ "GoalCode" ].ToString( );
+            GoalName = Record[ "GoalName" ].ToString( );
+            ObjectiveCode = Record[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = Record[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PayrollActivity"/> class.
         /// </summary>
         /// <param name="dataRow">The data row.</param>
-        public PayrollActivity( DataRow dataRow )
+        public PayrollActivity( DataRow dataRow ) 
+            : base( dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );
+            ID = int.Parse( dataRow[ "PayrollActivityId" ].ToString( ) ?? "0" );
+            BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
+            BFY = dataRow[ "BFY" ].ToString( );
+            EFY = dataRow[ "EFY" ].ToString( );
+            FundCode = dataRow[ "FundCode" ].ToString( );
+            FundName = dataRow[ "FundName" ].ToString( );
+            RpioCode = dataRow[ "RpioCode" ].ToString( );
+            RpioName = dataRow[ "RpioName" ].ToString( );
+            AhCode = dataRow[ "AhCode" ].ToString( );
+            AhName = dataRow[ "AhName" ].ToString( );
+            OrgCode = dataRow[ "OrgCode" ].ToString( );
+            OrgName = dataRow[ "OrgName" ].ToString( );
+            AccountCode = dataRow[ "AccountCode" ].ToString( );
+            BocCode = dataRow[ "BocCode" ].ToString( );
+            BocName = dataRow[ "BocName" ].ToString( );
+            Amount = double.Parse( dataRow[ "Amount" ].ToString( ) ?? "0" );
+            Budgeted = double.Parse( dataRow[ "Budgeted" ].ToString( ) ?? "0" );
+            Posted = double.Parse( dataRow[ "Posted" ].ToString( ) ?? "0" );
+            OpenCommitments = double.Parse( dataRow[ "OpenCommitments" ].ToString( ) ?? "0" );
+            UnliquidatedObligations = double.Parse( dataRow[ "ULO" ].ToString( ) ?? "0" );
+            Obligations = double.Parse( dataRow[ "Obligations" ].ToString( ) ?? "0" );
+            Expenditures = double.Parse( dataRow[ "Expenditures" ].ToString( ) ?? "0" );
+            Used = double.Parse( dataRow[ "Used" ].ToString( ) ?? "0" );
+            Available = double.Parse( dataRow[ "Available" ].ToString( ) ?? "0" );
+            ProgramProjectCode = dataRow[ "ProgramProjectCode" ].ToString( );
+            ProgramProjectName = dataRow[ "ProgramProjectName" ].ToString( );
+            ProgramAreaCode = dataRow[ "ProgramAreaCode" ].ToString( );
+            ProgramAreaName = dataRow[ "ProgramAreaName" ].ToString( );
+            NpmCode = dataRow[ "NpmCode" ].ToString( );
+            NpmName = dataRow[ "NpmName" ].ToString( );
+            GoalCode = dataRow[ "GoalCode" ].ToString( );
+            GoalName = dataRow[ "GoalName" ].ToString( );
+            ObjectiveCode = dataRow[ "ObjectiveCode" ].ToString( );
+            ObjectiveName = dataRow[ "ObjectiveName" ].ToString( );
+            TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
+            TreasuryAccountName = dataRow[ "TreasuryAccountName" ].ToString( );
+            BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
+            BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
+        }
+
+        public PayrollActivity( PayrollActivity pay )
+        {
         }
     }
 }

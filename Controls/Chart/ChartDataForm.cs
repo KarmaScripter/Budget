@@ -245,7 +245,7 @@ namespace BudgetExecution
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
+            BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
             ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
@@ -782,7 +782,8 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
+        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics, 
+            IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
                && ( numerics?.Any( ) == true )
@@ -994,7 +995,12 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )?.OrderBy( r => r.Field<string>( "Title" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
+                var _names = _data
+                    ?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                    ?.OrderBy( r => r.Field<string>( "Title" ) )
+                    ?.Select( r => r.Field<string>( "Title" ) )
+                    ?.ToList( );
+                
                 if( _names?.Any( ) == true )
                 {
                     foreach( var name in _names )
@@ -1131,7 +1137,10 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
                 {
-                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )?.First( );
+                    var _dataGridForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )
+                        ?.First( );
+                    
                     _dataGridForm.Visible = true;
                 }
                 else

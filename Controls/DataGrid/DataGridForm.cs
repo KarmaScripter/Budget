@@ -361,6 +361,7 @@ namespace BudgetExecution
                 InitRadioButtons( );
                 SetFormIcon( );
                 SetToolStripProperties( );
+                PictureBox.Size = new Size( 20, 20 );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );
@@ -569,7 +570,7 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics, 
+        private void ResetData( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
@@ -613,7 +614,7 @@ namespace BudgetExecution
                         var _file = _files
                             ?.Where( f => f.Contains( _extension ) )
                             ?.First( );
-                        
+
                         if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
@@ -657,7 +658,7 @@ namespace BudgetExecution
                                 var _file = _files
                                     ?.Where( f => f.Contains( _tool ) )
                                     ?.First( );
-                                
+
                                 if( !string.IsNullOrEmpty( _file )
                                    && File.Exists( _file ) )
                                 {
@@ -735,7 +736,7 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> columns, 
+        private string CreateSqlText( IEnumerable<string> columns,
             IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
@@ -752,8 +753,8 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " 
-                        + $"WHERE {_criteria} " 
+                    return $"SELECT {_names} FROM {SelectedTable} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_names} ;";
                 }
                 catch( Exception ex )
@@ -773,7 +774,7 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, 
+        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics,
             IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
@@ -796,11 +797,11 @@ namespace BudgetExecution
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
-                    var _columns = _cols 
+                    var _columns = _cols
                         + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    
-                    return $"SELECT {_columns} FROM {Source} " 
-                        + $"WHERE {_criteria} " 
+
+                    return $"SELECT {_columns} FROM {Source} "
+                        + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
@@ -1076,7 +1077,7 @@ namespace BudgetExecution
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
-                
+
                 if( _names?.Any( ) == true )
                 {
                     foreach( var name in _names )
@@ -1106,7 +1107,7 @@ namespace BudgetExecution
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
-                
+
                 if( _names?.Any( ) == true )
                 {
                     foreach( var name in _names )
@@ -1136,7 +1137,7 @@ namespace BudgetExecution
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
-                
+
                 if( _names?.Any( ) == true )
                 {
                     foreach( var name in _names )
@@ -1195,7 +1196,7 @@ namespace BudgetExecution
                     var _excelDataForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
                         ?.First( );
-                    
+
                     _excelDataForm.Visible = true;
                 }
                 else
@@ -1224,7 +1225,7 @@ namespace BudgetExecution
                     var _chartDataForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) == true )
                         ?.First( );
-                    
+
                     _chartDataForm.Visible = true;
                 }
                 else

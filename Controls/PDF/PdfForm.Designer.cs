@@ -636,24 +636,22 @@
         public BindingSource BindingSource;
         public SmallTip ToolTip;
         public Syncfusion.Windows.Forms.PdfViewer.PdfViewerControl DocViewer;
-        private TableLayoutPanel LeftTable;
-        private Layout DocumentPanel;
+        public TableLayoutPanel LeftTable;
+        public Layout DocumentPanel;
         public PictureBox PictureBox;
         public Label HeaderLabel;
         public Button CloseButton;
-        private TableLayoutPanel CloseButtonTable;
+        public TableLayoutPanel CloseButtonTable;
         public Layout ListBoxPanel;
         public Button MenuButton;
         public Button BackButton;
-        private ListView listView1;
         public ListBox ListBox;
-        private TableLayoutPanel RightTable;
+        public TableLayoutPanel RightTable;
         public Layout CloseTablePanel;
         public Layout LeftButtonLayout;
-        private TableLayoutPanel LeftButtonTable;
+        public TableLayoutPanel LeftButtonTable;
         public Button ExcelButton;
         public Button ChartButton;
         public Button DataGridButton;
-        private Layout RightTablePanel;
     }
 }

@@ -19,14 +19,9 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.Query" />
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class SQLiteQuery : Query
     {
-        /// <summary>
-        /// The provider
-        /// </summary>
-        private Provider _provider = Provider.SQLite;
-
         /// <summary>
         /// 
         /// </summary>

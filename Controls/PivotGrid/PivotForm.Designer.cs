@@ -452,15 +452,14 @@
 
         public SmallTip ToolTip;
         public Layout ListBoxPanel;
-        private Layout PivotGridPanel;
+        public Layout PivotGridPanel;
         public HeaderPanel PivotGridTable;
-        private HeaderPanel headerPanel1;
+        public HeaderPanel headerPanel1;
         public ToolStrip ToolStrip;
         public ToolSeparator Separator1;
         public ToolSeparator Separator2;
         public ToolStripLabel NavigationLabel;
         public ToolSeparator Separator3;
-        private ToolStripButton toolStripButton1;
         public ToolSeparator Separator4;
         public ToolSeparator Separator5;
         public ToolStripButton NextButton;

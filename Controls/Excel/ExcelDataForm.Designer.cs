@@ -769,7 +769,7 @@
         public ToolStripButton RefreshButton;
         public ToolStripButton ChartButton;
         public ToolStripButton MenuButton;
-        private SmallTip ToolTip;
+        public SmallTip ToolTip;
         public ToolStripButton RefreshDataButton;
         public ToolSeparator Separator6;
         public Syncfusion.Windows.Forms.Spreadsheet.ToolStripLabelExt Label2;
@@ -779,7 +779,7 @@
         public ContextMenu ContextMenu;
         public ToolStripButton UploadButton;
         public ToolStripButton DeleteDatabaseButton;
-        private ToolSeparator Separator2;
+        public ToolSeparator Separator2;
         public ToolSeparator Separator3;
         public ToolSeparator Separator1;
         public ToolSeparator Separator4;
@@ -791,7 +791,7 @@
         public ToolStripButton TableButton;
         public ToolSeparator Separator5;
         public ToolSeparator Separator11;
-        private System.Windows.Forms.TableLayoutPanel HeaderPanel;
+        public System.Windows.Forms.TableLayoutPanel HeaderPanel;
         public System.Windows.Forms.PictureBox PictureBox;
         public Label Header;
         public ToolStripButton LookupButton;
@@ -802,7 +802,6 @@
         public ToolSeparator SqlSeparator;
         public ToolStripLabel LastLabel;
         public ToolStripLabel FunctionLabel;
-        private ToolStripLabel toolStripLabel2;
         public ToolStrip ToolStrip;
         public ToolStripLabel FilterSpacer;
         public ToolStripLabel ApplicationLabel;
