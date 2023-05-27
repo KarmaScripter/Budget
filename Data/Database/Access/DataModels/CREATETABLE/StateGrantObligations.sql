@@ -18,7 +18,7 @@ CREATE TABLE StateGrantObligations
     RcName TEXT(80) NULL DEFAULT NS,
     BocCode TEXT(80) NULL DEFAULT NS,
     BocName TEXT(80) NULL DEFAULT NS,
-    Amount DECIMAL NULL DEFAULT 0.0,
+    Amount DOUBLE NULL DEFAULT 0.0,
     CONSTRAINT StateGrantObligationsPrimaryKey
         PRIMARY KEY(StateGrantObligationsId)
 );
