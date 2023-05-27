@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "DictionaryExtensions.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -29,7 +29,8 @@ namespace BudgetExecution
         /// <param name="key"> The key. </param>
         /// <param name="value"> The value. </param>
         /// <returns> </returns>
-        public static TValue AddOrUpdate<TKey, TValue>( this IDictionary<TKey, TValue> dict, TKey key, TValue value )
+        public static TValue AddOrUpdate<TKey, TValue>( this IDictionary<TKey, TValue> dict, 
+            TKey key, TValue value )
         {
             if( !dict.ContainsKey( key ) )
             {
@@ -143,7 +144,7 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Converts to sorteddictionary. </summary>
+        /// <summary> Converts to sorted dictionary. </summary>
         /// <typeparam name="TKey"> The type of the key. </typeparam>
         /// <typeparam name="TValue"> The type of the value. </typeparam>
         /// <param name="dict"> The dictionary. </param>

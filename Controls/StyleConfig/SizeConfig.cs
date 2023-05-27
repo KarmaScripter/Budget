@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "SizeConfig.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// <param name="width">The width.</param>
         /// <param name="height">The height.</param>
         /// <returns></returns>
-        public static Size GetSize( int width = 1, int height = 1 )
+        public Size GetSize( int width = 1, int height = 1 )
         {
             try
             {
@@ -130,7 +130,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="size">The size.</param>
         /// <returns></returns>
-        public static Size GetSize( Size size )
+        public Size GetSize( Size size )
         {
             if( ( size.Width > -1 )
                && ( size.Height > -1 ) )
@@ -153,7 +153,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public static void OnSizeChanged( object sender, EventArgs e )
+        public void OnSizeChanged( object sender, EventArgs e )
         {
             if( ( sender != null )
                && ( e != null ) )
@@ -174,7 +174,7 @@ namespace BudgetExecution
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
+        private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
@@ -40,6 +40,24 @@ namespace BudgetExecution
         /// The query.
         /// </value>
         public string Query { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GoogleSearch"/> class.
+        /// </summary>
+        public GoogleSearch( )
+        {
+            Config = ConfigurationManager.AppSettings;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GoogleSearch"/> class.
+        /// </summary>
+        /// <param name="keywords">The keywords.</param>
+        public GoogleSearch( string keywords )
+        {
+            Config = ConfigurationManager.AppSettings;
+            Query = keywords;
+        }
 
         /// <summary>
         /// Gets the results.
@@ -83,24 +101,6 @@ namespace BudgetExecution
             }
 
             return default( List<ResultData> );
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleSearch"/> class.
-        /// </summary>
-        public GoogleSearch( )
-        {
-            Config = ConfigurationManager.AppSettings;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GoogleSearch"/> class.
-        /// </summary>
-        /// <param name="keywords">The keywords.</param>
-        public GoogleSearch( string keywords )
-        {
-            Config = ConfigurationManager.AppSettings;
-            Query = keywords;
         }
 
         /// <summary>

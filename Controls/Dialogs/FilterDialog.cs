@@ -1158,7 +1158,9 @@ namespace BudgetExecution
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
                     var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_columns} FROM {Source} " + $"WHERE {_criteria} " + $"GROUP BY {_groups};";
+                    return $"SELECT {_columns} FROM {Source} " 
+                        + $"WHERE {_criteria} " 
+                        + $"GROUP BY {_groups};";
                 }
                 catch( Exception ex )
                 {
@@ -1176,7 +1178,8 @@ namespace BudgetExecution
         /// <param name="columns">The columns.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string GetSqlText( IEnumerable<string> columns, IDictionary<string, object> where )
+        private string GetSqlText( IEnumerable<string> columns, 
+            IDictionary<string, object> where )
         {
             if( ( where?.Any( ) == true )
                && ( columns?.Any( ) == true )
@@ -1192,7 +1195,9 @@ namespace BudgetExecution
 
                     var _criteria = where.ToCriteria( );
                     var _names = _cols.TrimEnd( ", ".ToCharArray( ) );
-                    return $"SELECT {_names} FROM {SelectedTable} " + $"WHERE {_criteria} " + $"GROUP BY {_names} ;";
+                    return $"SELECT {_names} FROM {SelectedTable} " 
+                        + $"WHERE {_criteria} " 
+                        + $"GROUP BY {_names} ;";
                 }
                 catch( Exception ex )
                 {
@@ -1265,7 +1270,8 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="where">The where.</param>
-        private void BindData( Source source, Provider provider, IDictionary<string, object> where )
+        private void BindData( Source source, Provider provider, 
+            IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), source )
                && Enum.IsDefined( typeof( Provider ), provider )
@@ -1323,7 +1329,8 @@ namespace BudgetExecution
         /// <param name="fields">The fields.</param>
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
-        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
+        private void BindData( IEnumerable<string> fields, IEnumerable<string> numerics, 
+            IDictionary<string, object> where )
         {
             if( Enum.IsDefined( typeof( Source ), Source )
                && Enum.IsDefined( typeof( Provider ), Provider )
@@ -1542,7 +1549,7 @@ namespace BudgetExecution
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
+        private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

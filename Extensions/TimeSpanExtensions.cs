@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "TimeSpanExtensions.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -9,30 +9,27 @@ namespace BudgetExecution
     using System.Threading;
 
     /// <summary>
-    /// Defines the
-    /// <see cref="TimeSpanExtensions"/>
-    /// .
+    /// 
     /// </summary>
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public static class TimeSpanExtensions
     {
-        /// <summary> Defines the AvgDaysInAYear. </summary>
+        /// <summary>
+        /// The average days in a year
+        /// </summary>
         public const double AvgDaysInAYear = 365.2425d;
 
-        /// <summary> Defines the AvgDaysInAMonth. </summary>
+        /// <summary>
+        /// The average days in a month
+        /// </summary>
         public const double AvgDaysInAMonth = 30.436875d;
 
-        /// <summary> The GetYears. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="int"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the years.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static int GetYears( this TimeSpan timeSpan )
         {
             try
@@ -46,17 +43,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The GetTotalYears. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="double"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the total years.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetTotalYears( this TimeSpan timeSpan )
         {
             try
@@ -70,17 +61,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The GetMonths. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="int"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the months.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static int GetMonths( this TimeSpan timeSpan )
         {
             try
@@ -94,17 +79,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The GetTotalMonths. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="double"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the total months.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetTotalMonths( this TimeSpan timeSpan )
         {
             try
@@ -118,17 +97,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The GetWeeks. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="int"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the weeks.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static int GetWeeks( this TimeSpan timeSpan )
         {
             try
@@ -142,17 +115,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The GetTotalWeeks. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="double"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the total weeks.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetTotalWeeks( this TimeSpan timeSpan )
         {
             try
@@ -166,17 +133,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The GetDays. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="int"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the days.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static int GetDays( this TimeSpan timeSpan )
         {
             try
@@ -190,17 +151,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The GetMicroseconds. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="double"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the microseconds.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetMicroseconds( this TimeSpan timeSpan )
         {
             try
@@ -214,17 +169,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The GetNanoseconds. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="double"/>
-        /// .
-        /// </returns>
+        /// <summary>
+        /// Gets the nanoseconds.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <returns></returns>
         public static double GetNanoseconds( this TimeSpan timeSpan )
         {
             try
@@ -238,32 +187,20 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> The Round. </summary>
-        /// <param name="timeSpan">
-        /// The timeSpan
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <param name="roundinginterval">
-        /// The roundingInterval
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </param>
-        /// <param name="roundingtype">
-        /// The roundingType
-        /// <see cref="MidpointRounding"/>
-        /// .
-        /// </param>
-        /// <returns>
-        /// The
-        /// <see cref="TimeSpan"/>
-        /// .
-        /// </returns>
-        public static TimeSpan Round( this TimeSpan timeSpan, TimeSpan roundinginterval, MidpointRounding roundingtype = MidpointRounding.ToEven )
+        /// <summary>
+        /// Rounds the specified rounding interval.
+        /// </summary>
+        /// <param name="timeSpan">The time span.</param>
+        /// <param name="interval">The rounding interval.</param>
+        /// <param name="rounding">The rounding type.</param>
+        /// <returns></returns>
+        public static TimeSpan Round( this TimeSpan timeSpan, TimeSpan interval, 
+            MidpointRounding rounding = MidpointRounding.ToEven )
         {
             try
             {
-                return new TimeSpan( Convert.ToInt64( Math.Round( timeSpan.Ticks / (double)roundinginterval.Ticks, roundingtype ) ) * roundinginterval.Ticks );
+                var _time = Math.Round( timeSpan.Ticks / (double)interval.Ticks, rounding ); 
+                return new TimeSpan( Convert.ToInt64( Math.Round( _time ) * interval.Ticks ) );
             }
             catch( Exception ex )
             {
@@ -272,8 +209,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

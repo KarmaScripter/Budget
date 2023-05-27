@@ -10,11 +10,16 @@ namespace BudgetExecution
     using System.Threading;
     using static System.Configuration.ConfigurationManager;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class Minion
     {
-        /// <summary> Opens the sq lite. </summary>
+        /// <summary>
+        /// Opens the sq lite.
+        /// </summary>
         public static void OpenSQLite( )
         {
             try
@@ -41,7 +46,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the SQL ce. </summary>
+        /// <summary>
+        /// Opens the SQL ce.
+        /// </summary>
         public static void OpenSqlCe( )
         {
             try
@@ -68,7 +75,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the access database. </summary>
+        /// <summary>
+        /// Opens the access.
+        /// </summary>
         public static void OpenAccess( )
         {
             try
@@ -89,7 +98,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the excel. </summary>
+        /// <summary>
+        /// Opens the excel.
+        /// </summary>
         public static void OpenExcel( )
         {
             try
@@ -110,7 +121,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> </summary>
+        /// <summary>
+        /// Opens the PDF document.
+        /// </summary>
         public static void OpenPdfDocument( )
         {
             try
@@ -131,7 +144,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> </summary>
+        /// <summary>
+        /// Launches the edge.
+        /// </summary>
         public static void LaunchEdge( )
         {
             try
@@ -152,7 +167,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> </summary>
+        /// <summary>
+        /// Launches the chrome.
+        /// </summary>
         public static void LaunchChrome( )
         {
             try
@@ -173,8 +190,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The exception. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

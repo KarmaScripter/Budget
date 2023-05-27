@@ -5,7 +5,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Threading;
@@ -17,14 +16,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ProgramProjectDescription : DescriptionBase
     {
-        /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public IDictionary<string, object> Data { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ProgramProjectDescription"/> class.
         /// </summary>

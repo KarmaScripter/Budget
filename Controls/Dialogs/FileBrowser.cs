@@ -187,17 +187,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private static void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
-        /// <summary>
         /// Gets the image.
         /// </summary>
         /// <returns></returns>
@@ -349,7 +338,10 @@ namespace BudgetExecution
                 try
                 {
                     FileExtension = _radioButton?.Result;
-                    var _ext = _radioButton.Tag?.ToString( )?.Trim( ".".ToCharArray( ) )?.ToUpper( );
+                    var _ext = _radioButton.Tag?.ToString( )
+                        ?.Trim( ".".ToCharArray( ) )
+                        ?.ToUpper( );
+                    
                     Header.Text = $"{_ext} File Search";
                     MessageLabel.Text = string.Empty;
                     FoundLabel.Text = string.Empty;
@@ -523,6 +515,17 @@ namespace BudgetExecution
                     Fail( ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

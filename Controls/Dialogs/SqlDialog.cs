@@ -130,7 +130,8 @@ namespace BudgetExecution
         /// <param name="toolType">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="provider">The provider.</param>
-        public SqlDialog( ToolType toolType, BindingSource bindingSource, Provider provider = Provider.Access )
+        public SqlDialog( ToolType toolType, BindingSource bindingSource, 
+            Provider provider = Provider.Access )
             : this( )
         {
             ToolType = toolType;
@@ -464,8 +465,12 @@ namespace BudgetExecution
                 SqlEditor.ContextChoiceForeColor = Color.Black;
                 SqlEditor.ContextChoiceBackColor = SystemColors.ControlLight;
                 SqlEditor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
-                SqlEditor.ContextPromptBackgroundBrush = new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
-                SqlEditor.ContextTooltipBackgroundBrush = new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+                SqlEditor.ContextPromptBackgroundBrush = 
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+                
+                SqlEditor.ContextTooltipBackgroundBrush = 
+                    new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+                
                 SqlEditor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
                 SqlEditor.EndOfLineBackColor = SystemColors.ControlLight;
                 SqlEditor.EndOfLineForeColor = SystemColors.ControlLight;
@@ -487,7 +492,10 @@ namespace BudgetExecution
                 SqlEditor.WordWrap = true;
                 SqlEditor.WordWrapColumn = 100;
                 SqlEditor.Dock = DockStyle.None;
-                SqlEditor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                SqlEditor.Anchor = AnchorStyles.Top 
+                    | AnchorStyles.Bottom 
+                    | AnchorStyles.Left
+                    | AnchorStyles.Right;
             }
             catch( Exception ex )
             {
@@ -558,7 +566,9 @@ namespace BudgetExecution
                     {
                         var _command = SelectedCommand?.Replace( " ", "" );
                         var _query = SelectedQuery?.Replace( " ", "" );
-                        var _filePath = DatabaseDirectory + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
+                        var _filePath = DatabaseDirectory 
+                            + @$"\{Provider}\DataModels\{_command}\{_query}.sql";
+                        
                         var _stream = File.OpenRead( _filePath );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );
@@ -566,7 +576,9 @@ namespace BudgetExecution
                     }
                     else
                     {
-                        var _path = DatabaseDirectory + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
+                        var _path = DatabaseDirectory 
+                            + @$"\{Provider}\DataModels\{SelectedCommand}\{SelectedQuery}.sql";
+                        
                         var _stream = File.OpenRead( _path );
                         var _reader = new StreamReader( _stream );
                         var _text = _reader.ReadToEnd( );

@@ -1,11 +1,10 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "TypeObject.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
-using System;
-
 namespace BudgetExecution
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Runtime.Serialization.Json;
