@@ -20,6 +20,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     public partial class MinionSelector : MetroForm
     {
         /// <summary>
@@ -75,6 +76,20 @@ namespace BudgetExecution
             Load += OnLoad;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="MinionSelector"/>
+        /// class.
+        /// </summary>
+        /// <param name="directoryPath"> The directory path. </param>
+        public MinionSelector( string directoryPath )
+            : this( )
+        {
+            ImagePath = directoryPath;
+            Header.Text = string.Empty;
+            Load += OnLoad;
+        }
+        
         /// <summary>
         /// Called when [load].
         /// </summary>

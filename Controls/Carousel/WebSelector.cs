@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "WebSelector.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -18,6 +18,7 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
     public partial class WebSelector : MetroForm
     {
         /// <summary> Gets or sets the image path. </summary>
@@ -65,6 +66,20 @@ namespace BudgetExecution
             Carousel.OnCarouselItemSelectionChanged += OnItemSelected;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="WebSelector"/>
+        /// class.
+        /// </summary>
+        /// <param name="directoryPath"> The directory path. </param>
+        public WebSelector( string directoryPath )
+            : this( )
+        {
+            ImagePath = directoryPath;
+            Header.Text = string.Empty;
+            Load += OnLoad;
+        }
+        
         /// <summary> Called when [load]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">

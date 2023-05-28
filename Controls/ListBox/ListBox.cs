@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ListBox.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,30 +14,49 @@ namespace BudgetExecution
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="MetroSet_UI.Controls.MetroSetListBox" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ListBox : MetroSetListBox
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ListBox"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ListBox"/> class.
         /// </summary>
         public ListBox( )
         {
@@ -74,12 +93,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ListBox"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ListBox"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
         public ListBox( Size size, Point location )
             : this( )
         {
@@ -88,12 +105,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ListBox"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ListBox"/> class.
         /// </summary>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
         public ListBox( Point location, Control parent = null )
             : this( )
         {
@@ -106,12 +121,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ListBox"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ListBox"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="parent"> The parent. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="parent">The parent.</param>
         public ListBox( Size size, Control parent = null )
             : this( )
         {
@@ -124,13 +137,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ListBox"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ListBox"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
         public ListBox( Size size, Point location, Control parent )
             : this( )
         {
@@ -141,19 +152,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ListBox"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ListBox"/> class.
         /// </summary>
-        /// <param name="title"> The title. </param>
+        /// <param name="title">The title.</param>
         public ListBox( string title )
             : this( )
         {
             Text = title;
         }
 
-        /// <summary> Sets the color of the border. </summary>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the color of the border.
+        /// </summary>
+        /// <param name="color">The color.</param>
         public void SetBorderColor( Color color )
         {
             if( color != Color.Empty )
@@ -169,13 +180,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [visible]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [visible].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnVisible( object sender, EventArgs e )
         {
             try
@@ -188,8 +197,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Adds the items. </summary>
-        /// <param name="items"> The items. </param>
+        /// <summary>
+        /// Adds the items.
+        /// </summary>
+        /// <param name="items">The items.</param>
         public void AddItems( IEnumerable<object> items )
         {
             if( items?.Count( ) > -1 )
@@ -208,8 +219,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Adds the control item. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Adds the item.
+        /// </summary>
+        /// <param name="item">The item.</param>
         public void AddItem( object item )
         {
             if( !string.IsNullOrEmpty( item?.ToString( ) ) )
@@ -225,8 +238,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the hover information. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the hover text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void SetHoverText( string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -242,8 +257,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void SetText( string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -259,8 +276,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

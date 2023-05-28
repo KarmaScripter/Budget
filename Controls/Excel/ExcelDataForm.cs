@@ -240,7 +240,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
+        /// Initializes a new instance of the <see cref="ExcelDataForm" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         public ExcelDataForm( DataTable dataTable )

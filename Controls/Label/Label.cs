@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Label.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,32 +14,49 @@ namespace BudgetExecution
     using MetroSet_UI.Enums;
 
     /// <summary>
-    /// Defines the
-    /// <see cref="Label"/>
+    /// 
     /// </summary>
+    /// <seealso cref="MetroSet_UI.Controls.MetroSetLabel" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class Label : MetroSetLabel
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Label"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Label" /> class.
         /// </summary>
         public Label( )
         {
@@ -66,12 +83,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Label"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
         public Label( Size size, Point location )
             : this( )
         {
@@ -80,24 +95,20 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Label"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
-        /// <param name="label"> The label. </param>
+        /// <param name="label">The label.</param>
         public Label( MetroSetLabel label )
             : this( label.Size, label.Location )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Label"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
         public Label( Size size, Point location, Control parent )
             : this( size, location )
         {
@@ -106,14 +117,12 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Label"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
-        /// <param name="text"> The text. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
+        /// <param name="text">The text.</param>
         public Label( Size size, Point location, Control parent, string text )
             : this( size, location, parent )
         {
@@ -121,22 +130,22 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Label"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Label"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
-        /// <param name="bindingSource"> The bindingSource. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
+        /// <param name="bindingSource">The binding source.</param>
         public Label( Size size, Point location, Control parent, BindingSource bindingSource )
             : this( size, location, parent )
         {
             BindingSource = bindingSource;
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void SetText( string text )
         {
             if( !string.IsNullOrEmpty( text ) )
@@ -152,8 +161,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tag. </summary>
-        /// <param name="tag"> The tag. </param>
+        /// <summary>
+        /// Sets the tag.
+        /// </summary>
+        /// <param name="tag">The tag.</param>
         public void SetTag( object tag )
         {
             if( tag != null )
@@ -169,13 +180,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [mouse over]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public virtual void OnMouseOver( object sender, EventArgs e )
         {
             var _budgetLabel = sender as Label;
@@ -205,13 +214,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [mouse leave]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public virtual void OnMouseLeave( object sender, EventArgs e )
         {
             try
@@ -226,8 +233,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

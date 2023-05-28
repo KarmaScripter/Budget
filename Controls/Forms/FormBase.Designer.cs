@@ -33,26 +33,32 @@
             // 
             // FormBase
             // 
-            AutoScaleDimensions =  new System.Drawing.SizeF( 7F, 14F ) ;
-            AutoScaleMode =  System.Windows.Forms.AutoScaleMode.Font ;
-            BackColor =  System.Drawing.Color.FromArgb(   15  ,   15  ,   15   ) ;
-            BorderColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            CaptionAlign =  System.Windows.Forms.HorizontalAlignment.Left ;
-            CaptionBarColor =  System.Drawing.Color.FromArgb(   15  ,   15  ,   15   ) ;
-            CaptionButtonColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            CaptionButtonHoverColor =  System.Drawing.Color.DarkRed ;
-            CaptionFont =  new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            CaptionForeColor =  System.Drawing.Color.FromArgb(   0  ,   120  ,   212   ) ;
-            ClientSize =  new System.Drawing.Size( 1338, 713 ) ;
-            Font =  new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point ) ;
-            ForeColor =  System.Drawing.Color.DarkGray ;
-            Icon =  (System.Drawing.Icon) resources.GetObject( "$this.Icon" )  ;
-            MaximumSize =  new System.Drawing.Size( 1350, 750 ) ;
-            MetroColor =  System.Drawing.Color.FromArgb(   15  ,   15  ,   15   ) ;
-            MinimumSize =  new System.Drawing.Size( 1350, 750 ) ;
-            Name =  "FormBase" ;
-            ShowIcon =  false ;
-            StartPosition =  System.Windows.Forms.FormStartPosition.CenterScreen ;
+            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            ClientSize = new System.Drawing.Size( 1344, 744 );
+            ControlBox = false;
+            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            HeaderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            HeaderHeight = 5;
+            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+            MaximumSize = new System.Drawing.Size( 1350, 750 );
+            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            Name = "FormBase";
+            ShowBorder = true;
+            ShowIcon = false;
+            ShowLeftRect = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            SmallLineColor1 = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SmallLineColor2 = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            SmallRectThickness = 0;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Style = MetroSet_UI.Enums.Style.Custom;
+            TextColor = System.Drawing.Color.DarkGray;
+            ThemeName = "MetroDark";
+            UseSlideAnimation = true;
             ResumeLayout( false );
         }
 

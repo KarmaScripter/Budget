@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Layout.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -14,34 +14,56 @@ namespace BudgetExecution
     using MetroSet_UI.Controls;
     using MetroSet_UI.Enums;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="MetroSet_UI.Controls.MetroSetPanel" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class Layout : MetroSetPanel
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Gets or sets the children. </summary>
-        /// <value> The children. </value>
+        /// <summary>
+        /// Gets or sets the children.
+        /// </summary>
+        /// <value>
+        /// The children.
+        /// </value>
         public IEnumerable<Control> Children { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Layout"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Layout"/> class.
         /// </summary>
         public Layout( )
         {
@@ -68,12 +90,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Layout"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Layout"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
         public Layout( Size size, Point location )
             : this( )
         {
@@ -82,13 +102,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Layout"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Layout"/> class.
         /// </summary>
-        /// <param name="size"> The size. </param>
-        /// <param name="location"> The location. </param>
-        /// <param name="parent"> The parent. </param>
+        /// <param name="size">The size.</param>
+        /// <param name="location">The location.</param>
+        /// <param name="parent">The parent.</param>
         public Layout( Size size, Point location, Control parent )
             : this( size, location )
         {
@@ -99,19 +117,19 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Layout"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Layout"/> class.
         /// </summary>
-        /// <param name="parent"> The parent. </param>
+        /// <param name="parent">The parent.</param>
         public Layout( Control parent )
         {
             Parent = parent;
             Parent.Controls.Add( this );
         }
 
-        /// <summary> Sets the color of the border. </summary>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the color of the border.
+        /// </summary>
+        /// <param name="color">The color.</param>
         public void SetBorderColor( Color color )
         {
             if( color != Color.Empty )
@@ -127,8 +145,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the color of the back. </summary>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the color of the back.
+        /// </summary>
+        /// <param name="color">The color.</param>
         public void SetBackColor( Color color )
         {
             if( color != Color.Empty )
@@ -145,9 +165,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Adds the control item. </summary>
-        /// <param name="item"> The item. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Adds the child.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns></returns>
         public IEnumerable<Control> AddChild( Control item )
         {
             if( item != null )
@@ -168,8 +190,10 @@ namespace BudgetExecution
             return default( IEnumerable<Control> );
         }
 
-        /// <summary> Adds the control item. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the children.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<Control> GetChildren( )
         {
             try
@@ -185,13 +209,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -205,9 +227,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

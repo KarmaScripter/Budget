@@ -4,7 +4,6 @@ end_of_line = crlf
 indent_size = 4
 indent_style = space
 insert_final_newline = false
-max_line_length = 100
 tab_width = 4
 trim_trailing_whitespace = false
 ij_continuation_indent_size = 8
@@ -36,6 +35,12 @@ resharper_static_members_qualify_members = none, event
 resharper_wrap_chained_method_calls = chop_if_long
 resharper_wrap_object_and_collection_initializer_style = wrap_if_long
 resharper_wrap_parameters_style = wrap_if_long
+resharper_xmldoc_keep_user_linebreaks = true
+resharper_xmldoc_linebreak_before_elements = summary,remarks,example,returns,param,typeparam,value,param,returns,see
+resharper_xmldoc_max_line_length = 60
+resharper_xml_indent_child_elements = OneIndent
+resharper_xml_indent_text = OneIndent
+resharper_xml_max_blank_lines_between_tags = 0
 
 # Microsoft .NET properties
 csharp_new_line_before_members_in_object_initializers = false

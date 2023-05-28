@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "SplashMessage.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -15,36 +15,53 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms.Tools;
     using Image = System.Drawing.Image;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Tools.SplashPanel" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class SplashMessage : SplashPanel
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the images. </summary>
-        /// <value> The images. </value>
+        /// <summary>
+        /// Gets or sets the images.
+        /// </summary>
+        /// <value>
+        /// The images.
+        /// </value>
         public virtual IEnumerable<Image> Images { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SplashMessage"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
         /// </summary>
         /// <remarks>
-        /// The default value for the
-        /// <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval"/>
-        /// is set to The splash panel has animation turned and by default will appear in the middle of the
-        /// screen.
+        /// The default value for the <see cref="P:Syncfusion.Windows.Forms.Tools.SplashPanel.TimerInterval" /> is set to
+        /// 5000 milli seconds.
+        /// The splash panel has animation turned and by default will appear in the
+        /// middle of the screen.
         /// </remarks>
         public SplashMessage( )
         {
@@ -54,7 +71,9 @@ namespace BudgetExecution
             Size = new Size( 300, 150 );
             BorderStyle = Border3DStyle.Flat;
             BorderType = SplashBorderType.Border3D;
-            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 45, 45, 45 ) );
+            BackgroundColor = new BrushInfo( GradientStyle.PathEllipse, 
+                Color.FromArgb( 20, 20, 20 ), Color.FromArgb( 45, 45, 45 ) );
+            
             ShowAnimation = true;
             ShowAsTopMost = true;
             AnimationSpeed = 20;
@@ -72,11 +91,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SplashMessage"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
         /// </summary>
-        /// <param name="message"> The message. </param>
+        /// <param name="message">The message.</param>
         public SplashMessage( string message )
             : this( )
         {
@@ -84,11 +101,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SplashMessage"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
         /// </summary>
-        /// <param name="toolTip"> The tool tip. </param>
+        /// <param name="toolTip">The tool tip.</param>
         public SplashMessage( SmallTip toolTip )
             : this( )
         {
@@ -96,12 +111,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SplashMessage"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="SplashMessage"/> class.
         /// </summary>
-        /// <param name="control"> The control. </param>
-        /// <param name="message"> The message. </param>
+        /// <param name="control">The control.</param>
+        /// <param name="message">The message.</param>
         public SplashMessage( Control control, string message )
             : this( )
         {
@@ -110,9 +123,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Displays the
-        /// <see cref="T:Syncfusion.Windows.Forms.Tools.SplashPanel"/>
-        /// Splash panel.
+        /// Shows the message.
         /// </summary>
         public void ShowMessage( )
         {
@@ -129,8 +140,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the size. </summary>
-        /// <param name="size"> The size. </param>
+        /// <summary>
+        /// Res the size.
+        /// </summary>
+        /// <param name="size">The size.</param>
         public virtual void ReSize( Size size )
         {
             try
@@ -143,9 +156,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the size. </summary>
-        /// <param name="width"> The width. </param>
-        /// <param name="height"> The height. </param>
+        /// <summary>
+        /// Res the size.
+        /// </summary>
+        /// <param name="width">The width.</param>
+        /// <param name="height">The height.</param>
         public virtual void ReSize( int width = 300, int height = 150 )
         {
             try
@@ -158,8 +173,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public virtual void SetText( string text )
         {
             try
@@ -172,8 +189,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the color of the back. </summary>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the color of the back.
+        /// </summary>
+        /// <param name="color">The color.</param>
         public virtual void SetBackColor( Color color )
         {
             try
@@ -186,9 +205,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the image. </summary>
-        /// <param name="path"> </param>
-        public virtual void ResetIcon( string path )
+        /// <summary>
+        /// Resets the icon.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        public virtual void SetIcon( string path )
         {
             if( !string.IsNullOrEmpty( path )
                && File.Exists( path ) )
@@ -205,9 +226,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

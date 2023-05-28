@@ -18,7 +18,7 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Spreadsheet.Spreadsheet" />
     /// <seealso cref="BudgetExecution.ISpreadsheet" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ExcelDataGrid : Spreadsheet, ISpreadsheet
     {
@@ -79,6 +79,13 @@ namespace BudgetExecution
         /// <param name="file">The file.</param>
         public void OpenFile( Stream file )
         {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>
@@ -99,7 +106,9 @@ namespace BudgetExecution
         /// Called when [cell enter].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/> instance containing the event data.
+        /// </param>
         public void OnCellEnter( object sender, EventArgs e )
         {
             try

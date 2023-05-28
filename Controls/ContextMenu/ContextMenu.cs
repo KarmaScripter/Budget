@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ContextMenu.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -12,15 +12,16 @@ namespace BudgetExecution
     using MetroSet_UI.Child;
     using MetroSet_UI.Enums;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.MenuBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class ContextMenu : MenuBase
     {
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ContextMenu"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ContextMenu"/> class.
         /// </summary>
         public ContextMenu( )
         {
@@ -52,7 +53,10 @@ namespace BudgetExecution
             ExitOption = CreateExitOption( );
         }
 
-        /// <summary> Initializes the file option. </summary>
+        /// <summary>
+        /// Creates the file option.
+        /// </summary>
+        /// <returns></returns>
         private MetroSetToolStripMenuItem CreateFileOption( )
         {
             try
@@ -80,7 +84,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the folder option. </summary>
+        /// <summary>
+        /// Creates the folder option.
+        /// </summary>
+        /// <returns></returns>
         private MetroSetToolStripMenuItem CreateFolderOption( )
         {
             try
@@ -108,7 +115,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the calculator option. </summary>
+        /// <summary>
+        /// Creates the calculator option.
+        /// </summary>
+        /// <returns></returns>
         private MetroSetToolStripMenuItem CreateCalculatorOption( )
         {
             try
@@ -136,7 +146,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the calendar option. </summary>
+        /// <summary>
+        /// Creates the calendar option.
+        /// </summary>
+        /// <returns></returns>
         private MetroSetToolStripMenuItem CreateCalendarOption( )
         {
             try
@@ -164,7 +177,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the guidance option. </summary>
+        /// <summary>
+        /// Creates the guidance option.
+        /// </summary>
+        /// <returns></returns>
         private MetroSetToolStripMenuItem CreateGuidanceOption( )
         {
             try
@@ -192,7 +208,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the save option. </summary>
+        /// <summary>
+        /// Creates the save option.
+        /// </summary>
+        /// <returns></returns>
         private MetroSetToolStripMenuItem CreateSaveOption( )
         {
             try
@@ -220,7 +239,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the close option. </summary>
+        /// <summary>
+        /// Creates the close option.
+        /// </summary>
+        /// <returns></returns>
         private MetroSetToolStripMenuItem CreateCloseOption( )
         {
             try
@@ -248,7 +270,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Initializes the exit option. </summary>
+        /// <summary>
+        /// Creates the exit option.
+        /// </summary>
+        /// <returns></returns>
         private MetroSetToolStripMenuItem CreateExitOption( )
         {
             try
@@ -276,13 +301,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [item clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [item clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void OnItemClicked( object sender, MouseEventArgs e )
         {
             if( sender is MetroSetToolStripMenuItem item
