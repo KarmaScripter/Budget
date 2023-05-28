@@ -29,8 +29,8 @@ namespace BudgetExecution
         /// <exception cref="InvalidEnumArgumentException"> provider </exception>
         public static IEnumerable<DbParameter> ToSqlDbParameters( this DataRow dataRow, Provider provider )
         {
-            if( dataRow != null
-               && dataRow.ItemArray.Length > 0
+            if( ( dataRow != null )
+               && ( dataRow.ItemArray.Length > 0 )
                && Enum.IsDefined( typeof( Provider ), provider ) )
             {
                 try

@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "FormAnimator.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -10,67 +10,49 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary> Animates a form when it is shown, hidden or closed </summary>
-    /// <remarks>
-    /// MDI child forms do not support the Fade method and only support other methods while being displayed
-    /// for the first time and when closing
-    /// </remarks>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     public sealed class FormAnimator
     {
         /// <summary>
-        /// Gets or sets the animation method used to show and hide the form
+        /// Gets or sets the method.
         /// </summary>
-        /// <value> The animation method used to show and hide the form </value>
-        /// <remarks>
-        /// <b> Roll </b>
-        /// is used by default if no method is specified
-        /// </remarks>
+        /// <value>
+        /// The method.
+        /// </value>
         public AnimationMethod Method { get; set; }
 
         /// <summary>
-        /// Gets or Sets the direction in which the animation is performed
+        /// Gets or sets the direction.
         /// </summary>
-        /// <value> The direction in which the animation is performed </value>
-        /// <remarks>
-        /// The direction is only applicable to the
-        /// <b> Roll </b>
-        /// and
-        /// <b> Slide </b>
-        /// methods
-        /// </remarks>
+        /// <value>
+        /// The direction.
+        /// </value>
         public AnimationDirection Direction { get; set; }
 
         /// <summary>
-        /// Gets or Sets the number of milliseconds over which the animation is played
+        /// Gets or sets the duration.
         /// </summary>
         /// <value>
-        /// The number of milliseconds over which the animation is played
+        /// The duration.
         /// </value>
         public int Duration { get; set; }
 
-        /// <summary> Gets the form to be animated </summary>
-        /// <value> The form to be animated </value>
+        /// <summary>
+        /// Gets or sets the form.
+        /// </summary>
+        /// <value>
+        /// The form.
+        /// </value>
         public Form Form { get; set; }
 
         /// <summary>
-        /// Creates a new
-        /// <
-        ///     b>
-        /// FormAnimator
-        /// </b>
-        /// object for the specified form
+        /// Initializes a new instance of the <see cref="FormAnimator"/> class.
         /// </summary>
-        /// <param name="form"> The form to be animated </param>
-        /// <remarks>
-        /// No animation will be used unless the
-        /// <b> Method </b>
-        /// and/or
-        /// <b> Direction </b>
-        /// properties are set independently. The
-        /// <b> Duration </b>
-        /// is set to quarter of a second by default.
-        /// </remarks>
+        /// <param name="form">The form.</param>
         public FormAnimator( Form form )
         {
             Form = form;
@@ -81,24 +63,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Creates a new
-        /// <b> FormAnimator </b>
-        /// object for the specified form using the specified method over the specified duration
+        /// Initializes a new instance of the <see cref="FormAnimator"/> class.
         /// </summary>
-        /// <param name="form"> The form to be animated </param>
-        /// <param name="method"> The animation method used to show and hide the form </param>
-        /// <param name="duration">
-        /// The number of milliseconds over which the animation is played
-        /// </param>
-        /// <remarks>
-        /// No animation will be used for the
-        /// <b> Roll </b>
-        /// or
-        /// <b> Slide </b>
-        /// methods unless the
-        /// <b> Direction </b>
-        /// property is set independently
-        /// </remarks>
+        /// <param name="form">The form.</param>
+        /// <param name="method">The method.</param>
+        /// <param name="duration">The duration.</param>
         public FormAnimator( Form form, AnimationMethod method, int duration )
             : this( form )
         {
@@ -107,54 +76,52 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Creates a new
-        /// <b> FormAnimator </b>
-        /// object for the specified form using the specified method in the specified direction over the
-        /// specified duration
+        /// Initializes a new instance of the <see cref="FormAnimator"/> class.
         /// </summary>
-        /// <param name="form"> The form to be animated </param>
-        /// <param name="method"> The animation method used to show and hide the form </param>
-        /// <param name="direction"> The direction in which to animate the form </param>
-        /// <param name="duration">
-        /// The number of milliseconds over which the animation is played
-        /// </param>
-        /// <remarks>
-        /// The
-        /// <i> direction </i>
-        /// argument will have no effect if the
-        /// <b> Center </b>
-        /// or
-        /// <b> Fade </b>
-        /// method is specified
-        /// </remarks>
+        /// <param name="form">The form.</param>
+        /// <param name="method">The method.</param>
+        /// <param name="direction">The direction.</param>
+        /// <param name="duration">The duration.</param>
         public FormAnimator( Form form, AnimationMethod method, AnimationDirection direction, int duration )
             : this( form, method, duration )
         {
             Direction = direction;
         }
 
-        /// <summary> Hide the form </summary>
+        /// <summary>
+        /// The aw hide
+        /// </summary>
         private const int AwHide = 0x10000;
 
-        /// <summary> Activate the form </summary>
+        /// <summary>
+        /// The aw activate
+        /// </summary>
         private const int AwActivate = 0x20000;
 
         /// <summary>
-        /// The number of milliseconds over which the animation occurs if no value is specified
+        /// The default duration
         /// </summary>
         private const int DefaultDuration = 250;
 
-        /// <summary> Animates the form automatically when it is loaded </summary>
+        /// <summary>
+        /// Handles the Load event of the Form control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Form_Load( object sender, EventArgs e )
         {
-            if( Form.MdiParent == null
-               || Method != AnimationMethod.Fade )
+            if( ( Form.MdiParent == null )
+               || ( Method != AnimationMethod.Fade ) )
             {
                 NativeMethods.AnimateWindow( Form.Handle, Duration, AwActivate | (int)Method | (int)Direction );
             }
         }
 
-        /// <summary> Animates the form automatically when it is shown or hidden </summary>
+        /// <summary>
+        /// Handles the VisibleChanged event of the Form control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void Form_VisibleChanged( object sender, EventArgs e )
         {
             if( Form.MdiParent == null )
@@ -173,64 +140,73 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Animates the form automatically when it closes </summary>
+        /// <summary>
+        /// Handles the Closing event of the Form control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="CancelEventArgs"/> instance containing the event data.</param>
         private void Form_Closing( object sender, CancelEventArgs e )
         {
             if( !e.Cancel )
             {
-                if( Form.MdiParent == null
-                   || Method != AnimationMethod.Fade )
+                if( ( Form.MdiParent == null )
+                   || ( Method != AnimationMethod.Fade ) )
                 {
                     NativeMethods.AnimateWindow( Form.Handle, Duration, AwHide | (int)Method | (int)Direction );
                 }
             }
         }
 
-        /// <summary> The methods of animation available. </summary>
+        /// <summary>
+        /// 
+        /// </summary>
         public enum AnimationMethod
         {
-            /// <summary> Rolls out from edge when showing and into edge when hiding </summary>
-            /// <remarks>
-            /// This is the default animation method and requires a direction
-            /// </remarks>
+            /// <summary>
+            /// The roll
+            /// </summary>
             Roll = 0x0,
 
             /// <summary>
-            /// Expands out from center when showing and collapses into center when hiding
+            /// The center
             /// </summary>
             Center = 0x10,
 
             /// <summary>
-            /// Slides out from edge when showing and slides into edge when hiding
+            /// The slide
             /// </summary>
-            /// <remarks> Requires a direction </remarks>
             Slide = 0x40000,
 
             /// <summary>
-            /// Fades from transparent to opaque when showing and from opaque to transparent when hiding
+            /// The fade
             /// </summary>
             Fade = 0x80000
         }
 
         /// <summary>
-        /// The directions in which the Roll and Slide animations can be shown
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Horizontal and vertical directions can be combined to create diagonal animations
-        /// </remarks>
         [ Flags ]
         public enum AnimationDirection
         {
-            /// <summary> From left to right </summary>
+            /// <summary>
+            /// The right
+            /// </summary>
             Right = 0x1,
 
-            /// <summary> From right to left </summary>
+            /// <summary>
+            /// The left
+            /// </summary>
             Left = 0x2,
 
-            /// <summary> From top to bottom </summary>
+            /// <summary>
+            /// Down
+            /// </summary>
             Down = 0x4,
 
-            /// <summary> From bottom to top </summary>
+            /// <summary>
+            /// Up
+            /// </summary>
             Up = 0x8
         }
     }

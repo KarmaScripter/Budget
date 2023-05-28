@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "Graph.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -17,7 +17,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class Graph : GraphBase
     {
-
         // Initializes Properties
         /// <summary>
         /// Initializes a new instance of the
@@ -46,9 +45,10 @@ namespace BudgetExecution
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
             BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ChartInterior = new BrushInfo( GradientStyle.PathRectangle, Color.LightSteelBlue, Color.FromArgb( 20, 20, 20 ) );
             CalcRegions = true;
-
+            ChartInterior = new BrushInfo( GradientStyle.PathRectangle, 
+                Color.LightSteelBlue, Color.FromArgb( 20, 20, 20 ) );
+            
             //ChartArea Properties
             ChartArea.AdjustPlotAreaMargins = ChartSetMode.AutoSet;
             ChartArea.AutoScale = true;
@@ -65,7 +65,9 @@ namespace BudgetExecution
             SeriesHighlight = true;
             SeriesHighlightIndex = -1;
             ShadowWidth = 5;
-            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, Color.FromArgb( 20, 20, 20 ), Color.Silver );
+            ShadowColor = new BrushInfo( GradientStyle.PathRectangle, 
+                Color.FromArgb( 20, 20, 20 ), Color.Silver );
+            
             Depth = 250;
             ElementsSpacing = 10;
             ColumnDrawMode = ChartColumnDrawMode.InDepthMode;
@@ -109,8 +111,8 @@ namespace BudgetExecution
         /// <param name="height"> The height. </param>
         public void SetSize( int width = 600, int height = 400 )
         {
-            if( width > 0
-               && height > 0 )
+            if( ( width > 0 )
+               && ( height > 0 ) )
             {
                 try
                 {

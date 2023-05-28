@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "ToolSeparator.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -9,14 +9,14 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.ToolStripSeparator" />
     public class ToolSeparator : ToolStripSeparator
     {
-
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripLabel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ToolSeparator"/> class.
         /// </summary>
         public ToolSeparator( )
         {
@@ -28,12 +28,14 @@ namespace BudgetExecution
             Height = 42;
         }
 
-        /// <summary> Sets the width. </summary>
-        /// <param name="width"> The width. </param>
+        /// <summary>
+        /// Sets the width.
+        /// </summary>
+        /// <param name="width">The width.</param>
         public void SetWidth( int width = 3 )
         {
-            if( width > 0
-               && width < 10 )
+            if( ( width > 0 )
+               && ( width < 10 ) )
             {
                 try
                 {
@@ -46,8 +48,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
