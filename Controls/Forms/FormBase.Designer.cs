@@ -38,7 +38,7 @@
             BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             BackgroundColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
             BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            ClientSize = new System.Drawing.Size( 1344, 744 );
+            ClientSize = new System.Drawing.Size( 1350, 750 );
             ControlBox = false;
             Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
             HeaderColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
@@ -50,6 +50,7 @@
             ShowBorder = true;
             ShowIcon = false;
             ShowLeftRect = false;
+            ShowTitle = false;
             SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             SmallLineColor1 = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
             SmallLineColor2 = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );

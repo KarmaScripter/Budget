@@ -25,13 +25,16 @@ namespace BudgetExecution
             InitializeComponent( );
             Font = new Font( "Roboto", 9 );
             BackColor = Color.FromArgb( 20, 20, 20 );
+            BackgroundColor = Color.FromArgb( 20, 20, 20 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             ShowIcon = false;
             ShowInTaskbar = true;
             BorderThickness = 1;
             MinimizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Size = new Size( 1400, 800 );
+            Size = new Size( 1350, 750 );
+            MaximumSize = new Size( 1350, 750 );
+            MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             Text = string.Empty;
         }
