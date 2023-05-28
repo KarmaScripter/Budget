@@ -19,5 +19,6 @@ CREATE TABLE NetTransfers
  ProcessedDate TEXT(80) NULL DEFAULT NS,
  Net TEXT(80) NULL DEFAULT NS,
  Amount DOUBLE NULL DEFAULT 0.0,
- PRIMARY KEY( NetTransfersId )
+ CONTRAINT NetTransfersPrimaryKey
+    PRIMARY KEY( NetTransfersId )
 );

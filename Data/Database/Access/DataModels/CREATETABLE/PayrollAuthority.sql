@@ -30,5 +30,6 @@ CREATE TABLE  PayrollAuthority
     TreasuryAccountName TEXT(255) NULL DEFAULT NS,
     BudgetAccountCode TEXT(80) NULL DEFAULT NS,
     BudgetAccountName TEXT(255) NULL DEFAULT NS,
-	PRIMARY KEY( PayrollAuthorityId )
+	CONSTRAINT PayrollAuthorityPrimaryKey
+        PRIMARY KEY( PayrollAuthorityId )
 );

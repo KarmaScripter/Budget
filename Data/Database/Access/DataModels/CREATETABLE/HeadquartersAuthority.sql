@@ -1,6 +1,6 @@
 CREATE TABLE HeadquartersAuthority 
 (
-    HeadquartersAuthorityId INTEGER NOT NULL,
+    HeadquartersAuthorityId AUTOINCREMENT NOT NULL UNIQUE,
     AllocationsId INTEGER,
     StatusOfFundsId INTEGER,
     BudgetLevel TEXT(80) NULL DEFAULT NS,

@@ -29,5 +29,6 @@ CREATE TABLE AppropriationDocuments
     CarryoverIn DOUBLE NULL DEFAULT 0.0,
     Reimbursements DOUBLE NULL DEFAULT 0.0,
     Recoveries DOUBLE NULL DEFAULT 0.0,
-    PRIMARY KEY(AppropriationDocumentsId)
+    CONSTRAINT AppropriationDocumentsPrimaryKey
+        PRIMARY KEY(AppropriationDocumentsId)
 );

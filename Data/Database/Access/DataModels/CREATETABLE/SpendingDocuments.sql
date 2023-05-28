@@ -20,11 +20,12 @@ CREATE TABLE SpendingDocuments
 	DocumentControlNumber	TEXT(80) NULL DEFAULT NS,
 	BocCode	TEXT(80) NULL DEFAULT NS,
 	BocName	TEXT(80) NULL DEFAULT NS,
-	OriginalActionDate	TEXT(80) NULL DEFAULT NS,
-	LastActionDate	TEXT(80) NULL DEFAULT NS,
+	OriginalActionDate	DATETIME NULL,
+	LastActionDate	DATETIME NULL,
 	Commitments	DOUBLE NULL DEFAULT 0.0,
 	Obligations	DOUBLE NULL DEFAULT 0.0,
 	Deobligations	DOUBLE NULL DEFAULT 0.0,
 	UnliqudatedObligations	DOUBLE NULL DEFAULT 0.0,
-	PRIMARY KEY(SpendingDocumentsId)
+	CONSTRAINT SpendingDocumentsPrimaryKey
+        PRIMARY KEY(SpendingDocumentsId)
 );

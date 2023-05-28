@@ -22,5 +22,6 @@ CREATE TABLE FiscalYears
     WeekEnds TEXT(80) NULL DEFAULT NS,
     EndDate TEXT(80) NULL DEFAULT NS,
     Availability TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY(FiscalYearsId)
+    CONSTRAINT FiscalYearsPrimaryKey
+        PRIMARY KEY(FiscalYearsId)
 );

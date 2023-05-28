@@ -27,5 +27,6 @@ CREATE TABLE MonthlyActuals
 	TreasuryAccountName	TEXT(80) NULL DEFAULT NS,
 	BudgetAccountCode	TEXT(80) NULL DEFAULT NS,
 	BudgetAccountName	TEXT(80) NULL DEFAULT NS,
-	PRIMARY KEY(MonthlyActualsId)
+	CONSTRAINT MonthlyActualsPrimaryKey 
+        PRIMARY KEY(MonthlyActualsId)
 );

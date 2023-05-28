@@ -13,5 +13,6 @@ CREATE TABLE FederalHolidays
     JuneteenthDay DATETIME NULL,
     IndependenceDay DATETIME NULL,
     LaborDay DATETIME NULL,
-    PRIMARY KEY(FederalHolidaysId)
+    CONSTRAINT FederalHolidaysPrimaryKey
+        PRIMARY KEY(FederalHolidaysId)
 );

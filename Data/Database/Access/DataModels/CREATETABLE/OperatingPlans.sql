@@ -33,5 +33,7 @@ CREATE TABLE OperatingPlans
 	TreasuryAccountName TEXT(255) NULL DEFAULT NS,
 	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
 	BudgetAccountName TEXT(255) NULL DEFAULT NS,
-    PRIMARY KEY(OperatingPlansId)
+    Version TEXT(80) NULL DEFAULT NS,
+    CONSTRAINT OperatingPlansPrimaryKey
+        PRIMARY KEY(OperatingPlansId)
 );

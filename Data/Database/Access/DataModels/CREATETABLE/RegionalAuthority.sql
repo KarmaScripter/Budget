@@ -1,6 +1,6 @@
 CREATE TABLE RegionalAuthority 
 (
-    RegionalAuthorityId AUTOINCREMENT NOT NULL,
+    RegionalAuthorityId AUTOINCREMENT NOT NULL UNIQUE,
     AllocationsId INTEGER NOT NULL,
     StatusOfFundsId INTEGER NOT NULL,
     BudgetLevel TEXT(80) NULL DEFAULT NS,

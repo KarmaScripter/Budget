@@ -5,5 +5,6 @@ CREATE TABLE  PayPeriods
     PayPeriod TEXT(80) NULL DEFAULT NS,
     StartDate TEXT(80) NULL DEFAULT NS,
     EndDate TEXT(80) NULL DEFAULT NS,
-    PRIMARY KEY( PayPeriodsId )
+    CONSTRAINT PayPeriodsPrimaryKey
+        PRIMARY KEY( PayPeriodsId )
 );

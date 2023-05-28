@@ -21,9 +21,8 @@ CREATE TABLE Reprogrammings
     ProgramAreaName TEXT(80) NULL DEFAULT NS,
     BocName TEXT(80) NULL DEFAULT NS,
     DocPrefix TEXT(80) NULL DEFAULT NS, 
-    CONSTRAINT PrimaryKeyReprogrammings 
-    PRIMARY KEY(ReprogrammingsId),
+    CONSTRAINT ReprogrammingsPrimaryKey 
+        PRIMARY KEY(ReprogrammingsId),
     CONSTRAINT ReprogrammingsForeignKey 
-    FOREIGN KEY(TransfersId) 
-    REFERENCES Transfers(TransfersId)
+        FOREIGN KEY(TransfersId) REFERENCES Transfers(TransfersId)
 );

@@ -10,7 +10,7 @@ CREATE TABLE AppropriationAvailableBalances
 	Availability TEXT(80) NULL DEFAULT NS,
 	TotalAuthority  NULL,
 	TotalUsed DOUBLE NULL DEFAULT 0.0,
-	Available DOUBLE NULL DEFAULT 0.0
+	Available DOUBLE NULL DEFAULT 0.0,
 	CONSTRAINT AppropriationAvailableBalancesPrimaryKey 
 		PRIMARY KEY(AppropriationAvailableBalancesId)
 );

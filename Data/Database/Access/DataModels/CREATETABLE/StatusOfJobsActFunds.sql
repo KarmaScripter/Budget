@@ -34,7 +34,6 @@ CREATE TABLE  StatusOfJobsActFunds
     Obligations DOUBLE NULL DEFAULT 0.0,
     Used DOUBLE NULL DEFAULT 0.0,
     Available DOUBLE NULL DEFAULT 0.0,
-    Balance DOUBLE NULL DEFAULT 0.0,
     TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
     TreasuryAccountName TEXT(255) NULL DEFAULT NS,
     BudgetAccountCode TEXT(80) NULL DEFAULT NS,

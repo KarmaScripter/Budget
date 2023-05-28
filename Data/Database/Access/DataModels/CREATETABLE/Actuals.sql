@@ -22,8 +22,8 @@ CREATE TABLE Actuals
     RpioActivityName  TEXT(80) NULL DEFAULT NS,
     BocCode  TEXT(80) NULL DEFAULT NS,
     BocName TEXT(80) NULL DEFAULT NS,
-    ULO  DOUBLE NULL DEFAULT 0.0,
     Obligations  DOUBLE NULL DEFAULT 0.0,
+    UnliquidatedObligations  DOUBLE NULL DEFAULT 0.0,
     Balance  DOUBLE NULL DEFAULT 0.0,
     ProgramAreaCode  TEXT(80) NULL DEFAULT NS,
     ProgramAreaName  TEXT(80) NULL DEFAULT NS,
@@ -31,6 +31,10 @@ CREATE TABLE Actuals
     GoalName  TEXT(80) NULL DEFAULT NS,
     ObjectiveCode  TEXT(80) NULL DEFAULT NS,
     ObjectiveName  TEXT(80) NULL DEFAULT NS,
-    CONSTRAINT ActingPrimaryKey 
+	TreasuryAccountCode TEXT(80) NULL DEFAULT NS,
+	TreasuryAccountName TEXT(255) NULL DEFAULT NS,
+	BudgetAccountCode TEXT(80) NULL DEFAULT NS,
+	BudgetAccountName TEXT(255) NULL DEFAULT NS,
+    CONSTRAINT ActualsPrimaryKey 
         PRIMARY KEY(ActualsId)
 );
