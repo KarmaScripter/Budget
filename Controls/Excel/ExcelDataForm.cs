@@ -481,16 +481,22 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                if( Program.Windows.ContainsKey( "DataGridForm" ) )
                 {
-                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )?.First( );
+                    var _dataGridForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
+                        ?.First( );
+
+                    _dataGridForm.Owner = this;
                     _dataGridForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
                     var _dataGridForm = new DataGridForm( BindingSource );
                     _dataGridForm.Owner = this;
                     _dataGridForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -618,6 +624,10 @@ namespace BudgetExecution
             try
             {
                 if( !Program.Windows.ContainsKey( "ExcelDataForm" ) )
+                {
+                    Program.Windows[ "ExcelDataForm" ] = this;
+                }
+                else
                 {
                     Program.Windows.Add( "ExcelDataForm", this );
                 }

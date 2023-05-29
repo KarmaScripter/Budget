@@ -1,8 +1,7 @@
 {
   "profiles": {
-    "Budget": {
-      "commandName": "Project",
-      "nativeDebugging": false
+    "Profile 1": {
+      "commandName": "Project"
     }
   }
 }

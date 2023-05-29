@@ -1191,19 +1191,22 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
+                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
                     var _excelDataForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
                         ?.First( );
 
+                    _excelDataForm.Owner = this;
                     _excelDataForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
                     var _excelDataForm = new ExcelDataForm( BindingSource );
                     _excelDataForm.Owner = this;
                     _excelDataForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1220,19 +1223,22 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                if( Program.Windows.ContainsKey( "ChartDataForm" ) )
                 {
                     var _chartDataForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) == true )
                         ?.First( );
 
+                    _chartDataForm.Owner = this;
                     _chartDataForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
                     var _chartDataForm = new ChartDataForm( BindingSource );
                     _chartDataForm.Owner = this;
                     _chartDataForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -2036,6 +2042,10 @@ namespace BudgetExecution
             try
             {
                 if( !Program.Windows.ContainsKey( "DataGridForm" ) )
+                {
+                    Program.Windows[ "DataGridForm" ] = this;
+                }
+                else
                 {
                     Program.Windows.Add( "DataGridForm", this );
                 }

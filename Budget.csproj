@@ -8,7 +8,7 @@
     <Nullable>disable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>BudExNinja.png</PackageIcon>
-    <AnalysisLevel>6.0</AnalysisLevel>
+    <AnalysisLevel>6.0-recommended</AnalysisLevel>
     <LangVersion>10</LangVersion>
     <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>BudgetExecution</RootNamespace>
@@ -17,30 +17,30 @@
     <Product>Budget</Product>
     <RepositoryUrl>https://github.com/KarmaScripter/Budget</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <AssemblyName>Budget</AssemblyName>
-    <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <BaseOutputPath></BaseOutputPath>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
-    <BaseIntermediateOutputPath />
     <IsPublishable>False</IsPublishable>
     <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <Configurations>Debug;Release;Budget</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;1305;1822</NoWarn>
     <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
-    <Optimize>True</Optimize>
     <Deterministic>False</Deterministic>
-    <DebugType>full</DebugType>
-    <DefineConstants>$(DefineConstants);TRACE;DEBUG;NET;NET6_0</DefineConstants>
+    <Optimize>False</Optimize>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Budget|AnyCPU'">
+    <NoWarn>1701;1702;2201;1051;1305;1822</NoWarn>
+    <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
+    <Deterministic>False</Deterministic>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;2201;1051;1305;1822</NoWarn>
-    <Optimize>False</Optimize>
     <Deterministic>False</Deterministic>
-    <DebugType>full</DebugType>
+    <Optimize>True</Optimize>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Resource\Images\Ninja\ico\BudExNinja.ico" />
@@ -70,7 +70,7 @@
     <PackageReference Include="WinForms.DataVisualization" Version="1.8.0" />
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
-      <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="21.1.35"/>
+      <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="21.1.35" />
 </ItemGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4.8">

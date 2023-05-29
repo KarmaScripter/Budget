@@ -7,10 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Budget", "Budget.csproj", "
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Budget|Any CPU = Budget|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Budget|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Budget|Any CPU.Build.0 = Debug|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6009DE6-18A5-4292-B68B-7E969C652E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU

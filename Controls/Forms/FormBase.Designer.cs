@@ -29,7 +29,6 @@
         private void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( FormBase ) );
             ContextMenu = new ContextMenu( );
             BindingSource = new System.Windows.Forms.BindingSource( components );
             ToolTip = new SmallTip( );
@@ -72,6 +71,26 @@
             // 
             // FormBase
             // 
+            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionBarHeight = 5;
+            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            CaptionFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+            ClientSize = new System.Drawing.Size( 1338, 738 );
+            ControlBox = false;
+            MaximizeBox = false;
+            MaximumSize = new System.Drawing.Size( 1350, 750 );
+            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+            MinimizeBox = false;
+            MinimumSize = new System.Drawing.Size( 1350, 750 );
+            Name = "FormBase";
+            ShowIcon = false;
+            ShowMaximizeBox = false;
+            ShowMinimizeBox = false;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
             ResumeLayout( false );
         }

@@ -13,22 +13,26 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
 
-    /// <summary> </summary>
-    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public partial class MainForm : MetroForm
     {
-        /// <summary> Gets or sets the tiles. </summary>
-        /// <value> The tiles. </value>
+        /// <summary>
+        /// Gets or sets the tiles.
+        /// </summary>
+        /// <value>
+        /// The tiles.
+        /// </value>
         public IEnumerable<Tile> Tiles { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="MainForm"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
-        public MainForm( ) 
+        public MainForm( )
         {
             InitializeComponent( );
 
@@ -76,13 +80,11 @@ namespace BudgetExecution
             MouseClick += OnRightClick;
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnLoad( object sender, EventArgs e )
         {
             try
@@ -96,8 +98,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the tiles. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the tiles.
+        /// </summary>
+        /// <returns></returns>
         private IEnumerable<Tile> GetTiles( )
         {
             try
@@ -124,7 +128,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tile titles. </summary>
+        /// <summary>
+        /// Sets the tile text.
+        /// </summary>
         private void SetTileText( )
         {
             try
@@ -154,7 +160,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the tile properties. </summary>
+        /// <summary>
+        /// Sets the tile properties.
+        /// </summary>
         private void SetTileProperties( )
         {
             try
@@ -163,7 +171,7 @@ namespace BudgetExecution
                 {
                     foreach( var tile in Tiles )
                     {
-                        tile.Size = new Size( 178, 108 );
+                        tile.Size = new Size( 249, 140 );
                         tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
                         tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
@@ -178,7 +186,9 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Shows the selection dialog. </summary>
+        /// <summary>
+        /// Shows the selection dialog.
+        /// </summary>
         private void ShowSelectionDialog( )
         {
             try
@@ -192,19 +202,23 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the chart data form. </summary>
+        /// <summary>
+        /// Opens the chart data form.
+        /// </summary>
         private void OpenChartDataForm( )
         {
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                if( Program.Windows.ContainsKey( "ChartDataForm" ) )
                 {
                     var _chartDataForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
                         ?.First( );
-                    
+
+                    _chartDataForm.Owner = this;
                     _chartDataForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
@@ -220,19 +234,23 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the excel data form. </summary>
+        /// <summary>
+        /// Opens the excel data form.
+        /// </summary>
         private void OpenExcelDataForm( )
         {
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
+                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
                     var _excelDataForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
                         ?.First( );
-                    
+
+                    _excelDataForm.Owner = this;
                     _excelDataForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
@@ -261,7 +279,7 @@ namespace BudgetExecution
                     var _form = _forms
                         ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
                         ?.First( );
-                    
+
                     _form.Visible = true;
                 }
                 else
@@ -278,19 +296,23 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Opens the data grid form. </summary>
+        /// <summary>
+        /// Opens the data grid form.
+        /// </summary>
         private void OpenDataGridForm( )
         {
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                if( Program.Windows.ContainsKey( "DataGridForm" ) )
                 {
                     var _dataGridForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
                         ?.First( );
-                    
+
+                    _dataGridForm.Owner = this;
                     _dataGridForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
@@ -306,13 +328,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [database tile clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [database tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnDatabaseTileClicked( object sender, EventArgs e )
         {
             try
@@ -325,13 +345,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [reporting tile clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [reporting tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnReportingTileClicked( object sender, EventArgs e )
         {
             try
@@ -344,13 +362,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [client tile clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [client tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnClientTileClicked( object sender, EventArgs e )
         {
             try
@@ -363,13 +379,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [utility tile clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [utility tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnUtilityTileClicked( object sender, EventArgs e )
         {
             try
@@ -384,13 +398,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [guidance tile clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [guidance tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnGuidanceTileClicked( object sender, EventArgs e )
         {
             try
@@ -403,13 +415,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [tool tile clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [web tile clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnWebTileClicked( object sender, EventArgs e )
         {
             try
@@ -426,13 +436,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [exit button clicked]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [exit button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnExitButtonClicked( object sender, EventArgs e )
         {
             try
@@ -445,6 +453,11 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Called when [test button click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnTestButtonClick( object sender, EventArgs e )
         {
             try
@@ -459,13 +472,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [right click]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="MouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [right click].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void OnRightClick( object sender, MouseEventArgs e )
         {
             if( e.Button == MouseButtons.Right )
@@ -481,18 +492,23 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Called when [shown]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [shown].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnShown( object sender, EventArgs e )
         {
             try
             {
-                Program.Windows.Add( "MainForm", this );
+                if( Program.Windows.ContainsKey( "MainForm" ) )
+                {
+                    Program.Windows[ "MainForm" ] = this;
+                }
+                else
+                {
+                    Program.Windows.Add( "MainForm", this );
+                }
             }
             catch( Exception ex )
             {
@@ -500,8 +516,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

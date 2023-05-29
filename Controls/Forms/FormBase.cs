@@ -30,7 +30,7 @@ namespace BudgetExecution
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
             BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.DarkGray;
+            ForeColor = Color.LightGray;
             Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
@@ -42,10 +42,11 @@ namespace BudgetExecution
             CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
-            SizeGripStyle = SizeGripStyle.Auto;
+            SizeGripStyle = SizeGripStyle.Hide;
             ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
+            ControlBox = false;
         }
     }
 }

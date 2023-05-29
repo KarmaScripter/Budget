@@ -1109,16 +1109,22 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
+                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
-                    var _excelDataForm = _forms?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )?.First( );
+                    var _excelDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
+                        ?.First( );
+
+                    _excelDataForm.Owner = this;
                     _excelDataForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
                     var _excelDataForm = new ExcelDataForm( BindingSource );
                     _excelDataForm.Owner = this;
                     _excelDataForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -1135,19 +1141,22 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                if( Program.Windows.ContainsKey( "DataGridForm" ) )
                 {
                     var _dataGridForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( DataGridForm ) == true )
                         ?.First( );
-                    
+
+                    _dataGridForm.Owner = this;
                     _dataGridForm.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
                     var _dataGridForm = new DataGridForm( BindingSource );
                     _dataGridForm.Owner = this;
                     _dataGridForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )
@@ -2259,7 +2268,7 @@ namespace BudgetExecution
             {
                 if( !Program.Windows.ContainsKey( "ChartDataForm" ) )
                 {
-                    Program.Windows.Add( "ChartDataForm", this );
+                    Program.Windows[ "ChartDataForm" ] = this;
                 }
             }
             catch( Exception ex )

@@ -34,15 +34,31 @@ partial class SchemaDialog
     private void InitializeComponent( )
     {
         components = new System.ComponentModel.Container( );
+        var resources = new System.ComponentModel.ComponentResourceManager( typeof( SchemaDialog ) );
         BindingSource = new System.Windows.Forms.BindingSource( components );
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).BeginInit( );
         SuspendLayout( );
         // 
         // SchemaDialog
         // 
-        ClientSize = new System.Drawing.Size( 1344, 744 );
-        FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+        BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+        CaptionBarHeight = 5;
+        CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+        CaptionButtonHoverColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
+        CaptionFont = new System.Drawing.Font( "Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        ClientSize = new System.Drawing.Size( 1338, 739 );
+        Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
+        ForeColor = System.Drawing.Color.LightGray;
+        FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+        Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
+        MaximumSize = new System.Drawing.Size( 1350, 750 );
+        MetroColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
+        MinimumSize = new System.Drawing.Size( 1350, 750 );
         Name = "SchemaDialog";
+        ShowIcon = false;
         ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
         ResumeLayout( false );
     }

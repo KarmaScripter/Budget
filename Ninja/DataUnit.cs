@@ -43,6 +43,14 @@ namespace BudgetExecution
         public virtual string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>
+        /// The value.
+        /// </value>
+        public virtual object Value { get; set; }
+        
+        /// <summary>
         /// </summary>
         public virtual DataRow Record { get; set; }
 
