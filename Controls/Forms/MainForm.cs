@@ -15,8 +15,8 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public partial class MainForm : MetroForm
     {
         /// <summary> Gets or sets the tiles. </summary>
@@ -28,7 +28,7 @@ namespace BudgetExecution
         /// <see cref="MainForm"/>
         /// class.
         /// </summary>
-        public MainForm( )
+        public MainForm( ) 
         {
             InitializeComponent( );
 
@@ -39,22 +39,23 @@ namespace BudgetExecution
             MinimumSize = new Size( 1350, 750 );
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            BackColor = Color.FromArgb( 20, 20, 20 );
-            ForeColor = Color.LightGray;
-            Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             BorderThickness = 1;
-            Dock = DockStyle.None;
-            Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.DarkGray;
+            Font = new Font( "Roboto", 9 );
             ShowIcon = false;
             ShowInTaskbar = true;
-            ShowMouseOver = false;
             MetroColor = Color.FromArgb( 20, 20, 20 );
-            CaptionFont = new Font( "Roboto", 10, FontStyle.Bold );
+            CaptionBarHeight = 5;
+            CaptionAlign = HorizontalAlignment.Center;
+            CaptionFont = new Font( "Roboto", 12, FontStyle.Regular );
             CaptionBarColor = Color.FromArgb( 20, 20, 20 );
-            CaptionForeColor = Color.FromArgb( 20, 20, 20 );
+            CaptionForeColor = Color.FromArgb( 0, 120, 212 );
             CaptionButtonColor = Color.FromArgb( 20, 20, 20 );
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
+            SizeGripStyle = SizeGripStyle.Auto;
+            ShowMouseOver = false;
             MinimizeBox = false;
             MaximizeBox = false;
             ExitButton.HoverText = "Exit Application";
@@ -199,7 +200,10 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
                 {
-                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
+                    var _chartDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
+                        ?.First( );
+                    
                     _chartDataForm.Visible = true;
                 }
                 else
@@ -224,7 +228,10 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
                 {
-                    var _excelDataForm = _forms?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )?.First( );
+                    var _excelDataForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
+                        ?.First( );
+                    
                     _excelDataForm.Visible = true;
                 }
                 else
@@ -241,6 +248,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Opens the PDF form.
+        /// </summary>
         private void OpenPdfForm( )
         {
             try
@@ -248,7 +258,10 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( PdfForm ) ) == true )
                 {
-                    var _form = _forms?.Where( f => f.GetType( ) == typeof( PdfForm ) )?.First( );
+                    var _form = _forms
+                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
+                        ?.First( );
+                    
                     _form.Visible = true;
                 }
                 else
@@ -273,7 +286,10 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
                 {
-                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )?.First( );
+                    var _dataGridForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
+                        ?.First( );
+                    
                     _dataGridForm.Visible = true;
                 }
                 else

@@ -423,21 +423,6 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 14F );
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            BorderColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            CaptionAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            CaptionBarColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            CaptionButtonHoverColor = System.Drawing.Color.Red;
-            CaptionFont = new System.Drawing.Font( "Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            CaptionForeColor = System.Drawing.Color.FromArgb(   0  ,   120  ,   212   );
-            captionImage1.BackColor = System.Drawing.Color.Transparent;
-            captionImage1.Location = new System.Drawing.Point( 4, 4 );
-            captionImage1.Name = "CaptionImage";
-            captionImage1.Size = new System.Drawing.Size( 22, 22 );
-            CaptionImages.Add( captionImage1 );
             ClientSize = new System.Drawing.Size( 1338, 713 );
             Controls.Add( ExitButton );
             Controls.Add( TestButton );
@@ -447,20 +432,7 @@
             Controls.Add( GuidanceTile );
             Controls.Add( ReportingTile );
             Controls.Add( DatabaseTile );
-            Font = new System.Drawing.Font( "Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point );
-            ForeColor = System.Drawing.Color.DarkGray;
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            Icon = (System.Drawing.Icon) resources.GetObject( "$this.Icon" ) ;
-            MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size( 1350, 750 );
-            MetroColor = System.Drawing.Color.FromArgb(   20  ,   20  ,   20   );
-            MinimizeBox = false;
-            MinimumSize = new System.Drawing.Size( 1350, 750 );
             Name = "MainForm";
-            ShowIcon = false;
-            ShowMaximizeBox = false;
-            ShowMinimizeBox = false;
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ( (System.ComponentModel.ISupportInitialize) BindingSource  ).EndInit( );
             ResumeLayout( false );
         }

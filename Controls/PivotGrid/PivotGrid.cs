@@ -1,4 +1,4 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
+﻿// <copyright file = "PivotGrid.cs" company = "Terry D.Eppler">
 // Copyright (c) Terry Eppler.All rights reserved.
 // </copyright>
 
@@ -9,24 +9,33 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Gauge;
     using Syncfusion.Windows.Forms.PivotAnalysis;
 
-    /// <summary> </summary>
-    /// <seealso cref="BudgetExecution.PivotGridBase"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.PivotAnalysis.PivotGridControl" />
     public class PivotGrid : PivotGridControl
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual SmallTip ToolTip { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="PivotGrid"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="PivotGrid"/> class.
         /// </summary>
         public PivotGrid( )
         {
