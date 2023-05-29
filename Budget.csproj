@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
+    <PackageReference Include="EdgeSharp.WinForms" Version="0.9.0" />
     <PackageReference Include="EPPlus" Version="6.2.4" />
     <PackageReference Include="Google.Apis" Version="1.60.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.60.0" />
@@ -63,6 +64,7 @@
     <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
     <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.4797.1004" />
     <PackageReference Include="MSChartExtension" Version="3.9.1" />
+    <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
     <PackageReference Include="ScottPlot.WinForms" Version="4.1.64" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
