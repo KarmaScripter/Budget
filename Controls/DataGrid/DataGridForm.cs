@@ -238,6 +238,9 @@ namespace BudgetExecution
 
             // Initialize Default Provider
             Provider = Provider.Access;
+            
+            // Set PictureBox Size
+            PictureBox.Size = new Size( 20, 20 );
 
             // Control Event Wiring
             ExcelExportButton.Click += null;
@@ -361,7 +364,6 @@ namespace BudgetExecution
                 InitRadioButtons( );
                 SetFormIcon( );
                 SetToolStripProperties( );
-                PictureBox.Size = new Size( 20, 20 );
                 FormFilter = new Dictionary<string, object>( );
                 SelectedColumns = new List<string>( );
                 SelectedFields = new List<string>( );

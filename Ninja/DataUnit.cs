@@ -21,14 +21,6 @@ namespace BudgetExecution
     public abstract class DataUnit : IDataUnit, ISource, IProvider
     {
         /// <summary>
-        /// Gets or sets the data.
-        /// </summary>
-        /// <value>
-        /// The data.
-        /// </value>
-        public virtual IDictionary<string, object> Data { get; set; }
-
-        /// <summary>
         /// </summary>
         public virtual int ID { get; set; }
 
@@ -53,6 +45,23 @@ namespace BudgetExecution
         /// <summary>
         /// </summary>
         public virtual DataRow Record { get; set; }
+
+        /// <summary>
+        /// </summary>
+        public virtual Provider Provider { get; set; }
+
+        /// <summary>
+        /// Gets the source.
+        /// </summary>
+        public virtual Source Source { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        /// <value>
+        /// The data.
+        /// </value>
+        public virtual IDictionary<string, object> Data { get; set; }
 
         /// <summary>
         /// Determines whether the specified element is match.
@@ -115,15 +124,6 @@ namespace BudgetExecution
 
             return false;
         }
-
-        /// <summary>
-        /// </summary>
-        public virtual Provider Provider { get; set; }
-
-        /// <summary>
-        /// Gets the source.
-        /// </summary>
-        public virtual Source Source { get; set; }
 
         /// <summary>
         /// Determines whether the specified primary is match.

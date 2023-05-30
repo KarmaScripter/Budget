@@ -89,7 +89,7 @@ namespace BudgetExecution
             DefaultCellStyle.Font = new Font( "Roboto", 8, FontStyle.Regular );
 
             // Column SeriesConfiguration
-            ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             ColumnHeadersHeight = 22;
             ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             ColumnHeadersDefaultCellStyle.BackColor = Color.SteelBlue;
@@ -230,16 +230,16 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _columnConfiguration = new ColumnConfiguration( this );
-                    _columnConfiguration.Location = PointToScreen( new Point( e.X, e.Y ) );
-                    _columnConfiguration.ColumnListBox?.Items?.Clear( );
+                    var _columnConfig = new ColumnConfiguration( this );
+                    _columnConfig.Location = PointToScreen( new Point( e.X, e.Y ) );
+                    _columnConfig.ColumnListBox?.Items?.Clear( );
                     for( var _i = 0; _i < Columns.Count; _i++ )
                     {
                         var c = Columns[ _i ];
-                        _columnConfiguration.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
+                        _columnConfig.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
                     }
 
-                    _columnConfiguration.TopMost = true;
+                    _columnConfig.TopMost = true;
                 }
                 catch( Exception ex )
                 {
