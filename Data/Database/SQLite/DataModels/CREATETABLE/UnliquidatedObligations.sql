@@ -4,12 +4,12 @@ CREATE TABLE IF NOT EXISTS UnliquidatedObligations
     ObligationsId INTEGER NOT NULL,
     BFY TEXT(80) NULL DEFAULT NS,
     EFY TEXT(80) NULL DEFAULT NS,
+    FundCode TEXT(80) NULL DEFAULT NS,
+    FundName TEXT(80) NULL DEFAULT NS,
     RpioCode TEXT(80) NULL DEFAULT NS,
     RpioName TEXT(80) NULL DEFAULT NS,
     AhCode TEXT(80) NULL DEFAULT NS,
     AhName TEXT(80) NULL DEFAULT NS,
-    FundCode TEXT(80) NULL DEFAULT NS,
-    FundName TEXT(80) NULL DEFAULT NS,
     OrgCode TEXT(80) NULL DEFAULT NS,
     OrgName TEXT(80) NULL DEFAULT NS,
     AccountCode TEXT(80) NULL DEFAULT NS,
@@ -36,9 +36,5 @@ CREATE TABLE IF NOT EXISTS UnliquidatedObligations
     VendorCode TEXT(80) NULL DEFAULT NS,
     VendorName TEXT(80) NULL DEFAULT NS,
     Amount DOUBLE NULL DEFAULT 0.0,
-	TreasuryAccountCode	TEXT(80) NULL DEFAULT NS,
-	TreasuryAccountName	TEXT(80) NULL DEFAULT NS,
-	BudgetAccountCode	TEXT(80) NULL DEFAULT NS,
-	BudgetAccountName	TEXT(80) NULL DEFAULT NS,
-	    PRIMARY KEY(UnliquidatedObligationsId AUTOINCREMENT)
+    PRIMARY KEY(UnliquidatedObligationsId AUTOINCREMENT)
 );
