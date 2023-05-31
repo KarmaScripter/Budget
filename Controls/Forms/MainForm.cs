@@ -253,6 +253,7 @@ namespace BudgetExecution
                         ?.First( );
 
                     _chartDataForm.Owner = this;
+                    _chartDataForm.Refresh( );
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
@@ -285,6 +286,7 @@ namespace BudgetExecution
                         ?.First( );
 
                     _excelDataForm.Owner = this;
+                    _excelDataForm.Refresh( );
                     _excelDataForm.Visible = true;
                     Visible = false;
                 }
@@ -316,7 +318,10 @@ namespace BudgetExecution
                         ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
                         ?.First( );
 
+                    _form.Owner = this;
+                    _form.Refresh( );
                     _form.Visible = true;
+                    Visible = false;
                 }
                 else
                 {
@@ -347,6 +352,7 @@ namespace BudgetExecution
                         ?.First( );
 
                     _dataGridForm.Owner = this;
+                    _dataGridForm.Refresh( );
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }

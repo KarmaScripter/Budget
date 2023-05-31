@@ -588,7 +588,8 @@ namespace BudgetExecution
         /// <param name="numerics">The numerics.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, IDictionary<string, object> where )
+        private string CreateSqlText( IEnumerable<string> fields, IEnumerable<string> numerics, 
+            IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( SelectedTable )
                && ( where?.Any( ) == true )
@@ -1152,13 +1153,18 @@ namespace BudgetExecution
                         ?.First( );
 
                     _excelDataForm.Owner = this;
+                    _excelDataForm.Refresh( );
                     _excelDataForm.Visible = true;
                     Visible = false;
                 }
-                else
+                else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
+                    var _mainForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
+                        ?.First( );
+                    
                     var _excelDataForm = new ExcelDataForm( BindingSource );
-                    _excelDataForm.Owner = this;
+                    _excelDataForm.Owner = _mainForm;
                     _excelDataForm.Show( );
                     Visible = false;
                 }
@@ -1184,13 +1190,18 @@ namespace BudgetExecution
                         ?.First( );
 
                     _dataGridForm.Owner = this;
+                    _dataGridForm.Refresh( );
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }
-                else
+                else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
+                    var _mainForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
+                        ?.First( );
+
                     var _dataGridForm = new DataGridForm( BindingSource );
-                    _dataGridForm.Owner = this;
+                    _dataGridForm.Owner = _mainForm;
                     _dataGridForm.Show( );
                     Visible = false;
                 }

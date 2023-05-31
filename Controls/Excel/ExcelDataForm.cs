@@ -524,13 +524,18 @@ namespace BudgetExecution
                         ?.First( );
 
                     _dataGridForm.Owner = this;
+                    _dataGridForm.Refresh( );
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }
-                else
+                else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
+                    var _mainForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
+                        ?.First( );
+
                     var _dataGridForm = new DataGridForm( BindingSource );
-                    _dataGridForm.Owner = this;
+                    _dataGridForm.Owner = _mainForm;
                     _dataGridForm.Show( );
                     Visible = false;
                 }
@@ -554,14 +559,22 @@ namespace BudgetExecution
                     var _chartDataForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
                         ?.First( );
-                    
-                    _chartDataForm.Visible = true;
-                }
-                else
-                {
-                    var _chartDataForm = new ChartDataForm( BindingSource );
+
                     _chartDataForm.Owner = this;
+                    _chartDataForm.Refresh( );
+                    _chartDataForm.Visible = true;
+                    Visible = false;
+                }
+                else if( Program.Windows.ContainsKey( "MainForm" ) )
+                {
+                    var _mainForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
+                        ?.First( );
+
+                    var _chartDataForm = new ChartDataForm( BindingSource );
+                    _chartDataForm.Owner = _mainForm;
                     _chartDataForm.Show( );
+                    Visible = false;
                 }
             }
             catch( Exception ex )

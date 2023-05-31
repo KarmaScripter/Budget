@@ -1236,13 +1236,18 @@ namespace BudgetExecution
                         ?.First( );
 
                     _excelDataForm.Owner = this;
+                    _excelDataForm.Refresh( );
                     _excelDataForm.Visible = true;
                     Visible = false;
                 }
-                else
+                else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
+                    var _mainForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
+                        ?.First( );
+
                     var _excelDataForm = new ExcelDataForm( BindingSource );
-                    _excelDataForm.Owner = this;
+                    _excelDataForm.Owner = _mainForm;
                     _excelDataForm.Show( );
                     Visible = false;
                 }
@@ -1268,13 +1273,18 @@ namespace BudgetExecution
                         ?.First( );
 
                     _chartDataForm.Owner = this;
+                    _chartDataForm.Refresh( );
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
-                else
+                else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
+                    var _mainForm = _forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
+                        ?.First( );
+
                     var _chartDataForm = new ChartDataForm( BindingSource );
-                    _chartDataForm.Owner = this;
+                    _chartDataForm.Owner = _mainForm;
                     _chartDataForm.Show( );
                     Visible = false;
                 }
