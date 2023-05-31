@@ -19,7 +19,7 @@ namespace BudgetExecution
         MartinLutherKingDay,
 
         /// <summary> Washington’s Birthday, the third Monday in February. </summary>
-        PresidentsDay,
+        WashingtonsDay,
 
         /// <summary> Memorial Day, the last Monday in May. </summary>
         MemorialDay,

@@ -7,31 +7,46 @@ namespace BudgetExecution
     using System;
     using System.Threading;
 
-    /// <summary> Defines the Provider </summary>
     public enum Provider
     {
-        /// <summary> Defines the SQLite </summary>
+        /// <summary>
+        /// The sq lite
+        /// </summary>
         SQLite = 0,
 
-        /// <summary> Defines the Excel </summary>
+        /// <summary>
+        /// The excel
+        /// </summary>
         Excel = 1,
 
-        /// <summary> Defines the SqlServer </summary>
+        /// <summary>
+        /// The SQL server
+        /// </summary>
         SqlServer = 2,
 
-        /// <summary> Defines the SqlCe </summary>
+        /// <summary>
+        /// The SQL ce
+        /// </summary>
         SqlCe = 3,
 
-        /// <summary> Defines the Access </summary>
+        /// <summary>
+        /// The access
+        /// </summary>
         Access = 4,
 
-        /// <summary> Defines the OleDb </summary>
+        /// <summary>
+        /// The OLE database
+        /// </summary>
         OleDb = 5,
 
-        /// <summary> Defines the CSV </summary>
+        /// <summary>
+        /// The CSV
+        /// </summary>
         CSV = 6,
 
-        /// <summary> The text </summary>
+        /// <summary>
+        /// The text
+        /// </summary>
         TXT = 7
     }
 }

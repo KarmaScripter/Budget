@@ -127,7 +127,7 @@ namespace BudgetExecution
 
         /// <summary> Gets the federal holidays. </summary>
         /// <returns> </returns>
-        IDictionary<Holiday, DateOnly> GetFederalHolidays( );
+        IDictionary<NationalHoliday, DateOnly> GetFederalHolidays( );
 
         /// <summary> Determines whether this instance is current. </summary>
         /// <returns>

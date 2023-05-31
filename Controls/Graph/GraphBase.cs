@@ -17,10 +17,12 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.Chart.ChartControl" />
-    [SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public abstract class GraphBase : ChartControl
     {
         /// <summary>
@@ -54,12 +56,47 @@ namespace BudgetExecution
         /// The data filter.
         /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
+        
+        /// <summary>
+        /// Sets the area properties.
+        /// </summary>
+        private protected void SetAreaProperties( )
+        {
+            try
+            {
+                var _black = Color.FromArgb( 20, 20, 20 );
+                var _gray = Color.FromArgb( 65, 65, 65 );
+                var _transparent = Color.Transparent;
+                var _blue = Color.FromArgb( 0, 120, 212 );
+                var _darkBlue = Color.FromArgb( 24, 47, 66 );
+
+                // General Area Properties
+
+                // Horizontal Axis Properties
+
+                // Vertical Axis Properties
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GraphBase"/> class.
+        /// Sets the title properties.
         /// </summary>
-        protected GraphBase( )
+        private protected void SetTitleProperties( )
         {
+            try
+            {
+                Titles[ 0 ].Font = new Font( "Roboto", 10, FontStyle.Bold );
+                Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
+                Titles[ 0 ].ForeColor = Color.FromArgb( 0, 120, 212 );
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
         }
 
         /// <summary>
@@ -68,7 +105,7 @@ namespace BudgetExecution
         /// <param name="font">The font.</param>
         /// <param name="size">The size.</param>
         /// <param name="backColor">Color of the back.</param>
-        public virtual void SetLegend( Font font, Size size, Color backColor )
+        private protected void SetLegend( Font font, Size size, Color backColor )
         {
             try
             {
@@ -93,10 +130,70 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Sets the legend properties.
+        /// </summary>
+        /// <param name="i">The i.</param>
+        /// <param name="enabled">if set to <c>true</c> [enabled].</param>
+        private protected void SetLegendProperties( int i = 0, bool enabled = false )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the series properties.
+        /// </summary>
+        /// <param name="i">The i.</param>
+        private protected void SetSeriesProperties( int i = 0 )
+        {
+            try
+            {
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the chart palette colors.
+        /// </summary>
+        private protected void SetPaletteColors( )
+        {
+            try
+            {
+                var _blue = Color.FromArgb( 0, 120, 212 );
+                var _lightBlue = Color.FromArgb( 180, 0, 120, 202 );
+                var _maroon = Color.Maroon;
+                var _red = Color.FromArgb( 255, 65, 84 );
+                var _green = Color.FromArgb( 0, 64, 0 );
+                var _darkGreen = Color.FromArgb( 150, 0, 64, 0 );
+                var _palette = new[ ]
+                {
+                    _blue,
+                    _lightBlue,
+                    _maroon,
+                    _red,
+                    _green,
+                    _darkGreen
+                };
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+        
+        /// <summary>
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        private protected static void Fail( Exception ex )
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

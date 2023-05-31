@@ -78,6 +78,9 @@ dotnet_diagnostic.CA1847.severity = silent
 # CA1307: Specify StringComparison for clarity
 dotnet_diagnostic.CA1307.severity = silent
 
+# CA2211: Non-constant fields should not be visible
+dotnet_diagnostic.CA2211.severity = silent
+
 [*.css]
 ij_css_align_closing_brace_with_properties = false
 ij_css_blank_lines_around_nested_selector = 1

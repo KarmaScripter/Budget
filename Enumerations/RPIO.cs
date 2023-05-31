@@ -7,115 +7,171 @@ namespace BudgetExecution
     using System;
     using System.Threading;
 
-    /// <summary> </summary>
     public enum RPIO
     {
-        /// <summary> The ns </summary>
-        NS = 0,
-
-        /// <summary> RPIO-01 </summary>
+        /// <summary>
+        /// The R01
+        /// </summary>
         R01,
 
-        /// <summary> RPIO-02 </summary>
+        /// <summary>
+        /// The R02
+        /// </summary>
         R02,
 
-        /// <summary> RPIO-03 </summary>
+        /// <summary>
+        /// The R03
+        /// </summary>
         R03,
 
-        /// <summary> RPIO-04 </summary>
+        /// <summary>
+        /// The R04
+        /// </summary>
         R04,
 
-        /// <summary> RPIO-05 </summary>
+        /// <summary>
+        /// The R05
+        /// </summary>
         R05,
 
-        /// <summary> RPIO-06 </summary>
+        /// <summary>
+        /// The R06
+        /// </summary>
         R06,
 
-        /// <summary> RPIO-07 </summary>
+        /// <summary>
+        /// The R07
+        /// </summary>
         R07,
 
-        /// <summary> RPIO-08 </summary>
+        /// <summary>
+        /// The R08
+        /// </summary>
         R08,
 
-        /// <summary> RPIO-09 </summary>
+        /// <summary>
+        /// The R09
+        /// </summary>
         R09,
 
-        /// <summary> RPIO-10 </summary>
+        /// <summary>
+        /// The R10
+        /// </summary>
         R10,
 
-        /// <summary> RPIO-11 </summary>
+        /// <summary>
+        /// The R11
+        /// </summary>
         R11,
 
-        /// <summary> RPIO-13 </summary>
+        /// <summary>
+        /// The R13
+        /// </summary>
         R13,
 
-        /// <summary> RPIO-PIO-16 </summary>
+        /// <summary>
+        /// The R16
+        /// </summary>
         R16,
 
-        /// <summary> RPIO-17 </summary>
+        /// <summary>
+        /// The R17
+        /// </summary>
         R17,
 
-        /// <summary> RPIO-18 </summary>
+        /// <summary>
+        /// The R18
+        /// </summary>
         R18,
 
-        /// <summary> RPIO-20 </summary>
+        /// <summary>
+        /// The R20
+        /// </summary>
         R20,
 
-        /// <summary> RPIO-26 </summary>
+        /// <summary>
+        /// The R26
+        /// </summary>
         R26,
 
-        /// <summary> RPIO-30 </summary>
+        /// <summary>
+        /// The R30
+        /// </summary>
         R30,
 
-        /// <summary> RPIO-35 </summary>
+        /// <summary>
+        /// The R35
+        /// </summary>
         R35,
 
-        /// <summary> RPIO-39 </summary>
+        /// <summary>
+        /// The R39
+        /// </summary>
         R39,
 
-        /// <summary> The R66 </summary>
+        /// <summary>
+        /// The R66
+        /// </summary>
         R66,
 
-        /// <summary> RPIO-75 </summary>
+        /// <summary>
+        /// The R75
+        /// </summary>
         R75,
 
-        /// <summary> RPIO-77 </summary>
+        /// <summary>
+        /// The R77
+        /// </summary>
         R77,
 
-        /// <summary> RPIO-92 </summary>
+        /// <summary>
+        /// The R92
+        /// </summary>
         R92,
 
-        /// <summary> RPIO-94 </summary>
+        /// <summary>
+        /// The R94
+        /// </summary>
         R94,
 
-        /// <summary> RPIO-95 </summary>
+        /// <summary>
+        /// The R95
+        /// </summary>
         R95,
 
-        /// <summary> RPIO-98 </summary>
+        /// <summary>
+        /// The R98
+        /// </summary>
         R98,
 
-        /// <summary> RPIO-09 b </summary>
+        /// <summary>
+        /// The r9 b
+        /// </summary>
         R9B,
 
-        /// <summary> RPIO-09 h </summary>
+        /// <summary>
+        /// The r9 h
+        /// </summary>
         R9H,
 
-        /// <summary> RPIO-09 p </summary>
+        /// <summary>
+        /// The r9 p
+        /// </summary>
         R9P,
 
-        /// <summary> RPIO-09 r </summary>
+        /// <summary>
+        /// The r9 r
+        /// </summary>
         R9R,
 
-        /// <summary> RPIO-09 v </summary>
+        /// <summary>
+        /// The r9 v
+        /// </summary>
         R9V,
 
-        /// <summary> RPIO-09 z </summary>
-        R9Z,
-
-        /// <summary> HQ </summary>
-        HQ,
-
-        /// <summary> RPIO-RT </summary>
-        RT
+        /// <summary>
+        /// The r9 z
+        /// </summary>
+        R9Z
     }
 }

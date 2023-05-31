@@ -16,7 +16,7 @@ namespace BudgetExecution
         /// <summary>
         /// The summary
         /// </summary>
-        public static string Summary = AppSettings[ "SummaryImages" ];
+        public static readonly string Summary = AppSettings[ "SummaryImages" ];
 
         /// <summary>
         /// The fund images
