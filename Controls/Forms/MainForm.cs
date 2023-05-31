@@ -314,13 +314,13 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( PdfForm ) ) == true )
                 {
-                    var _form = _forms
+                    var _pdfForm = _forms
                         ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
                         ?.First( );
 
-                    _form.Owner = this;
-                    _form.Refresh( );
-                    _form.Visible = true;
+                    _pdfForm.Owner = this;
+                    _pdfForm.Refresh( );
+                    _pdfForm.Visible = true;
                     Visible = false;
                 }
                 else

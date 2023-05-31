@@ -51,7 +51,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="MetroSet_UI.Controls.MetroSetContextMenuStrip" />
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     public abstract class MenuBase : MetroSetContextMenuStrip
     {

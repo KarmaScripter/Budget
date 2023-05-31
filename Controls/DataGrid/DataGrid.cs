@@ -288,61 +288,66 @@ namespace BudgetExecution
         /// Called when [cell enter].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnCellEnter( object sender, EventArgs e )
+        /// <param name="e">The <see cref="DataGridViewCellEventArgs"/>
+        /// instance containing the event data.
+        /// </param>
+        public void OnCellEnter( object sender, DataGridViewCellMouseEventArgs e )
         {
-            try
+            if ( e.Button == MouseButtons.Left )
             {
-                if( CurrentCell.ValueType == typeof( string ) )
+                try
                 {
-                    var _cellValue = CurrentCell?.Value?.ToString( );
-                    if( ( _cellValue?.Length >= 6 )
-                       && ( _cellValue.Length <= 9 ) )
+                    if( CurrentCell.ValueType == typeof( string ) )
                     {
-                        var _code = _cellValue.Substring( 4, 2 );
-                        var _dialog = new ProgramProjectDialog( _code );
-                        _dialog.ShowDialog( );
+                        var _cellValue = CurrentCell?.Value?.ToString( );
+                        if( ( _cellValue?.Length >= 6 )
+                           && ( _cellValue.Length <= 9 ) )
+                        {
+                            var _code = _cellValue.Substring( 4, 2 );
+                            var _dialog = new ProgramProjectDialog( _code );
+                            _dialog.ShowDialog( );
+                        }
+                    }
+                    else if( CurrentCell.ValueType == typeof( double ) )
+                    {
+                        var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                        var _form = new CalculationForm( _cellValue );
+                        _form.ShowDialog( );
+                        CurrentCell.Value = _form.Calculator.Value.ToDouble( );
+                    }
+                    else if( CurrentCell.ValueType == typeof( decimal ) )
+                    {
+                        var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                        var _form = new CalculationForm( _cellValue );
+                        _form.ShowDialog( );
+                        CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
+                    }
+                    else if( CurrentCell.ValueType == typeof( DateOnly ) )
+                    {
+                        var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                        var _form = new CalendarDialog( _cellValue );
+                        _form.ShowDialog( );
+                        CurrentCell.Value = _form.Calendar.SelectedDate;
+                    }
+                    else if( CurrentCell.ValueType == typeof( DateTime ) )
+                    {
+                        var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                        var _form = new CalendarDialog( _cellValue );
+                        _form.ShowDialog( );
+                        CurrentCell.Value = _form.Calendar.SelectedDate;
+                    }
+                    else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
+                    {
+                        var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                        var _form = new CalendarDialog( _cellValue );
+                        _form.ShowDialog( );
+                        CurrentCell.Value = _form.Calendar.SelectedDate;
                     }
                 }
-                else if( CurrentCell.ValueType == typeof( double ) )
+                catch( Exception ex )
                 {
-                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalculationForm( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calculator.Value.ToDouble( );
+                    Fail( ex );
                 }
-                else if( CurrentCell.ValueType == typeof( decimal ) )
-                {
-                    var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalculationForm( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
-                }
-                else if( CurrentCell.ValueType == typeof( DateOnly ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-                else if( CurrentCell.ValueType == typeof( DateTime ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-                else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
-                {
-                    var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                    var _form = new CalendarDialog( _cellValue );
-                    _form.ShowDialog( );
-                    CurrentCell.Value = _form.Calendar.SelectedDate;
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
             }
         }
 

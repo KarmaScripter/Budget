@@ -43,6 +43,7 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
+    using System.Linq;
     using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Child;
@@ -123,7 +124,9 @@ namespace BudgetExecution
         /// <summary>
         /// Creates the folder option.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// MetroSetToolStripMenuItem
+        /// </returns>
         private MetroSetToolStripMenuItem CreateFolderOption( )
         {
             try
@@ -385,8 +388,33 @@ namespace BudgetExecution
                             }
                             case MenuOption.Guidance:
                             {
-                                var _pdfForm = new PdfForm( );
-                                _pdfForm.Show( );
+                                var _forms = Program.Windows.Values;
+                                var _mainForm = Program.Windows[ "MainForm" ];
+                                if( Program.Windows.ContainsKey( "PdfForm" ) )
+                                {
+                                    var _pdfForm = _forms
+                                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
+                                        ?.First( );
+
+                                    _pdfForm.Owner = _mainForm;
+                                    _pdfForm.Refresh( );
+                                    _pdfForm.Visible = true;
+                                    if( _mainForm.Visible )
+                                    {
+                                        _mainForm.Visible = false;
+                                    }
+                                }
+                                else
+                                {
+                                    var _pdfForm = new PdfForm( );
+                                    _pdfForm.Owner = _mainForm;
+                                    _pdfForm.Show( );
+                                    if( _mainForm.Visible )
+                                    {
+                                        _mainForm.Visible = false;
+                                    }
+                                }
+                                
                                 break;
                             }
                             case MenuOption.Save:
