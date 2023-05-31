@@ -24,20 +24,20 @@
     <Configurations>Debug;Release;Budget</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>1701;1702;2201;1051;1305;1822</NoWarn>
+    <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
     <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
     <Deterministic>False</Deterministic>
     <Optimize>False</Optimize>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Budget|AnyCPU'">
-    <NoWarn>1701;1702;2201;1051;1305;1822</NoWarn>
+    <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
     <OutputPath>C:\Users\terry\source\repos\Budget\bin\Debug\</OutputPath>
     <Deterministic>False</Deterministic>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <NoWarn>1701;1702;2201;1051;1305;1822</NoWarn>
+    <NoWarn>1701;1702;2201;1051;1305;1822;CA1716</NoWarn>
     <Deterministic>False</Deterministic>
     <Optimize>True</Optimize>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -66,9 +66,6 @@
     <PackageReference Include="MSChartExtension" Version="3.9.1" />
     <PackageReference Include="Ookii.Dialogs.WinForms" Version="4.0.0" />
     <PackageReference Include="ScottPlot.WinForms" Version="4.1.64" />
-    <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.8.0" />
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
       <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="21.1.35" />
