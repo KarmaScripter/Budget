@@ -268,6 +268,7 @@
     </Compile>
     <Compile Remove="bin\**" />
     <Compile Remove="Minions\SqlCe\C# Source code\**" />
+    <Compile Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
@@ -277,6 +278,8 @@
     </EmbeddedResource>
     <EmbeddedResource Remove="bin\**" />
     <EmbeddedResource Remove="Minions\SqlCe\C# Source code\**" />
+    <EmbeddedResource Remove="WebBrowser\**" />
+    <None Remove="WebBrowser\**" />
   </ItemGroup>
   <ItemGroup>
     <None Update="LICENSE">
