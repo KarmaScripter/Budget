@@ -1,4 +1,43 @@
-﻿
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 05-31-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        06-01-2023
+// ******************************************************************************************
+// <copyright file="MetricBase.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   MetricBase.cs
+// </summary>
+// ******************************************************************************************
+
 namespace BudgetExecution
 {
     using System;
@@ -43,7 +82,7 @@ namespace BudgetExecution
         /// The values.
         /// </value>
         public IDictionary<string, double> Values { get; set; }
-        
+
         /// <summary>
         /// Counts the values.
         /// </summary>
@@ -58,7 +97,7 @@ namespace BudgetExecution
                 {
                     var _select = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) );
-                    
+
                     return _select?.Any( ) == true
                         ? _select.Count( )
                         : -1;
@@ -88,7 +127,7 @@ namespace BudgetExecution
                 {
                     var _select = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) );
-                    
+
                     return _select?.Any( ) == true
                         ? _select.Count( )
                         : -1;
@@ -118,7 +157,7 @@ namespace BudgetExecution
                     var _select = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
-                    
+
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -148,7 +187,7 @@ namespace BudgetExecution
                     var _select = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
-                    
+
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -177,7 +216,7 @@ namespace BudgetExecution
                     var _query = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Average( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -208,7 +247,7 @@ namespace BudgetExecution
                     var _query = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Average( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -238,7 +277,7 @@ namespace BudgetExecution
                     var _select = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
-                    
+
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -258,7 +297,8 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public virtual double CalculatePercentage( string numeric, IDictionary<string, object> where )
+        public virtual double CalculatePercentage( string numeric,
+            IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -268,7 +308,7 @@ namespace BudgetExecution
                     var _select = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
-                    
+
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -297,7 +337,7 @@ namespace BudgetExecution
                     var _query = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.StandardDeviation( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -318,7 +358,8 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public virtual double CalculateDeviation( string numeric, IDictionary<string, object> where )
+        public virtual double CalculateDeviation( string numeric,
+            IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -328,7 +369,7 @@ namespace BudgetExecution
                     var _query = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.StandardDeviation( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -358,7 +399,7 @@ namespace BudgetExecution
                     var _query = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Variance( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -391,7 +432,7 @@ namespace BudgetExecution
                     var _query = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Variance( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -420,8 +461,7 @@ namespace BudgetExecution
                     var _numerics = new List<string>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
-                        if( ( !col.ColumnName.EndsWith( "Id" )
-                               && ( col.Ordinal > 0 )
+                        if( ( !col.ColumnName.EndsWith( "Id" ) && ( col.Ordinal > 0 )
                                && ( col.DataType == typeof( double ) ) )
                            || ( col.DataType == typeof( short ) )
                            || ( col.DataType == typeof( long ) )
@@ -464,8 +504,8 @@ namespace BudgetExecution
                            && ( ( col.DataType == typeof( DateTime ) )
                                || ( col.DataType == typeof( DateOnly ) )
                                || ( col.DataType == typeof( DateTimeOffset ) )
-                               || ( col.ColumnName.EndsWith( "Day" ) )
-                               || ( col.ColumnName.EndsWith( "Date" ) ) ) )
+                               || col.ColumnName.EndsWith( "Day" )
+                               || col.ColumnName.EndsWith( "Date" ) ) )
                         {
                             _dates.Add( col.ColumnName );
                         }

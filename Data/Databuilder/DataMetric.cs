@@ -4,7 +4,7 @@
 //     Created:                 05-06-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-01-2023
 // ******************************************************************************************
 // <copyright file="DataMetric.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -103,7 +103,7 @@ namespace BudgetExecution
                 {
                     var _select = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) );
-                    
+
                     return _select?.Any( ) == true
                         ? _select.Count( )
                         : -1;
@@ -133,7 +133,7 @@ namespace BudgetExecution
                 {
                     var _select = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) );
-                    
+
                     return _select?.Any( ) == true
                         ? _select.Count( )
                         : -1;
@@ -163,7 +163,7 @@ namespace BudgetExecution
                     var _select = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
-                    
+
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -193,7 +193,7 @@ namespace BudgetExecution
                     var _select = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
-                    
+
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -222,7 +222,7 @@ namespace BudgetExecution
                     var _query = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Average( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -253,7 +253,7 @@ namespace BudgetExecution
                     var _query = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Average( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -283,7 +283,7 @@ namespace BudgetExecution
                     var _select = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
-                    
+
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -303,7 +303,8 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override double CalculatePercentage( string numeric, IDictionary<string, object> where )
+        public override double CalculatePercentage( string numeric,
+            IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -313,7 +314,7 @@ namespace BudgetExecution
                     var _select = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Sum( );
-                    
+
                     return _select > 0
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
@@ -342,7 +343,7 @@ namespace BudgetExecution
                     var _query = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.StandardDeviation( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -363,7 +364,8 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override double CalculateDeviation( string numeric, IDictionary<string, object> where )
+        public override double CalculateDeviation( string numeric,
+            IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -373,7 +375,7 @@ namespace BudgetExecution
                     var _query = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.StandardDeviation( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -403,7 +405,7 @@ namespace BudgetExecution
                     var _query = DataTable.AsEnumerable( )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Variance( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -424,11 +426,10 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override double CalculateVariance( string numeric, IDictionary<string, object> where )
+        public override double CalculateVariance( string numeric,
+            IDictionary<string, object> where )
         {
-            if( ( DataTable != null )
-               && ( Numerics?.Any( ) == true )
-               && !string.IsNullOrEmpty( numeric )
+            if( string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
             {
                 try
@@ -436,7 +437,7 @@ namespace BudgetExecution
                     var _query = DataTable.Filter( where )
                         ?.Select( p => p.Field<double>( numeric ) )
                         ?.Variance( );
-                    
+
                     return _query > 0
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
@@ -458,38 +459,32 @@ namespace BudgetExecution
         /// </returns>
         public override IList<string> GetNumerics( )
         {
-            if( DataTable != null )
+            try
             {
-                try
+                var _numerics = new List<string>( );
+                foreach( DataColumn col in DataTable.Columns )
                 {
-                    var _numerics = new List<string>( );
-                    foreach( DataColumn col in DataTable.Columns )
+                    if( ( !col.ColumnName.EndsWith( "Id" ) && ( col.Ordinal > 0 )
+                           && ( col.DataType == typeof( double ) ) )
+                       || ( col.DataType == typeof( short ) )
+                       || ( col.DataType == typeof( long ) )
+                       || ( col.DataType == typeof( decimal ) )
+                       || ( col.DataType == typeof( float ) ) )
+
                     {
-                        if( ( !col.ColumnName.EndsWith( "Id" )
-                               && ( col.Ordinal > 0 )
-                               && ( col.DataType == typeof( double ) ) )
-                           || ( col.DataType == typeof( short ) )
-                           || ( col.DataType == typeof( long ) )
-                           || ( col.DataType == typeof( decimal ) )
-                           || ( col.DataType == typeof( float ) ) )
-
-                        {
-                            _numerics.Add( col.ColumnName );
-                        }
+                        _numerics.Add( col.ColumnName );
                     }
+                }
 
-                    return _numerics?.Any( ) == true
-                        ? _numerics
-                        : default( IList<string> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IList<string> );
-                }
+                return _numerics?.Any( ) == true
+                    ? _numerics
+                    : default( IList<string> );
             }
-
-            return default( IList<string> );
+            catch( Exception ex )
+            {
+                Fail( ex );
+                return default( IList<string> );
+            }
         }
 
         /// <summary>
@@ -509,8 +504,8 @@ namespace BudgetExecution
                            && ( ( col.DataType == typeof( DateTime ) )
                                || ( col.DataType == typeof( DateOnly ) )
                                || ( col.DataType == typeof( DateTimeOffset ) )
-                               || ( col.ColumnName.EndsWith( "Day" ) )
-                               || ( col.ColumnName.EndsWith( "Date" ) ) ) )
+                               || col.ColumnName.EndsWith( "Day" )
+                               || col.ColumnName.EndsWith( "Date" ) ) )
                         {
                             _dates.Add( col.ColumnName );
                         }
