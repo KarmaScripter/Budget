@@ -1,43 +1,4 @@
-﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 05-06-2023
-// 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
-// ******************************************************************************************
-// <copyright file="DataMetric.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
-// 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
-// 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
-// 
-//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
-//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//    DEALINGS IN THE SOFTWARE.
-// 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   DataMetric.cs
-// </summary>
-// ******************************************************************************************
-
+﻿
 namespace BudgetExecution
 {
     using System;
@@ -57,44 +18,38 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Local" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ReturnTypeCanBeEnumerable.Global" ) ]
-    public class DataMetric : MetricBase
+    public abstract class MetricBase
     {
         /// <summary>
-        /// Initializes a new
-        /// instance of the <see cref="DataMetric"/> class.
+        /// Gets or sets the data table.
         /// </summary>
-        public DataMetric( )
-        {
-        }
+        /// <value>
+        /// The data table.
+        /// </value>
+        public DataTable DataTable { get; set; }
 
         /// <summary>
-        /// Initializes a new
-        /// instance of the <see cref="DataMetric"/> class.
+        /// Gets or sets the numerics.
         /// </summary>
-        /// <param name="dataTable">The data table.</param>
-        public DataMetric( DataTable dataTable )
-        {
-            DataTable = dataTable;
-            Numerics = GetNumerics( );
-        }
+        /// <value>
+        /// The numerics.
+        /// </value>
+        public IList<string> Numerics { get; set; }
 
         /// <summary>
-        /// Initializes a new instance
-        /// of the <see cref="DataMetric"/> class.
+        /// Gets or sets the values.
         /// </summary>
-        /// <param name="dataRow">The data row.</param>
-        public DataMetric( IEnumerable<DataRow> dataRow )
-        {
-            DataTable = dataRow.CopyToDataTable( );
-            Numerics = GetNumerics( );
-        }
-
+        /// <value>
+        /// The values.
+        /// </value>
+        public IDictionary<string, double> Values { get; set; }
+        
         /// <summary>
         /// Counts the values.
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public override int CountValues( string numeric )
+        public virtual int CountValues( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
@@ -124,7 +79,7 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override int CountValues( string numeric, IDictionary<string, object> where )
+        public virtual int CountValues( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
@@ -153,7 +108,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public override double CalculateTotal( string numeric )
+        public virtual double CalculateTotal( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
@@ -183,7 +138,7 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override double CalculateTotal( string numeric, IDictionary<string, object> where )
+        public virtual double CalculateTotal( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -212,7 +167,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public override double CalculateAverage( string numeric )
+        public virtual double CalculateAverage( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
@@ -243,7 +198,7 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override double CalculateAverage( string numeric, IDictionary<string, object> where )
+        public virtual double CalculateAverage( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -273,7 +228,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public override double CalculatePercentage( string numeric )
+        public virtual double CalculatePercentage( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
@@ -303,7 +258,7 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override double CalculatePercentage( string numeric, IDictionary<string, object> where )
+        public virtual double CalculatePercentage( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -332,7 +287,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public override double CalculateDeviation( string numeric )
+        public virtual double CalculateDeviation( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
@@ -363,7 +318,7 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override double CalculateDeviation( string numeric, IDictionary<string, object> where )
+        public virtual double CalculateDeviation( string numeric, IDictionary<string, object> where )
         {
             if( !string.IsNullOrEmpty( numeric )
                && ( where?.Any( ) == true ) )
@@ -393,7 +348,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="numeric">The numeric.</param>
         /// <returns></returns>
-        public override double CalculateVariance( string numeric )
+        public virtual double CalculateVariance( string numeric )
         {
             if( !string.IsNullOrEmpty( numeric )
                && Numerics.Contains( numeric ) )
@@ -424,7 +379,7 @@ namespace BudgetExecution
         /// <param name="numeric">The numeric.</param>
         /// <param name="where">The where.</param>
         /// <returns></returns>
-        public override double CalculateVariance( string numeric, IDictionary<string, object> where )
+        public virtual double CalculateVariance( string numeric, IDictionary<string, object> where )
         {
             if( ( DataTable != null )
                && ( Numerics?.Any( ) == true )
@@ -456,7 +411,7 @@ namespace BudgetExecution
         /// </summary>
         /// <returns>
         /// </returns>
-        public override IList<string> GetNumerics( )
+        public virtual IList<string> GetNumerics( )
         {
             if( DataTable != null )
             {
@@ -496,7 +451,7 @@ namespace BudgetExecution
         /// Gets the dates.
         /// </summary>
         /// <returns></returns>
-        private protected override IList<string> GetDates( )
+        private protected virtual IList<string> GetDates( )
         {
             if( DataTable != null )
             {
@@ -528,6 +483,17 @@ namespace BudgetExecution
             }
 
             return default( IList<string> );
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }

@@ -1,6 +1,42 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
-// Copyright (c) Terry Eppler.All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 04-22-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="ExcelConfig.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   ExcelConfig.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -14,7 +50,9 @@ namespace BudgetExecution
     using OfficeOpenXml.Style;
     using static System.IO.Path;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
     [ SuppressMessage( "ReSharper", "ConvertSwitchStatementToSwitchExpression" ) ]
@@ -22,88 +60,170 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public abstract class ExcelConfig
     {
-        /// <summary> Gets or sets the index. </summary>
-        /// <value> The index. </value>
+        /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>
+        /// The index.
+        /// </value>
         public int Index { get; set; } = 10;
 
-        /// <summary> Gets or sets the file path. </summary>
-        /// <value> The file path. </value>
+        /// <summary>
+        /// Gets or sets the file path.
+        /// </summary>
+        /// <value>
+        /// The file path.
+        /// </value>
         public string FilePath { get; set; }
 
-        /// <summary> Gets or sets the name of the file. </summary>
-        /// <value> The name of the file. </value>
+        /// <summary>
+        /// Gets or sets the name of the file.
+        /// </summary>
+        /// <value>
+        /// The name of the file.
+        /// </value>
         public string FileName { get; set; }
 
-        /// <summary> Gets or sets the connection string. </summary>
-        /// <value> The connection string. </value>
+        /// <summary>
+        /// Gets or sets the connection string.
+        /// </summary>
+        /// <value>
+        /// The connection string.
+        /// </value>
         public string ConnectionString { get; set; }
 
-        /// <summary> Gets or sets the color of the primary back. </summary>
-        /// <value> The color of the primary back. </value>
+        /// <summary>
+        /// Gets or sets the color of the primary back.
+        /// </summary>
+        /// <value>
+        /// The color of the primary back.
+        /// </value>
         public Color PrimaryBackColor { get; set; } = Color.FromArgb( 255, 242, 242, 242 );
 
-        /// <summary> Gets or sets the color of the secondary back. </summary>
-        /// <value> The color of the secondary back. </value>
+        /// <summary>
+        /// Gets or sets the color of the secondary back.
+        /// </summary>
+        /// <value>
+        /// The color of the secondary back.
+        /// </value>
         public Color SecondaryBackColor { get; set; } = Color.FromArgb( 255, 221, 235, 247 );
 
-        /// <summary> Gets or sets the left. </summary>
-        /// <value> The left. </value>
+        /// <summary>
+        /// Gets or sets the left.
+        /// </summary>
+        /// <value>
+        /// The left.
+        /// </value>
         public ExcelHorizontalAlignment Left { get; set; } = ExcelHorizontalAlignment.Left;
 
-        /// <summary> Gets or sets the center. </summary>
-        /// <value> The center. </value>
+        /// <summary>
+        /// Gets or sets the center.
+        /// </summary>
+        /// <value>
+        /// The center.
+        /// </value>
         public ExcelHorizontalAlignment Center { get; set; } = ExcelHorizontalAlignment.Center;
 
-        /// <summary> Gets or sets the right. </summary>
-        /// <value> The right. </value>
+        /// <summary>
+        /// Gets or sets the right.
+        /// </summary>
+        /// <value>
+        /// The right.
+        /// </value>
         public ExcelHorizontalAlignment Right { get; set; } = ExcelHorizontalAlignment.Right;
 
-        /// <summary> Gets or sets the height of the row. </summary>
-        /// <value> The height of the row. </value>
+        /// <summary>
+        /// Gets or sets the height of the row.
+        /// </summary>
+        /// <value>
+        /// The height of the row.
+        /// </value>
         public double RowHeight { get; set; } = 0.22;
 
-        /// <summary> Gets or sets the width of the column. </summary>
-        /// <value> The width of the column. </value>
+        /// <summary>
+        /// Gets or sets the width of the column.
+        /// </summary>
+        /// <value>
+        /// The width of the column.
+        /// </value>
         public double ColumnWidth { get; set; } = 0.75;
 
-        /// <summary> Gets or sets the top margin. </summary>
-        /// <value> The top margin. </value>
+        /// <summary>
+        /// Gets or sets the top margin.
+        /// </summary>
+        /// <value>
+        /// The top margin.
+        /// </value>
         public int TopMargin { get; set; } = 1;
 
-        /// <summary> Gets or sets the bottom margin. </summary>
-        /// <value> The bottom margin. </value>
+        /// <summary>
+        /// Gets or sets the bottom margin.
+        /// </summary>
+        /// <value>
+        /// The bottom margin.
+        /// </value>
         public int BottomMargin { get; set; } = 1;
 
-        /// <summary> Gets or sets the left margin. </summary>
-        /// <value> The left margin. </value>
+        /// <summary>
+        /// Gets or sets the left margin.
+        /// </summary>
+        /// <value>
+        /// The left margin.
+        /// </value>
         public decimal LeftMargin { get; set; } = 0.25m;
 
-        /// <summary> Gets or sets the right margin. </summary>
-        /// <value> The right margin. </value>
+        /// <summary>
+        /// Gets or sets the right margin.
+        /// </summary>
+        /// <value>
+        /// The right margin.
+        /// </value>
         public decimal RightMargin { get; set; } = 0.25m;
 
-        /// <summary> Gets or sets the header margin. </summary>
-        /// <value> The header margin. </value>
+        /// <summary>
+        /// Gets or sets the header margin.
+        /// </summary>
+        /// <value>
+        /// The header margin.
+        /// </value>
         public decimal HeaderMargin { get; set; } = 0.25m;
 
-        /// <summary> Gets or sets the footer margin. </summary>
-        /// <value> The footer margin. </value>
+        /// <summary>
+        /// Gets or sets the footer margin.
+        /// </summary>
+        /// <value>
+        /// The footer margin.
+        /// </value>
         public decimal FooterMargin { get; set; } = 0.25m;
 
-        /// <summary> Gets or sets the column count. </summary>
-        /// <value> The column count. </value>
+        /// <summary>
+        /// Gets or sets the column count.
+        /// </summary>
+        /// <value>
+        /// The column count.
+        /// </value>
         public int ColumnCount { get; set; } = 12;
 
-        /// <summary> Gets or sets the row count. </summary>
-        /// <value> The row count. </value>
+        /// <summary>
+        /// Gets or sets the row count.
+        /// </summary>
+        /// <value>
+        /// The row count.
+        /// </value>
         public int RowCount { get; set; } = 55;
 
-        /// <summary> Gets or sets the zoom level. </summary>
-        /// <value> The zoom level. </value>
+        /// <summary>
+        /// Gets or sets the zoom level.
+        /// </summary>
+        /// <value>
+        /// The zoom level.
+        /// </value>
         public int ZoomLevel { get; set; } = 100;
 
-        /// <summary> Sets the file path. </summary>
-        /// <param name="filePath"> The file path. </param>
+        /// <summary>
+        /// Sets the file path.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
         public void SetFilePath( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
@@ -120,8 +240,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the name of the file. </summary>
-        /// <param name="filePath"> The file path. </param>
+        /// <summary>
+        /// Sets the name of the file.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
         public void SetFileName( string filePath )
         {
             if( !string.IsNullOrEmpty( filePath )
@@ -138,9 +260,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the file extension. </summary>
-        /// <param name="filePath"> The file path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the file extension.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
         public EXT GetFileExtension( string filePath )
         {
             try
@@ -163,10 +287,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the connection string. </summary>
-        /// <param name="extension"> The extension. </param>
-        /// <param name="filePath"> The file path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the connection string.
+        /// </summary>
+        /// <param name="extension">The extension.</param>
+        /// <param name="filePath">The file path.</param>
+        /// <returns></returns>
         public string GetConnectionString( string extension, string filePath )
         {
             if( !string.IsNullOrEmpty( extension )
@@ -178,15 +304,21 @@ namespace BudgetExecution
                     {
                         case ".XLS":
                         {
-                            return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
+                            return @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" 
+                                + filePath 
+                                + ";Extended Properties=\"Excel 8.0;HDR=YES;\"";
                         }
                         case ".XLSX":
                         {
-                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
+                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" 
+                                + filePath 
+                                + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                         }
                         default:
                         {
-                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + filePath + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
+                            return @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" 
+                                + filePath 
+                                + ";Extended Properties=\"Excel 12.0;HDR=YES;\"";
                         }
                     }
                 }
@@ -199,9 +331,11 @@ namespace BudgetExecution
             return string.Empty;
         }
 
-        /// <summary> Adds the comment. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Adds the comment.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="text">The text.</param>
         public void AddComment( Grid grid, string text )
         {
             if( ( grid != null )
@@ -231,8 +365,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the caption text. </summary>
-        /// <param name="grid"> The grid. </param>
+        /// <summary>
+        /// Sets the caption text.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
         public void SetCaptionText( Grid grid )
         {
             if( grid != null )
@@ -257,9 +393,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Sets the text. </summary>
-        /// <param name="grid"> The grid. </param>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the text.
+        /// </summary>
+        /// <param name="grid">The grid.</param>
+        /// <param name="text">The text.</param>
         public void SetText( Grid grid, IEnumerable<string> text )
         {
             if( ( grid != null )
@@ -287,29 +425,41 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        protected static void Fail( Exception ex )
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum BorderSide
+        {
+            /// <summary>
+            /// The top
+            /// </summary>
+            Top,
+
+            /// <summary>
+            /// The bottom
+            /// </summary>
+            Bottom,
+
+            /// <summary>
+            /// The left
+            /// </summary>
+            Left,
+
+            /// <summary>
+            /// The right
+            /// </summary>
+            Right
+        };
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );
             _error?.ShowDialog( );
         }
-
-        /// <summary> </summary>
-        public enum BorderSide
-        {
-            /// <summary> The top </summary>
-            Top,
-
-            /// <summary> The bottom </summary>
-            Bottom,
-
-            /// <summary> The left </summary>
-            Left,
-
-            /// <summary> The right </summary>
-            Right
-        };
     }
 }

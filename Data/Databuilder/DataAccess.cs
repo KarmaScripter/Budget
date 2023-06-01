@@ -248,15 +248,14 @@ namespace BudgetExecution
                     var _numerics = new List<string>( );
                     foreach( DataColumn col in DataTable.Columns )
                     {
-                        if( !col.ColumnName.EndsWith( "Id" )
-                           && ( col.DataType != typeof( int ) )
-                           && ( col.DataType != typeof( string ) )
-                           && ( col.DataType != typeof( DateTime ) )
-                           && ( col.DataType != typeof( DateOnly ) )
-                           && ( col.DataType != typeof( DateTimeOffset ) )
-                           && ( ( col.DataType == typeof( double ) ) 
-                               || ( col.DataType == typeof( decimal ) ) 
-                               || ( col.DataType == typeof( float ) ) ) )
+                        if( ( !col.ColumnName.EndsWith( "Id" )
+                               && ( col.Ordinal > 0 ) 
+                               && ( col.DataType == typeof( double ) ) )
+                           || ( col.DataType == typeof( short ) ) 
+                           || ( col.DataType == typeof( long ) ) 
+                           || ( col.DataType == typeof( decimal ) ) 
+                           || ( col.DataType == typeof( float ) ) ) 
+
                         {
                             _numerics.Add( col.ColumnName );
                         }

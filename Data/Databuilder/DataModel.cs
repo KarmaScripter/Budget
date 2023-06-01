@@ -44,37 +44,40 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.IO;
     using System.Linq;
     using System.Threading;
     using OfficeOpenXml;
+    using static System.IO.File;
 
-    /// <summary> </summary>
-    /// <seealso cref="ModelBase"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ModelBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public class DataModel : ModelBase
     {
-        /// <summary> The program elements </summary>
+        /// <summary>
+        /// Gets the data elements.
+        /// </summary>
+        /// <value>
+        /// The data elements.
+        /// </value>
         public IDictionary<string, IEnumerable<string>> DataElements { get; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
         public DataModel( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
         public DataModel( Source source, Provider provider = Provider.Access )
         {
             Source = source;
@@ -97,13 +100,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="where"> The dictionary. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="where">The where.</param>
         public DataModel( Source source, Provider provider, IDictionary<string, object> where )
         {
             Source = source;
@@ -127,17 +128,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="updates"> The updates. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        public DataModel( Source source, Provider provider, IDictionary<string, object> updates, IDictionary<string, object> where,
-            SQL commandType = SQL.UPDATE )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="updates">The updates.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public DataModel( Source source, Provider provider, IDictionary<string, object> updates,
+            IDictionary<string, object> where, SQL commandType = SQL.UPDATE )
         {
             Source = source;
             Provider = provider;
@@ -159,17 +158,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="columns"> The columns. </param>
-        /// <param name="where"> The criteria. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> columns, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECT )
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="columns">The columns.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public DataModel( Source source, Provider provider, IEnumerable<string> columns,
+            IDictionary<string, object> where, SQL commandType = SQL.SELECT )
         {
             Source = source;
             Provider = provider;
@@ -191,17 +188,15 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="fields"> The columns. </param>
-        /// <param name="numerics"> The numerics. </param>
-        /// <param name="where"> The where. </param>
-        /// <param name="commandType"> Type of the command. </param>
-        public DataModel( Source source, Provider provider, IEnumerable<string> fields, 
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="fields">The fields.</param>
+        /// <param name="numerics">The numerics.</param>
+        /// <param name="where">The where.</param>
+        /// <param name="commandType">Type of the command.</param>
+        public DataModel( Source source, Provider provider, IEnumerable<string> fields,
             IEnumerable<string> numerics, IDictionary<string, object> where, SQL commandType )
         {
             Source = source;
@@ -226,12 +221,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="where"> The dictionary. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="where">The where.</param>
         public DataModel( Source source, IDictionary<string, object> where )
         {
             Source = source;
@@ -254,13 +247,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="source"> The source. </param>
-        /// <param name="provider"> The provider. </param>
-        /// <param name="sqlText"> The SQL text. </param>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="sqlText">The SQL text.</param>
         public DataModel( Source source, Provider provider, string sqlText )
         {
             Source = source;
@@ -283,13 +274,11 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="fullPath"> The full path. </param>
-        /// <param name="sqlText"> The SQL text. </param>
-        /// <param name="commandType"> Type of the command. </param>
+        /// <param name="fullPath">The full path.</param>
+        /// <param name="sqlText">The SQL text.</param>
+        /// <param name="commandType">Type of the command.</param>
         public DataModel( string fullPath, string sqlText, SQL commandType = SQL.SELECT )
         {
             ConnectionFactory = new ConnectionFactory( fullPath );
@@ -312,11 +301,9 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="DataModel"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="DataModel"/> class.
         /// </summary>
-        /// <param name="query"> The query. </param>
+        /// <param name="query">The query.</param>
         public DataModel( IQuery query )
         {
             Query = query;
@@ -338,10 +325,12 @@ namespace BudgetExecution
             Map = Record?.ToDictionary( );
         }
 
-        /// <summary> Gets the values. </summary>
-        /// <param name="dataRows"> The dataRows. </param>
-        /// <param name="column"> The column. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the values.
+        /// </summary>
+        /// <param name="dataRows">The data rows.</param>
+        /// <param name="column">The column.</param>
+        /// <returns></returns>
         public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string column )
         {
             if( ( dataRows?.Any( ) == true )
@@ -349,36 +338,8 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _query = dataRows?.Select( v => v.Field<string>( column ) )?.Distinct( );
-                    return _query?.Any( ) == true
-                        ? _query
-                        : default( IEnumerable<string> );
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                    return default( IEnumerable<string> );
-                }
-            }
-
-            return default( IEnumerable<string> );
-        }
-
-        /// <summary> Gets the values. </summary>
-        /// <param name="dataRows"> The dataRows. </param>
-        /// <param name="name"> The field. </param>
-        /// <param name="value"> The filter. </param>
-        /// <returns> </returns>
-        public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name, string value )
-        {
-            if( ( dataRows?.Any( ) == true )
-               && !string.IsNullOrEmpty( value ) )
-            {
-                try
-                {
                     var _query = dataRows
-                        ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
-                        ?.Select( v => v.Field<string>( $"{name}" ) )
+                        ?.Select( v => v.Field<string>( column ) )
                         ?.Distinct( );
                     
                     return _query?.Any( ) == true
@@ -395,9 +356,45 @@ namespace BudgetExecution
             return default( IEnumerable<string> );
         }
 
-        /// <summary> Gets the schema table. </summary>
-        /// <param name="dataTable"> The dataRows table. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the values.
+        /// </summary>
+        /// <param name="dataRows">The data rows.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        public static IEnumerable<string> GetValues( IEnumerable<DataRow> dataRows, string name,
+            string value )
+        {
+            if( ( dataRows?.Any( ) == true )
+               && !string.IsNullOrEmpty( value ) )
+            {
+                try
+                {
+                    var _query = dataRows
+                        ?.Where( v => v.Field<string>( $"{name}" ).Equals( value ) )
+                        ?.Select( v => v.Field<string>( $"{name}" ) )
+                        ?.Distinct( );
+
+                    return _query?.Any( ) == true
+                        ? _query
+                        : default( IEnumerable<string> );
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                    return default( IEnumerable<string> );
+                }
+            }
+
+            return default( IEnumerable<string> );
+        }
+
+        /// <summary>
+        /// Creates the schema table.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
         public static DataTable CreateSchemaTable( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )
@@ -420,23 +417,21 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Creates the table from excel. </summary>
-        /// <param name="filePath"> The file path. </param>
-        /// <param name="header">
-        /// if set to
-        /// <c> true </c>
-        /// [header].
-        /// </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the table from worksheet.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
+        /// <param name="header">if set to <c>true</c> [header].</param>
+        /// <returns></returns>
         public static DataTable CreateTableFromWorksheet( string filePath, bool header = true )
         {
             if( !string.IsNullOrEmpty( filePath )
-               && File.Exists( filePath ) )
+               && Exists( filePath ) )
             {
                 try
                 {
                     using var _package = new ExcelPackage( );
-                    using var _stream = File.OpenRead( filePath );
+                    using var _stream = OpenRead( filePath );
                     _package.Load( _stream );
                     var _sheet = _package?.Workbook?.Worksheets?.First( );
                     var _table = new DataTable( _sheet?.Name );
@@ -481,13 +476,10 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Gets the series.
+        /// Creates the series.
         /// </summary>
-        /// <param name="dataTable">
-        /// The dataRows.
-        /// </param>
-        /// <returns>
-        /// </returns>
+        /// <param name="dataTable">The data table.</param>
+        /// <returns></returns>
         private static IDictionary<string, IEnumerable<string>> CreateSeries( DataTable dataTable )
         {
             if( dataTable?.Rows?.Count > 0 )

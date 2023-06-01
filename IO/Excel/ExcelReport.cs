@@ -1,6 +1,42 @@
-﻿// <copyright file = " <File Name>.cs" company = "Terry D.Eppler">
-// Copyright (c) Terry Eppler.All rights reserved.
+﻿// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 04-22-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        05-31-2023
+// ******************************************************************************************
+// <copyright file="ExcelReport.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
+// <summary>
+//   ExcelReport.cs
+// </summary>
+// ******************************************************************************************
 
 namespace BudgetExecution
 {
@@ -16,27 +52,30 @@ namespace BudgetExecution
     using DocumentFormat.OpenXml.Spreadsheet;
     using static DocumentFormat.OpenXml.Packaging.SpreadsheetDocument;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
     public class ExcelReport
     {
-
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="ExcelReport"/>
+        /// <see cref="ExcelReport" />
         /// class.
         /// </summary>
         public ExcelReport( )
         {
         }
 
-        /// <summary> Creates the excel document. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="data"> The data. </param>
-        /// <param name="path"> The path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the excel document.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data">The data.</param>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
         public bool CreateExcelDocument<T>( IEnumerable<T> data, string path )
         {
             if( ( data != null )
@@ -58,10 +97,12 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Creates the excel document. </summary>
-        /// <param name="dataTable"> The data table. </param>
-        /// <param name="path"> The path. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the excel document.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
         public bool CreateExcelDocument( DataTable dataTable, string path )
         {
             if( !string.IsNullOrEmpty( path )
@@ -86,10 +127,12 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Creates the excel document. </summary>
-        /// <param name="dataSet"> The data set. </param>
-        /// <param name="fileName"> Name of the file. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Creates the excel document.
+        /// </summary>
+        /// <param name="dataSet">The data set.</param>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns></returns>
         public bool CreateExcelDocument( DataSet dataSet, string fileName )
         {
             if( !string.IsNullOrEmpty( fileName )
@@ -115,10 +158,12 @@ namespace BudgetExecution
             return false;
         }
 
-        /// <summary> Lists to data table. </summary>
-        /// <typeparam name="T"> </typeparam>
-        /// <param name="data"> The data. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Lists to data table.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
         public DataTable ListToDataTable<T>( IEnumerable<T> data )
         {
             if( data?.Any( ) == true )
@@ -156,9 +201,11 @@ namespace BudgetExecution
             return default( DataTable );
         }
 
-        /// <summary> Gets the type of the nullable. </summary>
-        /// <param name="type"> The type. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the type of the nullable.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public Type GetNullableType( Type type )
         {
             try
@@ -179,10 +226,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Appends the text cell. </summary>
-        /// <param name="cellReference"> The cell reference. </param>
-        /// <param name="cellStringValue"> The cell string value. </param>
-        /// <param name="excelRow"> The excel row. </param>
+        /// <summary>
+        /// Appends the text cell.
+        /// </summary>
+        /// <param name="cellReference">The cell reference.</param>
+        /// <param name="cellStringValue">The cell string value.</param>
+        /// <param name="excelRow">The excel row.</param>
         public void AppendTextCell( string cellReference, string cellStringValue, OpenXmlElement excelRow )
         {
             try
@@ -201,10 +250,12 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Appends the numeric cell. </summary>
-        /// <param name="cellReference"> The cell reference. </param>
-        /// <param name="cellStringValue"> The cell string value. </param>
-        /// <param name="excelRow"> The excel row. </param>
+        /// <summary>
+        /// Appends the numeric cell.
+        /// </summary>
+        /// <param name="cellReference">The cell reference.</param>
+        /// <param name="cellStringValue">The cell string value.</param>
+        /// <param name="excelRow">The excel row.</param>
         public void AppendNumericCell( string cellReference, string cellStringValue, OpenXmlElement excelRow )
         {
             if( !string.IsNullOrEmpty( cellReference )
@@ -227,9 +278,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Gets the name of the excel column. </summary>
-        /// <param name="columnIndex"> Index of the column. </param>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the name of the excel column.
+        /// </summary>
+        /// <param name="columnIndex">Index of the column.</param>
+        /// <returns></returns>
         public string GetExcelColumnName( int columnIndex )
         {
             try
@@ -250,9 +303,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Writes the excel file. </summary>
-        /// <param name="dataSet"> The data set. </param>
-        /// <param name="spreadSheet"> The spread sheet. </param>
+        /// <summary>
+        /// Writes the excel file.
+        /// </summary>
+        /// <param name="dataSet">The data set.</param>
+        /// <param name="spreadSheet">The spread sheet.</param>
         public void WriteExcelFile( DataSet dataSet, SpreadsheetDocument spreadSheet )
         {
             if( ( dataSet != null )
@@ -305,9 +360,11 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Writes the data table to excel worksheet. </summary>
-        /// <param name="dataTable"> The data table. </param>
-        /// <param name="workSheetPart"> The work sheet part. </param>
+        /// <summary>
+        /// Writes the data table to excel worksheet.
+        /// </summary>
+        /// <param name="dataTable">The data table.</param>
+        /// <param name="workSheetPart">The work sheet part.</param>
         public void WriteDataTableToExcelWorksheet( DataTable dataTable, WorksheetPart workSheetPart )
         {
             if( ( dataTable?.Rows.Count > 0 )
@@ -334,7 +391,8 @@ namespace BudgetExecution
                     {
                         var _column = dataTable.Columns[ colinx ];
                         AppendTextCell( _names[ colinx ] + "1", _column.ColumnName, _row );
-                        _isNumeric[ colinx ] = ( _column.DataType.FullName == "System.Decimal" ) || ( _column.DataType.FullName == "System.Int32" );
+                        _isNumeric[ colinx ] = ( _column.DataType.FullName == "System.Decimal" ) 
+                            || ( _column.DataType.FullName == "System.Int32" );
                     }
 
                     foreach( DataRow _dataRow in dataTable.Rows )
@@ -371,7 +429,7 @@ namespace BudgetExecution
         /// <summary>
         /// Determines whether [is nullable type] [the specified type].
         /// </summary>
-        /// <param name="type"> The type. </param>
+        /// <param name="type">The type.</param>
         /// <returns>
         /// <c> true </c>
         /// if [is nullable type] [the specified type]; otherwise,
@@ -382,7 +440,10 @@ namespace BudgetExecution
         {
             try
             {
-                return ( type == typeof( string ) ) || type.IsArray || ( type.IsGenericType && ( type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) ) );
+                return ( type == typeof( string ) ) 
+                    || type.IsArray 
+                    || ( type.IsGenericType 
+                        && ( type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) ) );
             }
             catch( Exception ex )
             {
@@ -391,8 +452,10 @@ namespace BudgetExecution
             }
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         protected static void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
