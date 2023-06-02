@@ -262,18 +262,6 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="WebBrowser\Controls\BrowserTabStrip\BaseStyledPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="WebBrowser\Controls\BrowserTabStrip\BrowserTabStrip.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="WebBrowser\Controls\BrowserTabStrip\BrowserTabStripItem.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="WebBrowser\WebBrowser.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Controls\Dialogs\ColorDialog.resx">
