@@ -75,9 +75,6 @@
       <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
 </ItemGroup>
   <ItemGroup>
-    <Reference Include="BudgetBrowser">
-      <HintPath>Libraries\BudgetBrowser.dll</HintPath>
-    </Reference>
     <Reference Include="C1.Win.4.8">
       <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
     </Reference>
