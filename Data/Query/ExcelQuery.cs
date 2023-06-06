@@ -193,14 +193,14 @@ namespace BudgetExecution
                     {
                         var _name = _dialog.FileName;
                         workBook.Save( _name );
-                        const string _successful = "Save Successful!";
-                        var _message = new Message( _successful );
+                        const string SUCCESSFUL = "Save Successful!";
+                        var _message = new Message( SUCCESSFUL );
                         _message?.ShowDialog( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -222,30 +222,30 @@ namespace BudgetExecution
                     var _excelWorksheet = _excelPackage?.Workbook?.Worksheets?.Add( _name );
                     var _columns = table?.Columns?.Count;
                     var _rows = table?.Rows?.Count;
-                    for( var column = 1; column <= _columns; column++ )
+                    for( var _column = 1; _column <= _columns; _column++ )
                     {
                         if( _excelWorksheet != null )
                         {
-                            var _colName = table.Columns[ column - 1 ].ColumnName;
-                            _excelWorksheet.Cells[ 1, column ].Value = _colName;
+                            var _colName = table.Columns[ _column - 1 ].ColumnName;
+                            _excelWorksheet.Cells[ 1, _column ].Value = _colName;
                         }
                     }
 
-                    for( var row = 1; row <= _rows; row++ )
+                    for( var _row = 1; _row <= _rows; _row++ )
                     {
-                        for( var col = 0; col < _columns; col++ )
+                        for( var _col = 0; _col < _columns; _col++ )
                         {
                             if( _excelWorksheet != null )
                             {
-                                var _column = table.Rows[ row - 1 ][ col ];
-                                _excelWorksheet.Cells[ row + 1, col + 1 ].Value = _column;
+                                var _column = table.Rows[ _row - 1 ][ _col ];
+                                _excelWorksheet.Cells[ _row + 1, _col + 1 ].Value = _column;
                             }
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -259,7 +259,7 @@ namespace BudgetExecution
             try
             {
                 var _fileName = "";
-                var dialog = new OpenFileDialog
+                var _dialog = new OpenFileDialog
                 {
                     Title = "Excel File Dialog",
                     InitialDirectory = @"c:\",
@@ -268,16 +268,16 @@ namespace BudgetExecution
                     RestoreDirectory = true
                 };
 
-                if( dialog.ShowDialog( ) == DialogResult.OK )
+                if( _dialog.ShowDialog( ) == DialogResult.OK )
                 {
-                    _fileName = dialog.FileName;
+                    _fileName = _dialog.FileName;
                 }
 
                 return _fileName;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -301,8 +301,8 @@ namespace BudgetExecution
                     if( ( _schema?.Columns?.Count > 0 )
                        && !SheetExists( sheetName, _schema ) )
                     {
-                        const string _msg = "Sheet Does Not Exist!";
-                        var _message = new Message( _msg );
+                        const string MSG = "Sheet Does Not Exist!";
+                        var _message = new Message( MSG );
                         _message?.ShowDialog( );
                     }
                     else
@@ -314,9 +314,9 @@ namespace BudgetExecution
                     _adapter?.Fill( _dataSet );
                     return _dataSet?.Tables[ 0 ];
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -363,9 +363,9 @@ namespace BudgetExecution
                     _dataAdapter.Fill( _data );
                     return _data.Tables[ 0 ];
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -390,9 +390,9 @@ namespace BudgetExecution
                 Marshal.ReleaseComObject( workSheet );
                 Marshal.ReleaseComObject( excel );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -410,9 +410,9 @@ namespace BudgetExecution
                     var _fileInfo = new FileInfo( filePath );
                     return new ExcelPackage( _fileInfo );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( ExcelPackage );
                 }
             }
@@ -447,23 +447,23 @@ namespace BudgetExecution
                 var _columns = _range.Columns;
                 dataGrid.ColumnCount = _columns;
                 dataGrid.RowCount = _rows;
-                for( var i = 1; i <= _rows; i++ )
+                for( var _i = 1; _i <= _rows; _i++ )
                 {
-                    for( var j = 1; j <= _columns; j++ )
+                    for( var _j = 1; _j <= _columns; _j++ )
                     {
-                        if( ( _range[ i, j ].Address != null )
-                           && ( _range[ i, j ].Value != null ) )
+                        if( ( _range[ _i, _j ].Address != null )
+                           && ( _range[ _i, _j ].Value != null ) )
                         {
-                            dataGrid.Rows[ i - 1 ].Cells[ j - 1 ].Value = _range[ i, j ].Address;
+                            dataGrid.Rows[ _i - 1 ].Cells[ _j - 1 ].Value = _range[ _i, _j ].Address;
                         }
                     }
                 }
 
                 Release( _range, _worksheet, _application );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -481,9 +481,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    for( var i = 0; i < dataTable.Rows.Count; i++ )
+                    for( var _i = 0; _i < dataTable.Rows.Count; _i++ )
                     {
-                        var _dataRow = dataTable.Rows[ i ];
+                        var _dataRow = dataTable.Rows[ _i ];
                         if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                         {
                             return true;
@@ -492,9 +492,9 @@ namespace BudgetExecution
 
                     return false;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 

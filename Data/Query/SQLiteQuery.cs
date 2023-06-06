@@ -209,9 +209,9 @@ namespace BudgetExecution
             {
                 return new SQLiteDataAdapter( command );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( SQLiteDataAdapter );
             }
         }
@@ -227,9 +227,9 @@ namespace BudgetExecution
             {
                 return command.ExecuteReader( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( SQLiteDataReader );
             }
         }
@@ -274,9 +274,9 @@ namespace BudgetExecution
 
                     return _dataSet.Tables[ 0 ];
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -315,9 +315,9 @@ namespace BudgetExecution
                             : default( DataTable );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -340,9 +340,9 @@ namespace BudgetExecution
                         ? dict.ToSqlDbParameters( Provider )
                         : default( IEnumerable<DbParameter> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DbParameter> );
                 }
             }
@@ -361,9 +361,9 @@ namespace BudgetExecution
             {
                 return new SQLiteCommandBuilder( adapter );
             }
-            catch( SystemException ex )
+            catch( SystemException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( SQLiteCommandBuilder );
             }
         }
@@ -393,9 +393,9 @@ namespace BudgetExecution
 
                 return _fileName;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -412,9 +412,9 @@ namespace BudgetExecution
                && ( dataSchema != null )
                && ( dataSchema.Columns.Count > 0 ) )
             {
-                for( var i = 0; i < dataSchema.Rows.Count; i++ )
+                for( var _i = 0; _i < dataSchema.Rows.Count; _i++ )
                 {
-                    var _dataRow = dataSchema.Rows[ i ];
+                    var _dataRow = dataSchema.Rows[ _i ];
                     if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                     {
                         return true;

@@ -133,7 +133,7 @@ namespace BudgetExecution
         /// <param name="having"> The having. </param>
         /// <param name="commandType"> Type of the command. </param>
         public Query( Source source, Provider provider, IEnumerable<string> columns,
-            IEnumerable<string> numerics, IDictionary<string, object> having, 
+            IEnumerable<string> numerics, IDictionary<string, object> having,
             SQL commandType = SQL.SELECT )
             : base( source, provider, columns, having, commandType )
         {
@@ -215,10 +215,10 @@ namespace BudgetExecution
                 Dispose( true );
                 GC.SuppressFinalize( this );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
                 IsDisposed = false;
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -239,10 +239,10 @@ namespace BudgetExecution
                     ConnectionFactory?.Connection?.Dispose( );
                     IsDisposed = true;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
                     IsDisposed = false;
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

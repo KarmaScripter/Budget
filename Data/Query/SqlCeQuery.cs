@@ -176,10 +176,10 @@ namespace BudgetExecution
                     _dataTable.TableName = sheetName;
                     _dataSet.Tables.Add( _dataTable );
                     var _sql = $"SELECT * FROM {sheetName}$";
-                    var cstring = GetExcelFilePath( );
-                    if( !string.IsNullOrEmpty( cstring ) )
+                    var _cstring = GetExcelFilePath( );
+                    if( !string.IsNullOrEmpty( _cstring ) )
                     {
-                        var _excelQuery = new ExcelQuery( cstring, _sql );
+                        var _excelQuery = new ExcelQuery( _cstring, _sql );
                         var _connection = DataConnection as OleDbConnection;
                         _connection?.Open( );
                         var _dataAdapter = _excelQuery.GetAdapter( );
@@ -189,9 +189,9 @@ namespace BudgetExecution
                             : default( DataTable );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -234,9 +234,9 @@ namespace BudgetExecution
                             : default( DataTable );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -269,9 +269,9 @@ namespace BudgetExecution
 
                 return _fileName;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -288,9 +288,9 @@ namespace BudgetExecution
                && ( schemaTable != null )
                && ( schemaTable.Columns.Count > 0 ) )
             {
-                for( var i = 0; i < schemaTable.Rows.Count; i++ )
+                for( var _i = 0; _i < schemaTable.Rows.Count; _i++ )
                 {
-                    var _dataRow = schemaTable.Rows[ i ];
+                    var _dataRow = schemaTable.Rows[ _i ];
                     if( sheetName == _dataRow[ "TABLENAME" ].ToString( ) )
                     {
                         return true;
