@@ -75,6 +75,9 @@
       <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
 </ItemGroup>
   <ItemGroup>
+    <Reference Include="BudgetControls">
+      <HintPath>Libraries\BudgetControls.dll</HintPath>
+    </Reference>
     <Reference Include="C1.Win.4.8">
       <HintPath>Libraries\C1.Win.4.8.dll</HintPath>
     </Reference>
@@ -249,9 +252,6 @@
     </Reference>
     <Reference Include="System.Runtime.Remoting">
       <HintPath>Libraries\System.Runtime.Remoting.dll</HintPath>
-    </Reference>
-    <Reference Include="Zeroit.Framework.Metro">
-      <HintPath>Libraries\Zeroit.Framework.Metro.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
