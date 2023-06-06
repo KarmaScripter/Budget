@@ -47,6 +47,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "SuggestBaseTypeForParameterInConstructor" ) ]
     public class InflationReductionActCarryoverEstimate : AnnualCarryoverEstimate
     {
         /// <summary>
@@ -144,6 +145,10 @@ namespace BudgetExecution
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InflationReductionActCarryoverEstimate"/> class.
+        /// </summary>
+        /// <param name="carryover">The carryover.</param>
         public InflationReductionActCarryoverEstimate( InflationReductionActCarryoverEstimate carryover )
             : this( )
         {

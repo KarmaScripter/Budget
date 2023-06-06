@@ -81,6 +81,7 @@ namespace BudgetExecution
             PrintColorMode = ChartPrintColorMode.CheckPrinter;
             BackInterior = new BrushInfo( Color.FromArgb( 20, 20, 20 ) );
             BackColor = Color.FromArgb( 20, 20, 20 );
+            ForeColor = Color.LightGray;
             CalcRegions = true;
             ChartInterior = new BrushInfo( GradientStyle.PathRectangle, 
                 Color.LightSteelBlue, Color.FromArgb( 20, 20, 20 ) );
@@ -154,9 +155,9 @@ namespace BudgetExecution
                 {
                     Size = new Size( width, height );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -173,9 +174,9 @@ namespace BudgetExecution
                 PrimaryXAxis.TitleColor = color;
                 PrimaryXAxis.TitleFont = font;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -192,17 +193,17 @@ namespace BudgetExecution
                     Titles.Clear( );
                 }
 
-                using var title = new ChartTitle( );
-                title.Visible = true;
-                title.Font = font;
-                title.BackColor = Color.FromArgb( 18, 18, 18 );
-                title.ForeColor = color;
-                title.Text = text;
-                Titles?.Add( title );
+                using var _title = new ChartTitle( );
+                _title.Visible = true;
+                _title.Font = font;
+                _title.BackColor = Color.FromArgb( 18, 18, 18 );
+                _title.ForeColor = color;
+                _title.Text = text;
+                Titles?.Add( _title );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
     }

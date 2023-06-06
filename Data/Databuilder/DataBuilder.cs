@@ -201,9 +201,9 @@ namespace BudgetExecution
                         ? _query.ToArray( )
                         : default( DataRow[ ] );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -232,13 +232,13 @@ namespace BudgetExecution
                     var _values = GetValues( _rows, name, value );
                     if( _values?.Any( ) == true )
                     {
-                        for( var i = 0; i < _columns?.Count; i++ )
+                        for( var _i = 0; _i < _columns?.Count; _i++ )
                         {
-                            var _columnName = _columns[ i ].ColumnName;
+                            var _columnName = _columns[ _i ].ColumnName;
                             if( !string.IsNullOrEmpty( _columnName )
-                               && ( _columns[ i ]?.DataType == typeof( string ) ) )
+                               && ( _columns[ _i ]?.DataType == typeof( string ) ) )
                             {
-                                _dictionary.Add( _columns[ i ].ColumnName, _values );
+                                _dictionary.Add( _columns[ _i ].ColumnName, _values );
                             }
                         }
 
@@ -249,9 +249,9 @@ namespace BudgetExecution
 
                     return default( IDictionary<string, IEnumerable<string>> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, IEnumerable<string>> );
                 }
             }
@@ -304,9 +304,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( Provider );
                 }
             }
@@ -350,9 +350,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( Provider );
                 }
             }
@@ -380,9 +380,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( Source );
                 }
             }
@@ -408,9 +408,9 @@ namespace BudgetExecution
                         ? _data
                         : default( IEnumerable<DataRow> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DataRow> );
                 }
             }

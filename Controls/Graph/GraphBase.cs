@@ -112,9 +112,9 @@ namespace BudgetExecution
 
                 // Vertical Axis Properties
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -129,9 +129,9 @@ namespace BudgetExecution
                 Titles[ 0 ].BackColor = Color.FromArgb( 20, 20, 20 );
                 Titles[ 0 ].ForeColor = Color.FromArgb( 0, 120, 212 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -159,9 +159,9 @@ namespace BudgetExecution
                 Legend.ShowBorder = false;
                 Legend.Visible = true;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -175,9 +175,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -190,9 +190,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -219,9 +219,9 @@ namespace BudgetExecution
                     _darkGreen
                 };
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
         

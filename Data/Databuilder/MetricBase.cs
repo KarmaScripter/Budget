@@ -102,9 +102,9 @@ namespace BudgetExecution
                         ? _select.Count( )
                         : -1;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return -1;
                 }
             }
@@ -132,9 +132,9 @@ namespace BudgetExecution
                         ? _select.Count( )
                         : -1;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return -1;
                 }
             }
@@ -162,9 +162,9 @@ namespace BudgetExecution
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
@@ -192,9 +192,9 @@ namespace BudgetExecution
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
@@ -221,9 +221,9 @@ namespace BudgetExecution
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return 0.0d;
                 }
             }
@@ -252,9 +252,9 @@ namespace BudgetExecution
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return 0.0d;
                 }
             }
@@ -282,9 +282,9 @@ namespace BudgetExecution
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
@@ -313,9 +313,9 @@ namespace BudgetExecution
                         ? double.Parse( _select?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
@@ -342,9 +342,9 @@ namespace BudgetExecution
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return 0.0d;
                 }
             }
@@ -374,9 +374,9 @@ namespace BudgetExecution
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return 0.0d;
                 }
             }
@@ -404,9 +404,9 @@ namespace BudgetExecution
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return 0.0d;
                 }
             }
@@ -437,9 +437,9 @@ namespace BudgetExecution
                         ? double.Parse( _query?.ToString( "N1" ) )
                         : 0.0d;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return 0.0d;
                 }
             }
@@ -459,17 +459,17 @@ namespace BudgetExecution
                 try
                 {
                     var _numerics = new List<string>( );
-                    foreach( DataColumn col in DataTable.Columns )
+                    foreach( DataColumn _col in DataTable.Columns )
                     {
-                        if( ( !col.ColumnName.EndsWith( "Id" ) && ( col.Ordinal > 0 )
-                               && ( col.DataType == typeof( double ) ) )
-                           || ( col.DataType == typeof( short ) )
-                           || ( col.DataType == typeof( long ) )
-                           || ( col.DataType == typeof( decimal ) )
-                           || ( col.DataType == typeof( float ) ) )
+                        if( ( !_col.ColumnName.EndsWith( "Id" ) && ( _col.Ordinal > 0 )
+                               && ( _col.DataType == typeof( double ) ) )
+                           || ( _col.DataType == typeof( short ) )
+                           || ( _col.DataType == typeof( long ) )
+                           || ( _col.DataType == typeof( decimal ) )
+                           || ( _col.DataType == typeof( float ) ) )
 
                         {
-                            _numerics.Add( col.ColumnName );
+                            _numerics.Add( _col.ColumnName );
                         }
                     }
 
@@ -477,9 +477,9 @@ namespace BudgetExecution
                         ? _numerics
                         : default( IList<string> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IList<string> );
                 }
             }
@@ -498,16 +498,16 @@ namespace BudgetExecution
                 try
                 {
                     var _dates = new List<string>( );
-                    foreach( DataColumn col in DataTable.Columns )
+                    foreach( DataColumn _col in DataTable.Columns )
                     {
-                        if( ( col.Ordinal > 0 )
-                           && ( ( col.DataType == typeof( DateTime ) )
-                               || ( col.DataType == typeof( DateOnly ) )
-                               || ( col.DataType == typeof( DateTimeOffset ) )
-                               || col.ColumnName.EndsWith( "Day" )
-                               || col.ColumnName.EndsWith( "Date" ) ) )
+                        if( ( _col.Ordinal > 0 )
+                           && ( ( _col.DataType == typeof( DateTime ) )
+                               || ( _col.DataType == typeof( DateOnly ) )
+                               || ( _col.DataType == typeof( DateTimeOffset ) )
+                               || _col.ColumnName.EndsWith( "Day" )
+                               || _col.ColumnName.EndsWith( "Date" ) ) )
                         {
-                            _dates.Add( col.ColumnName );
+                            _dates.Add( _col.ColumnName );
                         }
                     }
 
@@ -515,9 +515,9 @@ namespace BudgetExecution
                         ? _dates
                         : default( IList<string> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IList<string> );
                 }
             }

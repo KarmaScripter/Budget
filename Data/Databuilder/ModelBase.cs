@@ -85,9 +85,9 @@ namespace BudgetExecution
                         ? _values
                         : default( IEnumerable<int> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<int> );
                 }
             }
@@ -109,9 +109,9 @@ namespace BudgetExecution
                     if( _columns?.Count > 0 )
                     {
                         var _schema = new Dictionary<string, Type>( );
-                        foreach( DataColumn col in _columns )
+                        foreach( DataColumn _col in _columns )
                         {
-                            _schema.Add( col.ColumnName, col.DataType );
+                            _schema.Add( _col.ColumnName, _col.DataType );
                         }
 
                         return _schema?.Any( ) == true
@@ -123,9 +123,9 @@ namespace BudgetExecution
                         return default( IDictionary<string, Type> );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, Type> );
                 }
             }
@@ -154,9 +154,9 @@ namespace BudgetExecution
                         ? _data
                         : default( IEnumerable<DataRow> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -178,11 +178,11 @@ namespace BudgetExecution
                     var _data = DataTable?.Columns;
                     if( _data?.Count > 0 )
                     {
-                        foreach( DataColumn column in _data )
+                        foreach( DataColumn _column in _data )
                         {
-                            if( column != null )
+                            if( _column != null )
                             {
-                                _dataColumns.Add( column );
+                                _dataColumns.Add( _column );
                             }
                         }
 
@@ -195,9 +195,9 @@ namespace BudgetExecution
                         return default( IEnumerable<DataColumn> );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DataColumn> );
                 }
             }
@@ -219,11 +219,11 @@ namespace BudgetExecution
                     var _data = DataTable?.Columns;
                     if( _data?.Count > 0 )
                     {
-                        foreach( DataColumn column in _data )
+                        foreach( DataColumn _column in _data )
                         {
-                            if( !string.IsNullOrEmpty( column?.ColumnName ) )
+                            if( !string.IsNullOrEmpty( _column?.ColumnName ) )
                             {
-                                _names.Add( column.ColumnName );
+                                _names.Add( _column.ColumnName );
                             }
                         }
 
@@ -236,9 +236,9 @@ namespace BudgetExecution
                         return default( IEnumerable<string> );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<string> );
                 }
             }

@@ -346,9 +346,9 @@ namespace BudgetExecution
                         ? _query
                         : default( IEnumerable<string> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<string> );
                 }
             }
@@ -380,9 +380,9 @@ namespace BudgetExecution
                         ? _query
                         : default( IEnumerable<string> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<string> );
                 }
             }
@@ -407,9 +407,9 @@ namespace BudgetExecution
                         ? _schema
                         : default( DataTable );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -454,9 +454,9 @@ namespace BudgetExecution
                         {
                             var _range = _sheet.Cells[ _row, 1, _row, _lastColumn ];
                             var _data = _table.Rows?.Add( );
-                            foreach( var cell in _range )
+                            foreach( var _cell in _range )
                             {
-                                _data[ cell.Start.Column - 1 ] = cell?.Text;
+                                _data[ _cell.Start.Column - 1 ] = _cell?.Text;
                             }
                         }
 
@@ -465,9 +465,9 @@ namespace BudgetExecution
                             : default( DataTable );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -489,13 +489,13 @@ namespace BudgetExecution
                     var _dict = new Dictionary<string, IEnumerable<string>>( );
                     var _columns = dataTable?.Columns;
                     var _rows = dataTable?.AsEnumerable( );
-                    for( var i = 0; i < _columns?.Count; i++ )
+                    for( var _i = 0; _i < _columns?.Count; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( _columns[ i ]?.ColumnName )
-                           && ( _columns[ i ]?.DataType == typeof( string ) ) )
+                        if( !string.IsNullOrEmpty( _columns[ _i ]?.ColumnName )
+                           && ( _columns[ _i ]?.DataType == typeof( string ) ) )
                         {
-                            var _name = GetValues( _rows, _columns[ i ]?.ColumnName );
-                            _dict?.Add( _columns[ i ]?.ColumnName, _name );
+                            var _name = GetValues( _rows, _columns[ _i ]?.ColumnName );
+                            _dict?.Add( _columns[ _i ]?.ColumnName, _name );
                         }
                     }
 
@@ -503,9 +503,9 @@ namespace BudgetExecution
                         ? _dict
                         : default( Dictionary<string, IEnumerable<string>> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, IEnumerable<string>> );
                 }
             }

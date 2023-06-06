@@ -71,7 +71,7 @@
     <PackageReference Include="WinFormsMapControl" Version="1.1.0" />
     <PackageReference Include="Zeroit.Framework.BasicCharts" Version="1.0.0" />
     <PackageReference Include="Zeroit.Framework.Metro" Version="1.0.0" />
-      <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="21.1.35"/>
+      <PackageReference Include="Syncfusion.GridHelperClasses.Windows" Version="21.1.35" />
 </ItemGroup>
   <ItemGroup>
     <Reference Include="C1.Win.4.8">
@@ -297,5 +297,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Controls\TabControl\TabControl.cs~RFa766426.TMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Clients\WebBrower\" />
   </ItemGroup>
 </Project>
