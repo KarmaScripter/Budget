@@ -42,16 +42,55 @@ namespace BudgetExecution
 {
     using System;
 
-    public class DataLink
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DbConfig
     {
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        /// <value>
+        /// The source.
+        /// </value>
         public Source Source { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the provider.
+        /// </summary>
+        /// <value>
+        /// The provider.
+        /// </value>
         public Provider Provider { get; set; }
 
-        public DataLink( Source source, Provider provider )
+        /// <summary>
+        /// Initializes a new instance
+        /// of the <see cref="DbConfig"/> class.
+        /// </summary>
+        public DbConfig( )
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DbConfig"/> class.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        public DbConfig( Source source, Provider provider )
         {
             Source = source;
             Provider = provider;
+        }
+
+        /// <summary>
+        /// Deconstructs the specified source.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="provider">The provider.</param>
+        public void Deconstruct( out Source source, out Provider provider )
+        {
+            source = Source;
+            provider = Provider;
         }
     }
 }
