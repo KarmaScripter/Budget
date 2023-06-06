@@ -84,5 +84,10 @@ namespace BudgetExecution
             MaximizeBox = false;
             ControlBox = false;
         }
+
+        private void FormBase_Load( object sender, EventArgs e )
+        {
+
+        }
     }
 }
