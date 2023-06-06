@@ -270,6 +270,7 @@ namespace BudgetExecution
                 SetFrameDockStyle( );
                 BindRecordData( );
                 SetFrameVisibility( );
+                SetTextBoxHandlers( );
             }
             catch( Exception ex )
             {
@@ -366,6 +367,19 @@ namespace BudgetExecution
             }
         }
 
+        private void SetTextBoxHandlers( )
+        {
+            if( Frames?.Any( ) == true )
+            {
+                foreach( var frame in Frames )
+                {
+                    frame.TextBox.MouseEnter += OnMouseOver;
+                    frame.TextBox.MouseLeave += OnMouseLeave;
+                    frame.TextBox.MouseClick += OnTextBoxMouseEnter;
+                }
+            }
+        }
+
         /// <summary>
         /// Sets the table location.
         /// </summary>
@@ -457,5 +471,86 @@ namespace BudgetExecution
                 }
             }
         }
+        
+        public virtual void OnTextBoxMouseEnter( object sender, EventArgs e )
+        {
+            if( sender is TextBox textBox
+               && !string.IsNullOrEmpty( textBox.Text ) )
+            {
+                try
+                {
+                    double _double;
+                    decimal _decimal;
+                    if( double.TryParse( textBox.Text, out _double ) )
+                    {
+                        var _value = double.Parse( textBox.Text );
+                        var _form = new CalculationForm( _value );
+                        _form.ShowDialog( );
+                        textBox.Text = _form.Calculator.Value.ToString( );
+                    }
+                    else if( decimal.TryParse( textBox.Text, out _decimal ) )
+                    {
+                        var _decimalValue = double.Parse( textBox.Text );
+                        var _form = new CalculationForm( _decimalValue );
+                        _form.ShowDialog( );
+                        textBox.Text = _form.Calculator.Value.ToString( );
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                catch( Exception ex )
+                {
+                    Fail( ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs" />
+        /// instance containing the event data.</param>
+        public virtual void OnMouseOver( object sender, EventArgs e )
+        {
+            var _textBox = sender as TextBox;
+            try
+            {
+                if( !string.IsNullOrEmpty( _textBox.Text ) )
+                {
+                    var _hoverText = _textBox.Text;
+                    ToolTip = new SmallTip( _textBox, _hoverText );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse leave].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public virtual void OnMouseLeave( object sender, EventArgs e )
+        {
+            try
+            {
+                if( sender is TextBox _textBox
+                   && ( ToolTip?.Active == true ) )
+                {
+                    ToolTip.RemoveAll( );
+                }
+            }
+            catch( Exception ex )
+            {
+                Fail( ex );
+            }
+        }
+
     }
 }
