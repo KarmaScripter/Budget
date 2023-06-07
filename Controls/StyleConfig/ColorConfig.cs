@@ -1,27 +1,27 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
-//     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     ASSEMBLY:                BUDGET EXECUTION
+//     AUTHOR:                  TERRY D. EPPLER
+//     CREATED:                 03-24-2023
 // 
-//     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     LAST MODIFIED BY:        TERRY D. EPPLER
+//     LAST MODIFIED ON:        05-31-2023
 // ******************************************************************************************
-// <copyright file="ColorConfig.cs" company="Terry D. Eppler">
-//    This is a Federal Budget, Finance, and Accounting application for the
-//    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+// <COPYRIGHT FILE="COLORCONFIG.CS" COMPANY="TERRY D. EPPLER">
+//    THIS IS A FEDERAL BUDGET, FINANCE, AND ACCOUNTING APPLICATION FOR THE
+//    US ENVIRONMENTAL PROTECTION AGENCY (US EPA).
+//    COPYRIGHT ©  2023  TERRY EPPLER
 // 
-//    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the “Software”),
-//    to deal in the Software without restriction,
-//    including without limitation the rights to use,
-//    copy, modify, merge, publish, distribute, sublicense,
-//    and/or sell copies of the Software,
-//    and to permit persons to whom the Software is furnished to do so,
-//    subject to the following conditions:
+//    PERMISSION IS HEREBY GRANTED, FREE OF CHARGE, TO ANY PERSON OBTAINING A COPY
+//    OF THIS SOFTWARE AND ASSOCIATED DOCUMENTATION FILES (THE “SOFTWARE”),
+//    TO DEAL IN THE SOFTWARE WITHOUT RESTRICTION,
+//    INCLUDING WITHOUT LIMITATION THE RIGHTS TO USE,
+//    COPY, MODIFY, MERGE, PUBLISH, DISTRIBUTE, SUBLICENSE,
+//    AND/OR SELL COPIES OF THE SOFTWARE,
+//    AND TO PERMIT PERSONS TO WHOM THE SOFTWARE IS FURNISHED TO DO SO,
+//    SUBJECT TO THE FOLLOWING CONDITIONS:
 // 
-//    The above copyright notice and this permission notice shall be included in all
-//    copies or substantial portions of the Software.
+//    THE ABOVE COPYRIGHT NOTICE AND THIS PERMISSION NOTICE SHALL BE INCLUDED IN ALL
+//    COPIES OR SUBSTANTIAL PORTIONS OF THE SOFTWARE.
 // 
 //    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -31,11 +31,11 @@
 //    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 //    DEALINGS IN THE SOFTWARE.
 // 
-//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
-// </copyright>
-// <summary>
-//   ColorConfig.cs
-// </summary>
+//    YOU CAN CONTACT ME AT:   TERRYEPPLER@GMAIL.COM OR EPPLER.TERRY@EPA.GOV
+// </COPYRIGHT>
+// <SUMMARY>
+//   COLORCONFIG.CS
+// </SUMMARY>
 // ******************************************************************************************
 
 namespace BudgetExecution

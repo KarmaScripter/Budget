@@ -73,8 +73,8 @@ namespace BudgetExecution
             Table.ForeColor = Color.LightGray;
 
             // TextBox Properties
-            TextBox.BorderColor = Color.FromArgb( 70, 70, 70 );
-            TextBox.HoverColor = Color.FromArgb( 70, 70, 70 );
+            TextBox.BorderColor = Color.FromArgb( 24, 47, 66 );
+            TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
             TextBox.BackColor = Color.FromArgb( 30, 30, 30 );
         }
 

@@ -47,11 +47,16 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using MetroSet_UI.Components;
     using MetroSet_UI.Enums;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="MetroSet_UI.Components.MetroSetSetToolTip" />
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "InheritdocConsiderUsage" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class SmallTip : MetroSetSetToolTip
     {
         /// <summary>
@@ -173,9 +178,9 @@ namespace BudgetExecution
                 UseAnimation = animate;
                 UseFading = animate;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -191,9 +196,9 @@ namespace BudgetExecution
                 {
                     AutomaticDelay = delay;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -210,9 +215,9 @@ namespace BudgetExecution
                 {
                     AutoPopDelay = time;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -229,9 +234,9 @@ namespace BudgetExecution
                 {
                     InitialDelay = delay;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -248,9 +253,9 @@ namespace BudgetExecution
                 {
                     ReshowDelay = reshow;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -267,9 +272,9 @@ namespace BudgetExecution
                 {
                     Tag = tag;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -288,9 +293,9 @@ namespace BudgetExecution
                     var _caption = control.Tag.ToString( );
                     SetToolTip( control, _caption );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -310,9 +315,9 @@ namespace BudgetExecution
                     RemoveAll( );
                     SetToolTip( control, caption );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -328,17 +333,17 @@ namespace BudgetExecution
             {
                 try
                 {
-                    Control parent = item.GetCurrentParent( );
-                    var caption = item?.Tag?.ToString( );
-                    if( !string.IsNullOrEmpty( caption ) )
+                    Control _parent = item.GetCurrentParent( );
+                    var _caption = item?.Tag?.ToString( );
+                    if( !string.IsNullOrEmpty( _caption ) )
                     {
                         RemoveAll( );
-                        SetText( parent, caption );
+                        SetText( _parent, _caption );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -349,20 +354,20 @@ namespace BudgetExecution
         /// <param name="component">The component.</param>
         public virtual void SetText( Component component )
         {
-            if( component is Control control )
+            if( component is Control _control )
             {
                 try
                 {
-                    if( !string.IsNullOrEmpty( control?.Tag?.ToString( ) ) )
+                    if( !string.IsNullOrEmpty( _control?.Tag?.ToString( ) ) )
                     {
-                        var caption = control.Tag.ToString( );
+                        var _caption = _control.Tag.ToString( );
                         RemoveAll( );
-                        SetToolTip( control, caption );
+                        SetToolTip( _control, _caption );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -379,15 +384,15 @@ namespace BudgetExecution
             {
                 try
                 {
-                    if( component is Control control )
+                    if( component is Control _control )
                     {
                         RemoveAll( );
-                        SetToolTip( control, caption );
+                        SetToolTip( _control, caption );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -403,9 +408,9 @@ namespace BudgetExecution
                 TipTitle = string.Empty;
                 RemoveAll( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
