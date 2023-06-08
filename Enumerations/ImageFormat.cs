@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
 
     /// <summary> Defines the Enum </summary>
     public enum ImageFormat

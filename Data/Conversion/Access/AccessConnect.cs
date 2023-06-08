@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Data;
     using System.Data.OleDb;
     using System.Linq;
-    using System.Threading;
 
     /// <summary> </summary>
     public class AccessConnect : IDisposable

@@ -44,7 +44,6 @@ namespace BudgetExecution
     using System.Collections.Specialized;
     using System.Configuration;
     using System.Data.Common;
-    using System.Threading;
 
     /// <summary>
     /// 

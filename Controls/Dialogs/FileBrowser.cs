@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using static System.Configuration.ConfigurationManager;
     using static System.Environment;

@@ -44,7 +44,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
-    using System.Threading;
     using System.Windows.Forms;
     using static System.Configuration.ConfigurationManager;
 

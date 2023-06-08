@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Data.SQLite;
-    using System.Threading;
 
     /// <summary> </summary>
     public class AccessConversion : IDisposable

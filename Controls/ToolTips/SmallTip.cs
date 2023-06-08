@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.ComponentModel;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using MetroSet_UI.Components;
     using MetroSet_UI.Enums;

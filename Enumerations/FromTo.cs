@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
 
     /// <summary> Defines the FromTo </summary>
     public enum FromTo

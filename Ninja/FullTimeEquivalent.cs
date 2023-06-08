@@ -43,7 +43,6 @@ namespace BudgetExecution
     using System;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <summary>
     /// Full-time equivalent (FullTimeEquivalents) or whole time equivalent (WTE) is a unit that indicates

@@ -41,7 +41,6 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Threading;
 
     /// <summary> Describes a single view schema </summary>
     public class ViewSchema

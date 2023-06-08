@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.IO;
     using System.IO.Compression;
     using System.Security.AccessControl;
-    using System.Threading;
     using static System.IO.Directory;
 
     /// <summary>

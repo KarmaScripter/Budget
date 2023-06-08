@@ -119,9 +119,10 @@ namespace BudgetExecution
         /// <see cref="EventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public virtual void OnMouseDown( object sender, EventArgs e )
+        public virtual void OnMouseDown( object sender, MouseEventArgs e )
         {
-            if( !string.IsNullOrEmpty( Text ) )
+            if( !string.IsNullOrEmpty( Text ) 
+               && ( e.Button == MouseButtons.Left ) )
             {
                 try
                 {
@@ -131,12 +132,14 @@ namespace BudgetExecution
                     {
                         var _code = Text.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.Location = new Point( e.X, e.Y );
                         _dialog.ShowDialog( );
                     }
                     else if( double.TryParse( Text, out var _double ) )
                     {
                         var _value = double.Parse( Text );
                         var _form = new CalculationForm( _value );
+                        _form.Location = new Point( e.X, e.Y );
                         _form.ShowDialog( );
                         Text = _form.Calculator.Value.ToString( );
                     }
@@ -144,6 +147,7 @@ namespace BudgetExecution
                     {
                         var _decimalValue = double.Parse( Text );
                         var _form = new CalculationForm( _decimalValue );
+                        _form.Location = new Point( e.X, e.Y );
                         _form.ShowDialog( );
                         Text = _form.Calculator.Value.ToString( );
                     }
@@ -151,6 +155,7 @@ namespace BudgetExecution
                     {
                         var _dateTimeValue = DateTime.Parse( Text );
                         var _form = new CalendarDialog( _dateTimeValue );
+                        _form.Location = new Point( e.X, e.Y );
                         _form.ShowDialog( );
                         Text = _form.DateString;
                     }
@@ -158,6 +163,7 @@ namespace BudgetExecution
                     {
                         var _dateOnlyValue = DateTime.Parse( Text );
                         var _form = new CalendarDialog( _dateOnlyValue );
+                        _form.Location = new Point( e.X, e.Y );
                         _form.ShowDialog( );
                         Text = _form.DateString;
                     }

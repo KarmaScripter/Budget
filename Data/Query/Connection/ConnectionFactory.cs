@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Data.SQLite;
     using System.Data.SqlServerCe;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <summary> </summary>
     /// <seealso cref="ConnectionBase"/>

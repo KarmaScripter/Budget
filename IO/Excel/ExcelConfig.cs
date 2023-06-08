@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using OfficeOpenXml.Style;
     using static System.IO.Path;
 

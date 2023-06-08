@@ -44,7 +44,6 @@ namespace BudgetExecution
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading;
 
     /// <summary>
     /// Program Results Codes (PRCs) were established to account for and relate resources to the Agency's

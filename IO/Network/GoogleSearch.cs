@@ -46,7 +46,6 @@ namespace BudgetExecution
     using System.Configuration;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using System.Threading;
     using Google.Apis.Customsearch.v1;
     using Google.Apis.Services;
 

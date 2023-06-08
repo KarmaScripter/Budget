@@ -47,7 +47,6 @@ namespace BudgetExecution
     using System.Data.OleDb;
     using System.IO;
     using System.Runtime.InteropServices;
-    using System.Threading;
     using System.Windows.Forms;
     using OfficeOpenXml;
 
