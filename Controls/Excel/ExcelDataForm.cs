@@ -522,7 +522,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows[ "Main" ];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -555,7 +555,8 @@ namespace BudgetExecution
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }
-                else if( Program.Windows.ContainsKey( "MainForm" ) )
+                else if( !Program.Windows.ContainsKey( "DataGridForm" ) 
+                        && Program.Windows.ContainsKey( "MainForm" ) )
                 {
                     var _mainForm = (MainForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( MainForm ) )
@@ -721,6 +722,15 @@ namespace BudgetExecution
                     Owner.Refresh( );
                     Visible = false;
                 }
+                else
+                {
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
+                    _mainForm.Refresh( );
+                    _mainForm.Visible = true;
+                    ClearData( );
+                    Owner = _mainForm;
+                    Visible = false;
+                }
             }
             catch( Exception _ex )
             {
@@ -754,14 +764,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( !Program.Windows.ContainsKey( "ExcelDataForm" ) )
-                {
-                    Program.Windows[ "ExcelDataForm" ] = this;
-                }
-                else
-                {
-                    Program.Windows.Add( "ExcelDataForm", this );
-                }
+                Program.Windows[ "ExcelDataForm" ] = this;
             }
             catch( Exception _ex )
             {

@@ -546,14 +546,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( Program.Windows.ContainsKey( "MainForm" ) )
-                {
-                    Program.Windows[ "MainForm" ] = this;
-                }
-                else
-                {
-                    Program.Windows.Add( "MainForm", this );
-                }
+                Program.Windows[ "MainForm" ] = this;
             }
             catch( Exception ex )
             {

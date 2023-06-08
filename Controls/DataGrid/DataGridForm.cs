@@ -1224,7 +1224,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows["Main"];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -1252,12 +1252,12 @@ namespace BudgetExecution
                         ?.First( );
 
                     _excelDataForm.Owner = this;
-                    _excelDataForm.ClearData( );
-                    _excelDataForm.Refresh( );
+                    _excelDataForm = new ExcelDataForm( BindingSource );
                     _excelDataForm.Visible = true;
                     Visible = false;
                 }
-                else if( Program.Windows.ContainsKey( "MainForm" ) )
+                else if( !Program.Windows.ContainsKey( "ExcelDataForm" ) 
+                        && Program.Windows.ContainsKey( "MainForm" ) )
                 {
                     var _mainForm = (MainForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
@@ -1286,7 +1286,7 @@ namespace BudgetExecution
                 if( Program.Windows.ContainsKey( "ChartDataForm" ) )
                 {
                     var _chartDataForm = (ChartDataForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) == true )
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
                         ?.First( );
 
                     _chartDataForm.Owner = this;
@@ -1295,10 +1295,11 @@ namespace BudgetExecution
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
-                else if( Program.Windows.ContainsKey( "MainForm" ) )
+                else if( !Program.Windows.ContainsKey( "ChartDataForm" ) 
+                        && Program.Windows.ContainsKey( "MainForm" ) )
                 {
                     var _mainForm = (MainForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
                         ?.First( );
 
                     var _chartDataForm = new ChartDataForm( BindingSource );
@@ -2065,6 +2066,15 @@ namespace BudgetExecution
                     Owner.Refresh( );
                     Visible = false;
                 }
+                else
+                {
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
+                    _mainForm.Refresh( );
+                    _mainForm.Visible = true;
+                    ClearData( );
+                    Owner = _mainForm;
+                    Visible = false;
+                }
             }
             catch( Exception _ex )
             {
@@ -2105,14 +2115,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( !Program.Windows.ContainsKey( "DataGridForm" ) )
-                {
-                    Program.Windows[ "DataGridForm" ] = this;
-                }
-                else
-                {
-                    Program.Windows.Add( "DataGridForm", this );
-                }
+                Program.Windows[ "DataGridForm" ] = this;
             }
             catch( Exception _ex )
             {

@@ -1126,7 +1126,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows[ "Main" ];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -2258,15 +2258,15 @@ namespace BudgetExecution
                 {
                     Owner.Visible = true;
                     Owner.Refresh( );
-                    ClearSelections( );
-                    ClearCollections( );
-                    SelectedTable = string.Empty;
                     Visible = false;
                 }
                 else
                 {
-                    var _main = new MainForm( );
-                    _main.Show( );
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
+                    _mainForm.Refresh( );
+                    _mainForm.Visible = true;
+                    ClearData( );
+                    Owner = _mainForm;
                     Visible = false;
                 }
             }
@@ -2339,10 +2339,7 @@ namespace BudgetExecution
         {
             try
             {
-                if( !Program.Windows.ContainsKey( "ChartDataForm" ) )
-                {
-                    Program.Windows[ "ChartDataForm" ] = this;
-                }
+                Program.Windows[ "ChartDataForm" ] = this;
             }
             catch( Exception ex )
             {

@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-08-2023
 // ******************************************************************************************
 // <copyright file="PdfForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -48,7 +48,6 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Pdf.Parsing;
     using Syncfusion.Windows.Forms;
@@ -60,6 +59,8 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class PdfForm : MetroForm
     {
         /// <summary>
@@ -162,58 +163,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                DirectoryPath = ConfigurationManager.AppSettings[ "Documents" ];
-                var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
-                HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
-                HeaderLabel.Text = "Budget Guidance";
-                DataTable = new DataBuilder( Source.Resources, Provider.Access ).DataTable;
-                Document = new PdfLoadedDocument( _path );
-                DocViewer.Load( Document );
-                PopulateItems( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [main menu button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnMainMenuButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenMainForm( );
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Fails the specified ex.
-        /// </summary>
-        /// <param name="ex">The ex.</param>
-        private protected void Fail( Exception ex )
-        {
-            using var _error = new ErrorDialog( ex );
-            _error?.SetText( );
-            _error?.ShowDialog( );
-        }
-
-        /// <summary>
         /// Populates the items.
         /// </summary>
         private void PopulateItems( )
@@ -223,15 +172,29 @@ namespace BudgetExecution
                 var _criteria = new Dictionary<string, object>( );
                 _criteria.Add( "FileExtension", "PDF" );
                 var _dataRows = DataTable.Filter( _criteria );
-                foreach( var row in _dataRows )
+                foreach( var _row in _dataRows )
                 {
-                    var _name = row[ "Caption" ].ToString( );
+                    var _name = _row[ "Caption" ].ToString( );
                     ListBox.Items.Add( _name );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -259,9 +222,9 @@ namespace BudgetExecution
                     Close( );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -273,23 +236,33 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ExcelDataForm ) ) == true )
+                if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
-                    var _excelDataForm = _forms?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )?.First( );
+                    var _excelDataForm = (ExcelDataForm)_forms
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
+                        ?.First( );
+
+                    _excelDataForm.Owner = this;
+                    _excelDataForm = new ExcelDataForm( BindingSource );
                     _excelDataForm.Visible = true;
                     Visible = false;
                 }
-                else
+                else if( !Program.Windows.ContainsKey( "ExcelDataForm" )
+                        && Program.Windows.ContainsKey( "MainForm" ) )
                 {
+                    var _mainForm = (MainForm)_forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
+                        ?.First( );
+
                     var _excelDataForm = new ExcelDataForm( BindingSource );
-                    _excelDataForm.Owner = this;
+                    _excelDataForm.Owner = _mainForm;
                     _excelDataForm.Show( );
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -301,23 +274,34 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( DataGridForm ) ) == true )
+                if( Program.Windows.ContainsKey( "DataGridForm" ) )
                 {
-                    var _dataGridForm = _forms?.Where( f => f.GetType( ) == typeof( DataGridForm ) )?.First( );
+                    var _dataGridForm = (DataGridForm)_forms
+                        ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
+                        ?.First( );
+
+                    _dataGridForm.Owner = this;
+                    _dataGridForm.ClearData( );
+                    _dataGridForm.Refresh( );
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }
-                else
+                else if( !Program.Windows.ContainsKey( "DataGridForm" ) 
+                        && Program.Windows.ContainsKey( "MainForm" ) )
                 {
-                    var _dataGridForm = new DataGridForm( );
-                    _dataGridForm.Owner = this;
+                    var _mainForm = (MainForm)_forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
+                        ?.First( );
+
+                    var _dataGridForm = new DataGridForm( BindingSource );
+                    _dataGridForm.Owner = _mainForm;
                     _dataGridForm.Show( );
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -329,23 +313,75 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                if( Program.Windows.ContainsKey( "ChartDataForm" ) )
                 {
-                    var _chartDataForm = _forms?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )?.First( );
+                    var _chartDataForm = (ChartDataForm)_forms
+                        ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
+                        ?.First( );
+
+                    _chartDataForm.Owner = this;
+                    _chartDataForm.ClearData( );
+                    _chartDataForm.Refresh( );
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
-                else
+                else if( ! Program.Windows.ContainsKey( "ChartDataForm" ) 
+                        && Program.Windows.ContainsKey( "MainForm" ) )
                 {
+                    var _mainForm = (MainForm)_forms
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
+                        ?.First( );
+
                     var _chartDataForm = new ChartDataForm( BindingSource );
-                    _chartDataForm.Owner = this;
+                    _chartDataForm.Owner = _mainForm;
                     _chartDataForm.Show( );
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                DirectoryPath = ConfigurationManager.AppSettings["Documents"];
+                var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
+                HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
+                HeaderLabel.Text = "Budget Guidance";
+                DataTable = new DataBuilder( Source.Resources, Provider.Access ).DataTable;
+                Document = new PdfLoadedDocument( _path );
+                DocViewer.Load( Document );
+                PopulateItems( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnMainMenuButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenMainForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -360,9 +396,9 @@ namespace BudgetExecution
             {
                 OpenDataGridForm( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -377,9 +413,9 @@ namespace BudgetExecution
             {
                 OpenExcelDataForm( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -394,9 +430,9 @@ namespace BudgetExecution
             {
                 OpenChartDataForm( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -412,8 +448,8 @@ namespace BudgetExecution
                 if( ( Owner != null )
                    && ( Owner.Visible == false ) )
                 {
-                    Owner.Visible = true;
                     Owner.Refresh( );
+                    Owner.Visible = true;
                     Close( );
                 }
                 else
@@ -421,9 +457,9 @@ namespace BudgetExecution
                     Close( );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -448,9 +484,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -463,18 +499,11 @@ namespace BudgetExecution
         {
             try
             {
-                if( !Program.Windows.ContainsKey( "PdfForm" ) )
-                {
-                    Program.Windows[ "PdfForm" ] = this;
-                }
-                else
-                {
-                    Program.Windows.Add( "PdfForm", this );
-                }
+                Program.Windows[ "PdfForm" ] = this;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -492,9 +521,9 @@ namespace BudgetExecution
                     Program.Windows.Remove( "PdfForm" );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -504,13 +533,13 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         private void OnListBoxItemSelected( object sender )
         {
-            if( sender is ListBox listBox
+            if( sender is ListBox _listBox
                && ( DataTable != null ) )
             {
                 try
                 {
                     var _data = DataTable.AsEnumerable( );
-                    var _caption = listBox.SelectedValue.ToString( );
+                    var _caption = _listBox.SelectedValue.ToString( );
                     var _file = _data
                         ?.Where( p => p.Field<string>( "Caption" ).Equals( _caption ) )
                         ?.Select( p => p.Field<string>( "Location" ) )
@@ -522,11 +551,22 @@ namespace BudgetExecution
                     Document = new PdfLoadedDocument( _path );
                     DocViewer.Load( Document );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
+        }
+
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
+        {
+            using var _error = new ErrorDialog( ex );
+            _error?.SetText( );
+            _error?.ShowDialog( );
         }
     }
 }
