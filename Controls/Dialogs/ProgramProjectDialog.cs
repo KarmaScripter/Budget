@@ -53,12 +53,12 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "AutoPropertyCanBeMadeGetOnly.Global" )]
     public partial class ProgramProjectDialog : MetroForm
     {
         /// <summary>
@@ -210,7 +210,7 @@ namespace BudgetExecution
                 BindingSource.DataSource = DataTable;
                 Current = BindingSource.GetCurrentDataRow( );
                 Header.ForeColor = Color.FromArgb( 0, 120, 212 );
-                Header.Text = Current[ "ProgramTitle" ].ToString( );
+                Header.Text = Current["ProgramTitle"].ToString( );
                 if( !string.IsNullOrEmpty( SelectedProgram ) )
                 {
                     FormFilter.Add( "Code", SelectedProgram );
@@ -220,9 +220,9 @@ namespace BudgetExecution
                 DescriptionTable.CaptionText = "Program Description";
                 BindData( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -237,9 +237,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -257,13 +257,13 @@ namespace BudgetExecution
                 var _list = _search.GetResults( );
                 ProgramDescriptionTextBox.Text = string.Empty;
                 var _results = new StringBuilder( );
-                foreach( var item in _list )
+                foreach( var _item in _list )
                 {
                     _results.Append( "Title : " );
-                    _results.Append( item.Title );
+                    _results.Append( _item.Title );
                     _results.Append( Environment.NewLine );
                     _results.Append( "Link : " );
-                    _results.Append( item.Link );
+                    _results.Append( _item.Link );
                     _results.Append( Environment.NewLine );
                     _results.Append( Environment.NewLine );
                 }
@@ -271,9 +271,9 @@ namespace BudgetExecution
                 DescriptionTable.CaptionText = "Web Search Results";
                 ProgramDescriptionTextBox.Text = _results.ToString( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -288,9 +288,9 @@ namespace BudgetExecution
                 ProgramAreaTable.CaptionText = "Program Area - ";
                 ProgramProjectTable.CaptionText = "Program Project - ";
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -304,13 +304,13 @@ namespace BudgetExecution
             try
             {
                 var _data = BindingSource.GetCurrentDataRow( );
-                Header.Text = _data[ "ProgramTitle" ].ToString( );
-                ProgramAreaTable.CaptionText = "Program Area - " + _data[ "ProgramAreaCode" ];
-                ProgramProjectTable.CaptionText = "Program Project - " + _data[ "Code" ];
+                Header.Text = _data["ProgramTitle"].ToString( );
+                ProgramAreaTable.CaptionText = "Program Area - " + _data["ProgramAreaCode"];
+                ProgramProjectTable.CaptionText = "Program Project - " + _data["Code"];
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -332,9 +332,9 @@ namespace BudgetExecution
                     var _description = new Binding( "Text", BindingSource, "Description" );
                     ProgramDescriptionTextBox.DataBindings.Add( _description );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -352,9 +352,9 @@ namespace BudgetExecution
                 {
                     ContextMenu.Show( this, e.Location );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

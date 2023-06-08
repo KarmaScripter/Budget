@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-08-2023
 // ******************************************************************************************
 // <copyright file="TextBox.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -111,7 +111,7 @@ namespace BudgetExecution
             // Wire Events
             MouseDown += OnMouseDown;
         }
-        
+
         /// <summary> Called when [text box mouse enter]. </summary>
         /// <param name="sender"> The sender. </param>
         /// <param name="e">
@@ -121,14 +121,19 @@ namespace BudgetExecution
         /// </param>
         public virtual void OnMouseDown( object sender, MouseEventArgs e )
         {
-            if( !string.IsNullOrEmpty( Text ) 
+            if( !string.IsNullOrEmpty( Text )
                && ( e.Button == MouseButtons.Left ) )
             {
                 try
                 {
-                    if( ( Text.Length >= 6 )
-                       && ( Text.Length <= 9 ) 
-                       && ( Text.Substring( 0, 3 ) == "000" ) )
+                    if( Text.Length >= 24 )
+                    {
+                        var _text = new TextDialog( Text );
+                        _text.ShowDialog( );
+                    }
+                    else if( ( Text.Length >= 6 )
+                            && ( Text.Length <= 9 )
+                            && ( Text.Substring( 0, 3 ) == "000" ) )
                     {
                         var _code = Text.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );

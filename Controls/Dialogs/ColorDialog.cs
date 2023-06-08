@@ -103,9 +103,9 @@ namespace BudgetExecution
             {
                 CloseButton.Click += OnCloseButtonClicked;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -122,9 +122,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

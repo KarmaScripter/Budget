@@ -683,6 +683,7 @@ namespace BudgetExecution
                     {
                         switch( type )
                         {
+                            case ToolType.EditTextButton:
                             case ToolType.AddTableButton:
                             case ToolType.DeleteTableButton:
                             case ToolType.EditRecordButton:
@@ -1125,8 +1126,7 @@ namespace BudgetExecution
                 TableListBox.Items?.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
+                var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )
                     ?.OrderBy( r => r.Field<string>( "Title" ) )
                     ?.Select( r => r.Field<string>( "Title" ) )
                     ?.ToList( );
@@ -1248,7 +1248,7 @@ namespace BudgetExecution
                 if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
                     var _excelDataForm = (ExcelDataForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
+                        ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
                         ?.First( );
 
                     _excelDataForm.Owner = this;
@@ -1256,11 +1256,11 @@ namespace BudgetExecution
                     _excelDataForm.Visible = true;
                     Visible = false;
                 }
-                else if( !Program.Windows.ContainsKey( "ExcelDataForm" ) 
+                else if( !Program.Windows.ContainsKey( "ExcelDataForm" )
                         && Program.Windows.ContainsKey( "MainForm" ) )
                 {
                     var _mainForm = (MainForm)_forms
-                        ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
+                        ?.Where( f => f.GetType( ) == typeof( MainForm ) )
                         ?.First( );
 
                     var _excelDataForm = new ExcelDataForm( BindingSource );

@@ -219,9 +219,9 @@ namespace BudgetExecution
                 SecondButton.Click += OnClearButtonClick;
                 SetEditorConfiguration( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -240,9 +240,9 @@ namespace BudgetExecution
                 Commands = CreateCommandList( Provider );
                 PopulateSqlComboBox( Commands );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -305,9 +305,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -358,9 +358,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -395,9 +395,9 @@ namespace BudgetExecution
 
                 return default( IList<string> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IList<string> );
             }
         }
@@ -432,9 +432,9 @@ namespace BudgetExecution
 
                 return default( IList<string> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IList<string> );
             }
         }
@@ -449,9 +449,9 @@ namespace BudgetExecution
             {
                 return string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return string.Empty;
             }
         }
@@ -473,9 +473,9 @@ namespace BudgetExecution
                         SetProvider( _tag );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -532,9 +532,9 @@ namespace BudgetExecution
                     | AnchorStyles.Left
                     | AnchorStyles.Right;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -577,9 +577,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -620,9 +620,9 @@ namespace BudgetExecution
                         SqlEditor.Text = _text;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -638,9 +638,9 @@ namespace BudgetExecution
             {
                 ClearSelections( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -657,9 +657,9 @@ namespace BudgetExecution
                 {
                     ContextMenu.Show( this, e.Location );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

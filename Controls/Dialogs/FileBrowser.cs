@@ -186,9 +186,9 @@ namespace BudgetExecution
                     ClearRadioButtons( );
                     SetRadioButtonEvents( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -205,19 +205,19 @@ namespace BudgetExecution
                 {
                     FileList.Items.Clear( );
                     var _paths = filePaths.ToArray( );
-                    for( var i = 0; i < _paths.Length; i++ )
+                    for( var _i = 0; _i < _paths.Length; _i++ )
                     {
-                        var path = _paths[ i ];
-                        if( !string.IsNullOrEmpty( path ) )
+                        var _path = _paths[ _i ];
+                        if( !string.IsNullOrEmpty( _path ) )
                         {
-                            FileList?.Items.Add( path );
+                            FileList?.Items.Add( _path );
                         }
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -239,15 +239,15 @@ namespace BudgetExecution
                         {
                             var _extension = FileExtension.TrimStart( '.' ).ToUpper( );
                             var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
-                            using var stream = File.Open( _file, FileMode.Open );
-                            var _img = Image.FromStream( stream );
+                            using var _stream = File.Open( _file, FileMode.Open );
+                            var _img = Image.FromStream( _stream );
                             return new Bitmap( _img, 22, 22 );
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( Bitmap );
                 }
             }
@@ -262,15 +262,15 @@ namespace BudgetExecution
         {
             try
             {
-                foreach( var radioButton in RadioButtons )
+                foreach( var _radioButton in RadioButtons )
                 {
-                    radioButton.CheckedChanged += null;
-                    radioButton.CheckState = CheckState.Unchecked;
+                    _radioButton.CheckedChanged += null;
+                    _radioButton.CheckState = CheckState.Unchecked;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -281,14 +281,14 @@ namespace BudgetExecution
         {
             try
             {
-                foreach( var radioButton in RadioButtons )
+                foreach( var _radioButton in RadioButtons )
                 {
-                    radioButton.CheckedChanged += OnRadioButtonSelected;
+                    _radioButton.CheckedChanged += OnRadioButtonSelected;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -303,20 +303,20 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new List<string>( );
-                    foreach( var path in InitialDirPaths )
+                    foreach( var _filePath in InitialDirPaths )
                     {
-                        var _first = GetFiles( path )
+                        var _first = GetFiles( _filePath )
                             ?.Where( f => f.EndsWith( FileExtension ) )
                             ?.Select( f => Path.GetFullPath( f ) )
                             ?.ToList( );
                         
                         _list.AddRange( _first );
-                        var _dirs = GetDirectories( path );
-                        foreach( var dir in _dirs )
+                        var _dirs = GetDirectories( _filePath );
+                        foreach( var _dir in _dirs )
                         {
-                            if( !dir.Contains( "My " ) )
+                            if( !_dir.Contains( "My " ) )
                             {
-                                var _second = GetFiles( dir )
+                                var _second = GetFiles( _dir )
                                     ?.Where( s => s.EndsWith( FileExtension ) )
                                     ?.Select( s => Path.GetFullPath( s ) )
                                     ?.ToList( );
@@ -326,14 +326,14 @@ namespace BudgetExecution
                                     _list.AddRange( _second );
                                 }
 
-                                var _subDir = GetDirectories( dir );
-                                for( var i = 0; i < _subDir.Length; i++ )
+                                var _subDir = GetDirectories( _dir );
+                                for( var _i = 0; _i < _subDir.Length; _i++ )
                                 {
-                                    var _path = _subDir[ i ];
+                                    var _path = _subDir[ _i ];
                                     if( !string.IsNullOrEmpty( _path ) )
                                     {
-                                        var _last = GetFiles( _path )?
-                                            .Where( l => l.EndsWith( FileExtension ) )
+                                        var _last = GetFiles( _path )
+                                            ?.Where( l => l.EndsWith( FileExtension ) )
                                             ?.Select( l => Path.GetFullPath( l ) )
                                             ?.ToList( );
                                         
@@ -351,9 +351,9 @@ namespace BudgetExecution
                         ? _list
                         : default( IEnumerable<string> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<string> );
                 }
             }
@@ -385,9 +385,9 @@ namespace BudgetExecution
                     Picture.Image = GetImage( );
                     FoundLabel.Text = "Found: " + _paths?.ToList( )?.Count ?? "0";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -420,9 +420,9 @@ namespace BudgetExecution
                     ? _list
                     : default( IEnumerable<RadioButton> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<RadioButton> );
             }
         }
@@ -449,9 +449,9 @@ namespace BudgetExecution
                     ? _list
                     : default( IEnumerable<string> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -465,14 +465,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    foreach( var path in FilePaths )
+                    foreach( var _path in FilePaths )
                     {
-                        FileList.Items.Add( path );
+                        FileList.Items.Add( _path );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -483,17 +483,17 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         private protected virtual void OnPathSelected( object sender )
         {
-            if( sender is ListBox listBox
-               && !string.IsNullOrEmpty( listBox.SelectedItem?.ToString( ) ) )
+            if( sender is ListBox _listBox
+               && !string.IsNullOrEmpty( _listBox.SelectedItem?.ToString( ) ) )
             {
                 try
                 {
-                    SelectedPath = listBox.SelectedItem?.ToString( );
+                    SelectedPath = _listBox.SelectedItem?.ToString( );
                     MessageLabel.Text = SelectedPath;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -525,9 +525,9 @@ namespace BudgetExecution
                         SelectedPath = _selectedPath;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -545,9 +545,9 @@ namespace BudgetExecution
                 {
                     Close( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

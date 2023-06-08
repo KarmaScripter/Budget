@@ -188,9 +188,9 @@ namespace BudgetExecution
             {
                 UpdateHeaderText( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -211,9 +211,9 @@ namespace BudgetExecution
                 Fields = DataModel.Fields;
                 Numerics = DataModel.Numerics;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -228,17 +228,17 @@ namespace BudgetExecution
                 var _selections = string.Empty;
                 if( SelectedColumns?.Any( ) == true )
                 {
-                    foreach( var item in SelectedColumns )
+                    foreach( var _item in SelectedColumns )
                     {
-                        _selections += $"{item}, ";
+                        _selections += $"{_item}, ";
                     }
 
                     var _trimmed = _selections?.TrimEnd( ", ".ToCharArray( ) );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -253,9 +253,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

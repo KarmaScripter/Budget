@@ -49,10 +49,10 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm"/>
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
     public partial class CalculationForm : MetroForm
     {
         /// <summary> Gets or sets the initial value. </summary>

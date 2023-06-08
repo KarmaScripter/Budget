@@ -149,9 +149,9 @@ namespace BudgetExecution
                     ColumnListBox?.Items?.Clear( );
                     if( Grid?.Columns != null )
                     {
-                        foreach( DataGridViewColumn c in Grid.Columns )
+                        foreach( DataGridViewColumn _c in Grid.Columns )
                         {
-                            ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
+                            ColumnListBox?.Items.Add( _c.HeaderText, _c.Visible );
                         }
                     }
 
@@ -164,9 +164,9 @@ namespace BudgetExecution
                     _columnConfiguration?.ShowDialog( );
                     _columnConfiguration.TopMost = true;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -192,9 +192,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -215,9 +215,9 @@ namespace BudgetExecution
                     _controlHost.Padding = Padding.Empty;
                     return _controlHost;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( ToolStripControlHost );
                 }
             }
@@ -238,9 +238,9 @@ namespace BudgetExecution
                 {
                     Grid.Columns[ e.Index ].Visible = e.NewValue == CheckState.Checked;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -258,9 +258,9 @@ namespace BudgetExecution
                 {
                     Close( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

@@ -334,27 +334,27 @@ namespace BudgetExecution
                 {
                     if( !string.IsNullOrEmpty( FirstValue ) )
                     {
-                        foreach( var item in Fields )
+                        foreach( var _item in Fields )
                         {
-                            if( !item.Equals( FirstCategory ) )
+                            if( !_item.Equals( FirstCategory ) )
                             {
-                                SecondComboBox.Items.Add( item );
+                                SecondComboBox.Items.Add( _item );
                             }
                         }
                     }
                     else
                     {
-                        foreach( var item in Fields )
+                        foreach( var _item in Fields )
                         {
-                            SecondComboBox.Items.Add( item );
+                            SecondComboBox.Items.Add( _item );
                         }
                     }
 
                     SecondComboBox.SelectedIndex = -1;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -372,19 +372,19 @@ namespace BudgetExecution
                        && !string.IsNullOrEmpty( SecondValue ) )
                     {
                         ThirdComboBox.Items.Clear( );
-                        foreach( var item in Fields )
+                        foreach( var _item in Fields )
                         {
-                            if( !item.Equals( FirstCategory )
-                               && !item.Equals( SecondCategory ) )
+                            if( !_item.Equals( FirstCategory )
+                               && !_item.Equals( SecondCategory ) )
                             {
-                                ThirdComboBox.Items.Add( item );
+                                ThirdComboBox.Items.Add( _item );
                             }
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -403,20 +403,20 @@ namespace BudgetExecution
                        && !string.IsNullOrEmpty( ThirdValue ) )
                     {
                         FourthComboBox.Items.Clear( );
-                        foreach( var item in Fields )
+                        foreach( var _item in Fields )
                         {
-                            if( !item.Equals( FirstCategory )
-                               && !item.Equals( SecondCategory )
-                               && !item.Equals( ThirdCategory ) )
+                            if( !_item.Equals( FirstCategory )
+                               && !_item.Equals( SecondCategory )
+                               && !_item.Equals( ThirdCategory ) )
                             {
-                                FourthComboBox.Items.Add( item );
+                                FourthComboBox.Items.Add( _item );
                             }
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -430,14 +430,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    foreach( var item in Fields )
+                    foreach( var _item in Fields )
                     {
-                        FirstComboBox.Items.Add( item );
+                        FirstComboBox.Items.Add( _item );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -457,27 +457,27 @@ namespace BudgetExecution
                 var _names = _data?.Where( r => r.Field<string>( "Model" ).Equals( "EXECUTION" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var name = _names[ _i ];
-                    TableListBox.Items.Add( name );
+                    var _name = _names[ _i ];
+                    TableListBox.Items.Add( _name );
                 }
 
                 var _references = _data?.Where( r => r.Field<string>( "Model" ).Equals( "REFERENCE" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
                 for( var _i = 0; _i < _references?.Count - 1; _i++ )
                 {
-                    var name = _references[ _i ];
-                    ReferenceListBox.Items.Add( name );
+                    var _name = _references[ _i ];
+                    ReferenceListBox.Items.Add( _name );
                 }
 
                 var _mx = _data?.Where( r => r.Field<string>( "Model" ).Equals( "MAINTENANCE" ) )?.Select( r => r.Field<string>( "Title" ) )?.ToList( );
                 for( var _i = 0; _i < _mx?.Count - 1; _i++ )
                 {
-                    var name = _mx[ _i ];
-                    MaintenanceListBox.Items.Add( name );
+                    var _name = _mx[ _i ];
+                    MaintenanceListBox.Items.Add( _name );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -510,9 +510,9 @@ namespace BudgetExecution
                         PopulateFirstComboBoxItems( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -546,9 +546,9 @@ namespace BudgetExecution
                     {
                         FirstCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
-                        foreach( var item in _data )
+                        foreach( var _item in _data )
                         {
-                            FirstListBox?.Items?.Add( item );
+                            FirstListBox?.Items?.Add( _item );
                         }
 
                         ClearButton.Visible = true;
@@ -556,9 +556,9 @@ namespace BudgetExecution
                         SelectButton.Visible = true;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -582,9 +582,9 @@ namespace BudgetExecution
                     FormFilter.Add( FirstCategory, FirstValue );
                     PopulateSecondComboBoxItems( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -617,9 +617,9 @@ namespace BudgetExecution
                     {
                         SecondCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
-                        foreach( var item in _data )
+                        foreach( var _item in _data )
                         {
-                            SecondListBox.Items.Add( item );
+                            SecondListBox.Items.Add( _item );
                         }
 
                         ClearButton.Visible = true;
@@ -627,9 +627,9 @@ namespace BudgetExecution
                         SelectButton.Visible = true;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -654,9 +654,9 @@ namespace BudgetExecution
                     FormFilter.Add( SecondCategory, SecondValue );
                     PopulateThirdComboBoxItems( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -683,9 +683,9 @@ namespace BudgetExecution
                         ThirdListBox.Items.Clear( );
                         ThirdCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
-                        foreach( var item in _data )
+                        foreach( var _item in _data )
                         {
-                            ThirdListBox.Items.Add( item );
+                            ThirdListBox.Items.Add( _item );
                         }
 
                         ClearButton.Visible = true;
@@ -693,9 +693,9 @@ namespace BudgetExecution
                         SelectButton.Visible = true;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -722,9 +722,9 @@ namespace BudgetExecution
                     SqlQuery = $"SELECT * FROM {Source} " + $"WHERE {FormFilter.ToCriteria( )};";
                     PopulateFourthComboBoxItems( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -749,9 +749,9 @@ namespace BudgetExecution
                         FourthListBox.Items.Clear( );
                         FourthCategory = _filter;
                         var _data = DataModel.DataElements[ _filter ];
-                        foreach( var item in _data )
+                        foreach( var _item in _data )
                         {
-                            FourthListBox.Items.Add( item );
+                            FourthListBox.Items.Add( _item );
                         }
 
                         ClearButton.Visible = true;
@@ -759,9 +759,9 @@ namespace BudgetExecution
                         SelectButton.Visible = true;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -788,9 +788,9 @@ namespace BudgetExecution
                     FormFilter.Add( FourthCategory, FourthValue );
                     SqlQuery = $"SELECT * FROM {Source} " + $"WHERE {FormFilter.ToCriteria( )};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -815,9 +815,9 @@ namespace BudgetExecution
                         TabControl.SelectedIndex = 1;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -837,9 +837,9 @@ namespace BudgetExecution
                     SqlTextBox.Text = SqlQuery;
                     Close( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -859,9 +859,9 @@ namespace BudgetExecution
                     PopulateFieldListBox( );
                     PopulateNumericListBox( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -889,9 +889,9 @@ namespace BudgetExecution
 
                     Close( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -938,9 +938,9 @@ namespace BudgetExecution
                     Provider = Provider.Access;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -961,9 +961,9 @@ namespace BudgetExecution
                 SqlServerRadioButton.Tag = "SqlServer";
                 SqlServerRadioButton.HoverText = "Sql Server Provider";
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -996,9 +996,9 @@ namespace BudgetExecution
                     Provider = Provider.Access;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return Provider.Access;
             }
 
@@ -1037,9 +1037,9 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -1101,9 +1101,9 @@ namespace BudgetExecution
                     FirstTable.Visible = true;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -1134,9 +1134,9 @@ namespace BudgetExecution
                     SelectedNumerics.Clear( );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -1153,9 +1153,9 @@ namespace BudgetExecution
                 {
                     return $"SELECT * FROM {Source}" + $" WHERE {where.ToCriteria( )}";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -1180,14 +1180,14 @@ namespace BudgetExecution
                 {
                     var _cols = string.Empty;
                     var _aggr = string.Empty;
-                    foreach( var name in fields )
+                    foreach( var _name in fields )
                     {
-                        _cols += $"{name}, ";
+                        _cols += $"{_name}, ";
                     }
 
-                    foreach( var metric in numerics )
+                    foreach( var _metric in numerics )
                     {
-                        _aggr += $"SUM({metric}) AS {metric}, ";
+                        _aggr += $"SUM({_metric}) AS {_metric}, ";
                     }
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
@@ -1197,9 +1197,9 @@ namespace BudgetExecution
                         + $"WHERE {_criteria} " 
                         + $"GROUP BY {_groups};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -1223,9 +1223,9 @@ namespace BudgetExecution
                 try
                 {
                     var _cols = string.Empty;
-                    foreach( var name in columns )
+                    foreach( var _name in columns )
                     {
-                        _cols += $"{name}, ";
+                        _cols += $"{_name}, ";
                     }
 
                     var _criteria = where.ToCriteria( );
@@ -1234,9 +1234,9 @@ namespace BudgetExecution
                         + $"WHERE {_criteria} " 
                         + $"GROUP BY {_names} ;";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -1263,9 +1263,9 @@ namespace BudgetExecution
                         FieldListBox.Items.Add( _item );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -1292,9 +1292,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -1322,9 +1322,9 @@ namespace BudgetExecution
                     Fields = DataModel.Fields;
                     Numerics = DataModel.Numerics;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -1351,9 +1351,9 @@ namespace BudgetExecution
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -1382,9 +1382,9 @@ namespace BudgetExecution
                     Fields = DataModel?.Fields;
                     Numerics = DataModel?.Numerics;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -1410,9 +1410,9 @@ namespace BudgetExecution
                     GroupHeader.Text = "Aggregate Columns";
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -1434,9 +1434,9 @@ namespace BudgetExecution
                 SqlQuery = GetSqlText( SelectedColumns, FormFilter );
                 SqlTextBox.Text = SqlQuery;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -1457,9 +1457,9 @@ namespace BudgetExecution
                 SqlQuery = GetSqlText( SelectedFields, SelectedNumerics, FormFilter );
                 SqlTextBox.Text = SqlQuery;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -1476,9 +1476,9 @@ namespace BudgetExecution
                 {
                     ContextMenu.Show( this, e.Location );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -1500,9 +1500,9 @@ namespace BudgetExecution
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _tag );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -1574,9 +1574,9 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

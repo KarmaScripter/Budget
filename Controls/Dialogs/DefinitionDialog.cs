@@ -171,9 +171,9 @@ namespace BudgetExecution
                 PopulateDataTypeComboBoxItems( );
                 SetActiveTab( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -195,13 +195,13 @@ namespace BudgetExecution
                 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var name = _names[ _i ];
-                    TableNameComboBox.Items.Add( name );
+                    var _name = _names[ _i ];
+                    TableNameComboBox.Items.Add( _name );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -217,17 +217,17 @@ namespace BudgetExecution
                     DataTypeComboBox.Items.Clear( );
                     DataTypeComboBox.SelectedText = string.Empty;
                     var _types = DataTypes.ToArray( );
-                    for( var i = 0; i < _types?.Length; i++ )
+                    for( var _i = 0; _i < _types?.Length; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( _types[ i ] ) )
+                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
                         {
-                            DataTypeComboBox.Items.Add( _types[ i ] );
+                            DataTypeComboBox.Items.Add( _types[ _i ] );
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -238,11 +238,11 @@ namespace BudgetExecution
         /// <param name="sender">The sender.</param>
         public virtual void OnProviderButtonChecked( object sender )
         {
-            if( sender is RadioButton button )
+            if( sender is RadioButton _button )
             {
                 try
                 {
-                    var _name = button.Tag?.ToString( );
+                    var _name = _button.Tag?.ToString( );
                     if( !string.IsNullOrEmpty( _name ) )
                     {
                         Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
@@ -251,9 +251,9 @@ namespace BudgetExecution
                         PopulateTableComboBoxItems( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -319,9 +319,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -337,12 +337,12 @@ namespace BudgetExecution
                 try
                 {
                     var _tabPages = new Dictionary<string, TabPageAdv>( );
-                    foreach( TabPageAdv page in TabControl.TabPages )
+                    foreach( TabPageAdv _page in TabControl.TabPages )
                     {
-                        if( ( page != null )
-                           && !string.IsNullOrEmpty( page.Name ) )
+                        if( ( _page != null )
+                           && !string.IsNullOrEmpty( _page.Name ) )
                         {
-                            _tabPages.Add( page.Name, page );
+                            _tabPages.Add( _page.Name, _page );
                         }
                     }
 
@@ -350,9 +350,9 @@ namespace BudgetExecution
                         ? _tabPages
                         : default( IDictionary<string, TabPageAdv> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, TabPageAdv> );
                 }
             }
@@ -373,9 +373,9 @@ namespace BudgetExecution
                 {
                     ContextMenu.Show( this, e.Location );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

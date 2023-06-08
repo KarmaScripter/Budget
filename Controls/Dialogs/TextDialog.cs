@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
 //     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 03-24-2023
+//     Created:                 06-08-2023
 // 
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        06-08-2023
 // ******************************************************************************************
-// <copyright file="Message.cs" company="Terry D. Eppler">
+// <copyright file="TextDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,30 +34,31 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   Message.cs
+//   TextDialog.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using Syncfusion.Drawing;
+    using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.Edit;
+    using Syncfusion.Windows.Forms.Edit.Enums;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
-    using Syncfusion.Windows.Forms;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    public partial class Message : MetroForm
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    public partial class TextDialog : MetroForm
     {
-        /// <summary> </summary>
-        public Message( )
+        public TextDialog( )
         {
             InitializeComponent( );
-            Size = new Size( 700, 400 );
-            MinimumSize = new Size( 700, 400 );
-            MaximumSize = new Size( 700, 400 );
+            Size = new Size( 650, 250 );
+            MinimumSize = new Size( 650, 250 );
+            MaximumSize = new Size( 650, 250 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
             FormBorderStyle = FormBorderStyle.FixedSingle;
             BorderThickness = 1;
@@ -71,56 +72,71 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
             Enabled = true;
-            Visible = true;
 
-            // Control Properties
-            CloseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            CloseButton.Text = "Close";
-            CloseButton.ForeColor = Color.FromArgb( 0, 120, 212 );
-            CloseButton.BackColor = Color.FromArgb( 20, 20, 20 );
-            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
-            CloseButton.Focus( );
+            // Editor SettingsEditor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Editor.AlwaysShowScrollers = true;
+            Editor.BackColor = SystemColors.ControlLight;
+            Editor.ForeColor = Color.Black;
+            Editor.BackgroundColor = new BrushInfo( SystemColors.ControlLight );
+            Editor.BorderStyle = BorderStyle.FixedSingle;
+            Editor.CanOverrideStyle = true;
+            Editor.CanApplyTheme = true;
+            Editor.ColumnGuidesMeasuringFont = new Font( "Roboto", 8 );
+            Editor.ContextChoiceFont = new Font( "Roboto", 8 );
+            Editor.ContextChoiceForeColor = Color.Black;
+            Editor.ContextChoiceBackColor = SystemColors.ControlLight;
+            Editor.ContextPromptBorderColor = Color.FromArgb( 0, 120, 212 );
+            Editor.ContextPromptBackgroundBrush =
+                new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
 
-            //Event Wiring
+            Editor.ContextTooltipBackgroundBrush =
+                new BrushInfo( Color.FromArgb( 233, 166, 50 ) );
+
+            Editor.ContextTooltipBorderColor = Color.FromArgb( 0, 120, 212 );
+            Editor.EndOfLineBackColor = SystemColors.ControlLight;
+            Editor.EndOfLineForeColor = SystemColors.ControlLight;
+            Editor.HighlightCurrentLine = true;
+            Editor.IndentationBlockBorderColor = Color.FromArgb( 0, 120, 212 );
+            Editor.IndentLineColor = Color.FromArgb( 50, 93, 129 );
+            Editor.IndicatorMarginBackColor = SystemColors.ControlLight;
+            Editor.CurrentLineHighlightColor = Color.FromArgb( 0, 120, 212 );
+            Editor.Font = new Font( "Roboto", 9 );
+            Editor.LineNumbersColor = Color.Black;
+            Editor.LineNumbersFont = new Font( "Roboto", 8, FontStyle.Bold );
+            Editor.ScrollVisualStyle = ScrollBarCustomDrawStyles.Office2016;
+            Editor.ScrollColorScheme = Office2007ColorScheme.Black;
+            Editor.SelectionTextColor = Color.FromArgb( 50, 93, 129 );
+            Editor.ShowEndOfLine = false;
+            Editor.Style = EditControlStyle.Office2016Black;
+            Editor.TabSize = 4;
+            Editor.WordWrap = true;
+            Editor.WordWrapMarginVisible = true;
+            Editor.WordWrapMode = WordWrapMode.WordWrapMargin;
+            Editor.TextAreaWidth = 550;
+            Editor.UseXPStyle = false;
+            Editor.WordWrapColumn = 25;
+
+            // Wire Events
             CloseButton.Click += OnCloseButtonClick;
-            Load += OnLoad;
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Message"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="TextDialog"/> class.
         /// </summary>
-        /// <param name="text"> The text displayed by the control. </param>
-        public Message( string text )
+        /// <param name="text">The text displayed by the control.</param>
+        public TextDialog( string text )
             : this( )
         {
-            TextBox.Text = Environment.NewLine + text;
-            CloseButton.Focus( );
+            Editor.Text = text;
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Message"/>
-        /// class.
+        /// Sets the editor configuration.
         /// </summary>
-        /// <param name="text"> The text. </param>
-        /// <param name="caption"> The caption. </param>
-        public Message( string text, string caption )
-            : this( text )
-        {
-            Header.Text = caption;
-            CloseButton.Focus( );
-        }
-
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e"> instance containing the event data. </param>
-        public virtual void OnLoad( object sender, EventArgs e )
+        private void SetEditorConfiguration( )
         {
             try
             {
-                Header.ForeColor = Color.FromArgb( 0, 120, 212 );
             }
             catch( Exception _ex )
             {

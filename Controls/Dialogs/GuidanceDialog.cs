@@ -237,9 +237,9 @@ namespace BudgetExecution
                 OpenFileDialog.ShowDialog( );
                 SelectedPath = OpenFileDialog.SafeFileName;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -256,9 +256,9 @@ namespace BudgetExecution
                 var _notification = new Notification( _msg );
                 _notification.Show( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -275,9 +275,9 @@ namespace BudgetExecution
                 var _notification = new Notification( _msg );
                 _notification.Show( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -298,9 +298,9 @@ namespace BudgetExecution
                 PopulateListBox( );
                 SetLabelText( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -312,9 +312,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -333,14 +333,14 @@ namespace BudgetExecution
                 Numerics = DataModel.Numerics;
                 var _data = DataTable.AsEnumerable( );
                 var _names = _data?.Where( r => r.Field<string>( "Type" ).Equals( "DOCUMENT" ) )?.Select( r => r.Field<string>( "Caption" ) )?.ToList( );
-                foreach( var name in _names )
+                foreach( var _name in _names )
                 {
-                    ListBox.Items.Add( name );
+                    ListBox.Items.Add( _name );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -352,9 +352,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -366,9 +366,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -381,9 +381,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -398,9 +398,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

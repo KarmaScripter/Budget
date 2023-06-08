@@ -154,9 +154,9 @@ namespace BudgetExecution
                     TextBox.Text = Exception.ToLogString( _message );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -170,9 +170,9 @@ namespace BudgetExecution
                 var _logString = Exception.ToLogString( "" );
                 TextBox.Text = _logString;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -187,9 +187,9 @@ namespace BudgetExecution
                 var _logString = exc?.ToLogString( "" );
                 TextBox.Text = _logString;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -215,9 +215,9 @@ namespace BudgetExecution
                 {
                     Close( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

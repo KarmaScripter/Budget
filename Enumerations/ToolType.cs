@@ -243,6 +243,11 @@ namespace BudgetExecution
         EditColumnButton,
 
         /// <summary>
+        /// The edit button
+        /// </summary>
+        EditTextButton,
+
+        /// <summary>
         /// The encrypt data button
         /// </summary>
         EncryptDataButton,

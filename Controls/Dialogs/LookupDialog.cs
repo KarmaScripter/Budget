@@ -118,9 +118,9 @@ namespace BudgetExecution
                 SourceTable.CaptionText = TablePrefix + TableListBox.Items.Count;
                 ColumnTable.CaptionText = ColumnPrefix;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -141,13 +141,13 @@ namespace BudgetExecution
                 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var name = _names[ _i ];
-                    TableListBox.Items.Add( name );
+                    var _name = _names[ _i ];
+                    TableListBox.Items.Add( _name );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -172,18 +172,18 @@ namespace BudgetExecution
                     DataModel = new DataBuilder( _source, Provider.Access );
                     BindingSource.DataSource = DataModel.DataTable;
                     var _columns = DataModel.GetDataColumns( );
-                    foreach( var col in _columns )
+                    foreach( var _col in _columns )
                     {
-                        ColumnListBox.Items.Add( col.ColumnName );
+                        ColumnListBox.Items.Add( _col.ColumnName );
                     }
 
                     ColumnTable.CaptionText = ColumnPrefix + ColumnListBox.Items.Count;
                     ValueTable.CaptionText = ValuePrefix;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -201,17 +201,17 @@ namespace BudgetExecution
                 var _series = DataModel.DataElements;
                 if( !string.IsNullOrEmpty( _column ) )
                 {
-                    foreach( var item in _series[ _column ] )
+                    foreach( var _item in _series[ _column ] )
                     {
-                        ValueListBox.Items.Add( item );
+                        ValueListBox.Items.Add( _item );
                     }
                 }
 
                 ValueTable.CaptionText = ValuePrefix + ValueListBox.Items.Count;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
     }

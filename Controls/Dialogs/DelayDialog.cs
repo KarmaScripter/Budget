@@ -152,9 +152,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -172,9 +172,9 @@ namespace BudgetExecution
                 Timer?.Stop( );
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -189,9 +189,9 @@ namespace BudgetExecution
             {
                 Timer?.Dispose( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -206,9 +206,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

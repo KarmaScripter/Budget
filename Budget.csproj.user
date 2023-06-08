@@ -262,6 +262,9 @@
     <Compile Update="Data\Adapter\AdapterFactory.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\Dialogs\TextDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Controls\Dialogs\ColorDialog.resx">
