@@ -303,9 +303,15 @@ namespace BudgetExecution
                     if( CurrentCell.ValueType == typeof( string ) )
                     {
                         var _value = CurrentCell.Value.ToString( );
-                        if( ( _value.Length >= 6 )
-                           && ( _value.Length <= 9 )
-                           && ( _value.Substring( 0, 3 ) == "000" ) )
+                        if( _value.Length > 25 )
+                        {
+                            var _editDialog = new TextDialog( _value );
+                            _editDialog.ShowDialog( );
+                            CurrentCell.Value = _editDialog.Editor.Text;
+                        }
+                        else if( ( _value.Length >= 6 )
+                                && ( _value.Length <= 9 )
+                                && ( _value.Substring( 0, 3 ) == "000" ) )
                         {
                             var _code = _value.Substring( 4, 2 );
                             var _dialog = new ProgramProjectDialog( _code );

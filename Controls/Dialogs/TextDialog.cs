@@ -49,8 +49,8 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Windows.Forms;
 
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class TextDialog : MetroForm
     {
         public TextDialog( )
@@ -117,6 +117,7 @@ namespace BudgetExecution
             Editor.WordWrapColumn = 25;
 
             // Wire Events
+            Load += OnLoad;
             CloseButton.Click += OnCloseButtonClick;
         }
 
@@ -137,6 +138,41 @@ namespace BudgetExecution
         {
             try
             {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Sets the title properties.
+        /// </summary>
+        private void SetTitleProperties( )
+        {
+            try
+            {
+                Title.Font = new Font( "Roboto", 9, FontStyle.Bold );
+                Title.ForeColor = Color.FromArgb( 0, 120, 212 );
+                Title.TextAlign = ContentAlignment.TopLeft;
+                Title.Text = "Text Editor";
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                SetTitleProperties( );
             }
             catch( Exception _ex )
             {

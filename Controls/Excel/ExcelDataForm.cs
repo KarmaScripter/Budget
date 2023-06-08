@@ -225,6 +225,8 @@ namespace BudgetExecution
 
             // Ribbon Properties
             Ribbon.Spreadsheet = Spreadsheet;
+            PictureBox.Size = new Size( 40, 18 );
+            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
             // Event Wiring
             RemoveFiltersButton.Click += null;
@@ -301,7 +303,6 @@ namespace BudgetExecution
                 Header.Font = new Font( "Roboto", 12, FontStyle.Bold );
                 Header.TextAlign = ContentAlignment.TopCenter;
                 Header.MouseClick += OnRightClick;
-                PictureBox.MouseClick += OnRightClick;
                 RemoveFiltersButton.Click += OnRemoveFilterButtonClicked;
                 LookupButton.Click += OnLookupButtonClicked;
                 MenuButton.Click += OnMainMenuButtonClicked;
@@ -554,7 +555,7 @@ namespace BudgetExecution
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }
-                else if( !Program.Windows.ContainsKey( "DataGridForm" ) 
+                else if( !Program.Windows.ContainsKey( "DataGridForm" )
                         && Program.Windows.ContainsKey( "MainForm" ) )
                 {
                     var _mainForm = (MainForm)_forms
@@ -593,7 +594,7 @@ namespace BudgetExecution
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
-                else if( !Program.Windows.ContainsKey( "ChartDataForm" ) 
+                else if( !Program.Windows.ContainsKey( "ChartDataForm" )
                         && Program.Windows.ContainsKey( "MainForm" ) )
                 {
                     var _mainForm = (MainForm)_forms
@@ -638,6 +639,7 @@ namespace BudgetExecution
         /// <param name="e">The
         /// <see cref="EventArgs"/> instance containing the event data.
         /// </param>
+        [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
         public void OnCellEnter( object sender, CurrentCellActivatedEventArgs e )
         {
             try
@@ -647,9 +649,17 @@ namespace BudgetExecution
                 {
                     var _value = Spreadsheet.CurrentCellRange.DisplayText;
                     if( !string.IsNullOrEmpty( _value )
-                       && ( _value.Length >= 6 )
-                       && ( _value.Length <= 9 )
-                       && ( _value.Substring( 0, 3 ) == "000" ) )
+                       && ( _value.Length > 25 ) )
+                    {
+                        var _editDialog = new TextDialog( _value );
+                        _editDialog.ShowDialog( );
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
+                            _editDialog.Editor.Text );
+                    }
+                    else if( !string.IsNullOrEmpty( _value )
+                            && ( _value.Length >= 6 )
+                            && ( _value.Length <= 9 )
+                            && ( _value.Substring( 0, 3 ) == "000" ) )
                     {
                         var _code = _value.Substring( 4, 2 );
                         var _dialog = new ProgramProjectDialog( _code );
@@ -660,7 +670,7 @@ namespace BudgetExecution
                         var _double = Convert.ToDouble( _decimal );
                         var _calculator = new CalculationForm( _double );
                         _calculator.ShowDialog( );
-                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange, 
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
                             _calculator.Calculator.Value.ToString( ) );
                     }
                     else if( double.TryParse( _value, out var _double ) )

@@ -93,10 +93,12 @@ namespace BudgetExecution
             Frames = GetFrames( );
             TabPages = GetTabPages( );
 
-            // Event Wiring
+            // Form Event Wiring
             Load += OnLoad;
-            CloseButton.Click += OnCloseButtonClicked;
             MouseClick += OnRightClick;
+
+            // Control Event Wiring
+            CloseButton.Click += OnCloseButtonClicked;
             TabPage.MouseClick += OnRightClick;
         }
 
@@ -112,7 +114,7 @@ namespace BudgetExecution
             BindingSource = bindingSource;
             DataTable = BindingSource.GetDataTable( );
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
-            DataModel = new DataBuilder( Source, Provider.Access );
+            DataModel = new DataBuilder( Source, Provider );
             Columns = DataTable.GetColumnNames( );
             Current = BindingSource.GetCurrentDataRow( );
             Fields = DataModel?.Fields;
@@ -349,23 +351,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Sets the frame colors.
-        /// </summary>
-        private void SetFrameColors( )
-        {
-            if( Frames?.Any( ) == true )
-            {
-                foreach( var _frame in Frames )
-                {
-                    _frame.Label.ForeColor = Color.LightSteelBlue;
-                    _frame.TextBox.ForeColor = Color.DarkGray;
-                    _frame.TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
-                    _frame.TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
-                }
-            }
-        }
-
-        /// <summary>
         /// Sets the table location.
         /// </summary>
         private void SetTableLocation( )
@@ -439,6 +424,23 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the frame colors.
+        /// </summary>
+        private void SetFrameColors( )
+        {
+            if( Frames?.Any( ) == true )
+            {
+                foreach( var _frame in Frames )
+                {
+                    _frame.Label.ForeColor = Color.LightSteelBlue;
+                    _frame.TextBox.ForeColor = Color.DarkGray;
+                    _frame.TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
+                    _frame.TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
+                }
+            }
+        }
+        
         /// <summary>
         /// Called when [right click].
         /// </summary>

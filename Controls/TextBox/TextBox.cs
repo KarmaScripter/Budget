@@ -53,6 +53,8 @@ namespace BudgetExecution
     /// </summary>
     /// <seealso cref="MetroSet_UI.Controls.MetroSetTextBox" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedVariable" ) ]
+    [ SuppressMessage( "ReSharper", "ConvertIfStatementToSwitchStatement" ) ]
     public class TextBox : MetroSetTextBox
     {
         /// <summary>
@@ -128,8 +130,9 @@ namespace BudgetExecution
                 {
                     if( Text.Length >= 24 )
                     {
-                        var _text = new TextDialog( Text );
-                        _text.ShowDialog( );
+                        var _textDialog = new TextDialog( Text );
+                        _textDialog.ShowDialog( );
+                        Text = _textDialog.Editor.Text;
                     }
                     else if( ( Text.Length >= 6 )
                             && ( Text.Length <= 9 )
