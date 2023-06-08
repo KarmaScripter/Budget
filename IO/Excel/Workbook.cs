@@ -45,7 +45,6 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
-    using System.Threading;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
 
@@ -141,7 +140,8 @@ namespace BudgetExecution
         /// Initializes a new instance of the <see cref="Workbook"/> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
-        public Workbook( string filePath )
+        public Workbook( string filePath ) 
+            : this( )
         {
             FileInfo = new FileInfo( filePath );
             Application = new ExcelPackage( FileInfo );
