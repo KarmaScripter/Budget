@@ -1290,12 +1290,12 @@ namespace BudgetExecution
                         ?.First( );
 
                     _chartDataForm.Owner = this;
-                    _chartDataForm.ClearData( );
+                    _chartDataForm = new ChartDataForm( BindingSource );
                     _chartDataForm.Refresh( );
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
-                else if( !Program.Windows.ContainsKey( "ChartDataForm" ) 
+                else if( !Program.Windows.ContainsKey( "ChartDataForm" )
                         && Program.Windows.ContainsKey( "MainForm" ) )
                 {
                     var _mainForm = (MainForm)_forms
