@@ -199,9 +199,9 @@ namespace BudgetExecution
                     ? Data
                     : default( IDictionary<string, object> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -220,9 +220,9 @@ namespace BudgetExecution
                     ? _amount
                     : 0;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return -1D;
             }
         }
@@ -239,9 +239,9 @@ namespace BudgetExecution
                     ? double.Parse( Value?.ToString( ) ?? "0.0" )
                     : 0.0;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( double );
             }
         }
@@ -258,9 +258,9 @@ namespace BudgetExecution
                     ? (BOC)Enum.Parse( typeof( BOC ), Name )
                     : default( BOC );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( BOC );
             }
         }
@@ -280,9 +280,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ "Code" ] = code };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -294,9 +294,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ "Name" ] = code };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -319,9 +319,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ "Code" ] = boc.ToString( ) };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }

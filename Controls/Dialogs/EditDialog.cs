@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-07-2023
 // ******************************************************************************************
 // <copyright file="EditDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -175,16 +175,16 @@ namespace BudgetExecution
                     var _frames = Frames.ToArray( );
                     for( var _i = 0; _i < _frames.Length; _i++ )
                     {
-                        var frame = _frames[ _i ];
-                        if( frame.Index >= _cols.Length )
+                        var _frame = _frames[ _i ];
+                        if( _frame.Index >= _cols.Length )
                         {
-                            frame.Visible = false;
+                            _frame.Visible = false;
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -200,11 +200,11 @@ namespace BudgetExecution
                 try
                 {
                     var _tabPages = new Dictionary<string, TabPageAdv>( );
-                    foreach( TabPageAdv tabpage in TabControl.TabPages )
+                    foreach( TabPageAdv _tabpage in TabControl.TabPages )
                     {
-                        if( tabpage != null )
+                        if( _tabpage != null )
                         {
-                            _tabPages.Add( tabpage.Name, tabpage );
+                            _tabPages.Add( _tabpage.Name, _tabpage );
                         }
                     }
 
@@ -212,9 +212,9 @@ namespace BudgetExecution
                         ? _tabPages
                         : default( IDictionary<string, TabPageAdv> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, TabPageAdv> );
                 }
             }
@@ -248,9 +248,9 @@ namespace BudgetExecution
                     ? _frames.OrderBy( f => f.Index ).ToArray( )
                     : default( IEnumerable<Frame> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<Frame> );
             }
         }
@@ -270,11 +270,10 @@ namespace BudgetExecution
                 SetFrameDockStyle( );
                 BindRecordData( );
                 SetFrameVisibility( );
-                SetTextBoxHandlers( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -322,9 +321,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -343,9 +342,9 @@ namespace BudgetExecution
                         _frame.Dock = DockStyle.Fill;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -357,25 +356,12 @@ namespace BudgetExecution
         {
             if( Frames?.Any( ) == true )
             {
-                foreach( var frame in Frames )
+                foreach( var _frame in Frames )
                 {
-                    frame.Label.ForeColor = Color.LightSteelBlue;
-                    frame.TextBox.ForeColor = Color.DarkGray;
-                    frame.TextBox.BorderColor = Color.FromArgb( 70, 70, 70 );
-                    frame.TextBox.HoverColor = Color.FromArgb( 70, 70, 70 );
-                }
-            }
-        }
-
-        private void SetTextBoxHandlers( )
-        {
-            if( Frames?.Any( ) == true )
-            {
-                foreach( var frame in Frames )
-                {
-                    frame.TextBox.MouseEnter += OnMouseOver;
-                    frame.TextBox.MouseLeave += OnMouseLeave;
-                    frame.TextBox.MouseClick += OnTextBoxMouseEnter;
+                    _frame.Label.ForeColor = Color.LightSteelBlue;
+                    _frame.TextBox.ForeColor = Color.DarkGray;
+                    _frame.TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
+                    _frame.TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
                 }
             }
         }
@@ -406,9 +392,9 @@ namespace BudgetExecution
                             break;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -427,27 +413,29 @@ namespace BudgetExecution
                     var _items = Current.ItemArray;
                     var _frames = Frames.OrderBy( f => f.Index ).ToArray( );
                     var _cols = Columns.ToArray( );
-                    for( var i = 0; i < _cols.Length; i++ )
+                    for( var _i = 0; _i < _cols.Length; _i++ )
                     {
-                        _frames[ i ].Label.Text = _cols[ i ].SplitPascal( );
-                        var _text = _items[ i ]?.ToString( );
-                        if( ( Numerics?.Contains( _cols[ i ] ) == true )
+                        _frames[ _i ].Label.Text = _cols[ _i ].SplitPascal( );
+                        var _text = _items[ _i ]?.ToString( );
+                        if( ( Numerics?.Contains( _cols[ _i ] ) == true )
                            && !string.IsNullOrEmpty( _text ) )
                         {
                             var _value = double.Parse( _text );
-                            _frames[ i ].TextBox.Text = _value.ToString( "N2" );
-                            _frames[ i ].TextBox.TextAlign = HorizontalAlignment.Right;
+                            _frames[ _i ].TextBox.Font = new Font( "Roboto", 8 );
+                            _frames[ _i ].TextBox.Text = _value.ToString( "N2" );
+                            _frames[ _i ].TextBox.TextAlign = HorizontalAlignment.Right;
                         }
                         else
                         {
-                            _frames[ i ].TextBox.Text = _items[ i ]?.ToString( );
-                            _frames[ i ].TextBox.TextAlign = HorizontalAlignment.Left;
+                            _frames[_i ].TextBox.Font = new Font( "Roboto", 8 );
+                            _frames[ _i ].TextBox.Text = _items[ _i ]?.ToString( );
+                            _frames[ _i ].TextBox.TextAlign = HorizontalAlignment.Left;
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -465,92 +453,11 @@ namespace BudgetExecution
                 {
                     ContextMenu.Show( this, e.Location );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
-        
-        public virtual void OnTextBoxMouseEnter( object sender, EventArgs e )
-        {
-            if( sender is TextBox textBox
-               && !string.IsNullOrEmpty( textBox.Text ) )
-            {
-                try
-                {
-                    double _double;
-                    decimal _decimal;
-                    if( double.TryParse( textBox.Text, out _double ) )
-                    {
-                        var _value = double.Parse( textBox.Text );
-                        var _form = new CalculationForm( _value );
-                        _form.ShowDialog( );
-                        textBox.Text = _form.Calculator.Value.ToString( );
-                    }
-                    else if( decimal.TryParse( textBox.Text, out _decimal ) )
-                    {
-                        var _decimalValue = double.Parse( textBox.Text );
-                        var _form = new CalculationForm( _decimalValue );
-                        _form.ShowDialog( );
-                        textBox.Text = _form.Calculator.Value.ToString( );
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-                catch( Exception ex )
-                {
-                    Fail( ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [mouse over].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs" />
-        /// instance containing the event data.</param>
-        public virtual void OnMouseOver( object sender, EventArgs e )
-        {
-            var _textBox = sender as TextBox;
-            try
-            {
-                if( !string.IsNullOrEmpty( _textBox.Text ) )
-                {
-                    var _hoverText = _textBox.Text;
-                    ToolTip = new SmallTip( _textBox, _hoverText );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [mouse leave].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public virtual void OnMouseLeave( object sender, EventArgs e )
-        {
-            try
-            {
-                if( sender is TextBox _textBox
-                   && ( ToolTip?.Active == true ) )
-                {
-                    ToolTip.RemoveAll( );
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
     }
 }

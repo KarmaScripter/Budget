@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public string Efy { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -223,7 +223,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -253,7 +253,7 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -282,7 +282,7 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
@@ -310,7 +310,7 @@ namespace BudgetExecution
         {
             ID = utilization.ID;
             BFY = utilization.BFY;
-            EFY = utilization.EFY;
+            Efy = utilization.Efy;
             FundCode = utilization.FundCode;
             FundName = utilization.FundName;
             RpioCode = utilization.RpioCode;

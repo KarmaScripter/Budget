@@ -83,9 +83,9 @@ namespace BudgetExecution
                     var _source = new FileInfo( FullPath );
                     _source.MoveTo( filePath );
                 }
-                catch( IOException ex )
+                catch( IOException _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -105,9 +105,9 @@ namespace BudgetExecution
                     _source.CopyTo( filePath );
                 }
             }
-            catch( IOException ex )
+            catch( IOException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -125,9 +125,9 @@ namespace BudgetExecution
                     File.Delete( _file );
                 }
             }
-            catch( IOException ex )
+            catch( IOException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -141,9 +141,9 @@ namespace BudgetExecution
             {
                 return FileSecurity ?? default( FileSecurity );
             }
-            catch( IOException ex )
+            catch( IOException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( FileSecurity );
             }
         }
@@ -161,9 +161,9 @@ namespace BudgetExecution
                     ? new FileInfo( _path )?.Create( )
                     : default( FileStream );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( FileStream );
             }
         }
@@ -182,9 +182,9 @@ namespace BudgetExecution
                     ? Path.GetFullPath( Buffer )
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return string.Empty;
             }
         }

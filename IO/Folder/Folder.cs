@@ -90,9 +90,9 @@ namespace BudgetExecution
                     ? Environment.CurrentDirectory
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -111,9 +111,9 @@ namespace BudgetExecution
                         ? CreateDirectory( fullPath )
                         : default( DirectoryInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( DirectoryInfo );
             }
         }
@@ -132,9 +132,9 @@ namespace BudgetExecution
                     Directory.Delete( folderName, true );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -152,9 +152,9 @@ namespace BudgetExecution
                     ZipFile.CreateFromDirectory( source, destination );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -172,9 +172,9 @@ namespace BudgetExecution
                 {
                     return new DirectoryInfo( FullPath )?.CreateSubdirectory( dirName );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DirectoryInfo );
                 }
             }
@@ -197,9 +197,9 @@ namespace BudgetExecution
                     var _directory = new DirectoryInfo( FullPath );
                     _directory.MoveTo( destination );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -218,9 +218,9 @@ namespace BudgetExecution
                     ZipFile.CreateFromDirectory( FullPath, destination );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -238,9 +238,9 @@ namespace BudgetExecution
                     ZipFile.ExtractToDirectory( zipPath, FullPath );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -259,9 +259,9 @@ namespace BudgetExecution
                     var _directory = new DirectoryInfo( FullPath );
                     _directory?.SetAccessControl( security );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

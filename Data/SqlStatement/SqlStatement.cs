@@ -68,7 +68,7 @@ namespace BudgetExecution
         /// <param name="source"> The source. </param>
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> Type of the command. </param>
-        public SqlStatement( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+        public SqlStatement( Source source, Provider provider, SQL commandType = SQL.Selectall )
             : base( source, provider, commandType )
         {
         }
@@ -110,7 +110,7 @@ namespace BudgetExecution
         /// <param name="where"> </param>
         /// <param name="commandType"> </param>
         public SqlStatement( Source source, Provider provider, IDictionary<string, object> where, 
-            SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.Selectall )
             : base( source, provider, where, commandType )
         {
         }
@@ -195,9 +195,9 @@ namespace BudgetExecution
                     ? CommandText
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return string.Empty;
             }
         }

@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum NPM
     {
         /// <summary> Defines the None </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> Defines the A </summary>
         A,

@@ -55,14 +55,5 @@ namespace BudgetExecution
         /// <summary> Gets the current data row. </summary>
         /// <returns> </returns>
         DataRow GetCurrentDataRow( );
-
-        /// <summary> Called when [right click]. </summary>
-        /// <param name = "sender" > The sender. </param>
-        /// <param name = "e" >
-        /// The
-        /// <see cref = "DataGridViewCellMouseEventArgs"/>
-        /// instance containing the event data.
-        /// </param>
-        void OnRightClick( object sender, DataGridViewCellMouseEventArgs e );
     }
 }

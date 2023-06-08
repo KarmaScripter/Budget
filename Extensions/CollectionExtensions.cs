@@ -69,9 +69,9 @@ namespace BudgetExecution
                     collection.Add( value );
                     return true;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return false;
                 }
             }
@@ -90,14 +90,14 @@ namespace BudgetExecution
             {
                 try
                 {
-                    for( var i = 0; i < values.Length; i++ )
+                    for( var _i = 0; _i < values.Length; _i++ )
                     {
-                        collection.Add( values[ i ] );
+                        collection.Add( values[ _i ] );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -117,9 +117,9 @@ namespace BudgetExecution
             {
                 return !( collection?.Count > 0 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -136,9 +136,9 @@ namespace BudgetExecution
                 {
                     collection.Remove( value );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -159,9 +159,9 @@ namespace BudgetExecution
                         collection.Remove( _item );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -182,9 +182,9 @@ namespace BudgetExecution
                         _list.ForEach( t => collection.Remove( t ) );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -203,9 +203,9 @@ namespace BudgetExecution
             {
                 return !( collection?.Count > 0 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return true;
             }
         }
@@ -221,18 +221,18 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new BindingList<T>( );
-                    foreach( var item in collection )
+                    foreach( var _item in collection )
                     {
-                        _list.Add( item );
+                        _list.Add( _item );
                     }
 
                     return _list?.Any( ) == true
                         ? _list
                         : default( BindingList<T> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( BindingList<T> );
                 }
             }

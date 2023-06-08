@@ -161,7 +161,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             TreasurySymbol = Record[ "TreasurySymbol" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -193,7 +193,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             TreasurySymbol = Record[ "TreasurySymbol" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
@@ -225,7 +225,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "CompassLevelsId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             TreasurySymbol = dataRow[ "TreasurySymbol" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
@@ -254,7 +254,7 @@ namespace BudgetExecution
         {
             ID = level.ID;
             BFY = level.BFY;
-            EFY = level.EFY;
+            Efy = level.Efy;
             AppropriationCode = level.AppropriationCode;
             SubAppropriationCode = level.SubAppropriationCode;
             AppropriationName = level.AppropriationName;

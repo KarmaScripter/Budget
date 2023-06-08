@@ -95,9 +95,9 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( IOException ex )
+            catch( IOException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -141,9 +141,9 @@ namespace BudgetExecution
 
                 return false;
             }
-            catch( IOException ex )
+            catch( IOException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -165,9 +165,9 @@ namespace BudgetExecution
                     {
                         IEnumerable<string> _enumerable = GetDirectories( _input, pattern );
                         var _list = new List<FileInfo>( );
-                        foreach( var file in _enumerable )
+                        foreach( var _file in _enumerable )
                         {
-                            _list.Add( new FileInfo( file ) );
+                            _list.Add( new FileInfo( _file ) );
                         }
 
                         return _list?.Any( ) == true
@@ -175,9 +175,9 @@ namespace BudgetExecution
                             : default( List<FileInfo> );
                     }
                 }
-                catch( IOException ex )
+                catch( IOException _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<FileInfo> );
                 }
             }
@@ -199,9 +199,9 @@ namespace BudgetExecution
                         ? GetParent( Buffer )?.FullName
                         : string.Empty;
                 }
-                catch( IOException ex )
+                catch( IOException _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -223,9 +223,9 @@ namespace BudgetExecution
                     ? Name
                     : string.Empty;
             }
-            catch( IOException ex )
+            catch( IOException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return string.Empty;
             }
         }
@@ -243,9 +243,9 @@ namespace BudgetExecution
                     ? new FileInfo( filePath )
                     : default( FileInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( FileInfo );
             }
         }
@@ -264,9 +264,9 @@ namespace BudgetExecution
                 _dialog.ShowDialog( );
                 return _dialog.FileName;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return string.Empty;
             }
         }
@@ -284,9 +284,9 @@ namespace BudgetExecution
                 _dialog.CheckPathExists = true;
                 return _dialog.FileName;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return string.Empty;
             }
         }
@@ -307,9 +307,9 @@ namespace BudgetExecution
                 _dialog.ShowDialog( );
                 return _dialog.FileName;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return string.Empty;
             }
         }

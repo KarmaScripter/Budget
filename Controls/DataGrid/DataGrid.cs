@@ -58,7 +58,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "AssignNullToNotNullAttribute" ) ]
-    public class DataGrid : DataGridView, IDataGrid
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    public class DataGrid : DataGridView 
     {
         /// <summary>
         /// Gets or sets the hover text.
@@ -160,8 +162,10 @@ namespace BudgetExecution
             // Epilog
             Visible = true;
             Enabled = true;
-            ColumnHeaderMouseClick += OnRightClick;
-            CellMouseClick += OnCellEnter;
+
+            // Wire Events
+            ColumnHeaderMouseClick += OnColumnHeaderClick;
+            CellContentClick += OnCellContentClick;
         }
 
         /// <summary>
@@ -217,9 +221,9 @@ namespace BudgetExecution
 
                         return _vals.Trim( ).Substring( 0, _vals.Length - 4 );
                     }
-                    catch( Exception ex )
+                    catch( Exception _ex )
                     {
-                        Fail( ex );
+                        Fail( _ex );
                         return default( string );
                     }
                 }
@@ -243,9 +247,9 @@ namespace BudgetExecution
                         ? _dataRow
                         : default( DataRow );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataRow );
                 }
             }
@@ -260,9 +264,9 @@ namespace BudgetExecution
         /// <param name="e">The
         /// <see cref="DataGridViewCellMouseEventArgs" />
         /// instance containing the event data.</param>
-        public void OnRightClick( object sender, DataGridViewCellMouseEventArgs e )
+        public void OnColumnHeaderClick( object sender, DataGridViewCellMouseEventArgs e )
         {
-            if( e.Button == MouseButtons.Right )
+            if( ( e.Button == MouseButtons.Right ) )
             {
                 try
                 {
@@ -271,15 +275,15 @@ namespace BudgetExecution
                     _columnConfig.ColumnListBox?.Items?.Clear( );
                     for( var _i = 0; _i < Columns.Count; _i++ )
                     {
-                        var c = Columns[ _i ];
-                        _columnConfig.ColumnListBox?.Items.Add( c.HeaderText, c.Visible );
+                        var _c = Columns[ _i ];
+                        _columnConfig.ColumnListBox?.Items.Add( _c.HeaderText, _c.Visible );
                     }
 
                     _columnConfig.TopMost = true;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -291,62 +295,55 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="DataGridViewCellEventArgs"/>
         /// instance containing the event data.
         /// </param>
-        public void OnCellEnter( object sender, DataGridViewCellMouseEventArgs e )
+        public void OnCellContentClick( object sender, DataGridViewCellEventArgs e )
         {
-            if ( e.Button == MouseButtons.Left )
+            if( !string.IsNullOrEmpty( CurrentCell.Value.ToString( ) ) )
             {
                 try
                 {
-                    if( CurrentCell.ValueType == typeof( string ) )
+                    var _value = CurrentCell.Value.ToString( );
+                    if( !string.IsNullOrEmpty( _value ) )
                     {
-                        var _cellValue = CurrentCell?.Value?.ToString( );
-                        if( ( _cellValue?.Length >= 6 )
-                           && ( _cellValue.Length <= 9 ) )
+                        if( ( _value.Length >= 6 )
+                           && ( _value.Length <= 9 )
+                           && ( _value.Substring( 0, 3 ) == "000" ) )
                         {
-                            var _code = _cellValue.Substring( 4, 2 );
+                            var _code = _value.Substring( 4, 2 );
                             var _dialog = new ProgramProjectDialog( _code );
                             _dialog.ShowDialog( );
                         }
                     }
-                    else if( CurrentCell.ValueType == typeof( double ) )
+                    else if( double.TryParse( _value, out var _double ) )
                     {
-                        var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
-                        var _form = new CalculationForm( _cellValue );
+                        var _form = new CalculationForm( _double );
                         _form.ShowDialog( );
                         CurrentCell.Value = _form.Calculator.Value.ToDouble( );
                     }
-                    else if( CurrentCell.ValueType == typeof( decimal ) )
+                    else if( decimal.TryParse( _value, out var _decimal ) )
                     {
-                        var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
+                        var _cellValue = double.Parse( _decimal.ToString( ) );
                         var _form = new CalculationForm( _cellValue );
                         _form.ShowDialog( );
                         CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
                     }
-                    else if( CurrentCell.ValueType == typeof( DateOnly ) )
+                    else if( DateOnly.TryParse( _value, out var _dateOnly ) )
                     {
-                        var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                        var _cellValue = DateTime.Parse( _dateOnly.ToString( ) );
                         var _form = new CalendarDialog( _cellValue );
                         _form.ShowDialog( );
                         CurrentCell.Value = _form.Calendar.SelectedDate;
                     }
-                    else if( CurrentCell.ValueType == typeof( DateTime ) )
+                    else if( DateTime.TryParse( _value, out var _dateTime ) )
                     {
-                        var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
-                        var _form = new CalendarDialog( _cellValue );
-                        _form.ShowDialog( );
-                        CurrentCell.Value = _form.Calendar.SelectedDate;
-                    }
-                    else if( CurrentCell.ValueType == typeof( DateTimeOffset ) )
-                    {
-                        var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
+                        var _cellValue = DateTime.Parse( _dateTime.ToString( ) );
                         var _form = new CalendarDialog( _cellValue );
                         _form.ShowDialog( );
                         CurrentCell.Value = _form.Calendar.SelectedDate;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

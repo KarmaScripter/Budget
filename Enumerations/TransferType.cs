@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum TransferType
     {
         /// <summary> The ns </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> Defines the Admin </summary>
         Admin = 1,

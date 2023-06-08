@@ -68,22 +68,22 @@ namespace BudgetExecution
             try
             {
                 var _dataTable = new DataTable( );
-                for( var i = 0; i < dataGridView.Columns.Count; i++ )
+                for( var _i = 0; _i < dataGridView.Columns.Count; _i++ )
                 {
-                    var _gridColumn = dataGridView.Columns[ i ];
+                    var _gridColumn = dataGridView.Columns[ _i ];
                     var _dataColumn = new DataColumn( );
                     _dataColumn.ColumnName = _gridColumn.Name;
                     _dataColumn.DataType = _gridColumn.ValueType;
                     _dataTable.Columns.Add( _dataColumn );
                 }
 
-                for( var j = 0; j < dataGridView.Rows.Count; j++ )
+                for( var _j = 0; _j < dataGridView.Rows.Count; _j++ )
                 {
-                    var _gridRow = dataGridView.Rows[ j ];
+                    var _gridRow = dataGridView.Rows[ _j ];
                     var _values = new object[ _gridRow.Cells.Count ];
-                    for( var k = 0; k < _values.Length; k++ )
+                    for( var _k = 0; _k < _values.Length; _k++ )
                     {
-                        _values[ k ] = _gridRow.Cells[ k ].Value;
+                        _values[ _k ] = _gridRow.Cells[ _k ].Value;
                     }
 
                     _dataTable.Rows.Add( _values );
@@ -93,9 +93,9 @@ namespace BudgetExecution
                     ? _dataTable
                     : default( DataTable );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( DataTable );
             }
         }
@@ -132,9 +132,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -168,9 +168,9 @@ namespace BudgetExecution
                     if( ( _columns?.Count > 0 )
                        && ( _names?.Length > 0 ) )
                     {
-                        for( var i = 0; i < index.Length; i++ )
+                        for( var _i = 0; _i < index.Length; _i++ )
                         {
-                            _names[ i ] = _columns[ index[ i ] ].ColumnName;
+                            _names[ _i ] = _columns[ index[ _i ] ].ColumnName;
                         }
                     }
 
@@ -181,9 +181,9 @@ namespace BudgetExecution
                         : default( DataTable );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( DataTable );
             }
 
@@ -227,9 +227,9 @@ namespace BudgetExecution
                         ? _list.ToArray( )
                         : default( string[ ] );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string[ ] );
                 }
             }
@@ -263,9 +263,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -284,9 +284,9 @@ namespace BudgetExecution
                     _column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -316,9 +316,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -348,9 +348,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -398,9 +398,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

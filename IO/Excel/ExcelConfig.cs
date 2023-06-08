@@ -233,9 +233,9 @@ namespace BudgetExecution
                 {
                     FilePath = GetFileName( filePath );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -253,9 +253,9 @@ namespace BudgetExecution
                 {
                     FilePath = GetFileNameWithoutExtension( filePath );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -280,9 +280,9 @@ namespace BudgetExecution
 
                 return default( EXT );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( EXT );
             }
         }
@@ -322,9 +322,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
@@ -358,9 +358,9 @@ namespace BudgetExecution
                         _excelComment.Text = text;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -386,9 +386,9 @@ namespace BudgetExecution
                     _sheet.Cells[ _row, _column + 5 ].Value = "Grants";
                     _sheet.Cells[ _row, _column + 6 ].Value = "Total";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -406,21 +406,21 @@ namespace BudgetExecution
             {
                 try
                 {
-                    foreach( var cell in grid.Range )
+                    foreach( var _cell in grid.Range )
                     {
-                        foreach( var caption in text )
+                        foreach( var _caption in text )
                         {
-                            if( ( cell != null )
-                               && !string.IsNullOrEmpty( caption ) )
+                            if( ( _cell != null )
+                               && !string.IsNullOrEmpty( _caption ) )
                             {
-                                cell.Value = caption;
+                                _cell.Value = _caption;
                             }
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

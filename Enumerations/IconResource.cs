@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum IconResource
     {
         /// <summary> The ns </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> The budget icons </summary>
         BadgerIcons,

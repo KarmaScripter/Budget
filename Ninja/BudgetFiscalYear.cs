@@ -169,7 +169,7 @@ namespace BudgetExecution
             Record = dataBuilder.Record;
             ID = int.Parse( Record[ "FiscalYearsId" ].ToString( ) );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FirstYear = Record[ "FirstYear" ].ToString( );
             LastYear = Record[ "LastYEar" ].ToString( );
             Availability = Record?[ "Availability" ].ToString( );
@@ -194,7 +194,7 @@ namespace BudgetExecution
             InputYear = dataRow[ "BFY" ].ToString( );
             ID = int.Parse( dataRow[ "FiscalYearsId" ].ToString( ) );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FirstYear = dataRow[ "FirstYear" ].ToString( );
             LastYear = dataRow[ "LastYEar" ].ToString( );
             Availability = dataRow[ "Availability" ].ToString( );
@@ -217,7 +217,7 @@ namespace BudgetExecution
         {
             ID = fiscalYear.ID;
             BFY = fiscalYear.BFY;
-            EFY = fiscalYear.EFY;
+            Efy = fiscalYear.Efy;
             FirstYear = fiscalYear.FirstYear;
             LastYear = fiscalYear.LastYear;
             WorkDays = fiscalYear.WorkDays;
@@ -254,9 +254,9 @@ namespace BudgetExecution
                     ? _holidays
                     : default( IDictionary<NationalHoliday, DateOnly> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<NationalHoliday, DateOnly> );
             }
         }
@@ -274,9 +274,9 @@ namespace BudgetExecution
                     ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( int );
             }
         }
@@ -295,9 +295,9 @@ namespace BudgetExecution
                     ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) )
                     : -1;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( int );
             }
         }
@@ -314,9 +314,9 @@ namespace BudgetExecution
                     ? Record.ToDictionary( )
                     : default( IDictionary<string, object> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -335,9 +335,9 @@ namespace BudgetExecution
                     ? FirstYear
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return string.Empty;
             }
         }
@@ -352,9 +352,9 @@ namespace BudgetExecution
             {
                 return MemberwiseClone( ) as IBudgetFiscalYear;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IBudgetFiscalYear );
             }
         }

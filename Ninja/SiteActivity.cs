@@ -61,7 +61,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the efy. </summary>
         /// <value> The efy. </value>
-        public string EFY { get; set; }
+        public string Efy { get; set; }
 
         /// <summary> Gets or sets the rpio code. </summary>
         /// <value> The rpio code. </value>
@@ -129,7 +129,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the ssid. </summary>
         /// <value> The ssid. </value>
-        public string SSID { get; set; }
+        public string Ssid { get; set; }
 
         /// <summary> Gets or sets the action code. </summary>
         /// <value> The action code. </value>

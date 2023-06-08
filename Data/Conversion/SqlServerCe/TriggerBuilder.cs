@@ -55,11 +55,11 @@ namespace BudgetExecution
         public static IList<TriggerSchema> GetForeignKeyTriggers( TableSchema dt )
         {
             IList<TriggerSchema> _result = new List<TriggerSchema>( );
-            foreach( var fks in dt.ForeignKeys )
+            foreach( var _fks in dt.ForeignKeys )
             {
-                _result.Add( GenerateInsertTrigger( fks ) );
-                _result.Add( GenerateUpdateTrigger( fks ) );
-                _result.Add( GenerateDeleteTrigger( fks ) );
+                _result.Add( GenerateInsertTrigger( _fks ) );
+                _result.Add( GenerateUpdateTrigger( _fks ) );
+                _result.Add( GenerateDeleteTrigger( _fks ) );
             }
 
             return _result;

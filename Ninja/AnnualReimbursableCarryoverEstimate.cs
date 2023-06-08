@@ -73,7 +73,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
@@ -102,7 +102,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
@@ -131,7 +131,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             ID = int.Parse( Record[ "AnnualReimbursableEstimatesId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
@@ -152,7 +152,7 @@ namespace BudgetExecution
         {
             ID = carryover.ID;
             BFY = carryover.BFY;
-            EFY = carryover.EFY;
+            Efy = carryover.Efy;
             FundCode = carryover.FundCode;
             FundName = carryover.FundName;
             RpioCode = carryover.RpioCode;

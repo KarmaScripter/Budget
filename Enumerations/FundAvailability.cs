@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum FundAvailability
     {
         /// <summary> The none </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> The expiring </summary>
         Expiring = 1,

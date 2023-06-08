@@ -41,25 +41,37 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Threading;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.UserControl" />
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class Frame : UserControl
     {
-        /// <summary> Gets or sets the index. </summary>
-        /// <value> The index. </value>
+        /// <summary>
+        /// Gets or sets the index.
+        /// </summary>
+        /// <value>
+        /// The index.
+        /// </value>
         public int Index { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public BindingSource BindingSource { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="Frame"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="Frame"/> class.
         /// </summary>
         public Frame( )
         {
@@ -70,12 +82,13 @@ namespace BudgetExecution
             Table.ColumnCount = 1;
             Table.RowCount = 2;
             Table.Font = new Font( "Roboto", 8 );
-            Table.ForeColor = Color.LightGray;
+            Table.ForeColor = Color.White;
 
             // TextBox Properties
-            TextBox.BorderColor = Color.FromArgb( 24, 47, 66 );
+            TextBox.ForeColor = Color.White;
+            TextBox.BorderColor = Color.FromArgb( 50, 93, 129 );
             TextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
-            TextBox.BackColor = Color.FromArgb( 30, 30, 30 );
+            TextBox.BackColor = Color.FromArgb( 40, 40, 40 );
         }
 
         /// <summary>

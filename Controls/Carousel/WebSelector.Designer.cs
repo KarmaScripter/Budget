@@ -160,7 +160,7 @@ partial class WebSelector
             this.ImageList.FilePaths = null;
             this.ImageList.HoverText = null;
             this.ImageList.Image = null;
-            this.ImageList.ImageSource = BudgetExecution.ImageDirectory.NS;
+            this.ImageList.ImageSource = BudgetExecution.ImageDirectory.Ns;
             this.ImageList.ToolTip = null;
             // 
             // WebSelector

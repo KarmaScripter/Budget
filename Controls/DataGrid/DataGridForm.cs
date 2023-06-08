@@ -53,17 +53,17 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -274,7 +274,7 @@ namespace BudgetExecution
 
             // Initialize Default Provider
             Provider = Provider.Access;
-            
+
             // Set PictureBox Size
             PictureBox.Size = new Size( 20, 20 );
 
@@ -645,7 +645,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                var _path = ConfigurationManager.AppSettings["Providers"];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -679,7 +679,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
+                var _path = ConfigurationManager.AppSettings["Dialogs"];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -1090,9 +1090,9 @@ namespace BudgetExecution
 
                     for( var _i = 0; _i < Numerics.Count; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
+                        if( !string.IsNullOrEmpty( Numerics[_i] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[ _i ] );
+                            NumericListBox.Items.Add( Numerics[_i] );
                         }
                     }
                 }
@@ -1212,7 +1212,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = Program.Windows[ "Main" ];
+                    var _mainForm = Program.Windows["Main"];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     Visible = false;
@@ -1359,7 +1359,7 @@ namespace BudgetExecution
                     FirstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( FirstCategory ) )
                     {
-                        var _data = DataModel.DataElements[ FirstCategory ];
+                        var _data = DataModel.DataElements[FirstCategory];
                         foreach( var _item in _data )
                         {
                             FirstListBox.Items?.Add( _item );
@@ -1448,7 +1448,7 @@ namespace BudgetExecution
                     SecondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( SecondCategory ) )
                     {
-                        var _data = DataModel.DataElements[ SecondCategory ];
+                        var _data = DataModel.DataElements[SecondCategory];
                         foreach( var _item in _data )
                         {
                             SecondListBox.Items?.Add( _item );
@@ -1522,7 +1522,7 @@ namespace BudgetExecution
                     ThirdCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( ThirdCategory ) )
                     {
-                        var _data = DataModel?.DataElements[ ThirdCategory ];
+                        var _data = DataModel?.DataElements[ThirdCategory];
                         if( _data?.Any( ) == true )
                         {
                             foreach( var _item in _data )
@@ -2099,7 +2099,7 @@ namespace BudgetExecution
             {
                 if( !Program.Windows.ContainsKey( "DataGridForm" ) )
                 {
-                    Program.Windows[ "DataGridForm" ] = this;
+                    Program.Windows["DataGridForm"] = this;
                 }
                 else
                 {

@@ -168,9 +168,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ $"{Field.Code}" ] = code };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }

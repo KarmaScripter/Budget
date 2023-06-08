@@ -64,14 +64,14 @@ namespace BudgetExecution
                 {
                     var _encoding = Encoding.Default;
                     var _serializer = new DataContractJsonSerializer( typeof( T ) );
-                    using var stream = new MemoryStream( );
-                    _serializer.WriteObject( stream, type );
-                    var json = _encoding.GetString( stream.ToArray( ) );
-                    return json;
+                    using var _stream = new MemoryStream( );
+                    _serializer.WriteObject( _stream, type );
+                    var _json = _encoding.GetString( _stream.ToArray( ) );
+                    return _json;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string );
                 }
             }
@@ -95,12 +95,12 @@ namespace BudgetExecution
                     var _serializer = new DataContractJsonSerializer( typeof( T ) );
                     using var _stream = new MemoryStream( );
                     _serializer.WriteObject( _stream, type );
-                    var json = _encoding.GetString( _stream.ToArray( ) );
-                    return json;
+                    var _json = _encoding.GetString( _stream.ToArray( ) );
+                    return _json;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string );
                 }
             }
@@ -124,9 +124,9 @@ namespace BudgetExecution
                     using var _reader = new StringReader( _string );
                     return _reader?.ReadToEnd( ) ?? string.Empty;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string );
                 }
             }

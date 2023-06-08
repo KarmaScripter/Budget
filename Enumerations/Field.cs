@@ -158,10 +158,10 @@ namespace BudgetExecution
         BBFY,
 
         /// <summary> The betc </summary>
-        BETC,
+        Betc,
 
         /// <summary> The BFS </summary>
-        BFS,
+        Bfs,
 
         /// <summary> The bfy </summary>
         BFY,
@@ -356,7 +356,7 @@ namespace BudgetExecution
         EBFY,
 
         /// <summary> The Ending Fiscal Year </summary>
-        EFY,
+        Efy,
 
         /// <summary> The email </summary>
         Email,
@@ -857,7 +857,7 @@ namespace BudgetExecution
         RuleNumber,
 
         /// <summary> The ssid </summary>
-        SSID,
+        Ssid,
 
         /// <summary> The stat </summary>
         STAT,
@@ -971,7 +971,7 @@ namespace BudgetExecution
         System,
 
         /// <summary> The tafs </summary>
-        TAFS,
+        Tafs,
 
         /// <summary> The table name </summary>
         TableName,

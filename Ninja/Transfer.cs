@@ -73,7 +73,7 @@ namespace BudgetExecution
         public virtual string BFY { get; set; }
 
         /// <summary> Gets or sets the Ending Fiscal Year </summary>
-        public virtual string EFY { get; set; }
+        public virtual string Efy { get; set; }
 
         /// <summary> Gets or sets the rpio code. </summary>
         /// <value> The rpio code. </value>

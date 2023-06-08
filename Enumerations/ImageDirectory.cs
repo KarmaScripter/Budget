@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum ImageDirectory
     {
         /// <summary> The ns </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> The badger images </summary>
         BadgerImages,

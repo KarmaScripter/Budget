@@ -96,9 +96,9 @@ namespace BudgetExecution
                     var _message = CreateMessage( config, content );
                     Send( _message, config );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -115,21 +115,21 @@ namespace BudgetExecution
                 _namespace = _outlook.GetNamespace( "MAPI" );
                 _inbox = _namespace.GetDefaultFolder( OlDefaultFolders.olFolderInbox );
                 _items = _inbox.Items;
-                foreach ( MailItem item in _items )
+                foreach ( MailItem _item in _items )
                 {
-                    var stringBuilder = new StringBuilder( );
-                    stringBuilder.AppendLine( "From: " + item.SenderEmailAddress );
-                    stringBuilder.AppendLine( "To: " + item.To );
-                    stringBuilder.AppendLine( "CC: " + item.CC );
-                    stringBuilder.AppendLine( "" );
-                    stringBuilder.AppendLine( "Subject: " + item.Subject );
-                    stringBuilder.AppendLine( item.Body );
-                    Marshal.ReleaseComObject( item );
+                    var _stringBuilder = new StringBuilder( );
+                    _stringBuilder.AppendLine( "From: " + _item.SenderEmailAddress );
+                    _stringBuilder.AppendLine( "To: " + _item.To );
+                    _stringBuilder.AppendLine( "CC: " + _item.CC );
+                    _stringBuilder.AppendLine( "" );
+                    _stringBuilder.AppendLine( "Subject: " + _item.Subject );
+                    _stringBuilder.AppendLine( _item.Body );
+                    Marshal.ReleaseComObject( _item );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
             finally
             {
@@ -152,18 +152,18 @@ namespace BudgetExecution
                 try
                 {
                     var _message = new MailMessage( );
-                    for( var j = 0; j < config.TOs.Length; j++ )
+                    for( var _j = 0; _j < config.Os.Length; _j++ )
                     {
-                        var to = config.TOs[ j ];
-                        if( !string.IsNullOrEmpty( to ) )
+                        var _to = config.Os[ _j ];
+                        if( !string.IsNullOrEmpty( _to ) )
                         {
-                            _message.To.Add( to );
+                            _message.To.Add( _to );
                         }
                     }
 
-                    for( var i = 0; i < config.CCs.Length; i++ )
+                    for( var _i = 0; _i < config.CCs.Length; _i++ )
                     {
-                        var _cc = config.CCs[ i ];
+                        var _cc = config.CCs[ _i ];
                         if( !string.IsNullOrEmpty( _cc ) )
                         {
                             _message.CC.Add( _cc );
@@ -185,9 +185,9 @@ namespace BudgetExecution
 
                     return _message;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( MailMessage );
                 }
             }
@@ -213,9 +213,9 @@ namespace BudgetExecution
                     _client.EnableSsl = true;
                     _client.Send( message );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     message.Dispose( );
                 }
             }

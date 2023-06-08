@@ -55,7 +55,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the efy. </summary>
         /// <value> The efy. </value>
-        string EFY { get; set; }
+        string Efy { get; set; }
 
         /// <summary> Gets or sets the start date. </summary>
         /// <value> The start date. </value>

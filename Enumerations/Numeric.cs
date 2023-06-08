@@ -242,7 +242,7 @@ namespace BudgetExecution
         November,
 
         /// <summary> The ns </summary>
-        NS,
+        Ns,
 
         /// <summary> The obligation rate </summary>
         ObligationRate,

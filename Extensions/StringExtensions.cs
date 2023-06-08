@@ -115,9 +115,9 @@ namespace BudgetExecution
 
                 return text;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -141,9 +141,9 @@ namespace BudgetExecution
             {
                 return text ?? alt ?? string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -158,9 +158,9 @@ namespace BudgetExecution
             {
                 return Array.IndexOf( values, text ) != -1;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -186,9 +186,9 @@ namespace BudgetExecution
                     ? text.Substring( text.Length - length )
                     : text;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -214,9 +214,9 @@ namespace BudgetExecution
                     ? text[ ..length ]
                     : text;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -245,9 +245,9 @@ namespace BudgetExecution
                     return default( string );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -272,9 +272,9 @@ namespace BudgetExecution
                         ? _dateTime
                         : default( DateTime );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DateTime );
                 }
             }
@@ -298,9 +298,9 @@ namespace BudgetExecution
                 var _buffer = Encoding.UTF8.GetBytes( text );
                 return new MemoryStream( _buffer );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( MemoryStream );
             }
         }
@@ -318,9 +318,9 @@ namespace BudgetExecution
                 _document.LoadXml( xml );
                 return _document;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( XmlDocument );
             }
         }
@@ -337,9 +337,9 @@ namespace BudgetExecution
                 Encoding _encoding = Activator.CreateInstance<ASCIIEncoding>( );
                 return _encoding.GetBytes( text );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( byte[ ] );
             }
         }
@@ -358,13 +358,13 @@ namespace BudgetExecution
             var _count = 0;
             try
             {
-                var re = new Regex( @"[^\text]+" );
-                var _matches = re.Matches( text );
+                var _re = new Regex( @"[^\text]+" );
+                var _matches = _re.Matches( text );
                 _count = _matches.Count;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return _count;
             }
 
@@ -384,9 +384,9 @@ namespace BudgetExecution
                     using var _writer = new StreamWriter( text, false );
                     _writer.Write( path );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -415,9 +415,9 @@ namespace BudgetExecution
                 _client.Send( _message );
                 return true;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -436,9 +436,9 @@ namespace BudgetExecution
                 {
                     return text.Replace( " ", "" );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return text;
                 }
             }
@@ -461,9 +461,9 @@ namespace BudgetExecution
                 var _regex = new Regex( @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" );
                 return _regex.IsMatch( s );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }

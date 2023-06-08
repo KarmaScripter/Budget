@@ -115,7 +115,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -167,7 +167,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -219,7 +219,7 @@ namespace BudgetExecution
             ID = int.Parse( dataRow[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
@@ -264,7 +264,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "StatusOfFundsId" ].ToString( ) ?? "0" );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -306,7 +306,7 @@ namespace BudgetExecution
             ID = status.ID;
             BudgetLevel = status.BudgetLevel;
             BFY = status.BFY;
-            EFY = status.EFY;
+            Efy = status.Efy;
             FundCode = status.FundCode;
             FundName = status.FundName;
             RpioCode = status.RpioCode;

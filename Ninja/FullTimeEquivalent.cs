@@ -82,7 +82,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "FullTimeEquivalentsId" ].ToString( ) );
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -125,7 +125,7 @@ namespace BudgetExecution
             ID = int.Parse( Record[ "FullTimeEquivalentsId" ].ToString( ) );
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -168,7 +168,7 @@ namespace BudgetExecution
             ID = int.Parse( dataRow[ "FullTimeEquivalentsId" ].ToString( ) );
             Data = dataRow.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
@@ -202,7 +202,7 @@ namespace BudgetExecution
             ID = allocation.ID;
             BudgetLevel = allocation.BudgetLevel;
             BFY = allocation.BFY;
-            EFY = allocation.EFY;
+            Efy = allocation.Efy;
             FundCode = allocation.FundCode;
             FundName = allocation.FundName;
             RpioCode = allocation.RpioCode;
@@ -237,9 +237,9 @@ namespace BudgetExecution
                     ? int.Parse( dataRow[ 0 ].ToString( ) )
                     : -1;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( int );
             }
         }

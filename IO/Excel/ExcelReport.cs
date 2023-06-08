@@ -87,9 +87,9 @@ namespace BudgetExecution
                     _dataSet?.Tables?.Add( ListToDataTable( data ) );
                     return CreateExcelDocument( _dataSet, path );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return false;
                 }
             }
@@ -117,9 +117,9 @@ namespace BudgetExecution
                     _dataSet.Tables.Remove( dataTable );
                     return _document;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( bool );
                 }
             }
@@ -148,9 +148,9 @@ namespace BudgetExecution
                     Trace.WriteLine( "Successfully created: " + fileName );
                     return true;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Trace.WriteLine( "Failed, exception thrown: " + ex.Message );
+                    Trace.WriteLine( "Failed, exception thrown: " + _ex.Message );
                     return false;
                 }
             }
@@ -171,19 +171,19 @@ namespace BudgetExecution
                 try
                 {
                     var _table = new DataTable( );
-                    foreach( var info in typeof( T ).GetProperties( ) )
+                    foreach( var _info in typeof( T ).GetProperties( ) )
                     {
-                        _table?.Columns?.Add( new DataColumn( info.Name, GetNullableType( info.PropertyType ) ) );
+                        _table?.Columns?.Add( new DataColumn( _info.Name, GetNullableType( _info.PropertyType ) ) );
                     }
 
-                    foreach( var t in data )
+                    foreach( var _t in data )
                     {
                         var _row = _table.NewRow( );
-                        foreach( var info in typeof( T ).GetProperties( ) )
+                        foreach( var _info in typeof( T ).GetProperties( ) )
                         {
-                            _row[ info.Name ] = !IsNullableType( info.PropertyType )
-                                ? info.GetValue( t, null )
-                                : info.GetValue( t, null ) ?? DBNull.Value;
+                            _row[ _info.Name ] = !IsNullableType( _info.PropertyType )
+                                ? _info.GetValue( _t, null )
+                                : _info.GetValue( _t, null ) ?? DBNull.Value;
                         }
 
                         _table.Rows.Add( _row );
@@ -191,9 +191,9 @@ namespace BudgetExecution
 
                     return _table;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -219,9 +219,9 @@ namespace BudgetExecution
 
                 return _returnType;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( Type );
             }
         }
@@ -244,9 +244,9 @@ namespace BudgetExecution
                 _cell.Append( _cellValue );
                 excelRow.Append( _cell );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -271,9 +271,9 @@ namespace BudgetExecution
                     _cell.Append( _cellValue );
                     excelRow.Append( _cell );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -296,9 +296,9 @@ namespace BudgetExecution
                 var _second = (char)( 'A' + columnIndex % 26 );
                 return $"{_first}{_second}";
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string );
             }
         }
@@ -353,9 +353,9 @@ namespace BudgetExecution
                         spreadSheet.WorkbookPart?.Workbook?.Save( );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -378,20 +378,20 @@ namespace BudgetExecution
                     var _columns = dataTable.Columns.Count;
                     var _isNumeric = new bool[ _columns ];
                     var _names = new string[ _columns ];
-                    for( var n = 0; n < _columns; n++ )
+                    for( var _n = 0; _n < _columns; _n++ )
                     {
-                        _names[ n ] = GetExcelColumnName( n );
+                        _names[ _n ] = GetExcelColumnName( _n );
                     }
 
                     uint _rowIndex = 1;
                     var _row = new Row( );
                     _row.RowIndex = _rowIndex;
                     _data?.Append( _row );
-                    for( var colinx = 0; colinx < _columns; colinx++ )
+                    for( var _colinx = 0; _colinx < _columns; _colinx++ )
                     {
-                        var _column = dataTable.Columns[ colinx ];
-                        AppendTextCell( _names[ colinx ] + "1", _column.ColumnName, _row );
-                        _isNumeric[ colinx ] = ( _column.DataType.FullName == "System.Decimal" ) 
+                        var _column = dataTable.Columns[ _colinx ];
+                        AppendTextCell( _names[ _colinx ] + "1", _column.ColumnName, _row );
+                        _isNumeric[ _colinx ] = ( _column.DataType.FullName == "System.Decimal" ) 
                             || ( _column.DataType.FullName == "System.Int32" );
                     }
 
@@ -401,27 +401,27 @@ namespace BudgetExecution
                         var _excelRow = new Row( );
                         _excelRow.RowIndex = _rowIndex;
                         _data?.Append( _excelRow );
-                        for( var i = 0; i < _columns; i++ )
+                        for( var _i = 0; _i < _columns; _i++ )
                         {
-                            var _value = _dataRow?.ItemArray[ i ]?.ToString( );
-                            if( _isNumeric[ i ] )
+                            var _value = _dataRow?.ItemArray[ _i ]?.ToString( );
+                            if( _isNumeric[ _i ] )
                             {
                                 if( double.TryParse( _value, out var _cellNumericValue ) )
                                 {
                                     _value = _cellNumericValue.ToString( );
-                                    AppendNumericCell( _names[ i ] + _rowIndex, _value, _excelRow );
+                                    AppendNumericCell( _names[ _i ] + _rowIndex, _value, _excelRow );
                                 }
                             }
                             else
                             {
-                                AppendTextCell( _names[ i ] + _rowIndex, _value, _excelRow );
+                                AppendTextCell( _names[ _i ] + _rowIndex, _value, _excelRow );
                             }
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -445,9 +445,9 @@ namespace BudgetExecution
                     || ( type.IsGenericType 
                         && ( type.GetGenericTypeDefinition( ) == typeof( Nullable<> ) ) );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }

@@ -73,7 +73,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -118,7 +118,7 @@ namespace BudgetExecution
             Record = dataBuilder.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -163,7 +163,7 @@ namespace BudgetExecution
             Record = dataRow;
             Data = Record.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
@@ -202,7 +202,7 @@ namespace BudgetExecution
             Record = new DataBuilder( Source, map )?.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -241,7 +241,7 @@ namespace BudgetExecution
             ID = allocation.ID;
             BudgetLevel = allocation.BudgetLevel;
             BFY = allocation.BFY;
-            EFY = allocation.EFY;
+            Efy = allocation.Efy;
             FundCode = allocation.FundCode;
             FundName = allocation.FundName;
             RpioCode = allocation.RpioCode;

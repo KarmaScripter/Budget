@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public string EFY { get; set; }
+        public string Efy { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.
@@ -120,7 +120,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
@@ -138,7 +138,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
@@ -156,7 +156,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             ID = int.Parse( Record[ "AnnualCarryoverSurveyId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );

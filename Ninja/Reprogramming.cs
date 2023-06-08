@@ -74,7 +74,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ReprogrammingId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
@@ -117,7 +117,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             ID = int.Parse( Record[ "ReprogrammingId" ].ToString( ) ?? "0" );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
@@ -160,7 +160,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             ID = int.Parse( dataRow[ "ReprogrammingId" ].ToString( ) ?? "0" );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
@@ -194,7 +194,7 @@ namespace BudgetExecution
         {
             ID = reprogramming.ID;
             BFY = reprogramming.BFY;
-            EFY = reprogramming.EFY;
+            Efy = reprogramming.Efy;
             FundCode = reprogramming.FundCode;
             FundName = reprogramming.FundName;
             BudgetLevel = reprogramming.BudgetLevel;

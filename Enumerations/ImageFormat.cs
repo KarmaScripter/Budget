@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum ImageFormat
     {
         /// <summary> Defines the None </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> The PNG </summary>
         PNG,
@@ -65,9 +65,9 @@ namespace BudgetExecution
         GIF,
 
         /// <summary> The tiff </summary>
-        TIFF,
+        Tiff,
 
         /// <summary> The SVG </summary>
-        SVG
+        Svg
     }
 }

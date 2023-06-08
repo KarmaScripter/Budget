@@ -74,7 +74,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -125,7 +125,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -176,7 +176,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             BudgetLevel = dataRow[ "BudgetLevel" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
@@ -218,7 +218,7 @@ namespace BudgetExecution
             ID = defacto.ID;
             BudgetLevel = defacto.BudgetLevel;
             BFY = defacto.BFY;
-            EFY = defacto.EFY;
+            Efy = defacto.Efy;
             FundCode = defacto.FundCode;
             FundName = defacto.FundName;
             RpioCode = defacto.RpioCode;

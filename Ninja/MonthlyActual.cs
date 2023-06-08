@@ -81,7 +81,7 @@ namespace BudgetExecution
         {
             Record = new DataBuilder( query ).Record;
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -127,7 +127,7 @@ namespace BudgetExecution
         {
             Record = builder.Record;
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             RpioCode = Record[ "RpioCode" ].ToString( );
@@ -173,7 +173,7 @@ namespace BudgetExecution
         {
             Source = Source.MonthlyActuals;
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             RpioCode = dataRow[ "RpioCode" ].ToString( );
@@ -219,7 +219,7 @@ namespace BudgetExecution
             Source = Source.MonthlyActuals;
             ID = actual.ID;
             BFY = actual.BFY;
-            EFY = actual.EFY;
+            Efy = actual.Efy;
             FundCode = actual.FundCode;
             FundName = actual.FundName;
             RpioCode = actual.RpioCode;

@@ -153,7 +153,7 @@ namespace BudgetExecution
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
         protected QueryBase( Source source, Provider provider = Provider.Access, 
-            SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.Selectall )
         {
             Source = source;
             Provider = provider;
@@ -172,7 +172,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         protected QueryBase( Source source, Provider provider, IDictionary<string, object> where, 
-            SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.Selectall )
         {
             Source = source;
             Provider = provider;

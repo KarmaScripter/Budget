@@ -145,10 +145,10 @@ namespace BudgetExecution
                 try
                 {
                     var _data = new Dictionary<string, FileInfo>( );
-                    foreach( var file in SubFiles )
+                    foreach( var _path in SubFiles )
                     {
-                        var _name = Path.GetFileNameWithoutExtension( file );
-                        var _file = new FileInfo( file );
+                        var _name = Path.GetFileNameWithoutExtension( _path );
+                        var _file = new FileInfo( _path );
                         _data.Add( _name, _file );
                     }
 
@@ -156,9 +156,9 @@ namespace BudgetExecution
                         ? _data
                         : default( IDictionary<string, FileInfo> );
                 }
-                catch( IOException ex )
+                catch( IOException _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, FileInfo> );
                 }
             }
@@ -179,9 +179,9 @@ namespace BudgetExecution
                     ? _folders
                     : default( string[ ] );
             }
-            catch( IOException ex )
+            catch( IOException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<string> );
             }
         }
@@ -195,10 +195,10 @@ namespace BudgetExecution
             try
             {
                 var _data = new Dictionary<string, DirectoryInfo>( );
-                foreach( var file in SubFolders )
+                foreach( var _file in SubFolders )
                 {
-                    var _name = Path.GetDirectoryName( file );
-                    var _folder = new DirectoryInfo( file );
+                    var _name = Path.GetDirectoryName( _file );
+                    var _folder = new DirectoryInfo( _file );
                     _data.Add( _name, _folder );
                 }
 
@@ -206,9 +206,9 @@ namespace BudgetExecution
                     ? _data
                     : default( IDictionary<string, DirectoryInfo> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, DirectoryInfo> );
             }
         }

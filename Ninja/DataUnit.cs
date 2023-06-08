@@ -121,9 +121,9 @@ namespace BudgetExecution
                         return true;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return false;
                 }
             }
@@ -151,9 +151,9 @@ namespace BudgetExecution
                     var _value = dict[ _name ];
                     return _value.Equals( Code ) && _name.Equals( Name );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return false;
                 }
             }
@@ -179,9 +179,9 @@ namespace BudgetExecution
                     return true;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
 
@@ -202,9 +202,9 @@ namespace BudgetExecution
                     ? int.Parse( dataRow[ $"{primaryKey}" ].ToString( ) ?? "0" )
                     : -1;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( int );
             }
         }

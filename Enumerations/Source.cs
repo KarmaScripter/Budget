@@ -711,7 +711,7 @@ namespace BudgetExecution
         /// <summary>
         /// The URL
         /// </summary>
-        URL,
+        Url,
 
         /// <summary>
         /// The work codes

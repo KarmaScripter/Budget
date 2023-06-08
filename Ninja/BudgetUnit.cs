@@ -63,7 +63,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public virtual string EFY { get; set; }
+        public virtual string Efy { get; set; }
 
         /// <summary>
         /// Gets or sets the fund code.

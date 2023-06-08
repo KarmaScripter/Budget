@@ -126,9 +126,9 @@ namespace BudgetExecution
             {
                 return default( (int Row, int Column) );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return ( 0, 0 );
             }
         }
@@ -143,9 +143,9 @@ namespace BudgetExecution
             {
                 return default( int );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -160,9 +160,9 @@ namespace BudgetExecution
             {
                 return default( int );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return 0;
             }
         }
@@ -177,9 +177,9 @@ namespace BudgetExecution
             {
                 return default( (int Depth, int Span) );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return ( 0, 0 );
             }
         }

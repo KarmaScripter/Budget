@@ -90,9 +90,9 @@ namespace BudgetExecution
 
                 return excelPackage.ToDataSet( _row );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( DataSet );
             }
         }
@@ -131,17 +131,17 @@ namespace BudgetExecution
                         : $"Column {_cell?.Start?.Column}" );
 
                     _table.Columns.AddRange( _columns?.ToArray( ) );
-                    var i = header > 0
+                    var _i = header > 0
                         ? _start + 1
                         : _start;
 
-                    for( var index = i; index <= _worksheet?.Dimension.End.Row; index++ )
+                    for( var _index = _i; _index <= _worksheet?.Dimension.End.Row; _index++ )
                     {
-                        var _range = _worksheet.Cells[ index, 1, index, _worksheet.Dimension.End.Column ];
+                        var _range = _worksheet.Cells[ _index, 1, _index, _worksheet.Dimension.End.Column ];
                         var _row = _table.Rows?.Add( );
-                        foreach( var cell in _range )
+                        foreach( var _cell in _range )
                         {
-                            _row[ cell.Start.Column - 1 ] = cell.Value;
+                            _row[ _cell.Start.Column - 1 ] = _cell.Value;
                         }
                     }
 
@@ -150,9 +150,9 @@ namespace BudgetExecution
 
                 return _result;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( DataSet );
             }
         }
@@ -168,9 +168,9 @@ namespace BudgetExecution
                     worksheet.DeleteRow( worksheet.Dimension.End.Row, 1 );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -187,17 +187,17 @@ namespace BudgetExecution
             try
             {
                 var _empties = new List<bool>( );
-                for( var index = 1; index <= worksheet.Dimension.End.Column; index++ )
+                for( var _index = 1; _index <= worksheet.Dimension.End.Column; _index++ )
                 {
-                    var _value = worksheet.Cells[ worksheet.Dimension.End.Row, index ].Value;
+                    var _value = worksheet.Cells[ worksheet.Dimension.End.Row, _index ].Value;
                     _empties.Add( string.IsNullOrEmpty( _value?.ToString( ) ) );
                 }
 
                 return _empties.All( e => e );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -224,9 +224,9 @@ namespace BudgetExecution
                         ? width + _third
                         : 0.0;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -242,9 +242,9 @@ namespace BudgetExecution
                 {
                     row.Height = height;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -263,9 +263,9 @@ namespace BudgetExecution
                     _column[ 3 ] += offset;
                     return _column;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( int[ ] );
                 }
             }
@@ -283,13 +283,13 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var row = index;
-                    row[ 2 ] += offset;
-                    return row;
+                    var _row = index;
+                    _row[ 2 ] += offset;
+                    return _row;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( int[ ] );
                 }
             }
@@ -312,9 +312,9 @@ namespace BudgetExecution
                     _column[ 3 ] += offset;
                     return _column;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( int[ ] );
                 }
             }
@@ -337,9 +337,9 @@ namespace BudgetExecution
                     _row[ 2 ] += offset;
                     return _row;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( int[ ] );
                 }
             }
@@ -356,9 +356,9 @@ namespace BudgetExecution
             {
                 range.ForEach( r => r.Style.Border.BorderAround( borderStyle ) );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -375,9 +375,9 @@ namespace BudgetExecution
                     range.Style.Fill.PatternType = fillStyle;
                     range.Style.Fill.BackgroundColor.SetColor( color );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

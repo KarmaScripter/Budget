@@ -51,7 +51,7 @@ namespace BudgetExecution
     {
         /// <summary> Gets or sets the t os. </summary>
         /// <value> The t os. </value>
-        public string[ ] TOs { get; set; }
+        public string[ ] Os { get; set; }
 
         /// <summary> Gets or sets the c cs. </summary>
         /// <value> The c cs. </value>

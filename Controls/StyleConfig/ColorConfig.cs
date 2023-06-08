@@ -45,62 +45,134 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Threading;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     public class ColorConfig
     {
-        /// <summary> The border blue </summary>
+        /// <summary>
+        /// Gets the blue.
+        /// </summary>
+        /// <value>
+        /// The blue.
+        /// </value>
         public Color Blue { get; }
 
-        /// <summary> The fore red </summary>
+        /// <summary>
+        /// Gets the red.
+        /// </summary>
+        /// <value>
+        /// The red.
+        /// </value>
         public Color Red { get; }
 
-        /// <summary> The fore gray </summary>
+        /// <summary>
+        /// Gets the gray.
+        /// </summary>
+        /// <value>
+        /// The gray.
+        /// </value>
         public Color Gray { get; }
 
-        /// <summary> The fore white </summary>
+        /// <summary>
+        /// Gets the white.
+        /// </summary>
+        /// <value>
+        /// The white.
+        /// </value>
         public Color White { get; }
 
-        /// <summary> The fore black </summary>
+        /// <summary>
+        /// Gets the black.
+        /// </summary>
+        /// <value>
+        /// The black.
+        /// </value>
         public Color Black { get; }
 
-        /// <summary> The transparent </summary>
+        /// <summary>
+        /// Gets the transparent.
+        /// </summary>
+        /// <value>
+        /// The transparent.
+        /// </value>
         public Color Transparent { get; }
 
-        /// <summary> The hover gray </summary>
+        /// <summary>
+        /// Gets the hover gray.
+        /// </summary>
+        /// <value>
+        /// The hover gray.
+        /// </value>
         public Color HoverGray { get; }
 
-        /// <summary> The hover blue </summary>
+        /// <summary>
+        /// Gets the hover blue.
+        /// </summary>
+        /// <value>
+        /// The hover blue.
+        /// </value>
         public Color HoverBlue { get; }
 
-        /// <summary> The hover blue </summary>
+        /// <summary>
+        /// Gets the steel blue.
+        /// </summary>
+        /// <value>
+        /// The steel blue.
+        /// </value>
         public Color SteelBlue { get; }
 
-        /// <summary> Gets the maroon. </summary>
-        /// <value> The maroon. </value>
+        /// <summary>
+        /// Gets the maroon.
+        /// </summary>
+        /// <value>
+        /// The maroon.
+        /// </value>
         public Color Maroon { get; }
 
-        /// <summary> Gets the light steel blue. </summary>
-        /// <value> The light steel blue. </value>
+        /// <summary>
+        /// Gets the light steel blue.
+        /// </summary>
+        /// <value>
+        /// The light steel blue.
+        /// </value>
         public Color LightSteelBlue { get; }
 
-        /// <summary> The control interior color </summary>
+        /// <summary>
+        /// Gets the dark interior.
+        /// </summary>
+        /// <value>
+        /// The dark interior.
+        /// </value>
         public Color DarkInterior { get; }
 
-        /// <summary> The border dark </summary>
+        /// <summary>
+        /// Gets the dark border.
+        /// </summary>
+        /// <value>
+        /// The dark border.
+        /// </value>
         public Color DarkBorder { get; }
 
-        /// <summary> The form dark back color </summary>
+        /// <summary>
+        /// Gets the dark background.
+        /// </summary>
+        /// <value>
+        /// The dark background.
+        /// </value>
         public Color DarkBackground { get; }
 
-        /// <summary> Gets the dark blue. </summary>
-        /// <value> The dark blue. </value>
+        /// <summary>
+        /// Gets the dark blue.
+        /// </summary>
+        /// <value>
+        /// The dark blue.
+        /// </value>
         public Color DarkBlue { get; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ColorConfig"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ColorConfig"/> class.
         /// </summary>
         public ColorConfig( )
         {
@@ -121,8 +193,10 @@ namespace BudgetExecution
             LightSteelBlue = Color.LightSteelBlue;
         }
 
-        /// <summary> Fails the specified ex. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

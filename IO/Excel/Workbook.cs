@@ -193,9 +193,9 @@ namespace BudgetExecution
                         SetHorizontalAlignment( grid, ExcelHorizontalAlignment.Left );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -225,9 +225,9 @@ namespace BudgetExecution
                     _worksheet.Cells[ _row, _column + 5 ].Value = "Grants";
                     _worksheet.Cells[ _row, _column + 6 ].Value = "Total";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -250,9 +250,9 @@ namespace BudgetExecution
                     excelRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                     excelRange.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -275,9 +275,9 @@ namespace BudgetExecution
                     range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                     range.Style.Border.Bottom.Style = ExcelBorderStyle.Hair;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -299,14 +299,14 @@ namespace BudgetExecution
                     var _prc = Worksheet.Cells[ range.Start.Row, range.Start.Column, 
                         range.End.Row, range.End.Column ];
                     
-                    for( var i = range.Start.Row; i < range.End.Row; i++ )
+                    for( var _i = range.Start.Row; _i < range.End.Row; _i++ )
                     {
-                        if( i % 2 == 0 )
+                        if( _i % 2 == 0 )
                         {
                             SetLightColorRow( _prc );
                         }
 
-                        if( i % 2 != 0 )
+                        if( _i % 2 != 0 )
                         {
                             SetDarkColorRow( _prc );
                         }
@@ -314,9 +314,9 @@ namespace BudgetExecution
 
                     SetNumericRowFormat( range );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -341,9 +341,9 @@ namespace BudgetExecution
                         range.Style.Numberformat.Format = "#,###";
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -366,9 +366,9 @@ namespace BudgetExecution
                     _range.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -397,9 +397,9 @@ namespace BudgetExecution
                     _total.Style.Fill.BackgroundColor.SetColor( PrimaryBackColor );
                     _range.Style.Border.Bottom.Style = ExcelBorderStyle.Double;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -418,9 +418,9 @@ namespace BudgetExecution
                 TitleFont?.Dispose( );
                 Font?.Dispose( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -433,9 +433,9 @@ namespace BudgetExecution
             {
                 Dispose( true );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
     }

@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum MenuOption
     {
         /// <summary> The ns </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> The file </summary>
         File = 1,

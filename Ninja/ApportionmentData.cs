@@ -139,7 +139,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
             TreasuryAccountName = Record[ "TreasuryAccountName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -164,7 +164,7 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
             TreasuryAccountCode = Record[ "TreasuryAccountCode" ].ToString( );
@@ -189,7 +189,7 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
             TreasuryAccountCode = dataRow[ "TreasuryAccountCode" ].ToString( );
@@ -211,7 +211,7 @@ namespace BudgetExecution
             ID = omb.ID;
             FiscalYear = omb.FiscalYear;
             BFY = omb.BFY;
-            EFY = omb.EFY;
+            Efy = omb.Efy;
             BudgetAccountCode = omb.BudgetAccountCode;
             BudgetAccountName = omb.BudgetAccountName;
             TreasuryAccountCode = omb.TreasuryAccountCode;

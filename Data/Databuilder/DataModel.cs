@@ -83,7 +83,7 @@ namespace BudgetExecution
             Source = source;
             Provider = provider;
             ConnectionFactory = new ConnectionFactory( source, provider );
-            SqlStatement = new SqlStatement( source, provider, SQL.SELECTALL );
+            SqlStatement = new SqlStatement( source, provider, SQL.Selectall );
             Query = new Query( SqlStatement );
             DataTable = GetDataTable( );
             DataSetName = DataSet.DataSetName;

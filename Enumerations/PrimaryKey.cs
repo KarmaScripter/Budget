@@ -699,7 +699,7 @@ namespace BudgetExecution
         /// <summary>
         /// The URL identifier
         /// </summary>
-        URLId,
+        UrlId,
 
         /// <summary>
         /// The work codes identifier

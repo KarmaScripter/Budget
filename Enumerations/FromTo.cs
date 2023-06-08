@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum FromTo
     {
         /// <summary> Defines the None </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> Defines the From </summary>
         From = 1,

@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum ExpenseType
     {
         /// <summary> Defines the None </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> Defines the Commitment </summary>
         Commitment,

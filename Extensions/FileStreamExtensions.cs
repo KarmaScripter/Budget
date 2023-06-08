@@ -82,9 +82,9 @@ namespace BudgetExecution
                         action( _line );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -100,9 +100,9 @@ namespace BudgetExecution
                 {
                     return stream.GetReader( null );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( StreamReader );
                 }
             }
@@ -123,9 +123,9 @@ namespace BudgetExecution
                     encoding ??= Encoding.Default;
                     return new StreamReader( stream, encoding );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( StreamReader );
                 }
             }
@@ -144,9 +144,9 @@ namespace BudgetExecution
                 {
                     return stream.GetWriter( null );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( StreamWriter );
                 }
             }
@@ -167,9 +167,9 @@ namespace BudgetExecution
                     encoding ??= Encoding.Default;
                     return new StreamWriter( stream, encoding );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( StreamWriter );
                 }
             }
@@ -198,9 +198,9 @@ namespace BudgetExecution
                     using var _reader = stream.GetReader( encoding );
                     return _reader.ReadToEnd( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string );
                 }
             }
@@ -220,9 +220,9 @@ namespace BudgetExecution
                     stream.Seek( 0, SeekOrigin.Begin );
                     return stream;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( Stream );
                 }
             }
@@ -242,9 +242,9 @@ namespace BudgetExecution
                     stream.Seek( 0, SeekOrigin.End );
                     return stream;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( Stream );
                 }
             }
@@ -275,9 +275,9 @@ namespace BudgetExecution
 
                     return stream;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( MemoryStream );
                 }
             }
@@ -298,9 +298,9 @@ namespace BudgetExecution
                     stream.CopyTo( _memory, (int)stream.Length );
                     return _memory;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( MemoryStream );
                 }
             }
@@ -320,9 +320,9 @@ namespace BudgetExecution
                     using var _memory = stream.CopyToMemory( );
                     return _memory.ToArray( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<byte> );
                 }
             }
@@ -356,9 +356,9 @@ namespace BudgetExecution
 
                     return _buffer;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<byte> );
                 }
             }
@@ -377,9 +377,9 @@ namespace BudgetExecution
                 {
                     stream.Write( bytes, 0, bytes.Length );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

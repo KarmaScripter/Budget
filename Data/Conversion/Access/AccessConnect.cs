@@ -74,9 +74,9 @@ namespace BudgetExecution
             var _restrictions = new string[ 4 ];
             _restrictions[ 3 ] = "Table";
             var _schema = _connection.GetSchema( "Tables", _restrictions );
-            for( var i = 0; i < _schema.Rows.Count; i++ )
+            for( var _i = 0; _i < _schema.Rows.Count; _i++ )
             {
-                _names.Add( _schema.Rows[ i ][ 2 ].ToString( ) );
+                _names.Add( _schema.Rows[ _i ][ 2 ].ToString( ) );
             }
 
             return _names;
@@ -96,9 +96,9 @@ namespace BudgetExecution
                     ? _table
                     : default( DataTable );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Console.WriteLine( ex );
+                Console.WriteLine( _ex );
                 throw;
             }
         }
@@ -115,11 +115,11 @@ namespace BudgetExecution
             var _dataColumn = _dataTable?.Columns[ "ColumnName" ];
             if( _dataTable?.Rows != null )
             {
-                foreach( DataRow row in _dataTable?.Rows )
+                foreach( DataRow _row in _dataTable?.Rows )
                 {
                     if( _dataColumn != null )
                     {
-                        _names.Add( row[ _dataColumn ].ToString( ) );
+                        _names.Add( _row[ _dataColumn ].ToString( ) );
                     }
                 }
             }

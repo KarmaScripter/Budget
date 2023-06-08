@@ -56,7 +56,7 @@ namespace BudgetExecution
         /// <summary>
         /// The selectall
         /// </summary>
-        SELECTALL,
+        Selectall,
 
         /// <summary>
         /// The insert
@@ -76,17 +76,17 @@ namespace BudgetExecution
         /// <summary>
         /// The createdatabase
         /// </summary>
-        CREATEDATABASE,
+        Createdatabase,
 
         /// <summary>
         /// The createtable
         /// </summary>
-        CREATETABLE,
+        Createtable,
 
         /// <summary>
         /// The createview
         /// </summary>
-        CREATEVIEW,
+        Createview,
 
         /// <summary>
         /// The drop
@@ -96,6 +96,6 @@ namespace BudgetExecution
         /// <summary>
         /// The altertable
         /// </summary>
-        ALTERTABLE
+        Altertable
     }
 }

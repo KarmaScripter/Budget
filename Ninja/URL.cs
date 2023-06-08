@@ -48,7 +48,7 @@ namespace BudgetExecution
 
     /// <summary> </summary>
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    public class URL
+    public class Url
     {
         /// <summary> Gets or sets the identifier. </summary>
         /// <value> The identifier. </value>
@@ -68,20 +68,20 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="URL"/>
+        /// <see cref="Url"/>
         /// class.
         /// </summary>
-        public URL( )
+        public Url( )
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="URL"/>
+        /// <see cref="Url"/>
         /// class.
         /// </summary>
         /// <param name="query"> The query. </param>
-        public URL( IQuery query )
+        public Url( IQuery query )
         {
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
@@ -89,11 +89,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="URL"/>
+        /// <see cref="Url"/>
         /// class.
         /// </summary>
         /// <param name="builder"> The builder. </param>
-        public URL( IDataModel builder )
+        public Url( IDataModel builder )
         {
             Record = builder.Record;
             Data = Record.ToDictionary( );
@@ -101,11 +101,11 @@ namespace BudgetExecution
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="URL"/>
+        /// <see cref="Url"/>
         /// class.
         /// </summary>
         /// <param name="dataRow"> The data row. </param>
-        public URL( DataRow dataRow )
+        public Url( DataRow dataRow )
         {
             Record = dataRow;
             Data = dataRow.ToDictionary( );

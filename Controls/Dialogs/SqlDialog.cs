@@ -329,27 +329,27 @@ namespace BudgetExecution
                     for( var _i = 0; _i < list.Count; _i++ )
                     {
                         if( _commands.Contains( list[ _i ] )
-                           && list[ _i ].Equals( $"{SQL.CREATEDATABASE}" ) )
+                           && list[ _i ].Equals( $"{SQL.Createdatabase}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE DATABASE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.CREATETABLE}" ) )
+                                && list[ _i ].Equals( $"{SQL.Createtable}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE TABLE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.ALTERTABLE}" ) )
+                                && list[ _i ].Equals( $"{SQL.Altertable}" ) )
                         {
                             SqlComboBox.Items.Add( "ALTER TABLE" );
                         }
                         else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.CREATEVIEW}" ) )
+                                && list[ _i ].Equals( $"{SQL.Createview}" ) )
                         {
                             SqlComboBox.Items.Add( "CREATE VIEW" );
                         }
                         else if( _commands.Contains( list[ _i ] )
-                                && list[ _i ].Equals( $"{SQL.SELECTALL}" ) )
+                                && list[ _i ].Equals( $"{SQL.Selectall}" ) )
                         {
                             SqlComboBox.Items.Add( "SELECT ALL" );
                         }

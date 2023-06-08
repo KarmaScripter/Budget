@@ -132,7 +132,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         protected CommandBase( Source source, Provider provider, IDictionary<string, object> where, 
-            SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.Selectall )
         {
             Source = source;
             Provider = provider;
@@ -226,7 +226,7 @@ namespace BudgetExecution
                     var _connection = ConnectionFactory?.Connection as SQLiteConnection;
                     switch( SqlStatement?.CommandType )
                     {
-                        case SQL.SELECTALL:
+                        case SQL.Selectall:
                         case SQL.SELECT:
                         {
                             var _sql = SqlStatement?.GetCommandText( );
@@ -256,9 +256,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DbCommand );
                 }
             }
@@ -281,7 +281,7 @@ namespace BudgetExecution
                     var _connection = ConnectionFactory?.Connection as SqlCeConnection;
                     switch( SqlStatement?.CommandType )
                     {
-                        case SQL.SELECTALL:
+                        case SQL.Selectall:
                         case SQL.SELECT:
                         {
                             var _sql = SqlStatement?.GetCommandText( );
@@ -319,9 +319,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DbCommand );
                 }
             }
@@ -344,7 +344,7 @@ namespace BudgetExecution
                     var _connection = ConnectionFactory?.Connection as SqlConnection;
                     switch( SqlStatement?.CommandType )
                     {
-                        case SQL.SELECTALL:
+                        case SQL.Selectall:
                         case SQL.SELECT:
                         {
                             var _sql = SqlStatement?.GetCommandText( );
@@ -372,9 +372,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DbCommand );
                 }
             }
@@ -397,7 +397,7 @@ namespace BudgetExecution
                     var _connection = ConnectionFactory?.Connection as OleDbConnection;
                     switch( SqlStatement?.CommandType )
                     {
-                        case SQL.SELECTALL:
+                        case SQL.Selectall:
                         case SQL.SELECT:
                         {
                             var _sql = SqlStatement?.GetCommandText( );
@@ -425,9 +425,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DbCommand );
                 }
             }

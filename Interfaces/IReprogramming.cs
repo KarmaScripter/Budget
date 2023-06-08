@@ -65,7 +65,7 @@ namespace BudgetExecution
         string BFY { get; set; }
 
         /// <summary> Gets or sets the Ending Fiscal Year </summary>
-        string EFY { get; set; }
+        string Efy { get; set; }
 
         /// <summary> Gets or sets the rpio code. </summary>
         /// <value> The rpio code. </value>

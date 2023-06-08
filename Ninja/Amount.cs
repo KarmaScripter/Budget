@@ -135,9 +135,9 @@ namespace BudgetExecution
                 Delta = increment;
                 Value += increment;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -152,9 +152,9 @@ namespace BudgetExecution
                 Delta = decrement;
                 Value -= decrement;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -174,9 +174,9 @@ namespace BudgetExecution
                     return ( ( amount?.Value == Value ) 
                         && ( amount?.Numeric?.Equals( Numeric ) == true ) );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return false;
                 }
             }
@@ -202,9 +202,9 @@ namespace BudgetExecution
                     return ( ( first?.Numeric == second?.Numeric ) 
                         && ( first.Value == second.Value ) );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return false;
                 }
             }
@@ -224,9 +224,9 @@ namespace BudgetExecution
                 using var _message = new Message( "Not Yet Implemented" );
                 _message.Show( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

@@ -149,9 +149,9 @@ namespace BudgetExecution
                 {
                     return Commands[ commandName ];
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -174,9 +174,9 @@ namespace BudgetExecution
                 {
                     return Commands[ $"{sqlCommand}" ];
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -208,9 +208,9 @@ namespace BudgetExecution
                             : string.Empty;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -228,17 +228,17 @@ namespace BudgetExecution
                && ( Files?.Any( ) == true ) )
             {
                 var _repository = new Dictionary<string, string>( );
-                foreach( var file in Files )
+                foreach( var _file in Files )
                 {
                     string _output;
-                    using( var _stream = File.OpenText( file ) )
+                    using( var _stream = File.OpenText( _file ) )
                     {
                         _output = _stream.ReadToEnd( );
                     }
 
                     if( !string.IsNullOrEmpty( _output ) )
                     {
-                        var _name = Path.GetFileNameWithoutExtension( file );
+                        var _name = Path.GetFileNameWithoutExtension( _file );
                         _repository.Add( _name, _output );
                     }
                 }

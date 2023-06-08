@@ -69,7 +69,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="commandType"> The commandType. </param>
         public Query( Source source, Provider provider = Provider.Access, 
-            SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.Selectall )
             : base( source, provider, commandType )
         {
         }

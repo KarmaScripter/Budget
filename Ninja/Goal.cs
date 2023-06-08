@@ -150,9 +150,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ "Code" ] = goal.ToString( ) };
                 }
-                catch( SystemException ex )
+                catch( SystemException _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -170,9 +170,9 @@ namespace BudgetExecution
                     ? Source
                     : default( Source );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( Source );
             }
         }
@@ -188,9 +188,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ "Code" ] = code };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }

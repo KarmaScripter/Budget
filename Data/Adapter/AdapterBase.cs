@@ -205,9 +205,9 @@ namespace BudgetExecution
                         return _adapter;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( SQLiteDataAdapter );
                 }
             }
@@ -246,9 +246,9 @@ namespace BudgetExecution
                         return _adapter;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( SqlDataAdapter );
                 }
             }
@@ -287,9 +287,9 @@ namespace BudgetExecution
                         return _adapter;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( OleDbDataAdapter );
                 }
             }
@@ -328,9 +328,9 @@ namespace BudgetExecution
                         return _adapter;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( SqlCeDataAdapter );
                 }
             }

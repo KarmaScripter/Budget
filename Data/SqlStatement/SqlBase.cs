@@ -175,7 +175,7 @@ namespace BudgetExecution
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
         /// <param name="commandType">Type of the command.</param>
-        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.SELECTALL )
+        protected SqlBase( Source source, Provider provider, SQL commandType = SQL.Selectall )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).DbPath;
@@ -212,7 +212,7 @@ namespace BudgetExecution
         /// <param name="where">The where.</param>
         /// <param name="commandType">Type of the command.</param>
         protected SqlBase( Source source, Provider provider, IDictionary<string, object> where,
-            SQL commandType = SQL.SELECTALL )
+            SQL commandType = SQL.Selectall )
             : this( )
         {
             DbPath = new ConnectionFactory( source, provider ).DbPath;
@@ -307,7 +307,7 @@ namespace BudgetExecution
                     switch( CommandType )
                     {
                         case SQL.SELECT:
-                        case SQL.SELECTALL:
+                        case SQL.Selectall:
                         {
                             return GetSelectStatement( );
                         }
@@ -329,9 +329,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
@@ -350,14 +350,14 @@ namespace BudgetExecution
             {
                 var _cols = string.Empty;
                 var _aggr = string.Empty;
-                foreach( var name in Fields )
+                foreach( var _name in Fields )
                 {
-                    _cols += $"{name}, ";
+                    _cols += $"{_name}, ";
                 }
 
-                foreach( var metric in Numerics )
+                foreach( var _metric in Numerics )
                 {
-                    _aggr += $"SUM({metric}) AS {metric}, ";
+                    _aggr += $"SUM({_metric}) AS {_metric}, ";
                 }
 
                 var _criteria = Criteria.ToCriteria( );
@@ -373,9 +373,9 @@ namespace BudgetExecution
                && ( Numerics?.Any( ) == false ) )
             {
                 var _cols = string.Empty;
-                foreach( var name in Fields )
+                foreach( var _name in Fields )
                 {
-                    _cols += $"{name}, ";
+                    _cols += $"{_name}, ";
                 }
 
                 var _criteria = Criteria.ToCriteria( );
@@ -416,16 +416,16 @@ namespace BudgetExecution
                     var _update = string.Empty;
                     if( Updates.Count == 1 )
                     {
-                        foreach( var kvp in Updates )
+                        foreach( var _kvp in Updates )
                         {
-                            _update += $"{kvp.Key} = '{kvp.Value}'";
+                            _update += $"{_kvp.Key} = '{_kvp.Value}'";
                         }
                     }
                     else if( Updates.Count > 1 )
                     {
-                        foreach( var kvp in Updates )
+                        foreach( var _kvp in Updates )
                         {
-                            _update += $"{kvp.Key} = '{kvp.Value}', ";
+                            _update += $"{_kvp.Key} = '{_kvp.Value}', ";
                         }
                     }
 
@@ -433,9 +433,9 @@ namespace BudgetExecution
                     var _values = _update.TrimEnd( ", ".ToCharArray( ) );
                     return $"UPDATE {Source} SET {_values} WHERE {_criteria};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -458,18 +458,18 @@ namespace BudgetExecution
                     var _values = string.Empty;
                     if( Updates.Count == 1 )
                     {
-                        foreach( var kvp in Updates )
+                        foreach( var _kvp in Updates )
                         {
-                            _columns += $"{kvp.Key}";
-                            _values += $"{kvp.Value}";
+                            _columns += $"{_kvp.Key}";
+                            _values += $"{_kvp.Value}";
                         }
                     }
                     else if( Updates.Count > 1 )
                     {
-                        foreach( var kvp in Updates )
+                        foreach( var _kvp in Updates )
                         {
-                            _columns += $"{kvp.Key}, ";
-                            _values += $"{kvp.Value}, ";
+                            _columns += $"{_kvp.Key}, ";
+                            _values += $"{_kvp.Value}, ";
                         }
                     }
 
@@ -478,9 +478,9 @@ namespace BudgetExecution
                     
                     return $"INSERT INTO {Source} {_columnValues};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -503,9 +503,9 @@ namespace BudgetExecution
                         ? $"DELETE FROM {Source} WHERE {_criteria};"
                         : $"DELETE FROM {Source};";
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }

@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum PicSize
     {
         /// <summary> The none </summary>
-        NS = 0,
+        Ns = 0,
 
         /// <summary> The small </summary>
         Small,

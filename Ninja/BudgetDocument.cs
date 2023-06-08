@@ -157,7 +157,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             DocumentType = Record[ "DocumentType" ].ToString( );
@@ -186,7 +186,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             DocumentType = Record[ "DocumentType" ].ToString( );
@@ -215,7 +215,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             BudgetLevel = Record[ "BudgetLevel" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             DocumentType = dataRow[ "DocumentType" ].ToString( );

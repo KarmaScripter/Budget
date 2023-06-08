@@ -114,13 +114,13 @@ namespace BudgetExecution
                     _request.Cx = Config[ "SearchEngineId" ];
                     _request.Start = _count;
                     var _list = _request.Execute( )?.Items?.ToList( );
-                    for( var i = 0; i < _list.Count; i++ )
+                    for( var _i = 0; _i < _list.Count; _i++ )
                     {
                         var _results = new ResultData( );
-                        _results.Content = _list[ i ].Snippet;
-                        _results.Link = _list[ i ].Link;
-                        _results.Title = _list[ i ].Title;
-                        _results.Name = _list[ i ].HtmlTitle;
+                        _results.Content = _list[ _i ].Snippet;
+                        _results.Link = _list[ _i ].Link;
+                        _results.Title = _list[ _i ].Title;
+                        _results.Name = _list[ _i ].HtmlTitle;
                         _data.Add( _results );
                     }
 
@@ -128,9 +128,9 @@ namespace BudgetExecution
                         ? _data
                         : default( List<ResultData> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( List<ResultData> );
                 }
             }

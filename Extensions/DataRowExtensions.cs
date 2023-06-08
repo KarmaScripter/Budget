@@ -82,11 +82,11 @@ namespace BudgetExecution
                             case Provider.SQLite:
                             {
                                 var _sqlite = new List<SQLiteParameter>( );
-                                for( var i = 0; i < _columns?.Count; i++ )
+                                for( var _i = 0; _i < _columns?.Count; _i++ )
                                 {
                                     var _parameter = new SQLiteParameter( );
-                                    _parameter.SourceColumn = _columns[ i ].ColumnName;
-                                    _parameter.Value = _values[ i ];
+                                    _parameter.SourceColumn = _columns[ _i ].ColumnName;
+                                    _parameter.Value = _values[ _i ];
                                     _sqlite.Add( _parameter );
                                 }
 
@@ -97,11 +97,11 @@ namespace BudgetExecution
                             case Provider.SqlCe:
                             {
                                 var _sqlce = new List<SqlCeParameter>( );
-                                for( var i = 0; i < _columns?.Count; i++ )
+                                for( var _i = 0; _i < _columns?.Count; _i++ )
                                 {
                                     var _parameter = new SqlCeParameter( );
-                                    _parameter.SourceColumn = _columns[ i ].ColumnName;
-                                    _parameter.Value = _values[ i ];
+                                    _parameter.SourceColumn = _columns[ _i ].ColumnName;
+                                    _parameter.Value = _values[ _i ];
                                     _sqlce.Add( _parameter );
                                 }
 
@@ -114,12 +114,12 @@ namespace BudgetExecution
                             case Provider.Access:
                             {
                                 var _oledb = new List<OleDbParameter>( );
-                                for( var i = 0; i < _columns?.Count; i++ )
+                                for( var _i = 0; _i < _columns?.Count; _i++ )
                                 {
-                                    var parameter = new OleDbParameter( );
-                                    parameter.SourceColumn = _columns[ i ].ColumnName;
-                                    parameter.Value = _values[ i ];
-                                    _oledb.Add( parameter );
+                                    var _parameter = new OleDbParameter( );
+                                    _parameter.SourceColumn = _columns[ _i ].ColumnName;
+                                    _parameter.Value = _values[ _i ];
+                                    _oledb.Add( _parameter );
                                 }
 
                                 return _oledb.Any( )
@@ -129,11 +129,11 @@ namespace BudgetExecution
                             case Provider.SqlServer:
                             {
                                 var _sqlserver = new List<SqlParameter>( );
-                                for( var i = 0; i < _columns?.Count; i++ )
+                                for( var _i = 0; _i < _columns?.Count; _i++ )
                                 {
                                     var _parameter = new SqlParameter( );
-                                    _parameter.SourceColumn = _columns[ i ].ColumnName;
-                                    _parameter.Value = _values[ i ];
+                                    _parameter.SourceColumn = _columns[ _i ].ColumnName;
+                                    _parameter.Value = _values[ _i ];
                                     _sqlserver.Add( _parameter );
                                 }
 
@@ -146,9 +146,9 @@ namespace BudgetExecution
                         return default( IList<DbParameter> );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IList<DbParameter> );
                 }
             }
@@ -171,11 +171,11 @@ namespace BudgetExecution
                     var _table = dataRow?.Table;
                     var _column = _table?.Columns;
                     var _items = dataRow?.ItemArray;
-                    for( var i = 0; i < _column?.Count; i++ )
+                    for( var _i = 0; _i < _column?.Count; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( _column[ i ]?.ColumnName ) )
+                        if( !string.IsNullOrEmpty( _column[ _i ]?.ColumnName ) )
                         {
-                            _dictionary?.Add( _column[ i ].ColumnName, _items[ i ] ?? default( object ) );
+                            _dictionary?.Add( _column[ _i ].ColumnName, _items[ _i ] ?? default( object ) );
                         }
                     }
 
@@ -186,9 +186,9 @@ namespace BudgetExecution
 
                 return default( IDictionary<string, object> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, object> );
             }
         }
@@ -205,9 +205,9 @@ namespace BudgetExecution
             {
                 return dataRow[ columnName ] as byte[ ];
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<byte> );
             }
         }

@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <param name="provider"> The provider. </param>
         /// <param name="where"> The dictionary. </param>
         /// <param name="commandType"> </param>
-        public CommandFactory( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.SELECTALL )
+        public CommandFactory( Source source, Provider provider, IDictionary<string, object> where, SQL commandType = SQL.Selectall )
             : base( source, provider, where, commandType )
         {
         }
@@ -183,9 +183,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DbCommand );
                 }
             }

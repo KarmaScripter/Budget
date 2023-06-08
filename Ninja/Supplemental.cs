@@ -81,7 +81,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the efy. </summary>
         /// <value> The efy. </value>
-        public override string EFY { get; set; }
+        public override string Efy { get; set; }
 
         /// <summary> Gets or sets the rpio code. </summary>
         /// <value> The rpio code. </value>
@@ -213,9 +213,9 @@ namespace BudgetExecution
                     ? new DataBuilder( Source, Data )
                     : default( DataBuilder );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDataModel );
             }
         }

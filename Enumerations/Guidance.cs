@@ -53,10 +53,10 @@ namespace BudgetExecution
         ObjectClassManual,
 
         /// <summary> The cf R31 </summary>
-        CFR31,
+        Cfr31,
 
         /// <summary> The omb a11 </summary>
-        OMBA11,
+        Omba11,
 
         /// <summary> The official travel </summary>
         OfficialTravel,

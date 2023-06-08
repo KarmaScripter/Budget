@@ -272,9 +272,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ "Code" ] = fundCode };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return new Dictionary<string, object> { [ "Name" ] = fundCode };
                 }
             }
@@ -286,9 +286,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ "Name" ] = fundCode };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }
@@ -309,9 +309,9 @@ namespace BudgetExecution
                     ? new Dictionary<string, object> { [ "Code" ] = fundCode.ToString( ) }
                     : default( Dictionary<string, object> );
             }
-            catch( SystemException ex )
+            catch( SystemException _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, object> );
             }
         }

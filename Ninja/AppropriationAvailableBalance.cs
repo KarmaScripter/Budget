@@ -126,7 +126,7 @@ namespace BudgetExecution
             Record = new DataBuilder( query ).Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -151,7 +151,7 @@ namespace BudgetExecution
             Record = builder.Record;
             Data = Record.ToDictionary( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             FundCode = Record[ "FundCode" ].ToString( );
             FundName = Record[ "FundName" ].ToString( );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
@@ -176,7 +176,7 @@ namespace BudgetExecution
             Record = dataRow;
             Data = dataRow.ToDictionary( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             FundCode = dataRow[ "FundCode" ].ToString( );
             FundName = dataRow[ "FundName" ].ToString( );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
@@ -200,7 +200,7 @@ namespace BudgetExecution
         {
             ID = balance.ID;
             BFY = balance.BFY;
-            EFY = balance.EFY;
+            Efy = balance.Efy;
             FundCode = balance.FundCode;
             FundName = balance.FundName;
             BudgetAccountCode = balance.BudgetAccountCode;

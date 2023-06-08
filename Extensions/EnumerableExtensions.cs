@@ -70,18 +70,18 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new BindingList<T>( );
-                    foreach( var item in enumerable )
+                    foreach( var _item in enumerable )
                     {
-                        _list.Add( item );
+                        _list.Add( _item );
                     }
 
                     return _list?.Any( ) == true
                         ? _list
                         : default( BindingList<T> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( BindingList<T> );
                 }
             }
@@ -111,9 +111,9 @@ namespace BudgetExecution
             {
                 return source.Where( element => !predicate( element ) );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -143,9 +143,9 @@ namespace BudgetExecution
             {
                 return source.Where( ( element, index ) => !predicate( element, index ) );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -174,9 +174,9 @@ namespace BudgetExecution
                             : default( IEnumerable<DataRow> );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -201,9 +201,9 @@ namespace BudgetExecution
                         ? _rows
                         : default( IEnumerable<DataRow> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -237,9 +237,9 @@ namespace BudgetExecution
                 _range?.LoadFromCollection( type, true, style );
                 return _excel;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ExcelPackage );
             }
         }
@@ -278,19 +278,19 @@ namespace BudgetExecution
         {
             return sequence switch
             {
-                IList<T> list => SliceList( list.Count, i => list[ i ] ),
-                IReadOnlyList<T> list => SliceList( list.Count, i => list[ i ] ),
-                var seq => seq.Skip( startIndex ).Take( count )
+                IList<T> _list => SliceList( _list.Count, i => _list[ i ] ),
+                IReadOnlyList<T> _list => SliceList( _list.Count, i => _list[ i ] ),
+                var _seq => _seq.Skip( startIndex ).Take( count )
             };
 
             IEnumerable<T> SliceList( int listCount, Func<int, T> indexer )
             {
-                var countdown = count;
-                var index = startIndex;
-                while( ( index < listCount )
-                      && ( countdown-- > 0 ) )
+                var _countdown = count;
+                var _index = startIndex;
+                while( ( _index < listCount )
+                      && ( _countdown-- > 0 ) )
                 {
-                    yield return indexer( index++ );
+                    yield return indexer( _index++ );
                 }
             }
         }
@@ -308,7 +308,7 @@ namespace BudgetExecution
                && ( end > 0 ) )
             {
                 var _index = 0;
-                foreach( var item in type )
+                foreach( var _item in type )
                 {
                     if( _index >= end )
                     {
@@ -317,7 +317,7 @@ namespace BudgetExecution
 
                     if( _index >= start )
                     {
-                        yield return item;
+                        yield return _item;
                     }
 
                     ++_index;
@@ -346,9 +346,9 @@ namespace BudgetExecution
             {
                 return CycleIterator( source );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<T> );
             }
         }
@@ -359,28 +359,28 @@ namespace BudgetExecution
         /// <returns> </returns>
         private static IEnumerable<T> CycleIterator<T>( IEnumerable<T> source )
         {
-            var elementBuffer = source is not ICollection<T> collection
+            var _elementBuffer = source is not ICollection<T> _collection
                 ? new List<T>( )
-                : new List<T>( collection.Count );
+                : new List<T>( _collection.Count );
 
-            foreach( var element in source )
+            foreach( var _element in source )
             {
-                yield return element;
+                yield return _element;
 
-                elementBuffer.Add( element );
+                _elementBuffer.Add( _element );
             }
 
-            if( elementBuffer.IsEmpty<T>( ) )
+            if( _elementBuffer.IsEmpty<T>( ) )
             {
                 yield break;
             }
 
-            var index = 0;
+            var _index = 0;
             while( true )
             {
-                yield return elementBuffer[ index ];
+                yield return _elementBuffer[ _index ];
 
-                index = ( index + 1 ) % elementBuffer.Count;
+                _index = ( _index + 1 ) % _elementBuffer.Count;
             }
         }
 

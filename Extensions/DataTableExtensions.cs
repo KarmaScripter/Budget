@@ -80,11 +80,11 @@ namespace BudgetExecution
                 foreach( DataRow _dataRow in dataTable.Rows )
                 {
                     var _element = new XElement( dataTable.TableName );
-                    for( var i = 0; i < dataTable.Columns.Count; i++ )
+                    for( var _i = 0; _i < dataTable.Columns.Count; _i++ )
                     {
-                        var col = dataTable.Columns[ i ];
-                        var _row = _dataRow?[ col ]?.ToString( )?.Trim( ' ' );
-                        var _node = new XElement( col.ColumnName, _row );
+                        var _col = dataTable.Columns[ _i ];
+                        var _row = _dataRow?[ _col ]?.ToString( )?.Trim( ' ' );
+                        var _node = new XElement( _col.ColumnName, _row );
                         _element.Add( new XElement( _node ) );
                     }
 
@@ -93,9 +93,9 @@ namespace BudgetExecution
 
                 return _xml;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( XDocument );
             }
         }
@@ -118,22 +118,22 @@ namespace BudgetExecution
 
                 var _excel = new ExcelPackage( );
                 var _worksheet = _excel?.Workbook?.Worksheets[ 0 ];
-                for( var i = 0; i < dataTable?.Columns?.Count; i++ )
+                for( var _i = 0; _i < dataTable?.Columns?.Count; _i++ )
                 {
                     if( ( _worksheet != null )
-                       && !string.IsNullOrEmpty( dataTable.Columns[ i ]?.ColumnName ) )
+                       && !string.IsNullOrEmpty( dataTable.Columns[ _i ]?.ColumnName ) )
                     {
-                        _worksheet.Cells[ 1, i + 1 ].Value = dataTable.Columns[ i ]?.ColumnName;
+                        _worksheet.Cells[ 1, _i + 1 ].Value = dataTable.Columns[ _i ]?.ColumnName;
                     }
                 }
 
-                for( var i = 0; i < dataTable.Rows?.Count; i++ )
+                for( var _i = 0; _i < dataTable.Rows?.Count; _i++ )
                 {
-                    for( var j = 0; j < dataTable.Columns?.Count; j++ )
+                    for( var _j = 0; _j < dataTable.Columns?.Count; _j++ )
                     {
                         if( _worksheet != null )
                         {
-                            _worksheet.Cells[ i + 2, j + 1 ].Value = dataTable.Rows[ i ][ j ];
+                            _worksheet.Cells[ _i + 2, _j + 1 ].Value = dataTable.Rows[ _i ][ _j ];
                         }
                     }
                 }
@@ -145,15 +145,15 @@ namespace BudgetExecution
                         _excel.Save( filePath );
                         MessageBox.Show( "Excel file saved!" );
                     }
-                    catch( Exception ex )
+                    catch( Exception _ex )
                     {
-                        throw new Exception( "Excel file could not be saved.\n" + ex.Message );
+                        throw new Exception( "Excel file could not be saved.\n" + _ex.Message );
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -178,9 +178,9 @@ namespace BudgetExecution
                     _adapter.Fill( _table, _table.TableName );
                     return _table;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }
@@ -202,11 +202,11 @@ namespace BudgetExecution
             {
                 if( dataTable?.Rows?.Count > 0 )
                 {
-                    foreach( DataColumn col in dataTable.Columns )
+                    foreach( DataColumn _col in dataTable.Columns )
                     {
-                        if( ( col?.Ordinal > 0 )
-                           && !col.ColumnName.EndsWith( "Id" )
-                           && ( col.DataType == typeof( double ) | col.DataType == typeof( decimal ) | col.DataType == typeof( float ) | col.DataType == typeof( int ) ) )
+                        if( ( _col?.Ordinal > 0 )
+                           && !_col.ColumnName.EndsWith( "Id" )
+                           && ( _col.DataType == typeof( double ) | _col.DataType == typeof( decimal ) | _col.DataType == typeof( float ) | _col.DataType == typeof( int ) ) )
                         {
                             return true;
                         }
@@ -217,9 +217,9 @@ namespace BudgetExecution
 
                 return false;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return false;
             }
         }
@@ -234,15 +234,15 @@ namespace BudgetExecution
                 if( dataTable?.Rows?.Count > 0 )
                 {
                     var _list = new List<int>( );
-                    foreach( DataColumn col in dataTable.Columns )
+                    foreach( DataColumn _col in dataTable.Columns )
                     {
-                        for( var i = 0; i < dataTable.Rows.Count; i++ )
+                        for( var _i = 0; _i < dataTable.Rows.Count; _i++ )
                         {
-                            if( ( col.DataType == typeof( int ) )
-                               && ( col.Ordinal == 0 ) )
+                            if( ( _col.DataType == typeof( int ) )
+                               && ( _col.Ordinal == 0 ) )
                             {
-                                var row = dataTable.Rows[ i ];
-                                var _value = row[ col.ColumnName ]?.ToString( );
+                                var _row = dataTable.Rows[ _i ];
+                                var _value = _row[ _col.ColumnName ]?.ToString( );
                                 if( !string.IsNullOrEmpty( _value ) )
                                 {
                                     var _index = int.Parse( _value );
@@ -259,9 +259,9 @@ namespace BudgetExecution
 
                 return default( IEnumerable<int> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<int> );
             }
         }
@@ -284,9 +284,9 @@ namespace BudgetExecution
                         var _filtered = dataTable.Select( _criteria );
                         if( _filtered?.Any( ) == true )
                         {
-                            foreach( var row in _filtered )
+                            foreach( var _row in _filtered )
                             {
-                                var _item = row?.ItemArray[ 0 ];
+                                var _item = _row?.ItemArray[ 0 ];
                                 var _value = _item?.ToString( );
                                 var _index = int.Parse( _value );
                                 _list.Add( _index );
@@ -301,9 +301,9 @@ namespace BudgetExecution
 
                 return default( IEnumerable<int> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<int> );
             }
         }
@@ -324,9 +324,9 @@ namespace BudgetExecution
                         ? _enumerable?.ToArray( )
                         : default( string[ ] );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string[ ] );
                 }
             }
@@ -353,9 +353,9 @@ namespace BudgetExecution
                         ? _query?.ToArray( )
                         : default( string[ ] );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( string[ ] );
                 }
             }
@@ -375,23 +375,23 @@ namespace BudgetExecution
                     var _points = new List<DataPoint>( );
                     var _names = new List<string>( );
                     var _values = new List<double>( );
-                    foreach( DataColumn col in dataTable.Columns )
+                    foreach( DataColumn _col in dataTable.Columns )
                     {
-                        if( ( col.Ordinal > 1 )
-                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float ) | col.DataType == typeof( double ) | col.DataType == typeof( int ) ) )
+                        if( ( _col.Ordinal > 1 )
+                           && ( _col.DataType == typeof( decimal ) | _col.DataType == typeof( float ) | _col.DataType == typeof( double ) | _col.DataType == typeof( int ) ) )
                         {
-                            _names.Add( col.ColumnName );
+                            _names.Add( _col.ColumnName );
                         }
                     }
 
-                    for( var index = 0; index < dataTable.Rows.Count; index++ )
+                    for( var _index = 0; _index < dataTable.Rows.Count; _index++ )
                     {
-                        var _row = dataTable.Rows[ index ];
+                        var _row = dataTable.Rows[ _index ];
                         var _point = new DataPoint( );
-                        _point.XValue = index;
-                        foreach( var name in _names )
+                        _point.XValue = _index;
+                        foreach( var _name in _names )
                         {
-                            var _val = double.Parse( _row[ name ]?.ToString( ) );
+                            var _val = double.Parse( _row[ _name ]?.ToString( ) );
                             _values.Add( _val );
                         }
 
@@ -404,9 +404,9 @@ namespace BudgetExecution
                         ? _points
                         : default( IList<DataPoint> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IList<DataPoint> );
                 }
             }
@@ -430,9 +430,9 @@ namespace BudgetExecution
                         ? _query
                         : default( IEnumerable<DataRow> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -448,9 +448,9 @@ namespace BudgetExecution
             try
             {
                 var _fields = new string[ dataTable.Columns.Count ];
-                for( var i = 0; i < dataTable.Columns.Count; i++ )
+                for( var _i = 0; _i < dataTable.Columns.Count; _i++ )
                 {
-                    _fields[ i ] = dataTable.Columns[ i ].ColumnName;
+                    _fields[ _i ] = dataTable.Columns[ _i ].ColumnName;
                 }
 
                 var _names = _fields?.OrderBy( f => f.IndexOf( f ) )?.Select( f => f )?.ToArray( );
@@ -458,9 +458,9 @@ namespace BudgetExecution
                     ? _names
                     : default( string[ ] );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( string[ ] );
             }
         }
@@ -475,12 +475,12 @@ namespace BudgetExecution
                 try
                 {
                     var _columns = new List<DataColumn>( );
-                    foreach( DataColumn col in dataTable.Columns )
+                    foreach( DataColumn _col in dataTable.Columns )
                     {
-                        if( !col.ColumnName.EndsWith( "Id" )
-                           && ( col.DataType == typeof( decimal ) | col.DataType == typeof( float ) | col.DataType == typeof( double ) | col.DataType == typeof( int ) ) )
+                        if( !_col.ColumnName.EndsWith( "Id" )
+                           && ( _col.DataType == typeof( decimal ) | _col.DataType == typeof( float ) | _col.DataType == typeof( double ) | _col.DataType == typeof( int ) ) )
                         {
-                            _columns.Add( col );
+                            _columns.Add( _col );
                         }
                     }
 
@@ -488,9 +488,9 @@ namespace BudgetExecution
                         ? _columns
                         : default( IList<DataColumn> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IList<DataColumn> );
                 }
             }
@@ -508,12 +508,12 @@ namespace BudgetExecution
                 try
                 {
                     var _columns = new List<DataColumn>( );
-                    foreach( DataColumn col in dataTable.Columns )
+                    foreach( DataColumn _col in dataTable.Columns )
                     {
-                        if( col.ColumnName.EndsWith( "Date" )
-                           || ( col.DataType == typeof( DateTime ) | col.DataType == typeof( DateOnly ) | col.DataType == typeof( DateTimeOffset ) ) )
+                        if( _col.ColumnName.EndsWith( "Date" )
+                           || ( _col.DataType == typeof( DateTime ) | _col.DataType == typeof( DateOnly ) | _col.DataType == typeof( DateTimeOffset ) ) )
                         {
-                            _columns.Add( col );
+                            _columns.Add( _col );
                         }
                     }
 
@@ -521,9 +521,9 @@ namespace BudgetExecution
                         ? _columns
                         : default( IList<DataColumn> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IList<DataColumn> );
                 }
             }
@@ -546,9 +546,9 @@ namespace BudgetExecution
                     dataTable.Columns.RemoveAt( _index );
                     dataTable.AcceptChanges( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -563,18 +563,18 @@ namespace BudgetExecution
                 try
                 {
                     var _bindingList = new BindingList<DataRow>( );
-                    foreach( DataRow row in dataTable.Rows )
+                    foreach( DataRow _row in dataTable.Rows )
                     {
-                        _bindingList.Add( row );
+                        _bindingList.Add( _row );
                     }
 
                     return ( _bindingList?.Any( ) == true )
                         ? _bindingList
                         : default( BindingList<DataRow> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( BindingList<DataRow> );
                 }
             }

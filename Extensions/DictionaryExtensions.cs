@@ -74,9 +74,9 @@ namespace BudgetExecution
                 {
                     dict.Add( new KeyValuePair<TKey, TValue>( key, value ) );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( TValue );
                 }
             }
@@ -103,9 +103,9 @@ namespace BudgetExecution
                         var _key = dict.GetPrimaryKey( );
                         if( !string.IsNullOrEmpty( _key.Key ) & int.Parse( _key.Value.ToString( ) ) > -1 )
                         {
-                            foreach( var kvp in dict )
+                            foreach( var _kvp in dict )
                             {
-                                _criteria += $"{kvp.Key} = '{kvp.Value}' AND ";
+                                _criteria += $"{_kvp.Key} = '{_kvp.Value}' AND ";
                             }
 
                             var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
@@ -117,9 +117,9 @@ namespace BudgetExecution
                     }
                     else if( !dict.HasPrimaryKey( ) )
                     {
-                        foreach( var kvp in dict )
+                        foreach( var _kvp in dict )
                         {
-                            _criteria += $"{kvp.Key} = '{kvp.Value}' AND ";
+                            _criteria += $"{_kvp.Key} = '{_kvp.Value}' AND ";
                         }
 
                         var _sql = _criteria.TrimEnd( " AND ".ToCharArray( ) );
@@ -128,9 +128,9 @@ namespace BudgetExecution
                             : string.Empty;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return string.Empty;
                 }
             }
@@ -149,9 +149,9 @@ namespace BudgetExecution
             {
                 return new SortedDictionary<TKey, TValue>( nvc );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( SortedDictionary<TKey, TValue> );
             }
         }
@@ -164,18 +164,18 @@ namespace BudgetExecution
             try
             {
                 var _bindingList = new BindingList<KeyValuePair<string, object>>( );
-                foreach( var kvp in nvc )
+                foreach( var _kvp in nvc )
                 {
-                    _bindingList.Add( kvp );
+                    _bindingList.Add( _kvp );
                 }
 
                 return _bindingList?.Any( ) == true
                     ? _bindingList
                     : default( BindingList<KeyValuePair<string, object>> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( BindingList<KeyValuePair<string, object>> );
             }
         }
@@ -191,9 +191,9 @@ namespace BudgetExecution
             {
                 return new SortedList<TKey, TValue>( dict );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( SortedList<TKey, TValue> );
             }
         }
@@ -216,12 +216,12 @@ namespace BudgetExecution
                         case Provider.SQLite:
                         {
                             var _sqlite = new List<SQLiteParameter>( );
-                            for( var i = 0; i < _columns.Length; i++ )
+                            for( var _i = 0; _i < _columns.Length; _i++ )
                             {
                                 var _parameter = new SQLiteParameter
                                 {
-                                    SourceColumn = _columns[ i ],
-                                    Value = _values[ i ]
+                                    SourceColumn = _columns[ _i ],
+                                    Value = _values[ _i ]
                                 };
 
                                 _sqlite.Add( _parameter );
@@ -234,12 +234,12 @@ namespace BudgetExecution
                         case Provider.SqlCe:
                         {
                             var _sqlce = new List<SqlCeParameter>( );
-                            for( var i = 0; i < _columns.Length; i++ )
+                            for( var _i = 0; _i < _columns.Length; _i++ )
                             {
                                 var _parameter = new SqlCeParameter
                                 {
-                                    SourceColumn = _columns[ i ],
-                                    Value = _values[ i ]
+                                    SourceColumn = _columns[ _i ],
+                                    Value = _values[ _i ]
                                 };
 
                                 _sqlce.Add( _parameter );
@@ -254,12 +254,12 @@ namespace BudgetExecution
                         case Provider.Access:
                         {
                             var _oledb = new List<OleDbParameter>( );
-                            for( var i = 0; i < _columns.Length; i++ )
+                            for( var _i = 0; _i < _columns.Length; _i++ )
                             {
                                 var _parameter = new OleDbParameter
                                 {
-                                    SourceColumn = _columns[ i ],
-                                    Value = _values[ i ]
+                                    SourceColumn = _columns[ _i ],
+                                    Value = _values[ _i ]
                                 };
 
                                 _oledb.Add( _parameter );
@@ -272,12 +272,12 @@ namespace BudgetExecution
                         case Provider.SqlServer:
                         {
                             var _sqlserver = new List<SqlParameter>( );
-                            for( var i = 0; i < _columns.Length; i++ )
+                            for( var _i = 0; _i < _columns.Length; _i++ )
                             {
                                 var _parameter = new SqlParameter
                                 {
-                                    SourceColumn = _columns[ i ],
-                                    Value = _values[ i ]
+                                    SourceColumn = _columns[ _i ],
+                                    Value = _values[ _i ]
                                 };
 
                                 _sqlserver.Add( _parameter );
@@ -289,9 +289,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( List<DbParameter> );
                 }
 
@@ -318,9 +318,9 @@ namespace BudgetExecution
                     var _array = dict.Keys?.ToArray( );
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
                     var _count = 0;
-                    for( var i = 1; i < _array.Length; i++ )
+                    for( var _i = 1; _i < _array.Length; _i++ )
                     {
-                        var _name = _array[ i ];
+                        var _name = _array[ _i ];
                         if( _names.Contains( _name ) )
                         {
                             _count++;
@@ -329,9 +329,9 @@ namespace BudgetExecution
 
                     return _count > 0;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( bool );
                 }
             }
@@ -350,17 +350,17 @@ namespace BudgetExecution
                 try
                 {
                     var _names = Enum.GetNames( typeof( PrimaryKey ) );
-                    foreach( var kvp in dict )
+                    foreach( var _kvp in dict )
                     {
-                        if( _names.Contains( kvp.Key ) )
+                        if( _names.Contains( _kvp.Key ) )
                         {
-                            return new KeyValuePair<string, object>( kvp.Key, kvp.Value );
+                            return new KeyValuePair<string, object>( _kvp.Key, _kvp.Value );
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( KeyValuePair<string, object> );
                 }
             }
@@ -379,18 +379,18 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new BindingList<string>( );
-                    foreach( var kvp in dict )
+                    foreach( var _kvp in dict )
                     {
-                        _list.Add( kvp.Key );
+                        _list.Add( _kvp.Key );
                     }
 
                     return _list?.Any( ) == true
                         ? _list
                         : default( BindingList<string> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( BindingList<string> );
                 }
             }
@@ -409,18 +409,18 @@ namespace BudgetExecution
                 try
                 {
                     var _list = new BindingList<object>( );
-                    foreach( var kvp in dict )
+                    foreach( var _kvp in dict )
                     {
-                        _list.Add( kvp.Value );
+                        _list.Add( _kvp.Value );
                     }
 
                     return _list?.Any( ) == true
                         ? _list
                         : default( BindingList<object> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( BindingList<object> );
                 }
             }

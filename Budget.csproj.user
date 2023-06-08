@@ -247,7 +247,7 @@
     <Compile Update="Controls\ToolStrip\ToolStripTextBoxBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\ToolTips\BigTip.cs">
+    <Compile Update="Controls\ToolTips\SuperTip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\ToolTips\SmallTip.cs">

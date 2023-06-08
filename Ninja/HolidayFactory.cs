@@ -120,18 +120,18 @@ namespace BudgetExecution
             try
             {
                 var _holiday = new Dictionary<string, DateTime>( );
-                foreach( var kvp in dict )
+                foreach( var _kvp in dict )
                 {
-                    _holiday.Add( kvp.Key, DateTime.Parse( kvp.Value ) );
+                    _holiday.Add( _kvp.Key, DateTime.Parse( _kvp.Value ) );
                 }
 
                 return _holiday.Any( )
                     ? _holiday
                     : default( Dictionary<string, DateTime> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, DateTime> );
             }
         }
@@ -146,18 +146,18 @@ namespace BudgetExecution
             try
             {
                 var _holiday = new Dictionary<string, DateTime>( );
-                foreach( var kvp in dict )
+                foreach( var _kvp in dict )
                 {
-                    _holiday.Add( kvp.Key, DateTime.Parse( kvp.Value ) );
+                    _holiday.Add( _kvp.Key, DateTime.Parse( _kvp.Value ) );
                 }
 
                 return _holiday.Any( )
                     ? _holiday
                     : default( Dictionary<string, DateTime> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, DateTime> );
             }
         }
@@ -174,9 +174,9 @@ namespace BudgetExecution
                     ? Args
                     : default( IDictionary<string, object> );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IDictionary<string, object> );
             }
         }

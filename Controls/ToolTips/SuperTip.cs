@@ -43,37 +43,53 @@ namespace BudgetExecution
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Tools.SuperToolTip" />
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
-    public class BigTip : SuperToolTip
+    public class SuperTip : SuperToolTip
     {
-        /// <summary> Gets or sets the tip text. </summary>
-        /// <value> The tip text. </value>
+        /// <summary>
+        /// Gets or sets the tip text.
+        /// </summary>
+        /// <value>
+        /// The tip text.
+        /// </value>
         public virtual TextItem TipText { get; set; }
 
-        /// <summary> Gets or sets the tip information. </summary>
-        /// <value> The tip information. </value>
+        /// <summary>
+        /// Gets or sets the tip information.
+        /// </summary>
+        /// <value>
+        /// The tip information.
+        /// </value>
         public virtual ToolTipInfo TipInfo { get; set; }
 
-        /// <summary> Gets or sets the tip item. </summary>
-        /// <value> The tip item. </value>
+        /// <summary>
+        /// Gets or sets the tip item.
+        /// </summary>
+        /// <value>
+        /// The tip item.
+        /// </value>
         public virtual ToolTipInfo.ToolTipItem TipItem { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BigTip"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="SuperTip"/> class.
         /// </summary>
-        public BigTip( )
+        public SuperTip( )
         {
             // Basic Properties
             InitialDelay = 300;
@@ -91,49 +107,47 @@ namespace BudgetExecution
             TipInfo.Separator = true;
 
             // Header Properties
-            TipInfo.Header.Font = new Font( "Roboto", 11 );
+            TipInfo.Header.Font = new Font( "Roboto", 9 );
             TipInfo.Header.ForeColor = Color.FromArgb( 0, 120, 212 );
             TipInfo.Header.TextAlign = ContentAlignment.MiddleCenter;
             TipInfo.Header.ImageAlign = ContentAlignment.TopLeft;
             TipInfo.Header.ImageScalingSize = new Size( 10, 14 );
 
             // Body Properties
-            TipInfo.Body.Font = new Font( "Roboto", 9 );
+            TipInfo.Body.Font = new Font( "Roboto", 8 );
             TipInfo.Body.ForeColor = Color.LightGray;
             TipInfo.Body.TextAlign = ContentAlignment.MiddleCenter;
 
             // Footer Properties
-            TipInfo.Footer.Font = new Font( "Roboto", 8 );
+            TipInfo.Footer.Font = new Font( "Roboto", 7 );
             TipInfo.Footer.ForeColor = Color.FromArgb( 65, 65, 65 );
             TipInfo.Footer.TextAlign = ContentAlignment.BottomLeft;
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="BigTip"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="SuperTip"/> class.
         /// </summary>
-        /// <param name="control"> The control. </param>
-        /// <param name="text"> The text. </param>
-        /// <param name="title"> The title. </param>
-        public BigTip( Control control, string text, string title = "" )
+        /// <param name="control">The control.</param>
+        /// <param name="text">The text.</param>
+        /// <param name="title">The title.</param>
+        public SuperTip( Control control, string text, string title = "" )
             : this( )
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SmallTip"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="SuperTip"/> class.
         /// </summary>
-        /// <param name="toolItem"> The toolItem. </param>
-        public BigTip( ToolStripItem toolItem )
+        /// <param name="toolItem">The tool item.</param>
+        public SuperTip( ToolStripItem toolItem )
             : this( )
         {
         }
 
-        /// <summary> Sets the header text. </summary>
-        /// <param name="bodyText"> The body text. </param>
+        /// <summary>
+        /// Sets the header text.
+        /// </summary>
+        /// <param name="bodyText">The body text.</param>
         public virtual void SetHeaderText( string bodyText )
         {
             try
@@ -143,14 +157,16 @@ namespace BudgetExecution
                     TipInfo.Body.Text = bodyText;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the body text. </summary>
-        /// <param name="bodyText"> The body text. </param>
+        /// <summary>
+        /// Sets the body text.
+        /// </summary>
+        /// <param name="bodyText">The body text.</param>
         public virtual void SetBodyText( string bodyText )
         {
             try
@@ -160,13 +176,16 @@ namespace BudgetExecution
                     TipInfo.Body.Text = bodyText;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the header tool information properties. </summary>
+        /// <summary>
+        /// Sets the footer text.
+        /// </summary>
+        /// <param name="footerText">The footer text.</param>
         public virtual void SetFooterText( string footerText )
         {
             try
@@ -176,15 +195,17 @@ namespace BudgetExecution
                     TipInfo.Body.Text = footerText;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
-        private protected static void Fail( Exception ex )
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

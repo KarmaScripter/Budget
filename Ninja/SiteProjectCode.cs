@@ -84,7 +84,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the ssid. </summary>
         /// <value> The ssid. </value>
-        public string SSID { get; set; }
+        public string Ssid { get; set; }
 
         /// <summary> Gets or sets the action code. </summary>
         /// <value> The action code. </value>

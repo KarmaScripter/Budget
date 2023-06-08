@@ -155,9 +155,9 @@ namespace BudgetExecution
                     using var _range = grid.Range;
                     _range.AutoFitColumns( width );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -180,9 +180,9 @@ namespace BudgetExecution
                     _range.Style.Fill.BackgroundColor.SetColor( color );
                     _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -203,9 +203,9 @@ namespace BudgetExecution
                     using var _range = grid.Range;
                     _range.Style.Font.SetFromFont( font.Name, font.Size );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -227,9 +227,9 @@ namespace BudgetExecution
                     _range.Style.Font.Color.SetColor( color );
                     _range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -279,9 +279,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -302,9 +302,9 @@ namespace BudgetExecution
                     using var _range = grid.Range;
                     _range.Style.HorizontalAlignment = align;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -324,9 +324,9 @@ namespace BudgetExecution
                     using var _range = grid.Range;
                     _range.Style.VerticalAlignment = align;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -345,9 +345,9 @@ namespace BudgetExecution
                     using var _range = grid.Range;
                     _range.Merge = true;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

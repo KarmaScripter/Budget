@@ -203,9 +203,9 @@ namespace BudgetExecution
             {
                 return range?.Rows * range?.Columns ?? default( int );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return -1;
             }
         }
@@ -222,9 +222,9 @@ namespace BudgetExecution
                     ? Range.Rows
                     : 0;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( int );
             }
         }
@@ -241,9 +241,9 @@ namespace BudgetExecution
                     ? Range.Columns
                     : 0;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( int );
             }
         }

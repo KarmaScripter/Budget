@@ -74,9 +74,9 @@ namespace BudgetExecution
                     return default( DataRow );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( DataRow );
             }
         }
@@ -95,9 +95,9 @@ namespace BudgetExecution
                         ? _table.AsEnumerable( )
                         : default( IEnumerable<DataRow> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<DataRow> );
                 }
             }
@@ -119,9 +119,9 @@ namespace BudgetExecution
                         ? _table
                         : default( DataTable );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( DataTable );
                 }
             }

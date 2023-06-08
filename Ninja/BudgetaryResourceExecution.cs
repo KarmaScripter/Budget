@@ -249,7 +249,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             LastUpdate = DateOnly.Parse( Record[ "LastUpdate" ].ToString( ) ?? "" );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
@@ -288,7 +288,7 @@ namespace BudgetExecution
             Data = Record.ToDictionary( );
             FiscalYear = Record[ "FiscalYear" ].ToString( );
             BFY = Record[ "BFY" ].ToString( );
-            EFY = Record[ "EFY" ].ToString( );
+            Efy = Record[ "EFY" ].ToString( );
             LastUpdate = DateOnly.Parse( Record[ "LastUpdate" ].ToString( ) ?? "" );
             BudgetAccountCode = Record[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = Record[ "BudgetAccountName" ].ToString( );
@@ -327,7 +327,7 @@ namespace BudgetExecution
             Data = dataRow.ToDictionary( );
             FiscalYear = dataRow[ "FiscalYear" ].ToString( );
             BFY = dataRow[ "BFY" ].ToString( );
-            EFY = dataRow[ "EFY" ].ToString( );
+            Efy = dataRow[ "EFY" ].ToString( );
             LastUpdate = DateOnly.Parse( dataRow[ "LastUpdate" ].ToString( ) ?? "" );
             BudgetAccountCode = dataRow[ "BudgetAccountCode" ].ToString( );
             BudgetAccountName = dataRow[ "BudgetAccountName" ].ToString( );
@@ -365,7 +365,7 @@ namespace BudgetExecution
             ID = budget.ID;
             FiscalYear = budget.FiscalYear;
             BFY = budget.BFY;
-            EFY = budget.EFY;
+            Efy = budget.Efy;
             LastUpdate = budget.LastUpdate;
             BudgetAccountCode = budget.BudgetAccountCode;
             BudgetAccountName = budget.BudgetAccountName;

@@ -47,7 +47,7 @@ namespace BudgetExecution
     public enum Level
     {
         /// <summary> The ns </summary>
-        NS = -1,
+        Ns = -1,
 
         /// <summary> </summary>
         Treasury = 0,

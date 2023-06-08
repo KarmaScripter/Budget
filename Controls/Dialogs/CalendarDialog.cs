@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 04-15-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-07-2023
 // ******************************************************************************************
 // <copyright file="CalendarDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -44,16 +44,14 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
-    using Syncfusion.Windows.Forms.CellGrid.Helpers;
 
     /// <summary>
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
@@ -115,7 +113,7 @@ namespace BudgetExecution
             ForeColor = Color.DarkGray;
             Font = new Font( "Roboto", 9 );
             BorderColor = Color.FromArgb( 0, 120, 212 );
-            BorderThickness = 2;
+            BorderThickness = 1;
             ShowIcon = false;
             ShowInTaskbar = true;
             ShowMouseOver = false;
@@ -129,6 +127,9 @@ namespace BudgetExecution
             CaptionButtonHoverColor = Color.FromArgb( 20, 20, 20 );
             MinimizeBox = false;
             MaximizeBox = false;
+
+            // Picture Box Settings
+            PictureBox.Size = new Size( 20, 20 );
 
             // Close Button
             CloseButton.NormalTextColor = Color.FromArgb( 20, 20, 20 );
@@ -153,7 +154,8 @@ namespace BudgetExecution
         public CalendarDialog( DateTime dateTime )
             : this( )
         {
-            DateString = dateTime.ToString( );
+            Calendar.SelectedDate = dateTime;
+            DateString = Calendar.SelectedDate.ToString( );
         }
 
         /// <summary>
@@ -169,9 +171,9 @@ namespace BudgetExecution
                 CloseButton.Click += OnCloseButtonClicked;
                 Calendar.SelectionChanged += OnSelectionChanged;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -189,9 +191,9 @@ namespace BudgetExecution
                     ? _table
                     : default( DataTable );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( DataTable );
             }
         }
@@ -210,9 +212,9 @@ namespace BudgetExecution
                     ? _table
                     : default( DataTable );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( DataTable );
             }
         }
@@ -228,9 +230,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -243,13 +245,12 @@ namespace BudgetExecution
         {
             try
             {
-                var _date = Calendar.SelectedDate;
-                DateString = _date.ToString( );
+                DateString = Calendar.SelectedDate.ToString( );
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

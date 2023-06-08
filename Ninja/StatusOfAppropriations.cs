@@ -60,7 +60,7 @@ namespace BudgetExecution
 
         /// <summary> Gets or sets the efy. </summary>
         /// <value> The efy. </value>
-        public string EFY { get; set; }
+        public string Efy { get; set; }
 
         /// <summary> Gets or sets the budget level. </summary>
         /// <value> The budget level. </value>

@@ -78,7 +78,7 @@ namespace BudgetExecution
         /// <value>
         /// The efy.
         /// </value>
-        public virtual string EFY { get; set; }
+        public virtual string Efy { get; set; }
 
         /// <summary>
         /// Gets or sets the first year.
@@ -156,9 +156,9 @@ namespace BudgetExecution
             {
                 return BFY == CurrentYear.ToString( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( bool );
             }
         }
@@ -179,9 +179,9 @@ namespace BudgetExecution
                 {
                     return new Dictionary<string, object> { [ "BFY" ] = bfy };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, object> );
                 }
             }

@@ -76,9 +76,9 @@ namespace BudgetExecution
 
                 Process.Start( _startInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -105,9 +105,9 @@ namespace BudgetExecution
 
                 Process.Start( _startInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -128,9 +128,9 @@ namespace BudgetExecution
 
                 Process.Start( _startInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -151,9 +151,9 @@ namespace BudgetExecution
 
                 Process.Start( _startInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -174,9 +174,9 @@ namespace BudgetExecution
 
                 Process.Start( _startInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -197,9 +197,9 @@ namespace BudgetExecution
 
                 Process.Start( _startInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -220,9 +220,9 @@ namespace BudgetExecution
 
                 Process.Start( _startInfo );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

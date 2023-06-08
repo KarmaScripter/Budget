@@ -121,12 +121,12 @@ namespace BudgetExecution
         /// <summary>
         /// The DLL
         /// </summary>
-        DLL,
+        Dll,
 
         /// <summary>
         /// The executable
         /// </summary>
-        EXE,
+        Exe,
 
         /// <summary>
         /// The icon
