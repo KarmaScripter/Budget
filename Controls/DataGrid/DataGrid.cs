@@ -301,9 +301,9 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _value = CurrentCell.Value.ToString( );
-                    if( !string.IsNullOrEmpty( _value ) )
+                    if( CurrentCell.ValueType == typeof( string ) )
                     {
+                        var _value = CurrentCell.Value.ToString( );
                         if( ( _value.Length >= 6 )
                            && ( _value.Length <= 9 )
                            && ( _value.Substring( 0, 3 ) == "000" ) )
@@ -313,29 +313,30 @@ namespace BudgetExecution
                             _dialog.ShowDialog( );
                         }
                     }
-                    else if( double.TryParse( _value, out var _double ) )
+                    else if( CurrentCell.ValueType == typeof( double ) )
                     {
+                        var _double = double.Parse( CurrentCell.Value.ToString( ) );
                         var _form = new CalculationForm( _double );
                         _form.ShowDialog( );
                         CurrentCell.Value = _form.Calculator.Value.ToDouble( );
                     }
-                    else if( decimal.TryParse( _value, out var _decimal ) )
+                    else if( CurrentCell.ValueType == typeof( decimal ) )
                     {
-                        var _cellValue = double.Parse( _decimal.ToString( ) );
+                        var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
                         var _form = new CalculationForm( _cellValue );
                         _form.ShowDialog( );
                         CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
                     }
-                    else if( DateOnly.TryParse( _value, out var _dateOnly ) )
+                    else if( CurrentCell.ValueType == typeof( DateOnly ) )
                     {
-                        var _cellValue = DateTime.Parse( _dateOnly.ToString( ) );
+                        var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
                         var _form = new CalendarDialog( _cellValue );
                         _form.ShowDialog( );
                         CurrentCell.Value = _form.Calendar.SelectedDate;
                     }
-                    else if( DateTime.TryParse( _value, out var _dateTime ) )
+                    else if( CurrentCell.ValueType == typeof( DateTime ) )
                     {
-                        var _cellValue = DateTime.Parse( _dateTime.ToString( ) );
+                        var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
                         var _form = new CalendarDialog( _cellValue );
                         _form.ShowDialog( );
                         CurrentCell.Value = _form.Calendar.SelectedDate;
