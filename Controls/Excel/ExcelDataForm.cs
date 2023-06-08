@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-08-2023
 // ******************************************************************************************
 // <copyright file="ExcelDataForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -50,6 +50,7 @@ namespace BudgetExecution
     using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
+    using Syncfusion.Windows.Forms.CellGrid.Helpers;
     using Syncfusion.Windows.Forms.Spreadsheet;
     using Syncfusion.Windows.Forms.Tools;
     using Syncfusion.XlsIO;
@@ -58,7 +59,7 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     [ SuppressMessage( "ReSharper", "UseObjectOrCollectionInitializer" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
@@ -310,9 +311,9 @@ namespace BudgetExecution
                 Ribbon.Spreadsheet = Spreadsheet;
                 SetToolStripProperties( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -340,9 +341,9 @@ namespace BudgetExecution
                 ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
                 ToolStripTextBox.Text = DateTime.Today.ToShortDateString( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -377,9 +378,9 @@ namespace BudgetExecution
                     _table.BuiltInTableStyle = TableBuiltInStyles.TableStyleMedium16;
                     Spreadsheet?.ActiveGrid?.InvalidateCells( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -404,9 +405,9 @@ namespace BudgetExecution
                 Spreadsheet.AllowZooming = true;
                 Spreadsheet.AllowFiltering = true;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -425,11 +426,17 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.BackColor = SystemColors.GradientInactiveCaption;
                 Spreadsheet.ActiveGrid.MetroScrollBars = true;
                 Spreadsheet.ActiveGrid.MetroColorTable = new MetroColorTable( );
-                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground = SystemColors.ControlDarkDark;
-                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround = Color.FromArgb( 17, 69, 97 );
+                Spreadsheet.ActiveGrid.MetroColorTable.ScrollerBackground =
+                    SystemColors.ControlDarkDark;
+
+                Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBackGround =
+                    Color.FromArgb( 17, 69, 97 );
+
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowPushed = Color.Green;
                 Spreadsheet.ActiveGrid.MetroColorTable.ArrowNormalBorderColor = Color.Green;
-                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor = Color.LightSteelBlue;
+                Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormalBorderColor =
+                    Color.LightSteelBlue;
+
                 Spreadsheet.ActiveGrid.MetroColorTable.ThumbNormal = Color.FromArgb( 17, 69, 97 );
                 Spreadsheet.ActiveGrid.MetroColorTable.ThumbPushed = Color.FromArgb( 17, 69, 97 );
                 Spreadsheet.ActiveGrid.Font = new Font( "Roboto", 10 );
@@ -438,11 +445,11 @@ namespace BudgetExecution
                 Spreadsheet.ActiveGrid.RowCount = RowCount;
                 Spreadsheet.ActiveGrid.DefaultColumnWidth = 120;
                 Spreadsheet.ActiveGrid.DefaultRowHeight = 22;
-                Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellClick;
+                Spreadsheet.ActiveGrid.CurrentCellActivated += OnCellEnter;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -456,9 +463,9 @@ namespace BudgetExecution
                 var _group = new FilterDialog( );
                 _group.ShowDialog( this );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -472,9 +479,27 @@ namespace BudgetExecution
                 var _group = new FilterDialog( BindingSource );
                 _group.ShowDialog( this );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                SelectedTable = string.Empty;
+                DataModel = null;
+                DataTable = null;
+                Spreadsheet.ActiveSheet.ClearData( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -497,15 +522,16 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = Program.Windows[ "Main" ];
+                    var _mainForm = (MainForm)Program.Windows[ "Main" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
+                    ClearData( );
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -519,18 +545,19 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( Program.Windows.ContainsKey( "DataGridForm" ) )
                 {
-                    var _dataGridForm = _forms
+                    var _dataGridForm = (DataGridForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
                         ?.First( );
 
                     _dataGridForm.Owner = this;
+                    _dataGridForm.ClearData( );
                     _dataGridForm.Refresh( );
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }
                 else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
-                    var _mainForm = _forms
+                    var _mainForm = (MainForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( MainForm ) )
                         ?.First( );
 
@@ -540,9 +567,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -554,20 +581,21 @@ namespace BudgetExecution
             try
             {
                 var _forms = Program.Windows.Values;
-                if( _forms?.Any( f => f.GetType( ) == typeof( ChartDataForm ) ) == true )
+                if( Program.Windows.ContainsKey( "ChartDataForm" ) )
                 {
-                    var _chartDataForm = _forms
+                    var _chartDataForm = (ChartDataForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
                         ?.First( );
 
                     _chartDataForm.Owner = this;
+                    _chartDataForm.ClearData( );
                     _chartDataForm.Refresh( );
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
                 else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
-                    var _mainForm = _forms
+                    var _mainForm = (MainForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( MainForm ) )
                         ?.First( );
 
@@ -577,9 +605,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -596,9 +624,63 @@ namespace BudgetExecution
                 SetActiveGridProperties( );
                 SetWorksheetProperties( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [cell enter].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The
+        /// <see cref="EventArgs"/> instance containing the event data.
+        /// </param>
+        public void OnCellEnter( object sender, CurrentCellActivatedEventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue )
+                   && ( e.ActivationTrigger == ActivationTrigger.Mouse ) )
+                {
+                    var _value = Spreadsheet.CurrentCellRange.DisplayText;
+                    if( !string.IsNullOrEmpty( _value )
+                       && ( _value.Length >= 6 )
+                       && ( _value.Length <= 9 )
+                       && ( _value.Substring( 0, 3 ) == "000" ) )
+                    {
+                        var _code = _value.Substring( 4, 2 );
+                        var _dialog = new ProgramProjectDialog( _code );
+                        _dialog.ShowDialog( );
+                    }
+                    else if( decimal.TryParse( _value, out var _decimal ) )
+                    {
+                        var _double = Convert.ToDouble( _decimal );
+                        var _calculator = new CalculationForm( _double );
+                        _calculator.ShowDialog( );
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange, 
+                            _calculator.Calculator.Value.ToString( ) );
+                    }
+                    else if( double.TryParse( _value, out var _double ) )
+                    {
+                        var _calculator = new CalculationForm( _double );
+                        _calculator.ShowDialog( );
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
+                            _calculator.Calculator.Value.ToString( ) );
+                    }
+                    else if( DateTime.TryParse( _value, out var _dateTime ) )
+                    {
+                        var _form = new CalendarDialog( _dateTime );
+                        _form.ShowDialog( );
+                        Spreadsheet.ActiveGrid.SetCellValue( Spreadsheet.CurrentCellRange,
+                            _form.Calendar.SelectedDate.ToString( ) );
+                    }
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
@@ -617,9 +699,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -640,9 +722,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -657,9 +739,9 @@ namespace BudgetExecution
             {
                 Application.Exit( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -681,9 +763,9 @@ namespace BudgetExecution
                     Program.Windows.Add( "ExcelDataForm", this );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -701,9 +783,9 @@ namespace BudgetExecution
                     Program.Windows.Remove( "ExcelDataForm" );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -717,9 +799,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -733,12 +815,12 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
-        
+
         /// <summary>
         /// Called when [chart button clicked].
         /// </summary>
@@ -754,9 +836,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -773,9 +855,9 @@ namespace BudgetExecution
                 {
                     ContextMenu.Show( this, e.Location );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -791,9 +873,9 @@ namespace BudgetExecution
             {
                 ShowTableDialog( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -808,9 +890,9 @@ namespace BudgetExecution
             {
                 ShowFilterDialog( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -838,9 +920,9 @@ namespace BudgetExecution
                     _mainForm.Visible = true;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -860,59 +942,9 @@ namespace BudgetExecution
                     _dialog.ShowDialog( this );
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [cell click].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnCellClick( object sender, EventArgs e )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( Spreadsheet.CurrentCellValue ) )
-                {
-                    var _value = Spreadsheet.CurrentCellRange.DisplayText;
-                    var _chars = _value.ToCharArray( );
-                    if( ( ( _value.Length >= 6 ) && ( _value.Length <= 9 ) )
-                       && ( _chars.Any( c => char.IsLetterOrDigit( c ) ) 
-                           && ( _value.Substring( 0, 3 ) == "000" ) ) )
-                    {
-                        var _code = _value.Substring( 4, 2 );
-                        var _dialog = new ProgramProjectDialog( _code );
-                        _dialog.ShowDialog( );
-                    }
-                    else if( _chars?.All( c => char.IsNumber( c ) ) == true )
-                    {
-                        var _numeric = double.Parse( _value ?? "0.0" );
-                        var _calculator = new CalculationForm( _numeric );
-                        _calculator.ShowDialog( );
-                    }
-                    else if( ( _value.Length <= 22 )
-                            && ( _value.Length >= 8 )
-                            && ( _value.EndsWith( "AM" ) || _value.EndsWith( "PM" ) ) )
-                    {
-                        var _dateTime = DateTime.Parse( _value );
-                        var _form = new CalendarDialog( _dateTime );
-                        _form.ShowDialog( );
-                    }
-                    else if( ( _value.Contains( "-" ) || _value.Contains( "/" ) )
-                            && ( ( _value.Length >= 8 ) && ( _value.Length <= 22 ) ) )
-                    {
-                        var _dt = DateTime.Parse( _value );
-                        var _form = new CalendarDialog( _dt );
-                        _form.ShowDialog( );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

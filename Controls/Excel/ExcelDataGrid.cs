@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 04-09-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-08-2023
 // ******************************************************************************************
 // <copyright file="ExcelDataGrid.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -40,12 +40,12 @@
 
 namespace BudgetExecution
 {
+    using Syncfusion.Windows.Forms.CellGrid.Helpers;
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Spreadsheet;
 
@@ -118,9 +118,9 @@ namespace BudgetExecution
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -132,64 +132,10 @@ namespace BudgetExecution
         /// <param name="button">The button.</param>
         /// <param name="icon">The icon.</param>
         /// <returns></returns>
-        public virtual bool DisplayMessageBox( string text, string caption, 
+        public virtual bool DisplayMessageBox( string text, string caption,
             MessageBoxButtons button, MessageBoxIcon icon )
         {
             return false;
-        }
-
-        /// <summary>
-        /// Called when [cell enter].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The
-        /// <see cref="EventArgs"/> instance containing the event data.
-        /// </param>
-        public void OnCellEnter( object sender, EventArgs e )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( CurrentCellValue ) )
-                {
-                    var _value = CurrentCellRange.DisplayText;
-                    var _chars = _value.ToCharArray( );
-                    if( ( _value.Length >= 6 )
-                       && ( _value.Length <= 9 )
-                       && _chars.Any( c => char.IsLetterOrDigit( c ) )
-                       && ( _value.Substring( 0, 3 ) == "000" ) )
-                    {
-                        var _code = _value.Substring( 4, 2 );
-                        var _dialog = new ProgramProjectDialog( _code );
-                        _dialog.ShowDialog( );
-                    }
-                    else if( _chars?.All( c => char.IsNumber( c ) ) == true )
-                    {
-                        var _numeric = double.Parse( _value ?? "0.0" );
-                        var _calculator = new CalculationForm( _numeric );
-                        _calculator.ShowDialog( );
-                    }
-                    else if( ( _value.Length <= 22 )
-                            && ( _value.Length >= 8 )
-                            && ( _value.EndsWith( "AM" ) || _value.EndsWith( "PM" ) ) )
-                    {
-                        var _dateTime = DateTime.Parse( _value );
-                        var _form = new CalendarDialog( _dateTime );
-                        _form.ShowDialog( );
-                    }
-                    else if( ( _value.Contains( "-" ) || _value.Contains( "/" ) )
-                            && ( _value.Length >= 8 )
-                            && ( _value.Length <= 22 ) )
-                    {
-                        var _dt = DateTime.Parse( _value );
-                        var _form = new CalendarDialog( _dt );
-                        _form.ShowDialog( );
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
         }
 
         /// <summary>

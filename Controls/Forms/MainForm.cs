@@ -248,11 +248,12 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( Program.Windows.ContainsKey( "ChartDataForm" ) )
                 {
-                    var _chartDataForm = _forms
+                    var _chartDataForm = (ChartDataForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) )
                         ?.First( );
 
                     _chartDataForm.Owner = this;
+                    _chartDataForm.ClearData( );
                     _chartDataForm.Refresh( );
                     _chartDataForm.Visible = true;
                     Visible = false;
@@ -281,11 +282,12 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
-                    var _excelDataForm = _forms
+                    var _excelDataForm = (ExcelDataForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) )
                         ?.First( );
 
                     _excelDataForm.Owner = this;
+                    _excelDataForm.ClearData( );
                     _excelDataForm.Refresh( );
                     _excelDataForm.Visible = true;
                     Visible = false;
@@ -347,11 +349,12 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( Program.Windows.ContainsKey( "DataGridForm" ) )
                 {
-                    var _dataGridForm = _forms
+                    var _dataGridForm = (DataGridForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( DataGridForm ) )
                         ?.First( );
 
                     _dataGridForm.Owner = this;
+                    _dataGridForm.ClearData( );
                     _dataGridForm.Refresh( );
                     _dataGridForm.Visible = true;
                     Visible = false;

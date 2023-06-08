@@ -318,28 +318,28 @@ namespace BudgetExecution
                         var _double = double.Parse( CurrentCell.Value.ToString( ) );
                         var _form = new CalculationForm( _double );
                         _form.ShowDialog( );
-                        CurrentCell.Value = _form.Calculator.Value.ToDouble( );
+                        CurrentCell.Value = _form.Calculator.Value.ToString( );
                     }
                     else if( CurrentCell.ValueType == typeof( decimal ) )
                     {
                         var _cellValue = double.Parse( CurrentCell.Value.ToString( ) );
                         var _form = new CalculationForm( _cellValue );
                         _form.ShowDialog( );
-                        CurrentCell.Value = _form.Calculator.Value.ToDecimal( );
+                        CurrentCell.Value = _form.Calculator.Value.ToString( );
                     }
                     else if( CurrentCell.ValueType == typeof( DateOnly ) )
                     {
                         var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
                         var _form = new CalendarDialog( _cellValue );
                         _form.ShowDialog( );
-                        CurrentCell.Value = _form.Calendar.SelectedDate;
+                        CurrentCell.Value = _form.Calendar.SelectedDate.ToString( );
                     }
                     else if( CurrentCell.ValueType == typeof( DateTime ) )
                     {
                         var _cellValue = DateTime.Parse( CurrentCell.Value.ToString( ) );
                         var _form = new CalendarDialog( _cellValue );
                         _form.ShowDialog( );
-                        CurrentCell.Value = _form.Calendar.SelectedDate;
+                        CurrentCell.Value = _form.Calendar.SelectedDate.ToString( );
                     }
                 }
                 catch( Exception _ex )

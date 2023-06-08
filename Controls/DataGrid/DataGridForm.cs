@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-08-2023
 // ******************************************************************************************
 // <copyright file="DataGridForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -48,22 +48,21 @@ namespace BudgetExecution
     using System.Drawing;
     using System.IO;
     using System.Linq;
-    using System.Threading;
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -290,7 +289,6 @@ namespace BudgetExecution
             GroupButton.Click += null;
             CalendarButton.Click += null;
             TabControl.SelectedIndexChanged += OnActiveTabChanged;
-            GridPanel.MouseClick += OnRightClick;
             TableListBox.SelectedValueChanged += OnTableListBoxItemSelected;
             FirstComboBox.SelectedValueChanged += OnFirstComboBoxItemSelected;
             FirstListBox.SelectedValueChanged += OnFirstListBoxItemSelected;
@@ -323,8 +321,9 @@ namespace BudgetExecution
             // Form Event Wiring
             Load += OnLoad;
             Shown += OnShown;
-            Closing += OnClose;
             MouseClick += OnRightClick;
+            Closing += OnClosing;
+            FormClosed += OnFormClosed;
         }
 
         /// <summary>
@@ -645,17 +644,14 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings["Providers"];
+                var _path = ConfigurationManager.AppSettings[ "Providers" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
                     if( _files?.Any( ) == true )
                     {
                         var _extension = Provider.ToString( );
-                        var _file = _files
-                            ?.Where( f => f.Contains( _extension ) )
-                            ?.First( );
-
+                        var _file = _files?.Where( f => f.Contains( _extension ) )?.First( );
                         if( !string.IsNullOrEmpty( _file )
                            && File.Exists( _file ) )
                         {
@@ -679,7 +675,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings["Dialogs"];
+                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -696,10 +692,7 @@ namespace BudgetExecution
                             case ToolType.EditSqlButton:
                             {
                                 var _tool = type.ToString( );
-                                var _file = _files
-                                    ?.Where( f => f.Contains( _tool ) )
-                                    ?.First( );
-
+                                var _file = _files?.Where( f => f.Contains( _tool ) )?.First( );
                                 if( !string.IsNullOrEmpty( _file )
                                    && File.Exists( _file ) )
                                 {
@@ -758,8 +751,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    return $"SELECT * FROM {Source} "
-                        + $"WHERE {where.ToCriteria( )};";
+                    return $"SELECT * FROM {Source} " + $"WHERE {where.ToCriteria( )};";
                 }
                 catch( Exception _ex )
                 {
@@ -838,9 +830,7 @@ namespace BudgetExecution
 
                     var _groups = _cols.TrimEnd( ", ".ToCharArray( ) );
                     var _criteria = where.ToCriteria( );
-                    var _columns = _cols
-                        + _aggr.TrimEnd( ", ".ToCharArray( ) );
-
+                    var _columns = _cols + _aggr.TrimEnd( ", ".ToCharArray( ) );
                     return $"SELECT {_columns} FROM {Source} "
                         + $"WHERE {_criteria} "
                         + $"GROUP BY {_groups};";
@@ -1049,6 +1039,28 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                SelectedTable = string.Empty;
+                DataGrid.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+                UpdateLabelText( );
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Populates the field ListBox.
         /// </summary>
         private void PopulateFieldListBox( )
@@ -1090,9 +1102,9 @@ namespace BudgetExecution
 
                     for( var _i = 0; _i < Numerics.Count; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[_i] ) )
+                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[_i] );
+                            NumericListBox.Items.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -1212,9 +1224,10 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = Program.Windows["Main"];
+                    var _mainForm = (MainForm)Program.Windows["Main"];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
+                    ClearData( );
                     Visible = false;
                 }
             }
@@ -1234,18 +1247,19 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( Program.Windows.ContainsKey( "ExcelDataForm" ) )
                 {
-                    var _excelDataForm = _forms
+                    var _excelDataForm = (ExcelDataForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( ExcelDataForm ) == true )
                         ?.First( );
 
                     _excelDataForm.Owner = this;
+                    _excelDataForm.ClearData( );
                     _excelDataForm.Refresh( );
                     _excelDataForm.Visible = true;
                     Visible = false;
                 }
                 else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
-                    var _mainForm = _forms
+                    var _mainForm = (MainForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
                         ?.First( );
 
@@ -1271,18 +1285,19 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( Program.Windows.ContainsKey( "ChartDataForm" ) )
                 {
-                    var _chartDataForm = _forms
+                    var _chartDataForm = (ChartDataForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( ChartDataForm ) == true )
                         ?.First( );
 
                     _chartDataForm.Owner = this;
+                    _chartDataForm.ClearData( );
                     _chartDataForm.Refresh( );
                     _chartDataForm.Visible = true;
                     Visible = false;
                 }
                 else if( Program.Windows.ContainsKey( "MainForm" ) )
                 {
-                    var _mainForm = _forms
+                    var _mainForm = (MainForm)_forms
                         ?.Where( f => f.GetType( ) == typeof( MainForm ) == true )
                         ?.First( );
 
@@ -1312,21 +1327,17 @@ namespace BudgetExecution
                     ToolStrip.Visible = true;
                     var _title = _listBox.SelectedValue?.ToString( );
                     SelectedTable = _title?.Replace( " ", "" );
-                    if( !string.IsNullOrEmpty( SelectedTable ) )
-                    {
-                        Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                        DataModel = new DataBuilder( Source, Provider );
-                        DataTable = DataModel.DataTable;
-                        BindingSource.DataSource = DataModel.DataTable;
-                        DataGrid.DataSource = BindingSource;
-                        DataGrid.PascalizeHeaders( );
-                        DataGrid.FormatColumns( );
-                        ToolStrip.BindingSource = BindingSource;
-                        Fields = DataModel.Fields;
-                        Numerics = DataModel.Numerics;
-                        TabControl.SelectedIndex = 1;
-                    }
-
+                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    TabControl.SelectedIndex = 1;
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
                     ResetFilterTableVisibility( );
@@ -1359,7 +1370,8 @@ namespace BudgetExecution
                     FirstCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( FirstCategory ) )
                     {
-                        var _data = DataModel.DataElements[FirstCategory];
+                        DataModel = new DataBuilder( Source, Provider );
+                        var _data = DataModel.DataElements[ FirstCategory ];
                         foreach( var _item in _data )
                         {
                             FirstListBox.Items?.Add( _item );
@@ -1448,7 +1460,7 @@ namespace BudgetExecution
                     SecondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( SecondCategory ) )
                     {
-                        var _data = DataModel.DataElements[SecondCategory];
+                        var _data = DataModel.DataElements[ SecondCategory ];
                         foreach( var _item in _data )
                         {
                             SecondListBox.Items?.Add( _item );
@@ -1522,7 +1534,7 @@ namespace BudgetExecution
                     ThirdCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( ThirdCategory ) )
                     {
-                        var _data = DataModel?.DataElements[ThirdCategory];
+                        var _data = DataModel?.DataElements[ ThirdCategory ];
                         if( _data?.Any( ) == true )
                         {
                             foreach( var _item in _data )
@@ -2029,11 +2041,7 @@ namespace BudgetExecution
         {
             try
             {
-                SelectedTable = string.Empty;
-                DataGrid.DataSource = null;
-                ClearSelections( );
-                ClearCollections( );
-                TabControl.SelectedIndex = 0;
+                ClearData( );
             }
             catch( Exception _ex )
             {
@@ -2099,7 +2107,7 @@ namespace BudgetExecution
             {
                 if( !Program.Windows.ContainsKey( "DataGridForm" ) )
                 {
-                    Program.Windows["DataGridForm"] = this;
+                    Program.Windows[ "DataGridForm" ] = this;
                 }
                 else
                 {
@@ -2113,11 +2121,29 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Called when [deactivated].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnClosing( object sender, EventArgs e )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Raises the Close event.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnClose( object sender, EventArgs e )
+        private void OnFormClosed( object sender, EventArgs e )
         {
             try
             {
