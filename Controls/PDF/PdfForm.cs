@@ -4,7 +4,7 @@
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-08-2023
+//     Last Modified On:        06-09-2023
 // ******************************************************************************************
 // <copyright file="PdfForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -103,8 +103,9 @@ namespace BudgetExecution
         /// </value>
         public DataTable DataTable { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="PdfForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.PdfForm" /> class.
         /// </summary>
         public PdfForm( )
         {
@@ -138,6 +139,10 @@ namespace BudgetExecution
             MinimizeBox = false;
             MaximizeBox = false;
 
+            // Control Properties
+            PictureBox.Size = new Size( 40, 18 );
+            PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
             // Event Wiring
             CloseButton.Click += OnCloseButtonClick;
             MenuButton.Click += OnMainMenuButtonClicked;
@@ -146,13 +151,15 @@ namespace BudgetExecution
             ChartButton.Click += OnChartButtonClick;
             ExcelButton.Click += OnExcelButtonClick;
             ListBox.SelectedValueChanged += OnListBoxItemSelected;
+            DocViewer.DocumentLoaded += OnDocumentLoaded;
             Load += OnLoad;
             Shown += OnShown;
             Closing += OnClosing;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="PdfForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.PdfForm" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public PdfForm( string filePath )
@@ -286,7 +293,7 @@ namespace BudgetExecution
                     _dataGridForm.Visible = true;
                     Visible = false;
                 }
-                else if( !Program.Windows.ContainsKey( "DataGridForm" ) 
+                else if( !Program.Windows.ContainsKey( "DataGridForm" )
                         && Program.Windows.ContainsKey( "MainForm" ) )
                 {
                     var _mainForm = (MainForm)_forms
@@ -353,7 +360,7 @@ namespace BudgetExecution
         {
             try
             {
-                DirectoryPath = ConfigurationManager.AppSettings["Documents"];
+                DirectoryPath = ConfigurationManager.AppSettings[ "Documents" ];
                 var _path = DirectoryPath + @"\\ApplicationLandingDocument.pdf";
                 HeaderLabel.ForeColor = Color.FromArgb( 0, 120, 212 );
                 HeaderLabel.Text = "Budget Guidance";
@@ -539,9 +546,8 @@ namespace BudgetExecution
                 try
                 {
                     var _data = DataTable.AsEnumerable( );
-                    var _caption = _listBox.SelectedValue.ToString( );
-                    var _file = _data
-                        ?.Where( p => p.Field<string>( "Caption" ).Equals( _caption ) )
+                    var _caption = _listBox.SelectedValue?.ToString( );
+                    var _file = _data?.Where( p => p.Field<string>( "Caption" ).Equals( _caption ) )
                         ?.Select( p => p.Field<string>( "Location" ) )
                         ?.Single( );
 
@@ -555,6 +561,27 @@ namespace BudgetExecution
                 {
                     Fail( _ex );
                 }
+            }
+        }
+
+        /// <summary>
+        /// Called when [mouse over].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnDocumentLoaded( object sender, EventArgs e )
+        {
+            try
+            {
+                if( DocViewer.IsDocumentLoaded )
+                {
+                    Cursor = Cursors.Default;
+                    DocViewer.Cursor = Cursors.Default;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
             }
         }
 
