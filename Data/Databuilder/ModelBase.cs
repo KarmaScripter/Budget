@@ -46,20 +46,13 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataAccess" />
+    /// <seealso cref="T:BudgetExecution.DataAccess" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     public abstract class ModelBase : DataAccess
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ModelBase"/> class.
-        /// </summary>
-        protected ModelBase( )
-        {
-        }
-
         /// <summary>
         /// Gets the ordinals.
         /// </summary>

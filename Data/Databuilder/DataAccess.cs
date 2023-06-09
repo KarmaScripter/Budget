@@ -46,23 +46,16 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataConfig" />
-    /// <seealso cref="BudgetExecution.ISource" />
-    /// <seealso cref="BudgetExecution.IProvider" />
+    /// <seealso cref="T:BudgetExecution.ModelConfig" />
+    /// <seealso cref="T:BudgetExecution.ISource" />
+    /// <seealso cref="T:BudgetExecution.IProvider" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    public abstract class DataAccess : DataConfig, ISource, IProvider
+    public abstract class DataAccess : ModelConfig, ISource, IProvider
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DataAccess"/> class.
-        /// </summary>
-        protected DataAccess( )
-        {
-        }
-
         /// <summary>
         /// Gets the data.
         /// </summary>
@@ -253,8 +246,7 @@ namespace BudgetExecution
                            || ( _col.DataType == typeof( short ) ) 
                            || ( _col.DataType == typeof( long ) ) 
                            || ( _col.DataType == typeof( decimal ) ) 
-                           || ( _col.DataType == typeof( float ) ) ) 
-
+                           || ( _col.DataType == typeof( float ) ) )
                         {
                             _numerics.Add( _col.ColumnName );
                         }

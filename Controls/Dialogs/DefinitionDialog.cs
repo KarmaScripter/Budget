@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-08-2023
 // ******************************************************************************************
 // <copyright file="DefinitionDialog.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -53,8 +53,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.EditBase" />
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class DefinitionDialog : EditBase
     {
         /// <summary>
@@ -167,14 +167,13 @@ namespace BudgetExecution
                 TableNameComboBox.SelectedItem = string.Empty;
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
                 var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
+                var _names = _data?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.ToList( );
 
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var _name = _names[_i];
+                    var _name = _names[ _i ];
                     TableNameComboBox.Items.Add( _name );
                 }
             }
@@ -198,9 +197,9 @@ namespace BudgetExecution
                     var _types = DataTypes.ToArray( );
                     for( var _i = 0; _i < _types?.Length; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( _types[_i] ) )
+                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
                         {
-                            DataTypeComboBox.Items.Add( _types[_i] );
+                            DataTypeComboBox.Items.Add( _types[ _i ] );
                         }
                     }
                 }

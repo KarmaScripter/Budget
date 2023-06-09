@@ -48,10 +48,10 @@ namespace BudgetExecution
     using OfficeOpenXml;
     using static System.IO.File;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.ModelBase" />
+    /// <seealso cref="T:BudgetExecution.ModelBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeProtected.Global" ) ]
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]

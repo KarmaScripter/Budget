@@ -47,24 +47,31 @@ namespace BudgetExecution
     using System.IO;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.DataModel" />
-    /// <seealso cref="BudgetExecution.IDataModel" />
+    /// <seealso cref="T:BudgetExecution.DataModel" />
+    /// <seealso cref="T:BudgetExecution.IDataModel" />
     [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
     [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class DataBuilder : DataModel, IDataModel
     {
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         public DataBuilder( )
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -73,8 +80,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -84,8 +92,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="dict"></param>
@@ -94,8 +103,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -108,8 +118,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -122,8 +133,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -138,8 +150,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -149,8 +162,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="query">The query.</param>
         public DataBuilder( IQuery query )
@@ -158,8 +172,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="fullPath">The full path.</param>
         /// <param name="sqlText">The SQL text.</param>
@@ -169,8 +184,9 @@ namespace BudgetExecution
         {
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataBuilder"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataBuilder" /> class.
         /// </summary>
         /// <param name="row">The row.</param>
         public DataBuilder( DataRow row )
@@ -280,6 +296,9 @@ namespace BudgetExecution
                         switch( _ext )
                         {
                             case EXT.MDB:
+                            case EXT.XLS:
+                            case EXT.XLSX:
+                            case EXT.CSV:
                             case EXT.ACCDB:
                             {
                                 return Provider.Access;
@@ -389,6 +408,7 @@ namespace BudgetExecution
             return default( Source );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Filters the data.
         /// </summary>
