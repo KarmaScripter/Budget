@@ -53,8 +53,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="BudgetExecution.EditBase" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
     public partial class DefinitionDialog : EditBase
     {
         /// <summary>
@@ -123,10 +123,10 @@ namespace BudgetExecution
             ComboBoxes = GetComboBoxes( );
 
             // Wire Events
+            Load += OnLoad;
             AccessRadioButton.CheckedChanged += OnProviderButtonChecked;
             SqlServerRadioButton.CheckedChanged += OnProviderButtonChecked;
             SqliteRadioButton.CheckedChanged += OnProviderButtonChecked;
-            Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
             TabPage.MouseClick += OnRightClick;
         }
@@ -157,27 +157,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
-        {
-            try
-            {
-                CloseButton.Text = "Exit";
-                DataTypes = GetDataTypes( Provider );
-                PopulateTableComboBoxItems( );
-                PopulateDataTypeComboBoxItems( );
-                SetActiveTab( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Populates the table ComboBox items.
         /// </summary>
         public void PopulateTableComboBoxItems( )
@@ -192,10 +171,10 @@ namespace BudgetExecution
                     ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
                     ?.Select( dr => dr.Field<string>( "TableName" ) )
                     ?.ToList( );
-                
+
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
-                    var _name = _names[ _i ];
+                    var _name = _names[_i];
                     TableNameComboBox.Items.Add( _name );
                 }
             }
@@ -219,36 +198,10 @@ namespace BudgetExecution
                     var _types = DataTypes.ToArray( );
                     for( var _i = 0; _i < _types?.Length; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( _types[ _i ] ) )
+                        if( !string.IsNullOrEmpty( _types[_i] ) )
                         {
-                            DataTypeComboBox.Items.Add( _types[ _i ] );
+                            DataTypeComboBox.Items.Add( _types[_i] );
                         }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [provider button checked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        public virtual void OnProviderButtonChecked( object sender )
-        {
-            if( sender is RadioButton _button )
-            {
-                try
-                {
-                    var _name = _button.Tag?.ToString( );
-                    if( !string.IsNullOrEmpty( _name ) )
-                    {
-                        Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
-                        DataTypes = GetDataTypes( Provider );
-                        PopulateDataTypeComboBoxItems( );
-                        PopulateTableComboBoxItems( );
                     }
                 }
                 catch( Exception _ex )
@@ -269,12 +222,6 @@ namespace BudgetExecution
                 {
                     switch( ToolType )
                     {
-                        case ToolType.AddColumnButton:
-                        {
-                            ActiveTab = TabPage;
-                            AccessRadioButton.Checked = true;
-                            break;
-                        }
                         case ToolType.AddDatabaseButton:
                         {
                             ActiveTab = TabPage;
@@ -358,6 +305,53 @@ namespace BudgetExecution
             }
 
             return default( IDictionary<string, TabPageAdv> );
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                CloseButton.Text = "Exit";
+                DataTypes = GetDataTypes( Provider );
+                PopulateTableComboBoxItems( );
+                PopulateDataTypeComboBoxItems( );
+                SetActiveTab( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [provider button checked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public virtual void OnProviderButtonChecked( object sender )
+        {
+            if( sender is RadioButton _button )
+            {
+                try
+                {
+                    var _name = _button.Tag?.ToString( );
+                    if( !string.IsNullOrEmpty( _name ) )
+                    {
+                        Provider = (Provider)Enum.Parse( typeof( Provider ), _name );
+                        DataTypes = GetDataTypes( Provider );
+                        PopulateDataTypeComboBoxItems( );
+                        PopulateTableComboBoxItems( );
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
         }
 
         /// <summary>
