@@ -2303,7 +2303,7 @@
             ToolStrip.DropDown = DropDown;
             ToolStrip.EditButton = EditSqlButton;
             ToolStrip.EditColumnButton = EditColumnButton;
-            ToolStrip.EditRecordButton = null;
+            ToolStrip.EditRecordButton = EditRecordButton;
             ToolStrip.EditSqlButton = EditSqlButton;
             ToolStrip.ExcelButton = ExcelExportButton;
             ToolStrip.FilterDataButton = null;
@@ -2324,7 +2324,7 @@
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = NextButton;
             ToolStrip.Office12Mode = false;
-            ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Blue;
+            ToolStrip.OfficeColorScheme = Syncfusion.Windows.Forms.Tools.ToolStripEx.ColorScheme.Black;
             ToolStrip.Padding = new System.Windows.Forms.Padding( 1 );
             ToolStrip.PreviousButton = PreviousButton;
             ToolStrip.ProgressBar = null;

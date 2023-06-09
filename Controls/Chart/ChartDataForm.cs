@@ -331,7 +331,7 @@ namespace BudgetExecution
             ExcelButton.Click += OnExcelExportButtonClicked;
             TableButton.Click += OnTableButtonClick;
             ChartSeriesComboBox.SelectedIndexChanged += OnChartTypeSelected;
-            MetricsComboBox.SelectedIndexChanged += OnMeasureSelected;
+            MetricsComboBox.SelectedIndexChanged += OnMetricSelected;
             MouseClick += OnRightClick;
             Load += OnLoad;
             Shown += OnShown;
@@ -2307,7 +2307,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnMeasureSelected( object sender, EventArgs e )
+        private void OnMetricSelected( object sender, EventArgs e )
         {
             try
             {

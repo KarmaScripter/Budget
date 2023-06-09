@@ -45,38 +45,68 @@ namespace BudgetExecution
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Forms;
 
-    /// <summary> </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripButton"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.ToolStripButton" />
     [ Serializable ]
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
     [ SuppressMessage( "ReSharper", "MergeConditionalExpression" ) ]
     public class ToolButtonBase : System.Windows.Forms.ToolStripButton
     {
-        /// <summary> Gets or sets the tool tip. </summary>
-        /// <value> The tool tip. </value>
+        /// <summary>
+        /// Gets or sets the tool tip.
+        /// </summary>
+        /// <value>
+        /// The tool tip.
+        /// </value>
         public virtual SmallTip ToolTip { get; set; }
 
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the field. </summary>
-        /// <value> The field. </value>
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>
+        /// The field.
+        /// </value>
         public virtual Field Field { get; set; }
 
-        /// <summary> Gets or sets the numeric. </summary>
-        /// <value> The numeric. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Gets or sets the bar. </summary>
-        /// <value> The bar. </value>
+        /// <summary>
+        /// Gets or sets the type of the tool.
+        /// </summary>
+        /// <value>
+        /// The type of the tool.
+        /// </value>
         public ToolType ToolType { get; set; }
 
-        /// <summary> Gets the hover text from the type of button. </summary>
+        /// <summary>
+        /// Gets the hover text.
+        /// </summary>
+        /// <param name="tool">The tool.</param>
+        /// <returns></returns>
         public string GetHoverText( ToolType tool )
         {
             if( Enum.IsDefined( typeof( ToolType ), tool ) )
@@ -102,17 +132,19 @@ namespace BudgetExecution
                         _ => string.Empty
                     };
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
 
             return string.Empty;
         }
 
-        /// <summary> Sets the hover text. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the hover text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public void SetHoverText( string text )
         {
             try
@@ -121,14 +153,16 @@ namespace BudgetExecution
                     ? text
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

@@ -47,32 +47,50 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    /// <seealso cref="ToolStripBase"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.ToolStripBase" />
+    /// <seealso cref="BudgetExecution.IToolStrip" />
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     public class ToolStrip : ToolStripBase, IToolStrip
     {
-        /// <summary> The image path </summary>
+        /// <summary>
+        /// Gets or sets the image directory.
+        /// </summary>
+        /// <value>
+        /// The image directory.
+        /// </value>
         public virtual string ImageDirectory { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the filter.
+        /// </summary>
+        /// <value>
+        /// The filter.
+        /// </value>
         public IDictionary<string, object> DataFilter { get; set; }
 
-        /// <summary> Gets the buttons. </summary>
-        /// <value> The buttons. </value>
+        /// <summary>
+        /// Gets the buttons.
+        /// </summary>
+        /// <value>
+        /// The buttons.
+        /// </value>
         public IDictionary<string, ToolStripButton> Buttons { get; }
 
-        /// <summary> Gets or sets the size of the image. </summary>
-        /// <value> The size of the image. </value>
+        /// <summary>
+        /// Gets or sets the size of the image.
+        /// </summary>
+        /// <value>
+        /// The size of the image.
+        /// </value>
         public Size ImageSize { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStrip"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ToolStrip"/> class.
         /// </summary>
         public ToolStrip( )
         {
@@ -99,7 +117,7 @@ namespace BudgetExecution
             ShowLauncher = true;
             GripStyle = ToolStripGripStyle.Hidden;
             VisualStyle = ToolStripExStyle.Office2016DarkGray;
-            OfficeColorScheme = ColorScheme.Blue;
+            OfficeColorScheme = ColorScheme.Black;
             ThemeStyle.BackColor = Color.Transparent;
             ThemeStyle.ArrowColor = Color.FromArgb( 0, 120, 212 );
             ThemeStyle.BottomToolStripBackColor = Color.Transparent;
@@ -113,16 +131,18 @@ namespace BudgetExecution
             Buttons = GetButtons( );
         }
 
-        /// <summary> Gets the buttons. </summary>
-        /// <returns> </returns>
+        /// <summary>
+        /// Gets the buttons.
+        /// </summary>
+        /// <returns></returns>
         public IDictionary<string, ToolStripButton> GetButtons( )
         {
             var _buttons = new SortedList<string, ToolStripButton>( );
             if( Items?.Count > 0 )
             {
-                foreach( var control in Items )
+                foreach( var _control in Items )
                 {
-                    if( control is ToolStripButton _item )
+                    if( _control is ToolStripButton _item )
                     {
                         if( !string.IsNullOrEmpty( _item?.Name ) )
                         {
@@ -139,20 +159,18 @@ namespace BudgetExecution
             return default( IDictionary<string, ToolStripButton> );
         }
 
-        /// <summary> Called when [load]. </summary>
-        /// <param name="sender"> The sender. </param>
-        /// <param name="e">
-        /// The
-        /// <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <summary>
+        /// Called when [visible].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public virtual void OnVisible( object sender, EventArgs e )
         {
-            if( sender is ToolStrip toolStrip )
+            if( sender is ToolStrip _toolStrip )
             {
-                foreach( var button in toolStrip.Buttons.Values )
+                foreach( var _button in _toolStrip.Buttons.Values )
                 {
-                    button.BindingSource = BindingSource;
+                    _button.BindingSource = BindingSource;
                 }
             }
         }

@@ -55,6 +55,9 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ToolStripDropDown : ToolStripDropDownBase, IToolStripComboBox
     {
         /// <summary> Gets or sets the tool tip. </summary>
@@ -136,9 +139,9 @@ namespace BudgetExecution
                 {
                     BindingSource.DataSource = bindingSource.DataSource;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -169,9 +172,9 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -192,9 +195,9 @@ namespace BudgetExecution
                     var _message = new Message( "NOT YET IMPLEMENTED" );
                     _message?.ShowDialog( );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -209,9 +212,9 @@ namespace BudgetExecution
                 {
                     return ComboBox.Items[ SelectedIndex ];
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return null;
                 }
             }
@@ -229,9 +232,9 @@ namespace BudgetExecution
                 {
                     ComboBox.Items.Add( item );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -253,9 +256,9 @@ namespace BudgetExecution
                     ToolTip = null;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
     }

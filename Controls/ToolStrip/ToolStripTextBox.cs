@@ -111,9 +111,9 @@ namespace BudgetExecution
                     ? text
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -128,9 +128,9 @@ namespace BudgetExecution
                 {
                     var _ = new SmallTip( item, _text );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -163,9 +163,9 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -186,9 +186,9 @@ namespace BudgetExecution
                     ToolTip = null;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
     }

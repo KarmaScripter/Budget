@@ -47,48 +47,65 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    /// <summary> </summary>
-    /// <seealso cref="System.Windows.Forms.ToolStripComboBox"/>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.Tools.ToolStripComboBoxEx" />
     [ SuppressMessage( "ReSharper", "VirtualMemberNeverOverridden.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public abstract class ToolStripDropDownBase : ToolStripComboBoxEx
     {
-        /// <summary> Gets or sets the binding source. </summary>
-        /// <value> The binding source. </value>
+        /// <summary>
+        /// Gets or sets the binding source.
+        /// </summary>
+        /// <value>
+        /// The binding source.
+        /// </value>
         public virtual BindingSource BindingSource { get; set; }
 
-        /// <summary> Gets or sets the hover text. </summary>
-        /// <value> The hover text. </value>
+        /// <summary>
+        /// Gets or sets the hover text.
+        /// </summary>
+        /// <value>
+        /// The hover text.
+        /// </value>
         public virtual string HoverText { get; set; }
 
-        /// <summary> Gets or sets the filter. </summary>
-        /// <value> The filter. </value>
+        /// <summary>
+        /// Gets or sets the data filter.
+        /// </summary>
+        /// <value>
+        /// The data filter.
+        /// </value>
         public virtual IDictionary<string, object> DataFilter { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="ToolStripDropDownBase"/>
-        /// class.
+        /// Initializes a new instance of the <see cref="ToolStripDropDownBase"/> class.
         /// </summary>
         protected ToolStripDropDownBase( )
         {
         }
 
-        /// <summary> Sets the font. </summary>
-        /// <param name="font"> The font. </param>
+        /// <summary>
+        /// Sets the font.
+        /// </summary>
+        /// <param name="font">The font.</param>
         public virtual void SetFont( Font font )
         {
             try
             {
                 Font = font ?? new Font( "Roboto", 8 );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the color of the fore. </summary>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the color of the fore.
+        /// </summary>
+        /// <param name="color">The color.</param>
         public virtual void SetForeColor( Color color )
         {
             try
@@ -97,14 +114,16 @@ namespace BudgetExecution
                     ? color
                     : Color.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the color of the back. </summary>
-        /// <param name="color"> The color. </param>
+        /// <summary>
+        /// Sets the color of the back.
+        /// </summary>
+        /// <param name="color">The color.</param>
         public virtual void SetBackColor( Color color )
         {
             try
@@ -113,27 +132,31 @@ namespace BudgetExecution
                     ? color
                     : Color.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the field. </summary>
-        /// <param name="field"> The field. </param>
+        /// <summary>
+        /// Sets the field.
+        /// </summary>
+        /// <param name="field">The field.</param>
         public virtual void SetField( Field field )
         {
             try
             {
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the hover text. </summary>
-        /// <param name="item"> The item. </param>
+        /// <summary>
+        /// Sets the hover text.
+        /// </summary>
+        /// <param name="item">The item.</param>
         public virtual void SetHoverText( ToolStripItem item )
         {
             try
@@ -143,14 +166,16 @@ namespace BudgetExecution
                     ? _text
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Sets the hover text. </summary>
-        /// <param name="text"> The text. </param>
+        /// <summary>
+        /// Sets the hover text.
+        /// </summary>
+        /// <param name="text">The text.</param>
         public virtual void SetHoverText( string text )
         {
             try
@@ -159,14 +184,16 @@ namespace BudgetExecution
                     ? text
                     : string.Empty;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
-        /// <summary> Get ErrorDialog Dialog. </summary>
-        /// <param name="ex"> The ex. </param>
+        /// <summary>
+        /// Fails the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );

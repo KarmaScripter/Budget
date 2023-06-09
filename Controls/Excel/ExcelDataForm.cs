@@ -331,11 +331,10 @@ namespace BudgetExecution
                 ToolStrip.VisualStyle = ToolStripExStyle.Office2016DarkGray;
                 ToolStrip.OfficeColorScheme = ToolStripEx.ColorScheme.Black;
                 ToolStrip.LauncherStyle = LauncherStyle.Office12;
-                ToolStrip.ShowCaption = false;
+                ToolStrip.ShowCaption = true;
                 ToolStrip.ImageSize = new Size( 16, 16 );
                 ToolStrip.ImageScalingSize = new Size( 16, 16 );
                 ToolStripTextBox.Size = new Size( 190, 28 );
-                ToolStripTextBox.ForeColor = Color.LightSteelBlue;
                 ToolStripTextBox.Font = new Font( "Roboto", 8 );
                 ToolStripTextBox.ForeColor = Color.White;
                 ToolStripTextBox.TextBoxTextAlign = HorizontalAlignment.Center;

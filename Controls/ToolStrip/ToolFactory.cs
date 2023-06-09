@@ -78,9 +78,9 @@ namespace BudgetExecution
                 var _separator = new ToolSeparator( );
                 return _separator;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolSeparator );
             }
         }
@@ -100,9 +100,9 @@ namespace BudgetExecution
                 _firstButton.ToolType = ToolType.FirstButton;
                 return _firstButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -122,9 +122,9 @@ namespace BudgetExecution
                 _previousButton.ToolType = ToolType.PreviousButton;
                 return _previousButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -144,9 +144,9 @@ namespace BudgetExecution
                 _nextButton.ToolType = ToolType.NextButton;
                 return _nextButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -166,9 +166,9 @@ namespace BudgetExecution
                 _lastButton.ToolType = ToolType.LastButton;
                 return _lastButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -188,9 +188,9 @@ namespace BudgetExecution
                 _editButton.ToolType = ToolType.EditButton;
                 return _editButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -210,9 +210,9 @@ namespace BudgetExecution
                 _addButton.ToolType = ToolType.AddButton;
                 return _addButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -232,9 +232,9 @@ namespace BudgetExecution
                 _deleteButton.ToolType = ToolType.DeleteButton;
                 return _deleteButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -254,9 +254,9 @@ namespace BudgetExecution
                 _refreshButton.ToolType = ToolType.RefreshButton;
                 return _refreshButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -276,9 +276,9 @@ namespace BudgetExecution
                 _saveButton.ToolType = ToolType.SaveButton;
                 return _saveButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -298,9 +298,9 @@ namespace BudgetExecution
                 _printButton.ToolType = ToolType.PrintButton;
                 return _printButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -320,9 +320,9 @@ namespace BudgetExecution
                 _excelButton.ToolType = ToolType.ExcelButton;
                 return _excelButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -342,9 +342,9 @@ namespace BudgetExecution
                 _calculatorButton.ToolType = ToolType.CalculatorButton;
                 return _calculatorButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -364,9 +364,9 @@ namespace BudgetExecution
                 _homeButton.ToolType = ToolType.HomeButton;
                 return _homeButton;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripButton );
             }
         }
@@ -382,9 +382,9 @@ namespace BudgetExecution
                 var _label = new ToolStripLabel( );
                 return _label;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripLabel );
             }
         }
@@ -400,9 +400,9 @@ namespace BudgetExecution
                 var _comboBox = new ToolStripComboBoxEx( );
                 return _comboBox;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripComboBoxEx );
             }
         }
@@ -418,9 +418,9 @@ namespace BudgetExecution
                 var _progress = new ToolStripProgressBar( );
                 return _progress;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripProgressBar );
             }
         }
@@ -436,9 +436,9 @@ namespace BudgetExecution
                 var _textBox = new ToolStripTextBox( );
                 return _textBox;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( ToolStripTextBox );
             }
         }

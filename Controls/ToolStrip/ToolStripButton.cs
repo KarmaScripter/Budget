@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-08-2023
 // ******************************************************************************************
 // <copyright file="ToolStripButton.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -53,7 +53,6 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "ArrangeRedundantParentheses" ) ]
     public class ToolStripButton : ToolButtonBase, IToolStripButton
     {
-
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="ToolStripButton"/>
@@ -70,7 +69,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 9 );
             AutoToolTip = false;
             Text = string.Empty;
-            Size = new Size( 24, 20 );
+            Size = new Size( 26, 20 );
 
             // Event Wiring
             MouseHover += OnMouseHover;
@@ -122,9 +121,9 @@ namespace BudgetExecution
                             : default( Image );
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( Image );
                 }
             }
@@ -148,8 +147,8 @@ namespace BudgetExecution
                    && !string.IsNullOrEmpty( HoverText ) )
                 {
                     _button.Tag = HoverText;
-                    var tip = new SmallTip( _button );
-                    ToolTip = tip;
+                    var _tip = new SmallTip( _button );
+                    ToolTip = _tip;
                 }
                 else
                 {
@@ -160,9 +159,9 @@ namespace BudgetExecution
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -183,9 +182,9 @@ namespace BudgetExecution
                     ToolTip = null;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -265,7 +264,9 @@ namespace BudgetExecution
                         }
                         case ToolType.ExcelButton:
                         {
-                            var _excel = @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
+                            var _excel =
+                                @"C:\Users\terry\source\repos\Budget\Resource\Reports\Template.xlsx";
+
                             using var _excelForm = new ExcelDataForm( _excel );
                             _excelForm?.ShowDialog( );
                             break;
@@ -366,9 +367,9 @@ namespace BudgetExecution
                         }
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -388,9 +389,9 @@ namespace BudgetExecution
                         Image = _image;
                     }
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }

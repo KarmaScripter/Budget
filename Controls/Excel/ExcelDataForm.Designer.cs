@@ -198,7 +198,7 @@
             ToolStrip.LastButton = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new System.Drawing.Point( 0, 693 );
-            ToolStrip.Margin = new System.Windows.Forms.Padding( 1 );
+            ToolStrip.Margin = new System.Windows.Forms.Padding( 1, 1, 1, 3 );
             ToolStrip.Name = "ToolStrip";
             ToolStrip.NextButton = null;
             ToolStrip.Office12Mode = false;
@@ -306,9 +306,9 @@
             ToolStripTextBox.Margin = new System.Windows.Forms.Padding( 1 );
             ToolStripTextBox.Name = "ToolStripTextBox";
             ToolStripTextBox.Padding = new System.Windows.Forms.Padding( 1 );
-            ToolStripTextBox.Size = new System.Drawing.Size( 162, 28 );
+            ToolStripTextBox.Size = new System.Drawing.Size( 180, 28 );
             ToolStripTextBox.Tag = "";
-            ToolStripTextBox.ToolTip = null;
+            ToolStripTextBox.ToolTip = ToolTip;
             // 
             // Separator3
             // 

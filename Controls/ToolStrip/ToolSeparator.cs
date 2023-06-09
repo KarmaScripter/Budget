@@ -41,6 +41,7 @@
 namespace BudgetExecution
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
     using System.Windows.Forms;
 
@@ -48,6 +49,8 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="System.Windows.Forms.ToolStripSeparator" />
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class ToolSeparator : ToolStripSeparator
     {
         /// <summary>
@@ -76,9 +79,9 @@ namespace BudgetExecution
                 {
                     Width = width;
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
