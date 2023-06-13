@@ -4,7 +4,7 @@
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-08-2023
+//     Last Modified On:        06-09-2023
 // ******************************************************************************************
 // <copyright file="DataGridForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -52,17 +52,21 @@ namespace BudgetExecution
     using Syncfusion.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
-    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
-    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
-    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
-    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
-    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
-    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
-    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
-    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
+    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
+    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
+    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
+    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
+    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
+    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
+    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
+    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -389,11 +393,8 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [load].
         /// </summary>
-        /// <param name="sender">The sender.
-        /// </param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnLoad( object sender, EventArgs e )
         {
             try
@@ -415,7 +416,7 @@ namespace BudgetExecution
                     CalendarTabPage.TabVisible = false;
                     LabelTable.Visible = true;
                     PopulateFirstComboBoxItems( );
-                    ResetFilterTableVisibility( );
+                    ResetListBoxVisibility( );
                 }
                 else if( string.IsNullOrEmpty( SelectedTable ) )
                 {
@@ -644,7 +645,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Providers" ];
+                var _path = ConfigurationManager.AppSettings["Providers"];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -671,11 +672,11 @@ namespace BudgetExecution
         /// Sets the dialog icon.
         /// </summary>
         /// <param name="type">The type.</param>
-        private void SetDialogIcon( ToolType type )
+        private void SetIcon( ToolType type )
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
+                var _path = ConfigurationManager.AppSettings["Dialogs"];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -693,7 +694,10 @@ namespace BudgetExecution
                             case ToolType.EditSqlButton:
                             {
                                 var _tool = type.ToString( );
-                                var _file = _files?.Where( f => f.Contains( _tool ) )?.First( );
+                                var _file = _files
+                                    ?.Where( f => f.Contains( _tool ) )
+                                    ?.First( );
+
                                 if( !string.IsNullOrEmpty( _file )
                                    && File.Exists( _file ) )
                                 {
@@ -716,7 +720,7 @@ namespace BudgetExecution
         /// <summary>
         /// Resets the filter table visibility.
         /// </summary>
-        private void ResetFilterTableVisibility( )
+        private void ResetListBoxVisibility( )
         {
             try
             {
@@ -854,13 +858,17 @@ namespace BudgetExecution
             try
             {
                 SQLiteRadioButton.Tag = "SQLite";
+                SQLiteRadioButton.Text = "SQLite";
                 SQLiteRadioButton.HoverText = "SQLite Provider";
                 AccessRadioButton.Tag = "Access";
+                AccessRadioButton.Text = "MS Access";
                 AccessRadioButton.HoverText = "MS Access Provider";
                 AccessRadioButton.Checked = true;
                 SqlCeRadioButton.Tag = "SqlCe";
+                SqlCeRadioButton.Text = "SQL CE";
                 SqlCeRadioButton.HoverText = "SQL Compact Provider";
                 SqlServerRadioButton.Tag = "SqlServer";
+                SqlServerRadioButton.Text = "MS SQL";
                 SqlServerRadioButton.HoverText = "Sql Server Provider";
             }
             catch( Exception _ex )
@@ -1050,10 +1058,48 @@ namespace BudgetExecution
                 ClearCollections( );
                 SelectedTable = string.Empty;
                 DataGrid.DataSource = null;
+                BindingSource.DataSource = null;
                 DataModel = null;
                 DataTable = null;
                 UpdateLabelText( );
                 TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the list boxes.
+        /// </summary>
+        private void ClearListBoxes( )
+        {
+            try
+            {
+                TableListBox.Items.Clear( );
+                FirstListBox.Items.Clear( );
+                SecondListBox.Items.Clear( );
+                ThirdListBox.Items.Clear( );
+                FieldListBox.Items.Clear( );
+                NumericListBox.Items.Clear( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the combo boxes.
+        /// </summary>
+        private void ClearComboBoxes( )
+        {
+            try
+            {
+                FirstComboBox.Items.Clear( );
+                SecondComboBox.Items.Clear( );
+                ThirdComboBox.Items.Clear( );
             }
             catch( Exception _ex )
             {
@@ -1103,9 +1149,9 @@ namespace BudgetExecution
 
                     for( var _i = 0; _i < Numerics.Count; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
+                        if( !string.IsNullOrEmpty( Numerics[_i] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[ _i ] );
+                            NumericListBox.Items.Add( Numerics[_i] );
                         }
                     }
                 }
@@ -1222,7 +1268,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
+                    var _mainForm = (MainForm)Program.Windows["MainForm"];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -1339,7 +1385,7 @@ namespace BudgetExecution
                     TabControl.SelectedIndex = 1;
                     UpdateLabelText( );
                     PopulateFirstComboBoxItems( );
-                    ResetFilterTableVisibility( );
+                    ResetListBoxVisibility( );
                 }
                 catch( Exception _ex )
                 {
@@ -1370,7 +1416,7 @@ namespace BudgetExecution
                     if( !string.IsNullOrEmpty( FirstCategory ) )
                     {
                         DataModel = new DataBuilder( Source, Provider );
-                        var _data = DataModel.DataElements[ FirstCategory ];
+                        var _data = DataModel.DataElements[FirstCategory];
                         foreach( var _item in _data )
                         {
                             FirstListBox.Items?.Add( _item );
@@ -1437,9 +1483,7 @@ namespace BudgetExecution
         /// Called when [second ComboBox item selected].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1459,7 +1503,7 @@ namespace BudgetExecution
                     SecondCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( SecondCategory ) )
                     {
-                        var _data = DataModel.DataElements[ SecondCategory ];
+                        var _data = DataModel.DataElements[SecondCategory];
                         foreach( var _item in _data )
                         {
                             SecondListBox.Items?.Add( _item );
@@ -1511,11 +1555,8 @@ namespace BudgetExecution
         /// <summary>
         /// Called when [third ComboBox item selected].
         /// </summary>
-        /// <param name="sender">The sender.
-        /// </param>
-        /// <param name="e">The <see cref="EventArgs"/>
-        /// instance containing the event data.
-        /// </param>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
         {
             if( sender is ComboBox _comboBox )
@@ -1533,7 +1574,7 @@ namespace BudgetExecution
                     ThirdCategory = _comboBox.SelectedItem?.ToString( );
                     if( !string.IsNullOrEmpty( ThirdCategory ) )
                     {
-                        var _data = DataModel?.DataElements[ ThirdCategory ];
+                        var _data = DataModel?.DataElements[ThirdCategory];
                         if( _data?.Any( ) == true )
                         {
                             foreach( var _item in _data )
@@ -1834,7 +1875,7 @@ namespace BudgetExecution
                         GroupTabPage.TabVisible = false;
                         CalendarTabPage.TabVisible = false;
                         ProviderTable.Visible = false;
-                        ResetFilterTableVisibility( );
+                        ResetListBoxVisibility( );
                         break;
                     }
                     case 2:
@@ -1915,7 +1956,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetDialogIcon( _button.ToolType );
+                    SetIcon( _button.ToolType );
                     var _dialog = new EditDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
@@ -1938,7 +1979,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetDialogIcon( _button.ToolType );
+                    SetIcon( _button.ToolType );
                     var _dialog = new DefinitionDialog( _button.ToolType, BindingSource );
                     _dialog?.ShowDialog( this );
                     SetFormIcon( );
@@ -1982,7 +2023,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    SetDialogIcon( _button.ToolType );
+                    SetIcon( _button.ToolType );
                     var _dialog = new SqlDialog( BindingSource );
                     _dialog.SqlEditor.Text = SqlQuery;
                     _dialog.ShowDialog( this );
@@ -2066,7 +2107,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
+                    var _mainForm = (MainForm)Program.Windows["MainForm"];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -2113,7 +2154,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows[ "DataGridForm" ] = this;
+                Program.Windows["DataGridForm"] = this;
             }
             catch( Exception _ex )
             {
@@ -2122,7 +2163,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [deactivated].
+        /// Called when [closing].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -2140,7 +2181,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Raises the Close event.
+        /// Called when [form closed].
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>

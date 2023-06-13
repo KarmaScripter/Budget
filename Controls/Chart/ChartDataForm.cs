@@ -335,7 +335,7 @@ namespace BudgetExecution
             MouseClick += OnRightClick;
             Load += OnLoad;
             Shown += OnShown;
-            Closing += OnClose;
+            Closing += OnClosing;
         }
 
         /// <summary>
@@ -1319,8 +1319,8 @@ namespace BudgetExecution
                 SelectedTable = string.Empty;
                 DataModel = null;
                 DataTable = null;
-                UpdateLabelText( );
                 TabControl.SelectedIndex = 0;
+                UpdateLabelText( );
             }
             catch( Exception _ex )
             {
@@ -2351,7 +2351,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void OnClose( object sender, EventArgs e )
+        private void OnClosing( object sender, EventArgs e )
         {
             try
             {

@@ -188,8 +188,9 @@ namespace BudgetExecution
         /// </value>
         public DataBuilder DataModel { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         public ExcelDataForm( )
         {
@@ -241,8 +242,9 @@ namespace BudgetExecution
             Closing += OnClose;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         /// <param name="filePath">The file path.</param>
         public ExcelDataForm( string filePath )
@@ -253,8 +255,9 @@ namespace BudgetExecution
             FileName = Path.GetFileName( filePath );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         /// <param name="fileStream">The file stream.</param>
         public ExcelDataForm( Stream fileStream )
@@ -263,8 +266,9 @@ namespace BudgetExecution
             Spreadsheet.Open( fileStream );
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelDataForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         public ExcelDataForm( BindingSource bindingSource )
@@ -277,8 +281,9 @@ namespace BudgetExecution
             Header.Text = $"{SelectedTable.SplitPascal( )} ";
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExcelDataForm" /> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.ExcelDataForm" /> class.
         /// </summary>
         /// <param name="dataTable">The data table.</param>
         public ExcelDataForm( DataTable dataTable )

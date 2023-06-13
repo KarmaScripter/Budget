@@ -147,7 +147,7 @@ namespace BudgetExecution
         public SqlDialog( BindingSource bindingSource, Provider provider = Provider.Access )
             : this( )
         {
-            ToolType = ToolType.EditSqlButton;
+            Tool = ToolType.EditSqlButton;
             BindingSource = bindingSource;
             Provider = provider;
             DataTable = BindingSource.GetDataTable( );
@@ -162,14 +162,14 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlDialog"/> class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="tool">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
         /// <param name="provider">The provider.</param>
-        public SqlDialog( ToolType toolType, BindingSource bindingSource, 
+        public SqlDialog( ToolType tool, BindingSource bindingSource, 
             Provider provider = Provider.Access )
             : this( )
         {
-            ToolType = toolType;
+            Tool = tool;
             BindingSource = bindingSource;
             Provider = provider;
             DataTable = BindingSource.GetDataTable( );
@@ -182,13 +182,13 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="SqlDialog"/> class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="tool">Type of the tool.</param>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        public SqlDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
+        public SqlDialog( ToolType tool, Source source, Provider provider = Provider.Access )
             : this( )
         {
-            ToolType = toolType;
+            Tool = tool;
             Provider = provider;
             Source = source;
             DataModel = new DataBuilder( source, provider );

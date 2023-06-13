@@ -49,30 +49,14 @@ namespace BudgetExecution
     using System.Windows.Forms;
     using Syncfusion.Windows.Forms.Tools;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.EditBase" />
+    /// <seealso cref="T:BudgetExecution.EditBase" />
     [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public partial class DefinitionDialog : EditBase
     {
-        /// <summary>
-        /// Gets or sets the data types.
-        /// </summary>
-        /// <value>
-        /// The data types.
-        /// </value>
-        public override IEnumerable<string> DataTypes { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected table.
-        /// </summary>
-        /// <value>
-        /// The selected table.
-        /// </value>
-        public override string SelectedTable { get; set; }
-
         /// <summary>
         /// Gets or sets the selected provider.
         /// </summary>
@@ -97,8 +81,9 @@ namespace BudgetExecution
         /// </value>
         public string ColumnName { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefinitionDialog"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DefinitionDialog" /> class.
         /// </summary>
         public DefinitionDialog( )
         {
@@ -131,23 +116,25 @@ namespace BudgetExecution
             TabPage.MouseClick += OnRightClick;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefinitionDialog"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DefinitionDialog" /> class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
-        public DefinitionDialog( ToolType toolType )
+        /// <param name="tool">Type of the tool.</param>
+        public DefinitionDialog( ToolType tool )
             : this( )
         {
-            ToolType = toolType;
+            Tool = tool;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefinitionDialog"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DefinitionDialog" /> class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="tool">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
-        public DefinitionDialog( ToolType toolType, BindingSource bindingSource )
-            : this( toolType )
+        public DefinitionDialog( ToolType tool, BindingSource bindingSource )
+            : this( tool )
         {
             BindingSource = bindingSource;
             DataTable = (DataTable)bindingSource.DataSource;
@@ -215,11 +202,11 @@ namespace BudgetExecution
         /// </summary>
         public void SetActiveTab( )
         {
-            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
+            if( Enum.IsDefined( typeof( ToolType ), Tool ) )
             {
                 try
                 {
-                    switch( ToolType )
+                    switch( Tool )
                     {
                         case ToolType.AddDatabaseButton:
                         {

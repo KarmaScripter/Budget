@@ -47,12 +47,13 @@ namespace BudgetExecution
     using System.Drawing;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.EditBase" />
-    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    /// <seealso cref="T:BudgetExecution.EditBase" />
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ] 
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public partial class LookupDialog : EditBase
     {
         /// <summary>
@@ -61,7 +62,7 @@ namespace BudgetExecution
         /// <value>
         /// The table prefix.
         /// </value>
-        public string TablePrefix { get; } = " Tables : ";
+        public string TablePrefix { get; set; } = " Tables : ";
 
         /// <summary>
         /// Gets the column prefix.
@@ -69,7 +70,7 @@ namespace BudgetExecution
         /// <value>
         /// The column prefix.
         /// </value>
-        public string ColumnPrefix { get; } = " Columns : ";
+        public string ColumnPrefix { get; set; } = " Columns : ";
 
         /// <summary>
         /// Gets the value prefix.
@@ -77,10 +78,11 @@ namespace BudgetExecution
         /// <value>
         /// The value prefix.
         /// </value>
-        public string ValuePrefix { get; } = " Values : ";
+        public string ValuePrefix { get; set; } = " Values : ";
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="LookupDialog"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.LookupDialog" /> class.
         /// </summary>
         public LookupDialog( )
         {
@@ -91,6 +93,8 @@ namespace BudgetExecution
             Panels = GetPanels( );
             RadioButtons = GetRadioButtons( );
             TabControl.TabPanelBackColor = Color.FromArgb( 20, 20, 20 );
+
+            // Wire Events
             Load += OnLoad;
             CloseButton.Click += OnCloseButtonClicked;
             TableListBox.SelectedValueChanged += OnTableListBoxSelectionChanged;
@@ -98,25 +102,40 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Called when [load].
+        /// Clears the selections.
         /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnLoad( object sender, EventArgs e )
+        private void ClearSelections( )
         {
             try
             {
-                FormFilter = new Dictionary<string, object>
-                {
-                    { "BFY", "2022" },
-                    { "FundCode", "B" }
-                };
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
 
-                DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
-                BindingSource.DataSource = DataModel.DataTable;
-                PopulateTableListBoxItems( );
-                SourceTable.CaptionText = TablePrefix + TableListBox.Items.Count;
-                ColumnTable.CaptionText = ColumnPrefix;
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearListBoxItems( )
+        {
+            try
+            {
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Clears the selections.
+        /// </summary>
+        private void ClearData( )
+        {
+            try
+            {
             }
             catch( Exception _ex )
             {
@@ -133,17 +152,37 @@ namespace BudgetExecution
             {
                 TableListBox.Items.Clear( );
                 var _model = new DataBuilder( Source.ApplicationTables, Provider.Access );
-                var _data = _model.GetData( );
-                var _names = _data
-                    ?.Where( dr => dr.Field<string>( "Model" ).Equals( "EXECUTION" ) )
-                    ?.Select( dr => dr.Field<string>( "TableName" ) )
+                var _names = _model.GetData( )
+                    ?.Select( r => r.Field<string>( "TableName" ) )
+                    ?.Distinct( )
                     ?.ToList( );
-                
+
                 for( var _i = 0; _i < _names?.Count - 1; _i++ )
                 {
                     var _name = _names[ _i ];
                     TableListBox.Items.Add( _name );
                 }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [load].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnLoad( object sender, EventArgs e )
+        {
+            try
+            {
+                DataModel = new DataBuilder( Source.StatusOfFunds, Provider.Access, FormFilter );
+                BindingSource.DataSource = DataModel.DataTable;
+                PopulateTableListBoxItems( );
+                SourceTable.CaptionText = TablePrefix + TableListBox.Items.Count;
+                ColumnTable.CaptionText = ColumnPrefix;
             }
             catch( Exception _ex )
             {

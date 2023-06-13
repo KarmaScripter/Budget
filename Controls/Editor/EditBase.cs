@@ -67,7 +67,7 @@ namespace BudgetExecution
         /// <value>
         /// The source.
         /// </value>
-        public virtual Source Source { get; set; }
+        public Source Source { get; set; }
 
         /// <summary>
         /// Gets or sets the provider.
@@ -75,7 +75,7 @@ namespace BudgetExecution
         /// <value>
         /// The provider.
         /// </value>
-        public virtual Provider Provider { get; set; }
+        public Provider Provider { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the command.
@@ -83,7 +83,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the command.
         /// </value>
-        public virtual SQL CommandType { get; set; }
+        public SQL CommandType { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the tool.
@@ -91,7 +91,7 @@ namespace BudgetExecution
         /// <value>
         /// The type of the tool.
         /// </value>
-        public virtual ToolType ToolType { get; set; }
+        public ToolType Tool { get; set; }
 
         /// <summary>
         /// Gets or sets the active tab.
@@ -99,7 +99,7 @@ namespace BudgetExecution
         /// <value>
         /// The active tab.
         /// </value>
-        public virtual TabPageAdv ActiveTab { get; set; }
+        public TabPageAdv ActiveTab { get; set; }
 
         /// <summary>
         /// Gets or sets the data model.
@@ -107,7 +107,7 @@ namespace BudgetExecution
         /// <value>
         /// The data model.
         /// </value>
-        public virtual DataBuilder DataModel { get; set; }
+        public DataBuilder DataModel { get; set; }
 
         /// <summary>
         /// Gets or sets the data table.
@@ -115,7 +115,7 @@ namespace BudgetExecution
         /// <value>
         /// The data table.
         /// </value>
-        public virtual DataTable DataTable { get; set; }
+        public DataTable DataTable { get; set; }
 
         /// <summary>
         /// Gets or sets the columns.
@@ -123,7 +123,7 @@ namespace BudgetExecution
         /// <value>
         /// The columns.
         /// </value>
-        public virtual IEnumerable<string> Columns { get; set; }
+        public IEnumerable<string> Columns { get; set; }
 
         /// <summary>
         /// Gets or sets the fields.
@@ -131,15 +131,15 @@ namespace BudgetExecution
         /// <value>
         /// The fields.
         /// </value>
-        public virtual IList<string> Fields { get; set; }
+        public IList<string> Fields { get; set; }
 
         /// <summary>
-        /// Gets or sets the numerics.
+        /// Gets or sets the numeric fields.
         /// </summary>
         /// <value>
         /// The numerics.
         /// </value>
-        public virtual IList<string> Numerics { get; set; }
+        public IList<string> Numerics { get; set; }
 
         /// <summary>
         /// Gets or sets the selected column.
@@ -147,7 +147,7 @@ namespace BudgetExecution
         /// <value>
         /// The selected column.
         /// </value>
-        public virtual string SelectedColumn { get; set; }
+        public string SelectedColumn { get; set; }
 
         /// <summary>
         /// Gets or sets the selected table.
@@ -155,7 +155,7 @@ namespace BudgetExecution
         /// <value>
         /// The selected table.
         /// </value>
-        public virtual string SelectedTable { get; set; }
+        public string SelectedTable { get; set; }
 
         /// <summary>
         /// Gets or sets the form filter.
@@ -163,7 +163,7 @@ namespace BudgetExecution
         /// <value>
         /// The form filter.
         /// </value>
-        public virtual IDictionary<string, object> FormFilter { get; set; }
+        public IDictionary<string, object> FormFilter { get; set; }
 
         /// <summary>
         /// Gets or sets the panels.
@@ -171,7 +171,7 @@ namespace BudgetExecution
         /// <value>
         /// The panels.
         /// </value>
-        public virtual IDictionary<string, Layout> Panels { get; set; }
+        public IDictionary<string, Layout> Panels { get; set; }
 
         /// <summary>
         /// Gets or sets the list boxes.
@@ -179,7 +179,7 @@ namespace BudgetExecution
         /// <value>
         /// The list boxes.
         /// </value>
-        public virtual IDictionary<string, ListBox> ListBoxes { get; set; }
+        public IDictionary<string, ListBox> ListBoxes { get; set; }
 
         /// <summary>
         /// Gets or sets the labels.
@@ -187,7 +187,7 @@ namespace BudgetExecution
         /// <value>
         /// The labels.
         /// </value>
-        public virtual IEnumerable<Label> Labels { get; set; }
+        public IEnumerable<Label> Labels { get; set; }
 
         /// <summary>
         /// Gets or sets the tab pages.
@@ -195,7 +195,7 @@ namespace BudgetExecution
         /// <value>
         /// The tab pages.
         /// </value>
-        public virtual IDictionary<string, TabPageAdv> TabPages { get; set; }
+        public IDictionary<string, TabPageAdv> TabPages { get; set; }
 
         /// <summary>
         /// Gets or sets the radio buttons.
@@ -203,7 +203,7 @@ namespace BudgetExecution
         /// <value>
         /// The radio buttons.
         /// </value>
-        public virtual IDictionary<string, RadioButton> RadioButtons { get; set; }
+        public IDictionary<string, RadioButton> RadioButtons { get; set; }
 
         /// <summary>
         /// Gets or sets the combo boxes.
@@ -211,7 +211,7 @@ namespace BudgetExecution
         /// <value>
         /// The combo boxes.
         /// </value>
-        public virtual IDictionary<string, ComboBox> ComboBoxes { get; set; }
+        public IDictionary<string, ComboBox> ComboBoxes { get; set; }
 
         /// <summary>
         /// Gets or sets the text boxes.
@@ -219,7 +219,7 @@ namespace BudgetExecution
         /// <value>
         /// The text boxes.
         /// </value>
-        public virtual IEnumerable<TextBox> TextBoxes { get; set; }
+        public IEnumerable<TextBox> TextBoxes { get; set; }
 
         /// <summary>
         /// Gets or sets the data types.
@@ -227,10 +227,11 @@ namespace BudgetExecution
         /// <value>
         /// The data types.
         /// </value>
-        public virtual IEnumerable<string> DataTypes { get; set; }
+        public IEnumerable<string> DataTypes { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditBase"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.EditBase" /> class.
         /// </summary>
         public EditBase( )
         {
@@ -262,7 +263,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="provider">The provider.</param>
         /// <returns></returns>
-        public virtual IEnumerable<string> GetDataTypes( Provider provider )
+        public IEnumerable<string> GetDataTypes( Provider provider )
         {
             if( Enum.IsDefined( typeof( Provider ), provider ) )
             {
@@ -278,44 +279,16 @@ namespace BudgetExecution
                         ? _data
                         : default( IEnumerable<string> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IEnumerable<string> );
                 }
             }
 
             return default( IEnumerable<string> );
         }
-
-        /// <summary>
-        /// Populates the table ListBox items.
-        /// </summary>
-        /// <param name="listBox">The list box.</param>
-        public virtual void PopulateTableListBoxItems( ListBox listBox )
-        {
-            try
-            {
-                var _names = Enum.GetNames( typeof( Source ) );
-                if( listBox?.Items.Count > 0 )
-                {
-                    listBox.Items.Clear( );
-                    for( var _i = 0; _i < _names.Length; _i++ )
-                    {
-                        var name = _names[ _i ];
-                        if( name != "NS" )
-                        {
-                            listBox?.Items.Add( name );
-                        }
-                    }
-                }
-            }
-            catch( Exception ex )
-            {
-                Fail( ex );
-            }
-        }
-
+        
         /// <summary>
         /// Gets the radio buttons.
         /// </summary>
@@ -351,9 +324,9 @@ namespace BudgetExecution
                         ? _buttons
                         : default( IDictionary<string, RadioButton> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, RadioButton> );
                 }
             }
@@ -371,7 +344,7 @@ namespace BudgetExecution
             {
                 try
                 {
-                    var _buttons = new Dictionary<string, ComboBox>( );
+                    var _comboBoxes = new Dictionary<string, ComboBox>( );
                     foreach( var _tabPage in TabPages.Values )
                     {
                         if( _tabPage is TabPageAdv _tab )
@@ -385,7 +358,7 @@ namespace BudgetExecution
                                     {
                                         if( _subControl is ComboBox _comboBox )
                                         {
-                                            _buttons.Add( _comboBox.Name, _comboBox );
+                                            _comboBoxes.Add( _comboBox.Name, _comboBox );
                                         }
                                     }
                                 }
@@ -393,13 +366,13 @@ namespace BudgetExecution
                         }
                     }
 
-                    return _buttons?.Any( ) == true
-                        ? _buttons
+                    return _comboBoxes?.Any( ) == true
+                        ? _comboBoxes
                         : default( IDictionary<string, ComboBox> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, ComboBox> );
                 }
             }
@@ -433,9 +406,9 @@ namespace BudgetExecution
                         ? _panels
                         : default( IDictionary<string, Layout> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, Layout> );
                 }
             }
@@ -447,7 +420,7 @@ namespace BudgetExecution
         /// Gets the list boxes.
         /// </summary>
         /// <returns></returns>
-        public virtual IDictionary<string, ListBox> GetListBoxes( )
+        public IDictionary<string, ListBox> GetListBoxes( )
         {
             if( TabPages?.Count > 0 )
             {
@@ -472,9 +445,9 @@ namespace BudgetExecution
                         ? _listBoxes
                         : default( IDictionary<string, ListBox> );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                     return default( IDictionary<string, ListBox> );
                 }
             }
@@ -493,9 +466,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -503,7 +476,7 @@ namespace BudgetExecution
         /// Fails the specified ex.
         /// </summary>
         /// <param name="ex">The ex.</param>
-        protected static void Fail( Exception ex )
+        private protected void Fail( Exception ex )
         {
             using var _error = new ErrorDialog( ex );
             _error?.SetText( );

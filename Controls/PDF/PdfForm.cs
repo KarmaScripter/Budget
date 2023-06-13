@@ -46,11 +46,11 @@ namespace BudgetExecution
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Drawing;
-    using System.IO;
     using System.Linq;
     using System.Windows.Forms;
     using Syncfusion.Pdf.Parsing;
     using Syncfusion.Windows.Forms;
+    using static System.IO.Path;
 
     /// <summary>
     /// 
@@ -166,13 +166,13 @@ namespace BudgetExecution
             : this( )
         {
             FilePath = filePath;
-            FileName = Path.GetFileName( filePath );
+            FileName = GetFileName( filePath );
         }
 
         /// <summary>
         /// Populates the items.
         /// </summary>
-        private void PopulateItems( )
+        private void PopulateListBoxItems( )
         {
             try
             {
@@ -198,6 +198,17 @@ namespace BudgetExecution
         {
             try
             {
+                if( BindingSource.DataSource != null )
+                {
+                    BindingSource.DataSource = null;
+                }
+
+                if( DataTable != null )
+                {
+                    DataTable = null;
+                }
+
+                ListBox.Items.Clear( );
             }
             catch( Exception _ex )
             {
@@ -328,6 +339,7 @@ namespace BudgetExecution
 
                     _chartDataForm.Owner = this;
                     _chartDataForm = new ChartDataForm( BindingSource );
+                    _chartDataForm.ClearData( );
                     _chartDataForm.Refresh( );
                     _chartDataForm.Visible = true;
                     Visible = false;
@@ -367,7 +379,7 @@ namespace BudgetExecution
                 DataTable = new DataBuilder( Source.Resources, Provider.Access ).DataTable;
                 Document = new PdfLoadedDocument( _path );
                 DocViewer.Load( Document );
-                PopulateItems( );
+                PopulateListBoxItems( );
             }
             catch( Exception _ex )
             {
@@ -527,6 +539,8 @@ namespace BudgetExecution
                 {
                     Program.Windows.Remove( "PdfForm" );
                 }
+
+                ClearData( );
             }
             catch( Exception _ex )
             {

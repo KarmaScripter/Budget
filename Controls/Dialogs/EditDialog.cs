@@ -105,12 +105,12 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="EditDialog"/> class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="tool">Type of the tool.</param>
         /// <param name="bindingSource">The binding source.</param>
-        public EditDialog( ToolType toolType, BindingSource bindingSource )
+        public EditDialog( ToolType tool, BindingSource bindingSource )
             : this( )
         {
-            ToolType = toolType;
+            Tool = tool;
             BindingSource = bindingSource;
             DataTable = BindingSource.GetDataTable( );
             Source = (Source)Enum.Parse( typeof( Source ), DataTable.TableName );
@@ -124,12 +124,12 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="EditDialog"/> class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="tool">Type of the tool.</param>
         /// <param name="dataModel">The data model.</param>
-        public EditDialog( ToolType toolType, DataBuilder dataModel )
+        public EditDialog( ToolType tool, DataBuilder dataModel )
             : this( )
         {
-            ToolType = toolType;
+            Tool = tool;
             DataModel = dataModel;
             Provider = dataModel.Provider;
             Source = dataModel.Source;
@@ -145,13 +145,13 @@ namespace BudgetExecution
         /// <summary>
         /// Initializes a new instance of the <see cref="EditDialog"/> class.
         /// </summary>
-        /// <param name="toolType">Type of the tool.</param>
+        /// <param name="tool">Type of the tool.</param>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
-        public EditDialog( ToolType toolType, Source source, Provider provider = Provider.Access )
+        public EditDialog( ToolType tool, Source source, Provider provider = Provider.Access )
             : this( )
         {
-            ToolType = toolType;
+            Tool = tool;
             Provider = provider;
             Source = source;
             DataModel = new DataBuilder( source, provider );
@@ -283,11 +283,11 @@ namespace BudgetExecution
         /// </summary>
         private void SetActiveTab( )
         {
-            if( Enum.IsDefined( typeof( ToolType ), ToolType ) )
+            if( Enum.IsDefined( typeof( ToolType ), Tool ) )
             {
                 try
                 {
-                    switch( ToolType )
+                    switch( Tool )
                     {
                         case ToolType.CopyButton:
                         {
