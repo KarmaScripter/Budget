@@ -146,7 +146,7 @@
                 }
                 else
                 {
-                    frame.LoadUrl( BrowserConfig.FileNotFoundURL
+                    frame.LoadUrl( BrowserConfig.FileNotFoundUrl
                         + "?path="
                         + request.Url.UrlEncode( ) );
                 }
@@ -158,7 +158,7 @@
 
                 if( path.FileNotExists( ) )
                 {
-                    frame.LoadUrl( BrowserConfig.FileNotFoundURL + "?path=" + path.UrlEncode( ) );
+                    frame.LoadUrl( BrowserConfig.FileNotFoundUrl + "?path=" + path.UrlEncode( ) );
                 }
             }
             else
@@ -166,7 +166,7 @@
                 if( code == 444
                    || code >= 500 && code <= 599 )
                 {
-                    frame.LoadUrl( BrowserConfig.CannotConnectURL );
+                    frame.LoadUrl( BrowserConfig.CannotConnectUrl );
                 }
             }
         }

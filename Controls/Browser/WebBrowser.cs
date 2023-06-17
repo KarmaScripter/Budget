@@ -420,7 +420,7 @@ namespace BudgetExecution
         {
             if( url == "" )
             {
-                url = BrowserConfig.NewTabURL;
+                url = BrowserConfig.NewTabUrl;
             }
 
             return (ChromiumWebBrowser)Invoke( (Func<ChromiumWebBrowser>)delegate
@@ -665,13 +665,13 @@ namespace BudgetExecution
             {
                 if( ( _downloadsStrip != null )
                    && ( ( (ChromiumWebBrowser)_downloadsStrip.Controls[ 0 ] ).Address
-                       == BrowserConfig.DownloadsURL ) )
+                       == BrowserConfig.DownloadsUrl ) )
                 {
                     TabPages.SelectedItem = _downloadsStrip;
                 }
                 else
                 {
-                    var _brw = AddNewBrowserTab( BrowserConfig.DownloadsURL );
+                    var _brw = AddNewBrowserTab( BrowserConfig.DownloadsUrl );
                     _downloadsStrip = (BrowserTabStripItem)_brw.Parent;
                 }
             }
@@ -691,7 +691,7 @@ namespace BudgetExecution
         {
             if( url == "" )
             {
-                url = BrowserConfig.NewTabURL;
+                url = BrowserConfig.NewTabUrl;
             }
 
             var _browser = new ChromiumWebBrowser( url );
@@ -721,7 +721,7 @@ namespace BudgetExecution
             };
 
             tabItem.Tag = _tab;
-            if( url.StartsWith( BrowserConfig.InternalURL + ":" ) )
+            if( url.StartsWith( BrowserConfig.InternalUrl + ":" ) )
             {
                 _browser.JavascriptObjectRepository.Register( "host", Host,
                     BindingOptions.DefaultBinder );
@@ -805,7 +805,7 @@ namespace BudgetExecution
                 var _settings = new CefSettings( );
                 _settings.RegisterScheme( new CefCustomScheme
                 {
-                    SchemeName = BrowserConfig.InternalURL,
+                    SchemeName = BrowserConfig.InternalUrl,
                     SchemeHandlerFactory = new SchemeHandlerFactory( )
                 } );
 
@@ -815,7 +815,7 @@ namespace BudgetExecution
                 _settings.CachePath = GetAppDir( "Cache" );
                 if( BrowserConfig.Proxy )
                 {
-                    CefSharpSettings.Proxy = new ProxyOptions( BrowserConfig.ProxyIP,
+                    CefSharpSettings.Proxy = new ProxyOptions( BrowserConfig.ProxyIp,
                         BrowserConfig.ProxyPort.ToString( ), BrowserConfig.ProxyUsername,
                         BrowserConfig.ProxyPassword, BrowserConfig.ProxyBypassList );
                 }
@@ -828,7 +828,7 @@ namespace BudgetExecution
                 _requestHandler = new RequestHandler( this );
                 InitDownloads( );
                 Host = new HostHandler( this );
-                AddNewBrowser( TabItem, BrowserConfig.HomepageURL );
+                AddNewBrowser( TabItem, BrowserConfig.HomepageUrl );
             }
             catch( Exception _ex )
             {
@@ -847,7 +847,7 @@ namespace BudgetExecution
                 try
                 {
                     var _config = new BrowserSettings( );
-                    _config.WebGl = BrowserConfig.WebGL.ToCefState( );
+                    _config.WebGl = BrowserConfig.WebGl.ToCefState( );
                     browser.BrowserSettings = _config;
                 }
                 catch( Exception _ex )
@@ -890,7 +890,7 @@ namespace BudgetExecution
         /// Loads the URL.
         /// </summary>
         /// <param name="url">The URL.</param>
-        private void LoadURL( string url )
+        private void LoadUrl( string url )
         {
             if( !string.IsNullOrEmpty( url ) )
             {
@@ -917,7 +917,7 @@ namespace BudgetExecution
                     {
                         Uri.TryCreate( url, UriKind.Absolute, out _outUrl );
                         if( !( _lower.StartsWith( "http" )
-                               || _lower.StartsWith( BrowserConfig.InternalURL ) ) )
+                               || _lower.StartsWith( BrowserConfig.InternalUrl ) ) )
                         {
                             if( ( _outUrl == null )
                                || ( _outUrl.Scheme != Uri.UriSchemeFile ) )
@@ -926,7 +926,7 @@ namespace BudgetExecution
                             }
                         }
 
-                        if( _lower.StartsWith( BrowserConfig.InternalURL + ":" )
+                        if( _lower.StartsWith( BrowserConfig.InternalUrl + ":" )
                            || ( Uri.TryCreate( _newUrl, UriKind.Absolute, out _outUrl )
                                && ( ( ( ( _outUrl.Scheme == Uri.UriSchemeHttp )
                                            || ( _outUrl.Scheme == Uri.UriSchemeHttps ) )
@@ -936,12 +936,12 @@ namespace BudgetExecution
                         }
                         else
                         {
-                            _newUrl = BrowserConfig.SearchURL + HttpUtility.UrlEncode( url );
+                            _newUrl = BrowserConfig.SearchUrl + HttpUtility.UrlEncode( url );
                         }
                     }
 
                     CurrentBrowser.Load( _newUrl );
-                    SetFormURL( _newUrl );
+                    SetFormUrl( _newUrl );
                     EnableBackButton( true );
                     EnableForwardButton( false );
                 }
@@ -984,7 +984,7 @@ namespace BudgetExecution
         /// Sets the form URL.
         /// </summary>
         /// <param name="url">The URL.</param>
-        private void SetFormURL( string url )
+        private void SetFormUrl( string url )
         {
             if( !string.IsNullOrEmpty( url ) )
             {
@@ -1024,6 +1024,9 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Sets the ComboBox properties.
+        /// </summary>
         private void SetComboBoxProperties( )
         {
             try
@@ -1066,10 +1069,10 @@ namespace BudgetExecution
                 QuickSearchTextBox.HoverColor = Color.FromArgb( 0, 120, 212 );
 
                 // Toolbar TextBox
-                KeyWordTextBox.ForeColor = Color.White;
-                KeyWordTextBox.Font = new Font( "Roboto", 9, FontStyle.Bold );
-                KeyWordTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
-                KeyWordTextBox.BackColor = Color.FromArgb( 75, 75, 75 );
+                ToolBarTextBox.ForeColor = Color.White;
+                ToolBarTextBox.Font = new Font( "Roboto", 9, FontStyle.Bold );
+                ToolBarTextBox.TextBoxTextAlign = HorizontalAlignment.Center;
+                ToolBarTextBox.BackColor = Color.FromArgb( 75, 75, 75 );
             }
             catch( Exception _ex )
             {
@@ -1150,7 +1153,7 @@ namespace BudgetExecution
             return ( url == "" )
                 || url.BeginsWith( "about:" )
                 || url.BeginsWith( "chrome:" )
-                || url.BeginsWith( BrowserConfig.InternalURL + ":" );
+                || url.BeginsWith( BrowserConfig.InternalUrl + ":" );
         }
 
         /// <summary>
@@ -1380,7 +1383,7 @@ namespace BudgetExecution
                 {
                     if( !WebUtils.IsFocused( AddressTextBox ) )
                     {
-                        SetFormURL( e.Address );
+                        SetFormUrl( e.Address );
                     }
 
                     EnableBackButton( CurrentBrowser.CanGoBack );
@@ -1509,7 +1512,7 @@ namespace BudgetExecution
         {
             try
             {
-                CurrentBrowser.Load( BrowserConfig.HomepageURL );
+                CurrentBrowser.Load( BrowserConfig.HomepageUrl );
             }
             catch( Exception _ex )
             {
@@ -1543,7 +1546,7 @@ namespace BudgetExecution
                     else
                     {
                         _browser = CurrentBrowser;
-                        SetFormURL( _browser.Address );
+                        SetFormUrl( _browser.Address );
                         SetFormTitle( _browser.Tag.ConvertToString( ) ?? "New Tab" );
                         EnableBackButton( _browser.CanGoBack );
                         EnableForwardButton( _browser.CanGoForward );
@@ -1682,7 +1685,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnUrlChanged( object sender, EventArgs e )
         {
-            LoadURL( AddressTextBox.Text );
+            LoadUrl( AddressTextBox.Text );
         }
 
         /// <summary>
@@ -1692,7 +1695,7 @@ namespace BudgetExecution
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void OnAddTabButtonClicked( object sender, EventArgs e )
         {
-            AddNewBrowserTab( BrowserConfig.HomepageURL );
+            AddNewBrowserTab( BrowserConfig.HomepageUrl );
         }
 
         /// <summary>
@@ -1725,7 +1728,7 @@ namespace BudgetExecution
             if( e.IsHotKey( Keys.Enter )
                || e.IsHotKey( Keys.Enter, true ) )
             {
-                LoadURL( AddressTextBox.Text );
+                LoadUrl( AddressTextBox.Text );
                 e.Handled = true;
                 e.SuppressKeyPress = true;
                 Focus( );

@@ -541,7 +541,91 @@ namespace BudgetExecution
         /// The verify data button
         /// </summary>
         VerifyDataButton,
+        /// <summary>
+        /// The back button
+        /// </summary>
+        WebFirstButton,
 
+        /// <summary>
+        /// The cancel request button
+        /// </summary>
+        WebCancelButton,
+
+        /// <summary>
+        /// The calculator button
+        /// </summary>
+        WebCalculatorButton,
+
+        /// <summary>
+        /// The calendar button
+        /// </summary>
+        WebCalendarButton,
+
+        /// <summary>
+        /// The close button
+        /// </summary>
+        WebCloseButton,
+
+        /// <summary>
+        /// The delete button
+        /// </summary>
+        WebDeleteButton,
+
+        /// <summary>
+        /// The download button
+        /// </summary>
+        WebDownloadButton,
+
+        /// <summary>
+        /// The exit button
+        /// </summary>
+        WebExitButton,
+
+        /// <summary>
+        /// The email button
+        /// </summary>
+        WebEmailButton,
+
+        /// <summary>
+        /// The guidance button
+        /// </summary>
+        WebGuidanceButton,
+
+        /// <summary>
+        /// The google button
+        /// </summary>
+        WebGoogleButton,
+
+        /// <summary>
+        /// The home button
+        /// </summary>
+        WebHomeButton,
+
+        /// <summary>
+        /// The last button
+        /// </summary>
+        WebLastButton,
+
+        /// <summary>
+        /// The logout button
+        /// </summary>
+        WebLogoutButton,
+
+        /// <summary>
+        /// The previous button
+        /// </summary>
+        WebPreviousButton,
+
+        /// <summary>
+        /// The menu button
+        /// </summary>
+        WebMenuButton,
+
+        /// <summary>
+        /// The refresh button
+        /// </summary>
+        WebRefreshButton,
+        
         /// <summary>
         /// The web button
         /// </summary>

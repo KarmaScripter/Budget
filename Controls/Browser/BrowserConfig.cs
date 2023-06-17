@@ -47,7 +47,6 @@ namespace BudgetExecution
     /// 
     /// </summary>
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Global" ) ]
-    [ SuppressMessage( "ReSharper", "InconsistentNaming" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
@@ -76,38 +75,38 @@ namespace BudgetExecution
         /// <summary>
         /// The homepage URL
         /// </summary>
-        public static string HomepageURL = Dev + @"Resource/Web/index.html";
+        public static string HomepageUrl = Dev + @"Resource/Web/index.html";
 
         /// <summary>
         /// Creates new tab url.
         /// </summary>
-        public static string NewTabURL = "https://www.google.com";
+        public static string NewTabUrl = "https://www.google.com";
 
         /// <summary>
         /// The internal URL
         /// </summary>
-        public static string InternalURL = Dev + @"Resource/Web/index.html";
+        public static string InternalUrl = Dev + @"Resource/Web/index.html";
 
         /// <summary>
         /// The downloads URL
         /// </summary>
-        public static string DownloadsURL = Dev + @"Resource/Storage/downloads.html";
+        public static string DownloadsUrl = Dev + @"Resource/Storage/downloads.html";
 
         /// <summary>
         /// The file not found URL
         /// </summary>
-        public static string FileNotFoundURL = Dev + @"Resource/Storage/errors/notFound.html";
+        public static string FileNotFoundUrl = Dev + @"Resource/Storage/errors/notFound.html";
 
         /// <summary>
         /// The cannot connect URL
         /// </summary>
-        public static string CannotConnectURL =
+        public static string CannotConnectUrl =
             Dev + @"Resource/Storage/errors/cannotConnect.html";
 
         /// <summary>
         /// The search URL
         /// </summary>
-        public static string SearchURL = "https://www.google.com/search?q=";
+        public static string SearchUrl = "https://www.google.com/search?q=";
 
         /// <summary>
         /// The web security
@@ -122,7 +121,7 @@ namespace BudgetExecution
         /// <summary>
         /// The web gl
         /// </summary>
-        public static bool WebGL = true;
+        public static bool WebGl = true;
 
         /// <summary>
         /// The application cache
@@ -137,7 +136,7 @@ namespace BudgetExecution
         /// <summary>
         /// The proxy ip
         /// </summary>
-        public static string ProxyIP = "123.123.123.123";
+        public static string ProxyIp = "123.123.123.123";
 
         /// <summary>
         /// The proxy port
