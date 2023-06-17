@@ -307,7 +307,7 @@ namespace BudgetExecution
             // Event Wiring
             Load += OnLoad;
             AddItem.Click += OnAddTabButtonClicked;
-            CloseButton.Click += OnWebCloseButtonClicked;
+            WebCloseButton.Click += OnWebCloseButtonClicked;
             PreviousButton.Click += OnPreviousButtonClicked;
             NextButton.Click += OnNextButtonClicked;
             DownloadButton.Click += OnDownloadButtonClicked;
@@ -991,7 +991,7 @@ namespace BudgetExecution
                 try
                 {
                     _currentFullUrl = url;
-                    _currentCleanUrl = CleanURL( url );
+                    _currentCleanUrl = CleanUrl( url );
                     AddressTextBox.Text = _currentCleanUrl;
                     CurrentTab.CurrentUrl = _currentFullUrl;
                     CloseSearch( );
@@ -1030,13 +1030,11 @@ namespace BudgetExecution
             {
                 // Website ComboBox Properties
                 WebsiteComboBox.Font = new Font( "Roboto", 8, FontStyle.Bold );
-                WebsiteComboBox.Style = ToolStripExStyle.Office2016Black;
                 WebsiteComboBox.ForeColor = Color.White;
                 WebsiteComboBox.Size = new Size( 175, 32 );
 
                 // SearchEngine ComboBox Properties
                 SearchEngineComboBox.Font = new Font( "Roboto", 8, FontStyle.Bold );
-                SearchEngineComboBox.Style = ToolStripExStyle.Office2016Black;
                 SearchEngineComboBox.ForeColor = Color.White;
                 SearchEngineComboBox.Size = new Size( 175, 32 );
             }
@@ -1106,7 +1104,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="url">The URL.</param>
         /// <returns></returns>
-        private string CleanURL( string url )
+        private string CleanUrl( string url )
         {
             try
             {

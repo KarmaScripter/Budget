@@ -41,14 +41,14 @@ namespace BudgetExecution
         public void InitializeComponent( )
         {
             components = new System.ComponentModel.Container( );
-            var resources = new System.ComponentModel.ComponentResourceManager( typeof( Browser ) );
+            var resources = new System.ComponentModel.ComponentResourceManager( typeof( WebBrowser ) );
             MenuStripTab = new ContextMenuStrip( components );
             MenuCloseTab = new ToolStripMenuItem( );
             MenuCloseOtherTabs = new ToolStripMenuItem( );
-            RefreshButton = new ToolStripButton( );
+            RefreshButton = new Button( );
             StopButton = new Button( );
             NextButton = new Button( );
-            PreviousButton = new ToolStripButton( );
+            PreviousButton = new Button( );
             Timer = new System.Windows.Forms.Timer( components );
             DownloadButton = new Button( );
             TabPages = new BrowserTabStrip( );
@@ -57,7 +57,7 @@ namespace BudgetExecution
             ToolTip = new SmallTip( );
             MainTextBoxPanel = new Panel( );
             AddressTextBox = new TextBox( );
-            HomeButton = new ToolStripButton( );
+            HomeButton = new Button( );
             QuickSearchPanel = new Panel( );
             QuickSearchTextBox = new TextBox( );
             SearchNextButton = new Button( );
@@ -66,8 +66,8 @@ namespace BudgetExecution
             ToolBarTable = new TableLayoutPanel( );
             ToolStrip = new ToolStrip( );
             Separator1 = new ToolSeparator( );
-            WebSiteLabel = new ToolStripLabel( );
-            WebSiteComboBox = new ToolStripComboBox( );
+            WebsiteLabel = new ToolStripLabel( );
+            WebsiteComboBox = new ToolStripComboBox( );
             Separator3 = new ToolSeparator( );
             EngineLabel = new ToolStripLabel( );
             Separator4 = new ToolSeparator( );
@@ -75,25 +75,25 @@ namespace BudgetExecution
             Separator5 = new ToolSeparator( );
             NavigationLabel = new ToolStripLabel( );
             Separator6 = new ToolSeparator( );
-            PreviousButton = new ToolStripButton( );
+            WebPreviousButton = new ToolStripButton( );
             Separator7 = new ToolSeparator( );
-            NextButton = new ToolStripButton( );
+            WebNextButton = new ToolStripButton( );
             Separator8 = new ToolSeparator( );
             KeyWordTextBox = new ToolStripTextBox( );
             Separator9 = new ToolSeparator( );
             SearchLabel = new ToolStripLabel( );
             Separator10 = new ToolSeparator( );
-            RefreshButton = new ToolStripButton( );
+            WebRefreshButton = new ToolStripButton( );
             Separator11 = new ToolSeparator( );
-            CancelButton = new ToolStripButton( );
+            WebCancelButton = new ToolStripButton( );
             Separator12 = new ToolSeparator( );
-            DownloadButton = new ToolStripButton( );
+            WebDownloadButton = new ToolStripButton( );
             Separator13 = new ToolSeparator( );
-            HomeButton = new ToolStripButton( );
+            WebHomeButton = new ToolStripButton( );
             Separator14 = new ToolSeparator( );
-            MenuButton = new ToolStripButton( );
+            WebMenuButton = new ToolStripButton( );
             Separator15 = new ToolSeparator( );
-            CloseButton = new ToolStripButton( );
+            WebCloseButton = new ToolStripButton( );
             Separator16 = new ToolSeparator( );
             HeaderTable = new TableLayoutPanel( );
             Picture = new Picture( );
@@ -476,7 +476,7 @@ namespace BudgetExecution
             ToolStrip.GripStyle = ToolStripGripStyle.Hidden;
             ToolStrip.HomeButton = null;
             ToolStrip.Image = null;
-            ToolStrip.Items.AddRange( new ToolStripItem[ ] { Separator1, WebSiteLabel, WebSiteComboBox, Separator3, EngineLabel, Separator4, SearchEngineComboBox, Separator5, NavigationLabel, Separator6, PreviousButton, Separator7, NextButton, Separator8, KeyWordTextBox, Separator9, SearchLabel, Separator10, RefreshButton, Separator11, CancelButton, Separator12, DownloadButton, Separator13, HomeButton, Separator14, MenuButton, Separator15, CloseButton, Separator16 } );
+            ToolStrip.Items.AddRange( new ToolStripItem[ ] { Separator1, WebsiteLabel, WebsiteComboBox, Separator3, EngineLabel, Separator4, SearchEngineComboBox, Separator5, NavigationLabel, Separator6, WebPreviousButton, Separator7, WebNextButton, Separator8, KeyWordTextBox, Separator9, SearchLabel, Separator10, WebRefreshButton, Separator11, WebCancelButton, Separator12, WebDownloadButton, Separator13, WebHomeButton, Separator14, WebMenuButton, Separator15, WebCloseButton, Separator16 } );
             ToolStrip.NavigationLabel = null;
             ToolStrip.LauncherStyle = Syncfusion.Windows.Forms.Tools.LauncherStyle.Office12;
             ToolStrip.Location = new Point( 151, 1 );
@@ -488,7 +488,7 @@ namespace BudgetExecution
             ToolStrip.Padding = new Padding( 1 );
             ToolStrip.PreviousButton = null;
             ToolStrip.RefreshButton = null;
-            ToolStrip.WebSiteLabel = null;
+            ToolStrip.WebsiteLabel = null;
             ToolStrip.SearchEngineLabel = null;
             ToolStrip.Separators = null;
             ToolStrip.ShowCaption = false;
@@ -518,32 +518,32 @@ namespace BudgetExecution
             Separator1.Padding = new Padding( 1 );
             Separator1.Size = new Size( 6, 30 );
             // 
-            // WebSiteLabel
+            // WebsiteLabel
             // 
-            WebSiteLabel.BackColor = Color.FromArgb(   45  ,   45  ,   45   );
-            WebSiteLabel.Font = new Font( "Roboto", 6.75F, FontStyle.Regular, GraphicsUnit.Point );
-            WebSiteLabel.ForeColor = Color.Black;
-            WebSiteLabel.HoverText = null;
-            WebSiteLabel.Margin = new Padding( 1 );
-            WebSiteLabel.Name = "WebSiteLabel";
-            WebSiteLabel.Padding = new Padding( 1 );
-            WebSiteLabel.RightToLeftAutoMirrorImage = true;
-            WebSiteLabel.Size = new Size( 45, 30 );
-            WebSiteLabel.Tag = "";
-            WebSiteLabel.Text = "sites";
-            WebSiteLabel.ToolTip = null;
+            WebsiteLabel.BackColor = Color.FromArgb(   45  ,   45  ,   45   );
+            WebsiteLabel.Font = new Font( "Roboto", 6.75F, FontStyle.Regular, GraphicsUnit.Point );
+            WebsiteLabel.ForeColor = Color.Black;
+            WebsiteLabel.HoverText = null;
+            WebsiteLabel.Margin = new Padding( 1 );
+            WebsiteLabel.Name = "WebsiteLabel";
+            WebsiteLabel.Padding = new Padding( 1 );
+            WebsiteLabel.RightToLeftAutoMirrorImage = true;
+            WebsiteLabel.Size = new Size( 45, 30 );
+            WebsiteLabel.Tag = "";
+            WebsiteLabel.Text = "Websites";
+            WebsiteLabel.ToolTip = null;
             // 
-            // WebSiteComboBox
+            // WebsiteComboBox
             // 
-            WebSiteComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            WebSiteComboBox.Font = new Font( "Roboto", 8.25F, FontStyle.Regular, GraphicsUnit.Point );
-            WebSiteComboBox.ForeColor = Color.FromArgb(   218  ,   218  ,   218   );
-            WebSiteComboBox.HoverText = null;
-            WebSiteComboBox.MaxLength = 32767;
-            WebSiteComboBox.Name = "WebSiteComboBox";
-            WebSiteComboBox.Size = new Size( 175, 32 );
-            WebSiteComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
-            WebSiteComboBox.ToolTip = ToolTip;
+            WebsiteComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            WebsiteComboBox.Font = new Font( "Roboto", 8.25F, FontStyle.Regular, GraphicsUnit.Point );
+            WebsiteComboBox.ForeColor = Color.FromArgb(   218  ,   218  ,   218   );
+            WebsiteComboBox.HoverText = null;
+            WebsiteComboBox.MaxLength = 32767;
+            WebsiteComboBox.Name = "WebsiteComboBox";
+            WebsiteComboBox.Size = new Size( 175, 32 );
+            WebsiteComboBox.Style = Syncfusion.Windows.Forms.Tools.ToolStripExStyle.Office2016Black;
+            WebsiteComboBox.ToolTip = ToolTip;
             // 
             // Separator3
             // 
@@ -618,23 +618,23 @@ namespace BudgetExecution
             Separator6.Padding = new Padding( 1 );
             Separator6.Size = new Size( 6, 30 );
             // 
-            // PreviousButton
+            // WebPreviousButton
             // 
-            PreviousButton.AutoToolTip = false;
-            PreviousButton.BackColor = Color.Transparent;
-            PreviousButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            PreviousButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
-            PreviousButton.ForeColor = Color.LightGray;
-            PreviousButton.HoverText = "Previous Result";
-            PreviousButton.Image = Resources.Resources.PreviousButton;
-            PreviousButton.ImageTransparentColor = Color.Magenta;
-            PreviousButton.Margin = new Padding( 3 );
-            PreviousButton.Name = "PreviousButton";
-            PreviousButton.Padding = new Padding( 1 );
-            PreviousButton.Size = new Size( 23, 26 );
-            PreviousButton.Text = "webToolStripButton1";
-            PreviousButton.ToolTip = ToolTip;
-            PreviousButton.ToolType = ToolType.PreviousButton;
+            WebPreviousButton.AutoToolTip = false;
+            WebPreviousButton.BackColor = Color.Transparent;
+            WebPreviousButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            WebPreviousButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
+            WebPreviousButton.ForeColor = Color.LightGray;
+            WebPreviousButton.HoverText = "Previous Result";
+            WebPreviousButton.Image = Resources.Resources.WebPreviousButton;
+            WebPreviousButton.ImageTransparentColor = Color.Magenta;
+            WebPreviousButton.Margin = new Padding( 3 );
+            WebPreviousButton.Name = "WebPreviousButton";
+            WebPreviousButton.Padding = new Padding( 1 );
+            WebPreviousButton.Size = new Size( 23, 26 );
+            WebPreviousButton.Text = "webToolStripButton1";
+            WebPreviousButton.ToolTip = ToolTip;
+            WebPreviousButton.ToolType = ToolType.WebPreviousButton;
             // 
             // Separator7
             // 
@@ -644,23 +644,23 @@ namespace BudgetExecution
             Separator7.Padding = new Padding( 1 );
             Separator7.Size = new Size( 6, 30 );
             // 
-            // NextButton
+            // WebNextButton
             // 
-            NextButton.AutoToolTip = false;
-            NextButton.BackColor = Color.Transparent;
-            NextButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            NextButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
-            NextButton.ForeColor = Color.LightGray;
-            NextButton.HoverText = "Next Result";
-            NextButton.Image = Resources.Resources.NextButton;
-            NextButton.ImageTransparentColor = Color.Magenta;
-            NextButton.Margin = new Padding( 3 );
-            NextButton.Name = "NextButton";
-            NextButton.Padding = new Padding( 1 );
-            NextButton.Size = new Size( 23, 26 );
-            NextButton.Text = "webToolStripButton2";
-            NextButton.ToolTip = ToolTip;
-            NextButton.ToolType = ToolType.NextButton;
+            WebNextButton.AutoToolTip = false;
+            WebNextButton.BackColor = Color.Transparent;
+            WebNextButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            WebNextButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
+            WebNextButton.ForeColor = Color.LightGray;
+            WebNextButton.HoverText = "Next Result";
+            WebNextButton.Image = Resources.Resources.WebNextButton;
+            WebNextButton.ImageTransparentColor = Color.Magenta;
+            WebNextButton.Margin = new Padding( 3 );
+            WebNextButton.Name = "WebNextButton";
+            WebNextButton.Padding = new Padding( 1 );
+            WebNextButton.Size = new Size( 23, 26 );
+            WebNextButton.Text = "webToolStripButton2";
+            WebNextButton.ToolTip = ToolTip;
+            WebNextButton.ToolType = ToolType.WebNextButton;
             // 
             // Separator8
             // 
@@ -716,23 +716,23 @@ namespace BudgetExecution
             Separator10.Padding = new Padding( 1 );
             Separator10.Size = new Size( 6, 30 );
             // 
-            // RefreshButton
+            // WebRefreshButton
             // 
-            RefreshButton.AutoToolTip = false;
-            RefreshButton.BackColor = Color.Transparent;
-            RefreshButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            RefreshButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
-            RefreshButton.ForeColor = Color.LightGray;
-            RefreshButton.HoverText = "Refresh  Page";
-            RefreshButton.Image = Resources.Resources.RefreshButton;
-            RefreshButton.ImageTransparentColor = Color.Magenta;
-            RefreshButton.Margin = new Padding( 3 );
-            RefreshButton.Name = "RefreshButton";
-            RefreshButton.Padding = new Padding( 1 );
-            RefreshButton.Size = new Size( 23, 26 );
-            RefreshButton.Text = "webToolStripButton3";
-            RefreshButton.ToolTip = ToolTip;
-            RefreshButton.ToolType = ToolType.RefreshButton;
+            WebRefreshButton.AutoToolTip = false;
+            WebRefreshButton.BackColor = Color.Transparent;
+            WebRefreshButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            WebRefreshButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
+            WebRefreshButton.ForeColor = Color.LightGray;
+            WebRefreshButton.HoverText = "Refresh Web Page";
+            WebRefreshButton.Image = Resources.Resources.WebRefreshButton;
+            WebRefreshButton.ImageTransparentColor = Color.Magenta;
+            WebRefreshButton.Margin = new Padding( 3 );
+            WebRefreshButton.Name = "WebRefreshButton";
+            WebRefreshButton.Padding = new Padding( 1 );
+            WebRefreshButton.Size = new Size( 23, 26 );
+            WebRefreshButton.Text = "webToolStripButton3";
+            WebRefreshButton.ToolTip = ToolTip;
+            WebRefreshButton.ToolType = ToolType.WebRefreshButton;
             // 
             // Separator11
             // 
@@ -742,23 +742,23 @@ namespace BudgetExecution
             Separator11.Padding = new Padding( 1 );
             Separator11.Size = new Size( 6, 30 );
             // 
-            // CancelButton
+            // WebCancelButton
             // 
-            CancelButton.AutoToolTip = false;
-            CancelButton.BackColor = Color.Transparent;
-            CancelButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            CancelButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
-            CancelButton.ForeColor = Color.LightGray;
-            CancelButton.HoverText = "Cancel Search";
-            CancelButton.Image = Resources.Resources.CancelButton;
-            CancelButton.ImageTransparentColor = Color.Magenta;
-            CancelButton.Margin = new Padding( 3 );
-            CancelButton.Name = "CancelButton";
-            CancelButton.Padding = new Padding( 1 );
-            CancelButton.Size = new Size( 23, 26 );
-            CancelButton.Text = "webToolStripButton4";
-            CancelButton.ToolTip = ToolTip;
-            CancelButton.ToolType = ToolType.CancelButton;
+            WebCancelButton.AutoToolTip = false;
+            WebCancelButton.BackColor = Color.Transparent;
+            WebCancelButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            WebCancelButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
+            WebCancelButton.ForeColor = Color.LightGray;
+            WebCancelButton.HoverText = "Cancel Search";
+            WebCancelButton.Image = Resources.Resources.WebCancelButton;
+            WebCancelButton.ImageTransparentColor = Color.Magenta;
+            WebCancelButton.Margin = new Padding( 3 );
+            WebCancelButton.Name = "WebCancelButton";
+            WebCancelButton.Padding = new Padding( 1 );
+            WebCancelButton.Size = new Size( 23, 26 );
+            WebCancelButton.Text = "webToolStripButton4";
+            WebCancelButton.ToolTip = ToolTip;
+            WebCancelButton.ToolType = ToolType.WebCancelButton;
             // 
             // Separator12
             // 
@@ -768,23 +768,23 @@ namespace BudgetExecution
             Separator12.Padding = new Padding( 1 );
             Separator12.Size = new Size( 6, 30 );
             // 
-            // DownloadButton
+            // WebDownloadButton
             // 
-            DownloadButton.AutoToolTip = false;
-            DownloadButton.BackColor = Color.Transparent;
-            DownloadButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            DownloadButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
-            DownloadButton.ForeColor = Color.LightGray;
-            DownloadButton.HoverText = "View Downloads";
-            DownloadButton.Image = Resources.Resources.Download;
-            DownloadButton.ImageTransparentColor = Color.Magenta;
-            DownloadButton.Margin = new Padding( 3 );
-            DownloadButton.Name = "DownloadButton";
-            DownloadButton.Padding = new Padding( 1 );
-            DownloadButton.Size = new Size( 23, 26 );
-            DownloadButton.Text = "webToolStripButton1";
-            DownloadButton.ToolTip = ToolTip;
-            DownloadButton.ToolType = ToolType.DownloadButton;
+            WebDownloadButton.AutoToolTip = false;
+            WebDownloadButton.BackColor = Color.Transparent;
+            WebDownloadButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            WebDownloadButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
+            WebDownloadButton.ForeColor = Color.LightGray;
+            WebDownloadButton.HoverText = "View Downloads";
+            WebDownloadButton.Image = Resources.Resources.WebDownload;
+            WebDownloadButton.ImageTransparentColor = Color.Magenta;
+            WebDownloadButton.Margin = new Padding( 3 );
+            WebDownloadButton.Name = "WebDownloadButton";
+            WebDownloadButton.Padding = new Padding( 1 );
+            WebDownloadButton.Size = new Size( 23, 26 );
+            WebDownloadButton.Text = "webToolStripButton1";
+            WebDownloadButton.ToolTip = ToolTip;
+            WebDownloadButton.ToolType = ToolType.WebDownloadButton;
             // 
             // Separator13
             // 
@@ -794,23 +794,23 @@ namespace BudgetExecution
             Separator13.Padding = new Padding( 1 );
             Separator13.Size = new Size( 6, 30 );
             // 
-            // HomeButton
+            // WebHomeButton
             // 
-            HomeButton.AutoToolTip = false;
-            HomeButton.BackColor = Color.Transparent;
-            HomeButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            HomeButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
-            HomeButton.ForeColor = Color.LightGray;
-            HomeButton.HoverText = "Google ";
-            HomeButton.Image = Resources.Resources.GoogleButton;
-            HomeButton.ImageTransparentColor = Color.Magenta;
-            HomeButton.Margin = new Padding( 3 );
-            HomeButton.Name = "HomeButton";
-            HomeButton.Padding = new Padding( 1 );
-            HomeButton.Size = new Size( 23, 26 );
-            HomeButton.Text = "webToolStripButton5";
-            HomeButton.ToolTip = ToolTip;
-            HomeButton.ToolType = ToolType.HomeButton;
+            WebHomeButton.AutoToolTip = false;
+            WebHomeButton.BackColor = Color.Transparent;
+            WebHomeButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            WebHomeButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
+            WebHomeButton.ForeColor = Color.LightGray;
+            WebHomeButton.HoverText = "Google ";
+            WebHomeButton.Image = Resources.Resources.WebGoogleButton;
+            WebHomeButton.ImageTransparentColor = Color.Magenta;
+            WebHomeButton.Margin = new Padding( 3 );
+            WebHomeButton.Name = "WebHomeButton";
+            WebHomeButton.Padding = new Padding( 1 );
+            WebHomeButton.Size = new Size( 23, 26 );
+            WebHomeButton.Text = "webToolStripButton5";
+            WebHomeButton.ToolTip = ToolTip;
+            WebHomeButton.ToolType = ToolType.WebHomeButton;
             // 
             // Separator14
             // 
@@ -820,23 +820,23 @@ namespace BudgetExecution
             Separator14.Padding = new Padding( 1 );
             Separator14.Size = new Size( 6, 30 );
             // 
-            // MenuButton
+            // WebMenuButton
             // 
-            MenuButton.AutoToolTip = false;
-            MenuButton.BackColor = Color.Transparent;
-            MenuButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            MenuButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
-            MenuButton.ForeColor = Color.LightGray;
-            MenuButton.HoverText = "Main Menu";
-            MenuButton.Image = Resources.Resources.MenuButton;
-            MenuButton.ImageTransparentColor = Color.Magenta;
-            MenuButton.Margin = new Padding( 3 );
-            MenuButton.Name = "MenuButton";
-            MenuButton.Padding = new Padding( 1 );
-            MenuButton.Size = new Size( 23, 26 );
-            MenuButton.Text = "webToolStripButton1";
-            MenuButton.ToolTip = ToolTip;
-            MenuButton.ToolType = ToolType.MenuButton;
+            WebMenuButton.AutoToolTip = false;
+            WebMenuButton.BackColor = Color.Transparent;
+            WebMenuButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            WebMenuButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
+            WebMenuButton.ForeColor = Color.LightGray;
+            WebMenuButton.HoverText = "Main Menu";
+            WebMenuButton.Image = Resources.Resources.WebMenuButton;
+            WebMenuButton.ImageTransparentColor = Color.Magenta;
+            WebMenuButton.Margin = new Padding( 3 );
+            WebMenuButton.Name = "WebMenuButton";
+            WebMenuButton.Padding = new Padding( 1 );
+            WebMenuButton.Size = new Size( 23, 26 );
+            WebMenuButton.Text = "webToolStripButton1";
+            WebMenuButton.ToolTip = ToolTip;
+            WebMenuButton.ToolType = ToolType.WebMenuButton;
             // 
             // Separator15
             // 
@@ -846,23 +846,23 @@ namespace BudgetExecution
             Separator15.Padding = new Padding( 1 );
             Separator15.Size = new Size( 6, 30 );
             // 
-            // CloseButton
+            // WebCloseButton
             // 
-            CloseButton.AutoToolTip = false;
-            CloseButton.BackColor = Color.Transparent;
-            CloseButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            CloseButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
-            CloseButton.ForeColor = Color.LightGray;
-            CloseButton.HoverText = "Shut Down";
-            CloseButton.Image = Resources.Resources.CloseButton;
-            CloseButton.ImageTransparentColor = Color.Magenta;
-            CloseButton.Margin = new Padding( 3 );
-            CloseButton.Name = "CloseButton";
-            CloseButton.Padding = new Padding( 1 );
-            CloseButton.Size = new Size( 23, 26 );
-            CloseButton.Text = "webToolStripButton2";
-            CloseButton.ToolTip = ToolTip;
-            CloseButton.ToolType = ToolType.CloseButton;
+            WebCloseButton.AutoToolTip = false;
+            WebCloseButton.BackColor = Color.Transparent;
+            WebCloseButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            WebCloseButton.Font = new Font( "Roboto", 9F, FontStyle.Regular, GraphicsUnit.Point );
+            WebCloseButton.ForeColor = Color.LightGray;
+            WebCloseButton.HoverText = "Shut Down";
+            WebCloseButton.Image = Resources.Resources.WebCloseButton;
+            WebCloseButton.ImageTransparentColor = Color.Magenta;
+            WebCloseButton.Margin = new Padding( 3 );
+            WebCloseButton.Name = "WebCloseButton";
+            WebCloseButton.Padding = new Padding( 1 );
+            WebCloseButton.Size = new Size( 23, 26 );
+            WebCloseButton.Text = "webToolStripButton2";
+            WebCloseButton.ToolTip = ToolTip;
+            WebCloseButton.ToolType = ToolType.WebCloseButton;
             // 
             // Separator16
             // 
@@ -944,7 +944,7 @@ namespace BudgetExecution
             BrowserTable.Size = new Size( 1338, 739 );
             BrowserTable.TabIndex = 14;
             // 
-            // Browser
+            // WebBrowser
             // 
             AutoScaleDimensions = new SizeF( 7F, 14F );
             AutoScaleMode = AutoScaleMode.Font;
@@ -967,14 +967,14 @@ namespace BudgetExecution
             MetroColor = Color.FromArgb(   20  ,   20  ,   20   );
             MinimizeBox = false;
             MinimumSize = new Size( 1350, 750 );
-            Name = "Browser";
+            Name = "WebBrowser";
             ShowIcon = false;
             ShowMaximizeBox = false;
             ShowMinimizeBox = false;
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Title";
-            FormClosing += OnBrowserClosing;
+            FormClosing += OnWebBrowserClosing;
             Load += OnLoad;
             MenuStripTab.ResumeLayout( false );
             ( (System.ComponentModel.ISupportInitialize) TabPages  ).EndInit( );
@@ -996,12 +996,16 @@ namespace BudgetExecution
         public Panel BottomPanel;
         public ContextMenuStrip MenuStripTab;
         public ToolStripMenuItem MenuCloseOtherTabs;
-        public ToolStripButton SearchNextButton;
-        public ToolStripButton SearchPreviousButton;
+        public Button NextButton;
+        public Button PreviousButton;
+        public Button RefreshButton;
+        public Button HomeButton;
+        public Button SearchNextButton;
+        public Button SearchPreviousButton;
         public TableLayoutPanel tableLayoutPanel1;
         public Panel MainTextBoxPanel;
         public Button StopButton;
-        public ToolStripButton DownloadButton;
+        public Button DownloadButton;
         public Button StopSearchButton;
         public ToolStripMenuItem MenuCloseTab;
         public Panel QuickSearchPanel;
@@ -1014,26 +1018,26 @@ namespace BudgetExecution
         public ToolSeparator Separator4;
         public ToolStripComboBox SearchEngineComboBox;
         public ToolSeparator Separator5;
-        public ToolStripButton PreviousButton;
+        public ToolStripButton WebPreviousButton;
         public ToolSeparator Separator7;
-        public ToolStripButton NextButton;
+        public ToolStripButton WebNextButton;
         public ToolSeparator Separator8;
         public ToolStripTextBox KeyWordTextBox;
         public ToolSeparator Separator10;
-        public ToolStripButton RefreshButton;
+        public ToolStripButton WebRefreshButton;
         public ToolSeparator Separator11;
-        public ToolStripButton CancelButton;
+        public ToolStripButton WebCancelButton;
         public ToolSeparator Separator12;
-        public ToolStripButton HomeButton;
+        public ToolStripButton WebHomeButton;
         public ToolStrip ToolStrip;
         public BrowserTabStripItem AddItem;
         public BrowserTabStripItem TabItem;
         public BrowserTabStrip TabPages;
         public ToolStripLabel StripLabel1;
-        public ToolStripButton CloseButton;
-        public ToolStripButton MenuButton;
+        public ToolStripButton WebCloseButton;
+        public ToolStripButton WebMenuButton;
         public ToolSeparator Separator16;
-        public ToolStripButton DownloadButton;
+        public ToolStripButton WebDownloadButton;
         public ToolSeparator Separator13;
         public ToolSeparator Separator14;
         public ToolSeparator Separator15;
@@ -1045,8 +1049,8 @@ namespace BudgetExecution
         public ToolSeparator Separator6;
         public ToolSeparator Separator9;
         public ToolStripLabel SearchLabel;
-        public ToolStripLabel WebSiteLabel;
-        public ToolStripComboBox WebSiteComboBox;
+        public ToolStripLabel WebsiteLabel;
+        public ToolStripComboBox WebsiteComboBox;
         public ToolSeparator Separator3;
     }
 }

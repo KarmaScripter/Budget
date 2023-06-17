@@ -53,12 +53,12 @@ namespace BudgetExecution
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
     public static class BrowserConfig
     {
-        private static string Dev = @"file:///C:/Users/terry/source/repos/BudgetBrowser/";
+        private static string Dev = @"file:///C:/Users/terry/source/repos/Budget/";
 
         /// <summary>
         /// The branding
         /// </summary>
-        public static string Branding = "Budget Web Browser";
+        public static string Branding = "Budget Execution Browser";
 
         /// <summary>
         /// The accept language
@@ -76,7 +76,7 @@ namespace BudgetExecution
         /// <summary>
         /// The homepage URL
         /// </summary>
-        public static string HomepageURL = Dev + @"Resources/Web/index.html";
+        public static string HomepageURL = Dev + @"Resource/Web/index.html";
 
         /// <summary>
         /// Creates new tab url.
@@ -86,23 +86,23 @@ namespace BudgetExecution
         /// <summary>
         /// The internal URL
         /// </summary>
-        public static string InternalURL = Dev + @"Resources/Web/index.html";
+        public static string InternalURL = Dev + @"Resource/Web/index.html";
 
         /// <summary>
         /// The downloads URL
         /// </summary>
-        public static string DownloadsURL = Dev + @"Resources/Storage/downloads.html";
+        public static string DownloadsURL = Dev + @"Resource/Storage/downloads.html";
 
         /// <summary>
         /// The file not found URL
         /// </summary>
-        public static string FileNotFoundURL = Dev + @"Resources/Storage/errors/notFound.html";
+        public static string FileNotFoundURL = Dev + @"Resource/Storage/errors/notFound.html";
 
         /// <summary>
         /// The cannot connect URL
         /// </summary>
         public static string CannotConnectURL =
-            Dev + @"Resources/Storage/errors/cannotConnect.html";
+            Dev + @"Resource/Storage/errors/cannotConnect.html";
 
         /// <summary>
         /// The search URL
