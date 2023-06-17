@@ -6,7 +6,7 @@
 //     Last Modified By:        Terry D. Eppler
 //     Last Modified On:        06-17-2023
 // ******************************************************************************************
-// <copyright file="MiscUtils.cs" company="Terry D. Eppler">
+// <copyright file="WebUtils.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,7 +34,7 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   MiscUtils.cs
+//   WebUtils.cs
 // </summary>
 // ******************************************************************************************
 
@@ -51,6 +51,7 @@ namespace BudgetExecution
     /// </summary>
     [ SuppressMessage( "ReSharper", "ReplaceSubstringWithRangeIndexer" ) ]
     [ SuppressMessage( "ReSharper", "ExpressionIsAlwaysNull" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public static class WebUtils
     {
         /// <summary>
@@ -216,7 +217,7 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Supporteds the in file path.
+        /// Supported in the file path.
         /// </summary>
         /// <param name="c">The c.</param>
         /// <returns></returns>
@@ -263,7 +264,7 @@ namespace BudgetExecution
         /// </summary>
         /// <param name="url">The URL.</param>
         /// <returns></returns>
-        public static string FileURLToPath( this string url )
+        public static string FileUrlToPath( this string url )
         {
             return url.RemovePrefix( "file:///" ).ChangePathSlash( @"\" ).DecodeUrlForFilepath( );
         }

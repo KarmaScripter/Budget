@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 06-01-2023
+//     Created:                 06-17-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-01-2023
+//     Last Modified On:        06-17-2023
 // ******************************************************************************************
-// <copyright file="CollectionClear.cs" company="Terry D. Eppler">
+// <copyright file="ShellFileInfo.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,14 +34,52 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CollectionClear.cs
+//   ShellFileInfo.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Runtime.InteropServices;
+
     /// <summary>
-    /// 
+    /// Contains information about a file object.
     /// </summary>
-    public delegate void CollectionClear( );
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public struct ShellFileInfo
+    {
+        /// <summary>
+        /// Array of values that indicates the attributes of the file object.
+        /// For information about these values, see the IShellFolder::GetAttributesOf
+        /// method.
+        /// </summary>
+        public uint Attributes;
+
+        /// <summary>
+        /// Handle to the icon that represents the file. You are responsible for
+        /// destroying this handle with DestroyIcon when you no longer need it.
+        /// </summary>
+        public IntPtr IconHandle;
+
+        /// <summary>
+        /// Index of the icon image within the system image list.
+        /// </summary>
+        public IntPtr IconIndex;
+
+        /// <summary>
+        /// String that contains the name of the file as it appears in the Microsoft
+        /// Windows Shell, or the path and file name of the file that contains the
+        /// icon representing the file.
+        /// </summary>
+        [ MarshalAs( UnmanagedType.ByValTStr, SizeConst = 260 ) ]
+        public string DisplayName;
+
+        /// <summary>
+        /// String that describes the type of file.
+        /// </summary>
+        [ MarshalAs( UnmanagedType.ByValTStr, SizeConst = 80 ) ]
+        public string TypeName;
+    };
 }

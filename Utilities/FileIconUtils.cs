@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 06-01-2023
+//     Created:                 06-17-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-04-2023
+//     Last Modified On:        06-17-2023
 // ******************************************************************************************
 // <copyright file="FileIconUtils.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -45,21 +45,22 @@ namespace BudgetExecution
     using System.Runtime.InteropServices;
     using Microsoft.Win32;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
 
     /// <summary>
-    /// Two constants extracted from the FileInfoFlags, the only that are
-    /// meaningful for the user of this class.
+    /// 
     /// </summary>
-    public enum FileIconSize
-    {
-        Large = 0x000000000,
-
-        Small = 0x000000001
-    }
-
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public static class FileIconUtils
     {
+        /// <summary>
+        /// Gets the file icon.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
         public static MemoryStream GetFileIcon( string name, FileIconSize size )
         {
             var _icon = IconFromExtension( name.GetAfter( "." ), size );
@@ -73,111 +74,130 @@ namespace BudgetExecution
             }
         }
 
-        public class IconNotFoundException : Exception
-        {
-            public IconNotFoundException( string fileName, int index )
-                : base( string.Format( "Icon with Id = {0} wasn't found in file {1}", index,
-                    fileName ) )
-            {
-            }
-        }
-
-        public class UnableToExtractIconsException : Exception
-        {
-            public UnableToExtractIconsException( string fileName, int firstIconIndex,
-                int iconCount )
-                : base( string.Format(
-                    "Tried to extract {2} icons starting from the one with id {1} from the \"{0}\" file but failed",
-                    fileName, firstIconIndex, iconCount ) )
-            {
-            }
-        }
-
+        /// <summary>
+        /// Extracts the ex.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="largeIcons">The large icons.</param>
+        /// <param name="smallIcons">The small icons.</param>
+        /// <param name="firstIconIndex">First index of the icon.</param>
+        /// <param name="iconCount">The icon count.</param>
+        /// <exception cref="BudgetExecution.FileIconUtils.UnableToExtractIconsException"></exception>
         public static void ExtractEx( string fileName, List<Icon> largeIcons, List<Icon> smallIcons,
             int firstIconIndex, int iconCount )
         {
-            IntPtr[ ] smallIconsPtrs = null;
-            IntPtr[ ] largeIconsPtrs = null;
+            IntPtr[ ] _smallIconsPtrs = null;
+            IntPtr[ ] _largeIconsPtrs = null;
             if( smallIcons != null )
             {
-                smallIconsPtrs = new IntPtr[ iconCount ];
+                _smallIconsPtrs = new IntPtr[ iconCount ];
             }
 
             if( largeIcons != null )
             {
-                largeIconsPtrs = new IntPtr[ iconCount ];
+                _largeIconsPtrs = new IntPtr[ iconCount ];
             }
 
-            var apiResult = ExtractIconEx( fileName, firstIconIndex, largeIconsPtrs,
-                smallIconsPtrs, iconCount );
+            var _apiResult = ExtractIconEx( fileName, firstIconIndex, _largeIconsPtrs,
+                _smallIconsPtrs, iconCount );
 
-            if( apiResult != iconCount )
+            if( _apiResult != iconCount )
             {
                 throw new UnableToExtractIconsException( fileName, firstIconIndex, iconCount );
             }
-            
+
             if( smallIcons != null )
             {
                 smallIcons.Clear( );
-                foreach( var actualIconPtr in smallIconsPtrs )
+                for( var _index = 0; _index < _smallIconsPtrs.Length; _index++ )
                 {
-                    smallIcons.Add( Icon.FromHandle( actualIconPtr ) );
+                    var _actualIconPtr = _smallIconsPtrs[ _index ];
+                    smallIcons.Add( Icon.FromHandle( _actualIconPtr ) );
                 }
             }
 
             if( largeIcons != null )
             {
                 largeIcons.Clear( );
-                foreach( var actualIconPtr in largeIconsPtrs )
+                foreach( var _actualIconPtr in _largeIconsPtrs )
                 {
-                    largeIcons.Add( Icon.FromHandle( actualIconPtr ) );
+                    largeIcons.Add( Icon.FromHandle( _actualIconPtr ) );
                 }
             }
         }
 
+        /// <summary>
+        /// Extracts the ex.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="size">The size.</param>
+        /// <param name="firstIconIndex">First index of the icon.</param>
+        /// <param name="iconCount">The icon count.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">size</exception>
         public static List<Icon> ExtractEx( string fileName, FileIconSize size, int firstIconIndex,
             int iconCount )
         {
-            var iconList = new List<Icon>( );
+            var _iconList = new List<Icon>( );
             switch( size )
             {
                 case FileIconSize.Large:
                 {
-                    ExtractEx( fileName, iconList, null, firstIconIndex, iconCount );
+                    ExtractEx( fileName, _iconList, null, firstIconIndex, iconCount );
                     break;
                 }
                 case FileIconSize.Small:
                 {
-                    ExtractEx( fileName, null, iconList, firstIconIndex, iconCount );
+                    ExtractEx( fileName, null, _iconList, firstIconIndex, iconCount );
                     break;
                 }
                 default:
                 {
-                    throw new ArgumentOutOfRangeException( "size" );
+                    throw new ArgumentOutOfRangeException( nameof( size ) );
                 }
             }
 
-            return iconList;
+            return _iconList;
         }
 
+        /// <summary>
+        /// Extracts the specified file name.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="largeIcons">The large icons.</param>
+        /// <param name="smallIcons">The small icons.</param>
         public static void Extract( string fileName, List<Icon> largeIcons, List<Icon> smallIcons )
         {
-            var iconCount = GetIconsCountInFile( fileName );
-            ExtractEx( fileName, largeIcons, smallIcons, 0, iconCount );
+            var _iconCount = GetIconsCountInFile( fileName );
+            ExtractEx( fileName, largeIcons, smallIcons, 0, _iconCount );
         }
 
+        /// <summary>
+        /// Extracts the specified file name.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
         public static List<Icon> Extract( string fileName, FileIconSize size )
         {
-            var iconCount = GetIconsCountInFile( fileName );
-            return ExtractEx( fileName, size, 0, iconCount );
+            var _iconCount = GetIconsCountInFile( fileName );
+            return ExtractEx( fileName, size, 0, _iconCount );
         }
 
+        /// <summary>
+        /// Extracts the one.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="index">The index.</param>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
+        /// <exception cref="BudgetExecution.FileIconUtils.IconNotFoundException"></exception>
         public static Icon ExtractOne( string fileName, int index, FileIconSize size )
         {
             try
             {
-                var iconList = ExtractEx( fileName, size, index, 1 );
-                return iconList[ 0 ];
+                var _iconList = ExtractEx( fileName, size, index, 1 );
+                return _iconList[ 0 ];
             }
             catch( UnableToExtractIconsException )
             {
@@ -185,23 +205,37 @@ namespace BudgetExecution
             }
         }
 
+        /// <summary>
+        /// Extracts the one.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="index">The index.</param>
+        /// <param name="largeIcon">The large icon.</param>
+        /// <param name="smallIcon">The small icon.</param>
+        /// <exception cref="BudgetExecution.FileIconUtils.IconNotFoundException"></exception>
         public static void ExtractOne( string fileName, int index, out Icon largeIcon,
             out Icon smallIcon )
         {
-            var smallIconList = new List<Icon>( );
-            var largeIconList = new List<Icon>( );
+            var _smallIconList = new List<Icon>( );
+            var _largeIconList = new List<Icon>( );
             try
             {
-                ExtractEx( fileName, largeIconList, smallIconList, index, 1 );
-                largeIcon = largeIconList[ 0 ];
-                smallIcon = smallIconList[ 0 ];
+                ExtractEx( fileName, _largeIconList, _smallIconList, index, 1 );
+                largeIcon = _largeIconList[ 0 ];
+                smallIcon = _smallIconList[ 0 ];
             }
             catch( UnableToExtractIconsException )
             {
                 throw new IconNotFoundException( fileName, index );
             }
         }
-        
+
+        /// <summary>
+        /// Icons from extension.
+        /// </summary>
+        /// <param name="extension">The extension.</param>
+        /// <param name="size">The size.</param>
+        /// <returns></returns>
         public static Icon IconFromExtension( string extension, FileIconSize size )
         {
             // Add the '.' to the extension if needed
@@ -213,26 +247,24 @@ namespace BudgetExecution
             extension = extension.ToLower( );
 
             //opens the registry for the wanted key.
-            var Root = Registry.ClassesRoot;
-            var ExtensionKey = Root.OpenSubKey( extension );
-            ExtensionKey.GetValueNames( );
-            var ApplicationKey = Root.OpenSubKey( ExtensionKey.GetValue( "" ).ToString( ) );
+            var _root = Registry.ClassesRoot;
+            var _extensionKey = _root.OpenSubKey( extension );
+            _extensionKey.GetValueNames( );
+            var _applicationKey = _root.OpenSubKey( _extensionKey.GetValue( "" ).ToString( ) );
 
             //gets the name of the file that have the icon.
-            var IconLocation =
-                ApplicationKey.OpenSubKey( "DefaultIcon" ).GetValue( "" ).ToString( );
+            var _iconLocation =
+                _applicationKey.OpenSubKey( "DefaultIcon" ).GetValue( "" ).ToString( );
 
-            var IconPath = IconLocation.Split( ',' );
-            IconPath[ 1 ] ??= "0";
-            IntPtr[ ] Large = new IntPtr[ 1 ], Small = new IntPtr[ 1 ];
+            var _iconPath = _iconLocation.Split( ',' );
+            _iconPath[ 1 ] ??= "0";
+            IntPtr[ ] _large = new IntPtr[ 1 ], _small = new IntPtr[ 1 ];
 
             //extracts the icon from the file.
-            ExtractIconEx( IconPath[ 0 ], Convert.ToInt16( IconPath[ 1 ] ), Large,
-                Small, 1 );
-
+            ExtractIconEx( _iconPath[ 0 ], Convert.ToInt16( _iconPath[ 1 ] ), _large, _small, 1 );
             return size == FileIconSize.Large
-                ? Icon.FromHandle( Large[ 0 ] )
-                : Icon.FromHandle( Small[ 0 ] );
+                ? Icon.FromHandle( _large[ 0 ] )
+                : Icon.FromHandle( _small[ 0 ] );
         }
 
         /// <summary>
@@ -242,6 +274,9 @@ namespace BudgetExecution
         /// <param name="regString">The full string in the form "path,index" as found in registry.</param>
         /// <param name="fileName">The "path" part of the string.</param>
         /// <param name="index">The "index" part of the string.</param>
+        /// <exception cref="System.ArgumentNullException">regString</exception>
+        /// <exception cref="System.ArgumentException">The string should not be empty. - regString</exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void ExtractInformationFromRegistryString( string regString,
             out string fileName, out int index )
         {
@@ -256,129 +291,71 @@ namespace BudgetExecution
             }
 
             index = 0;
-            var strArr = regString.Replace( "\"", "" ).Split( ',' );
-            fileName = strArr[ 0 ].Trim( );
-            if( strArr.Length > 1 )
+            var _strArr = regString.Replace( "\"", "" ).Split( ',' );
+            fileName = _strArr[ 0 ].Trim( );
+            if( _strArr.Length > 1 )
             {
-                int.TryParse( strArr[ 1 ].Trim( ), out index );
+                int.TryParse( _strArr[ 1 ].Trim( ), out index );
             }
         }
 
         /// <summary>
-        /// Contains information about a file object. 
+        /// Creates an array of handles to large or small icons extracted from
+        /// the specified executable file, dynamic-link library (DLL), or icon
+        /// file.
         /// </summary>
-        public struct ShellFileInfo
-        {
-            /// <summary>
-            /// Array of values that indicates the attributes of the file object.
-            /// For information about these values, see the IShellFolder::GetAttributesOf
-            /// method.
-            /// </summary>
-            public uint Attributes;
-
-            /// <summary>
-            /// Handle to the icon that represents the file. You are responsible for
-            /// destroying this handle with DestroyIcon when you no longer need it. 
-            /// </summary>
-            public IntPtr IconHandle;
-
-            /// <summary>
-            /// Index of the icon image within the system image list.
-            /// </summary>
-            public IntPtr IconIndex;
-
-            /// <summary>
-            /// String that contains the name of the file as it appears in the Microsoft
-            /// Windows Shell, or the path and file name of the file that contains the
-            /// icon representing the file.
-            /// </summary>
-            [ MarshalAs( UnmanagedType.ByValTStr, SizeConst = 260 ) ]
-            public string DisplayName;
-
-            /// <summary>
-            /// String that describes the type of file.
-            /// </summary>
-            [ MarshalAs( UnmanagedType.ByValTStr, SizeConst = 80 ) ]
-            public string TypeName;
-        };
-
-        [ Flags ]
-        public enum FileInfoFlags
-        {
-            /// <summary>
-            /// Retrieve the handle to the icon that represents the file and the index 
-            /// of the icon within the system image list. The handle is copied to the 
-            /// IconHandle member of the structure specified by psfi, and the index is copied 
-            /// to the IconIndex member.
-            /// </summary>
-            ShgfiIcon = 0x000000100,
-
-            /// <summary>
-            /// Indicates that the function should not attempt to access the file 
-            /// specified by pszPath. Rather, it should act as if the file specified by 
-            /// pszPath exists with the file attributes passed in FileAttributes.
-            /// </summary>
-            ShgfiUsefileattributes = 0x000000010
-        }
-
-        /// <summary>
-        ///     Creates an array of handles to large or small icons extracted from
-        ///     the specified executable file, dynamic-link library (DLL), or icon
-        ///     file. 
-        /// </summary>
-        /// <param name="lpszFile">
-        ///     Name of an executable file, DLL, or icon file from which icons will
-        ///     be extracted.
-        /// </param>
-        /// <param name="nIconIndex">
-        ///     <para>
-        ///         Specifies the zero-based index of the first icon to extract. For
-        ///         example, if this value is zero, the function extracts the first
-        ///         icon in the specified file.
-        ///     </para>
-        ///     <para>
-        ///         If this value is �1 and <paramref name="phiconLarge"/> and
-        ///         <paramref name="phiconSmall"/> are both NULL, the function returns
-        ///         the total number of icons in the specified file. If the file is an
-        ///         executable file or DLL, the return value is the number of
-        ///         RT_GROUP_ICON resources. If the file is an .ico file, the return
-        ///         value is 1. 
-        ///     </para>
-        ///     <para>
-        ///         Windows 95/98/Me, Windows NT 4.0 and later: If this value is a 
-        ///         negative number and either <paramref name="phiconLarge"/> or 
-        ///         <paramref name="phiconSmall"/> is not NULL, the function begins by
-        ///         extracting the icon whose resource identifier is equal to the
-        ///         absolute value of <paramref name="nIconIndex"/>. For example, use -3
-        ///         to extract the icon whose resource identifier is 3. 
-        ///     </para>
-        /// </param>
-        /// <param name="phIconLarge">
-        ///     An array of icon handles that receives handles to the large icons
-        ///     extracted from the file. If this parameter is NULL, no large icons
-        ///     are extracted from the file.
-        /// </param>
-        /// <param name="phIconSmall">
-        ///     An array of icon handles that receives handles to the small icons
-        ///     extracted from the file. If this parameter is NULL, no small icons
-        ///     are extracted from the file. 
-        /// </param>
-        /// <param name="nIcons">
-        ///     Specifies the number of icons to extract from the file. 
-        /// </param>
+        /// <param name="lpszFile">Name of an executable file, DLL, or icon file from which icons will
+        /// be extracted.</param>
+        /// <param name="nIconIndex"><para>
+        /// Specifies the zero-based index of the first icon to extract. For
+        /// example, if this value is zero, the function extracts the first
+        /// icon in the specified file.
+        /// </para>
+        /// <para>
+        /// If this value is �1 and <paramref name="phiconLarge" /> and
+        /// <paramref name="phiconSmall" /> are both NULL, the function returns
+        /// the total number of icons in the specified file. If the file is an
+        /// executable file or DLL, the return value is the number of
+        /// RT_GROUP_ICON resources. If the file is an .ico file, the return
+        /// value is 1.
+        /// </para>
+        /// <para>
+        /// Windows 95/98/Me, Windows NT 4.0 and later: If this value is a
+        /// negative number and either <paramref name="phiconLarge" /> or
+        /// <paramref name="phiconSmall" /> is not NULL, the function begins by
+        /// extracting the icon whose resource identifier is equal to the
+        /// absolute value of <paramref name="nIconIndex" />. For example, use -3
+        /// to extract the icon whose resource identifier is 3.
+        /// </para></param>
+        /// <param name="phIconLarge">An array of icon handles that receives handles to the large icons
+        /// extracted from the file. If this parameter is NULL, no large icons
+        /// are extracted from the file.</param>
+        /// <param name="phIconSmall">An array of icon handles that receives handles to the small icons
+        /// extracted from the file. If this parameter is NULL, no small icons
+        /// are extracted from the file.</param>
+        /// <param name="nIcons">Specifies the number of icons to extract from the file.</param>
         /// <returns>
-        ///     If the <paramref name="nIconIndex"/> parameter is -1, the
-        ///     <paramref name="phIconLarge"/> parameter is NULL, and the
-        ///     <paramref name="phiconSmall"/> parameter is NULL, then the return
-        ///     value is the number of icons contained in the specified file.
-        ///     Otherwise, the return value is the number of icons successfully
-        ///     extracted from the file. 
+        /// If the <paramref name="nIconIndex" /> parameter is -1, the
+        /// <paramref name="phIconLarge" /> parameter is NULL, and the
+        /// <paramref name="phiconSmall" /> parameter is NULL, then the return
+        /// value is the number of icons contained in the specified file.
+        /// Otherwise, the return value is the number of icons successfully
+        /// extracted from the file.
         /// </returns>
         [ DllImport( "Shell32", CharSet = CharSet.Auto ) ]
         private static extern int ExtractIconEx(
             [ MarshalAs( UnmanagedType.LPTStr ) ] string lpszFile, int nIconIndex,
             IntPtr[ ] phIconLarge, IntPtr[ ] phIconSmall, int nIcons );
 
+        /// <summary>
+        /// Shes the get file information.
+        /// </summary>
+        /// <param name="pszPath">The PSZ path.</param>
+        /// <param name="dwFileAttributes">The dw file attributes.</param>
+        /// <param name="psfi">The psfi.</param>
+        /// <param name="cbFileInfo">The cb file information.</param>
+        /// <param name="uFlags">The u flags.</param>
+        /// <returns></returns>
         [ DllImport( "Shell32", CharSet = CharSet.Auto ) ]
         private static extern IntPtr SHGetFileInfo( string pszPath, int dwFileAttributes,
             out ShellFileInfo psfi, int cbFileInfo, FileInfoFlags uFlags );

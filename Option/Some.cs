@@ -42,11 +42,11 @@ namespace BudgetExecution
 {
     using System;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <seealso cref="BudgetExecution.IOption&lt;T&gt;" />
+    /// <seealso cref="T:BudgetExecution.IOption`1" />
     public class Some<T> : IOption<T>
     {
         /// <summary>
@@ -73,6 +73,7 @@ namespace BudgetExecution
             return new Some<T>( value );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Matches the specified on some.
         /// </summary>
@@ -85,6 +86,7 @@ namespace BudgetExecution
             return some( _data );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Binds the specified f.
         /// </summary>
@@ -96,6 +98,7 @@ namespace BudgetExecution
             return func( _data );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Maps the specified function.
         /// </summary>
@@ -107,6 +110,7 @@ namespace BudgetExecution
             return new Some<TResult>( func( _data ) );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Ors the specified a default.
         /// </summary>

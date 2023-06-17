@@ -1,18 +1,18 @@
-// ******************************************************************************************
-//     Assembly:                Budget Execution
+Ôªø// ******************************************************************************************
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 06-01-2023
+//     Created:                 06-17-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-01-2023
+//     Last Modified On:        06-17-2023
 // ******************************************************************************************
 // <copyright file="CollectionWithEvents.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Copyright ¬©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the ìSoftwareî),
+//    of this software and associated documentation files (the ‚ÄúSoftware‚Äù),
 //    to deal in the Software without restriction,
 //    including without limitation the rights to use,
 //    copy, modify, merge, publish, distribute, sublicense,
@@ -23,7 +23,7 @@
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
 // 
-//    THE SOFTWARE IS PROVIDED ìAS ISî, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    THE SOFTWARE IS PROVIDED ‚ÄúAS IS‚Äù, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
 //    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
@@ -38,111 +38,196 @@
 // </summary>
 // ******************************************************************************************
 
-using System.Collections;
-using System.ComponentModel;
-
 namespace BudgetExecution
 {
+    using System.Collections;
+    using System.ComponentModel;
+    using System.Diagnostics.CodeAnalysis;
+
+    /// <inheritdoc />
+    [ SuppressMessage( "ReSharper", "PublicConstructorInAbstractClass" ) ]
     public abstract class CollectionWithEvents : CollectionBase
     {
+        /// <summary>
+        /// The suspend count
+        /// </summary>
         private int _suspendCount;
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is suspended.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is suspended; otherwise, <c>false</c>.
+        /// </value>
         [ Browsable( false ) ]
         public bool IsSuspended
         {
-            get
-            {
-                return _suspendCount > 0;
-            }
+            get { return _suspendCount > 0; }
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.CollectionWithEvents" /> class.
+        /// </summary>
         public CollectionWithEvents( )
         {
             _suspendCount = 0;
         }
 
+        /// <summary>
+        /// Occurs when [clearing].
+        /// </summary>
         [ Browsable( false ) ]
         public event CollectionClear Clearing;
 
+        /// <summary>
+        /// Occurs when [cleared].
+        /// </summary>
         [ Browsable( false ) ]
         public event CollectionClear Cleared;
 
+        /// <summary>
+        /// Occurs when [inserting].
+        /// </summary>
         [ Browsable( false ) ]
         public event CollectionChange Inserting;
 
+        /// <summary>
+        /// Occurs when [inserted].
+        /// </summary>
         [ Browsable( false ) ]
         public event CollectionChange Inserted;
 
+        /// <summary>
+        /// Occurs when [removing].
+        /// </summary>
         [ Browsable( false ) ]
         public event CollectionChange Removing;
 
+        /// <summary>
+        /// Occurs when [removed].
+        /// </summary>
         [ Browsable( false ) ]
         public event CollectionChange Removed;
 
+        /// <summary>
+        /// Suspends the events.
+        /// </summary>
         public void SuspendEvents( )
         {
             _suspendCount++;
         }
 
+        /// <summary>
+        /// Resumes the events.
+        /// </summary>
         public void ResumeEvents( )
         {
             _suspendCount--;
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs additional custom processes when clearing the contents of the
+        /// <see cref="T:System.Collections.CollectionBase" /> instance.
+        /// </summary>
         protected override void OnClear( )
         {
             if( !IsSuspended
-               && Clearing != null )
+               && ( Clearing != null ) )
             {
                 Clearing( );
             }
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs additional custom processes after clearing the contents of the
+        /// <see cref="T:System.Collections.CollectionBase" /> instance.
+        /// </summary>
         protected override void OnClearComplete( )
         {
             if( !IsSuspended
-               && Cleared != null )
+               && ( Cleared != null ) )
             {
                 Cleared( );
             }
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs additional custom processes before inserting a new
+        /// element into the <see cref="T:System.Collections.CollectionBase" /> instance.
+        /// </summary>
+        /// <param name="index">The zero-based index at which to insert <paramref name="value" />.</param>
+        /// <param name="value">The new value of the element at <paramref name="index" />.</param>
         protected override void OnInsert( int index, object value )
         {
             if( !IsSuspended
-               && Inserting != null )
+               && ( Inserting != null ) )
             {
                 Inserting( index, value );
             }
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs additional custom processes after inserting a new element
+        /// into the <see cref="T:System.Collections.CollectionBase" /> instance.
+        /// </summary>
+        /// <param name="index">The zero-based index at which to insert <paramref name="value" />.</param>
+        /// <param name="value">The new value of the element at <paramref name="index" />.</param>
         protected override void OnInsertComplete( int index, object value )
         {
             if( !IsSuspended
-               && Inserted != null )
+               && ( Inserted != null ) )
             {
                 Inserted( index, value );
             }
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs additional custom processes when removing an element from the
+        /// <see cref="T:System.Collections.CollectionBase" /> instance.
+        /// </summary>
+        /// <param name="index">The zero-based index at which <paramref name="value" /> can be found.</param>
+        /// <param name="value">The value of the element to remove from <paramref name="index" />.</param>
         protected override void OnRemove( int index, object value )
         {
             if( !IsSuspended
-               && Removing != null )
+               && ( Removing != null ) )
             {
                 Removing( index, value );
             }
         }
 
+        /// <inheritdoc />
+        /// <summary>
+        /// Performs additional custom processes after removing an element from
+        /// the <see cref="T:System.Collections.CollectionBase" /> instance.
+        /// </summary>
+        /// <param name="index">The zero-based index at which <paramref name="value" /> can be found.</param>
+        /// <param name="value">The value of the element to remove from <paramref name="index" />.</param>
         protected override void OnRemoveComplete( int index, object value )
         {
             if( !IsSuspended
-               && Removed != null )
+               && ( Removed != null ) )
             {
                 Removed( index, value );
             }
         }
 
+        /// <summary>
+        /// Determines the index of a specific item in the
+        /// <see cref="T:System.Collections.IList" />.
+        /// </summary>
+        /// <param name="value">The object to locate in the
+        /// <see cref="T:System.Collections.IList" />.</param>
+        /// <returns>
+        /// The index of <paramref name="value" />
+        /// if found in the list; otherwise, -1.
+        /// </returns>
         protected int IndexOf( object value )
         {
             return List.IndexOf( value );

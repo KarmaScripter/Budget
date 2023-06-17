@@ -1,12 +1,12 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
-//     Created:                 06-01-2023
+//     Created:                 06-17-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-01-2023
+//     Last Modified On:        06-17-2023
 // ******************************************************************************************
-// <copyright file="CollectionClear.cs" company="Terry D. Eppler">
+// <copyright file="IconNotFoundException.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
 //    Copyright ©  2023  Terry Eppler
@@ -34,14 +34,34 @@
 //    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
 // </copyright>
 // <summary>
-//   CollectionClear.cs
+//   IconNotFoundException.cs
 // </summary>
 // ******************************************************************************************
 
 namespace BudgetExecution
 {
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    public delegate void CollectionClear( );
+    /// <seealso cref="T:System.Exception" />
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public class IconNotFoundException : Exception
+    {
+        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.FileIconUtils.IconNotFoundException" /> class.
+        /// </summary>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="index">The index.</param>
+        public IconNotFoundException( string fileName, int index )
+            : base( string.Format( "Icon with Id = {0} wasn't found in file {1}", index,
+                fileName ) )
+        {
+        }
+    }
 }

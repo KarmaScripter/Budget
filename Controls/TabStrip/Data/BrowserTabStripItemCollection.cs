@@ -1,4 +1,4 @@
-// ******************************************************************************************
+Ôªø// ******************************************************************************************
 //     Assembly:                Budget Execution
 //     Author:                  Terry D. Eppler
 //     Created:                 06-01-2023
@@ -9,10 +9,10 @@
 // <copyright file="BrowserTabStripItemCollection.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
 //    US Environmental Protection Agency (US EPA).
-//    Copyright ©  2023  Terry Eppler
+//    Copyright ¬©  2023  Terry Eppler
 // 
 //    Permission is hereby granted, free of charge, to any person obtaining a copy
-//    of this software and associated documentation files (the ìSoftwareî),
+//    of this software and associated documentation files (the ‚ÄúSoftware‚Äù),
 //    to deal in the Software without restriction,
 //    including without limitation the rights to use,
 //    copy, modify, merge, publish, distribute, sublicense,
@@ -23,7 +23,7 @@
 //    The above copyright notice and this permission notice shall be included in all
 //    copies or substantial portions of the Software.
 // 
-//    THE SOFTWARE IS PROVIDED ìAS ISî, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    THE SOFTWARE IS PROVIDED ‚ÄúAS IS‚Äù, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 //    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
 //    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
@@ -38,20 +38,20 @@
 // </summary>
 // ******************************************************************************************
 
-using System;
-using System.ComponentModel;
-
 namespace BudgetExecution
 {
+    using System;
+    using System.ComponentModel;
     using System.Diagnostics.CodeAnalysis;
 
+    /// <inheritdoc />
     /// <summary>
-    /// 
     /// </summary>
-    /// <seealso cref="BudgetExecution.CollectionWithEvents" />
+    /// <seealso cref="T:BudgetExecution.CollectionWithEvents" />
     [ SuppressMessage( "ReSharper", "UnusedMethodReturnValue.Global" ) ]
     [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
     [ SuppressMessage( "ReSharper", "ParameterTypeCanBeEnumerable.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
     public class BrowserTabStripItemCollection : CollectionWithEvents
     {
         /// <summary>
@@ -71,8 +71,8 @@ namespace BudgetExecution
         {
             get
             {
-                if( index < 0
-                   || List.Count - 1 < index )
+                if( ( index < 0 )
+                   || ( List.Count - 1 < index ) )
                 {
                     return null;
                 }
@@ -96,22 +96,22 @@ namespace BudgetExecution
         {
             get
             {
-                var count = Count;
-                var num = 0;
-                if( count == 0 )
+                var _count = Count;
+                var _num = 0;
+                if( _count == 0 )
                 {
                     return 0;
                 }
 
-                for( var i = 0; i < count; i++ )
+                for( var _i = 0; _i < _count; _i++ )
                 {
-                    if( this[ i ].IsDrawn )
+                    if( this[ _i ].IsDrawn )
                     {
-                        num++;
+                        _num++;
                     }
                 }
 
-                return num;
+                return _num;
             }
         }
 
@@ -125,11 +125,11 @@ namespace BudgetExecution
         {
             get
             {
-                for( var num = Count - 1; num > 0; num-- )
+                for( var _num = Count - 1; _num > 0; _num-- )
                 {
-                    if( this[ num ].Visible )
+                    if( this[ _num ].Visible )
                     {
-                        return this[ num ];
+                        return this[ _num ];
                     }
                 }
 
@@ -147,11 +147,11 @@ namespace BudgetExecution
         {
             get
             {
-                for( var i = 0; i < Count; i++ )
+                for( var _i = 0; _i < Count; _i++ )
                 {
-                    if( this[ i ].Visible )
+                    if( this[ _i ].Visible )
                     {
-                        return this[ i ];
+                        return this[ _i ];
                     }
                 }
 
@@ -170,22 +170,22 @@ namespace BudgetExecution
         {
             get
             {
-                var count = Count;
-                var num = 0;
-                if( count == 0 )
+                var _count = Count;
+                var _num = 0;
+                if( _count == 0 )
                 {
                     return 0;
                 }
 
-                for( var i = 0; i < count; i++ )
+                for( var _i = 0; _i < _count; _i++ )
                 {
-                    if( this[ i ].Visible )
+                    if( this[ _i ].Visible )
                     {
-                        num++;
+                        _num++;
                     }
                 }
 
-                return num;
+                return _num;
             }
         }
 
@@ -195,8 +195,10 @@ namespace BudgetExecution
         [ Browsable( false ) ]
         public event CollectionChangeEventHandler CollectionChanged;
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="BrowserTabStripItemCollection"/> class.
+        /// Initializes a new instance of the
+        /// <see cref="T:BudgetExecution.BrowserTabStripItemCollection" /> class.
         /// </summary>
         public BrowserTabStripItemCollection( )
         {
@@ -212,9 +214,9 @@ namespace BudgetExecution
             BeginUpdate( );
             try
             {
-                foreach( var value in items )
+                foreach( var _value in items )
                 {
-                    List.Add( value );
+                    List.Add( _value );
                 }
             }
             finally
@@ -233,12 +235,12 @@ namespace BudgetExecution
             try
             {
                 Clear( );
-                for( var i = 0; i < collection.Count; i++ )
+                for( var _i = 0; _i < collection.Count; _i++ )
                 {
-                    var item = collection[ i ];
-                    var fATabStripItem = new BrowserTabStripItem( );
-                    fATabStripItem.Assign( item );
-                    Add( fATabStripItem );
+                    var _item = collection[ _i ];
+                    var _fATabStripItem = new BrowserTabStripItem( );
+                    _fATabStripItem.Assign( _item );
+                    Add( _fATabStripItem );
                 }
             }
             finally
@@ -254,13 +256,13 @@ namespace BudgetExecution
         /// <returns></returns>
         public virtual int Add( BrowserTabStripItem item )
         {
-            var num = IndexOf( item );
-            if( num == -1 )
+            var _num = IndexOf( item );
+            if( _num == -1 )
             {
-                num = List.Add( item );
+                _num = List.Add( item );
             }
 
-            return num;
+            return _num;
         }
 
         /// <summary>
@@ -283,10 +285,10 @@ namespace BudgetExecution
         /// <returns></returns>
         public virtual BrowserTabStripItem MoveTo( int newIndex, BrowserTabStripItem item )
         {
-            var num = List.IndexOf( item );
-            if( num >= 0 )
+            var _num = List.IndexOf( item );
+            if( _num >= 0 )
             {
-                RemoveAt( num );
+                RemoveAt( _num );
                 Insert( 0, item );
                 return item;
             }
@@ -357,6 +359,7 @@ namespace BudgetExecution
             }
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Called when [insert complete].
         /// </summary>
@@ -364,11 +367,12 @@ namespace BudgetExecution
         /// <param name="item">The item.</param>
         protected override void OnInsertComplete( int index, object item )
         {
-            var fATabStripItem = item as BrowserTabStripItem;
-            fATabStripItem.Changed += OnItemChanged;
+            var _fATabStripItem = item as BrowserTabStripItem;
+            _fATabStripItem.Changed += OnItemChanged;
             OnCollectionChanged( new CollectionChangeEventArgs( CollectionChangeAction.Add, item ) );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Called when [remove].
         /// </summary>
@@ -377,11 +381,12 @@ namespace BudgetExecution
         protected override void OnRemove( int index, object item )
         {
             base.OnRemove( index, item );
-            var fATabStripItem = item as BrowserTabStripItem;
-            fATabStripItem.Changed -= OnItemChanged;
+            var _fATabStripItem = item as BrowserTabStripItem;
+            _fATabStripItem.Changed -= OnItemChanged;
             OnCollectionChanged( new CollectionChangeEventArgs( CollectionChangeAction.Remove, item ) );
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Called when [clear].
         /// </summary>
@@ -395,9 +400,9 @@ namespace BudgetExecution
             BeginUpdate( );
             try
             {
-                for( var num = Count - 1; num >= 0; num-- )
+                for( var _num = Count - 1; _num >= 0; _num-- )
                 {
-                    RemoveAt( num );
+                    RemoveAt( _num );
                 }
             }
             finally

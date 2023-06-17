@@ -911,7 +911,7 @@ namespace BudgetExecution
                     else if( url.CheckIfFilePath( )
                             || url.CheckIfFilePath2( ) )
                     {
-                        _newUrl = url.PathToURL( );
+                        _newUrl = url.PathToUrl( );
                     }
                     else
                     {

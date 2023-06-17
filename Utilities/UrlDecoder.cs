@@ -2,16 +2,15 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// 
     /// </summary>
-    [SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
     public class UrlDecoder
     {
         /// <summary>
@@ -74,11 +73,11 @@ namespace BudgetExecution
             {
                 if( checkChar && ForFilePaths )
                 {
-                    var newChars = _encoding.GetChars( _byteBuffer, 0, _numBytes );
+                    var _newChars = _encoding.GetChars( _byteBuffer, 0, _numBytes );
                     _numBytes = 0;
-                    foreach( var ch in newChars )
+                    foreach( var _ch in _newChars )
                     {
-                        AddChar( ch );
+                        AddChar( _ch );
                     }
                 }
                 else
@@ -142,9 +141,9 @@ namespace BudgetExecution
                 FlushBytes( );
             }
 
-            foreach( var ch in str )
+            foreach( var _ch in str )
             {
-                _charBuffer[ _numChars++ ] = ch;
+                _charBuffer[ _numChars++ ] = _ch;
             }
         }
 

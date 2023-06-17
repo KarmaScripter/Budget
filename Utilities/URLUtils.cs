@@ -41,14 +41,12 @@
 namespace BudgetExecution
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
     [ SuppressMessage( "ReSharper", "FieldCanBeMadeReadOnly.Local" ) ]
-    public static class URLUtils
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    public static class UrlUtils
     {
         /// <summary>
         /// Paths to URL.
@@ -56,7 +54,7 @@ namespace BudgetExecution
         /// <param name="filePath">The file path.</param>
         /// <param name="removeBaseDir">The remove base dir.</param>
         /// <returns></returns>
-        public static string PathToURL( this string filePath, string removeBaseDir = null )
+        public static string PathToUrl( this string filePath, string removeBaseDir = null )
         {
             if( !filePath.CheckIfValid( ) )
             {
@@ -102,63 +100,63 @@ namespace BudgetExecution
                 return null;
             }
 
-            var length = url.Length;
-            var decoder = new UrlDecoder( length, Encoding.UTF8 );
-            for( var i = 0; i < length; i++ )
+            var _length = url.Length;
+            var _decoder = new UrlDecoder( _length, Encoding.UTF8 );
+            for( var _i = 0; _i < _length; _i++ )
             {
-                var ch = url[ i ];
-                if( ch == '+' )
+                var _ch = url[ _i ];
+                if( _ch == '+' )
                 {
-                    ch = ' ';
+                    _ch = ' ';
                 }
-                else if( ch == '%'
-                        && i < length - 2 )
+                else if( ( _ch == '%' )
+                        && ( _i < _length - 2 ) )
                 {
-                    if( url[ i + 1 ] == 'u'
-                       && i < length - 5 )
+                    if( ( url[ _i + 1 ] == 'u' )
+                       && ( _i < _length - 5 ) )
                     {
-                        var num3 = url[ i + 2 ].HexToInt( );
-                        var num4 = url[ i + 3 ].HexToInt( );
-                        var num5 = url[ i + 4 ].HexToInt( );
-                        var num6 = url[ i + 5 ].HexToInt( );
-                        if( num3 < 0
-                           || num4 < 0
-                           || num5 < 0
-                           || num6 < 0 )
+                        var _num3 = url[ _i + 2 ].HexToInt( );
+                        var _num4 = url[ _i + 3 ].HexToInt( );
+                        var _num5 = url[ _i + 4 ].HexToInt( );
+                        var _num6 = url[ _i + 5 ].HexToInt( );
+                        if( ( _num3 < 0 )
+                           || ( _num4 < 0 )
+                           || ( _num5 < 0 )
+                           || ( _num6 < 0 ) )
                         {
                             goto Label_010B;
                         }
 
-                        ch = (char)( num3 << 12 | num4 << 8 | num5 << 4 | num6 );
-                        i += 5;
-                        decoder.AddChar( ch );
+                        _ch = (char)( _num3 << 12 | _num4 << 8 | _num5 << 4 | _num6 );
+                        _i += 5;
+                        _decoder.AddChar( _ch );
                         continue;
                     }
 
-                    var num7 = url[ i + 1 ].HexToInt( );
-                    var num8 = url[ i + 2 ].HexToInt( );
-                    if( num7 >= 0
-                       && num8 >= 0 )
+                    var _num7 = url[ _i + 1 ].HexToInt( );
+                    var _num8 = url[ _i + 2 ].HexToInt( );
+                    if( ( _num7 >= 0 )
+                       && ( _num8 >= 0 ) )
                     {
-                        var b = (byte)( num7 << 4 | num8 );
-                        i += 2;
-                        decoder.AddByte( b );
+                        var _b = (byte)( _num7 << 4 | _num8 );
+                        _i += 2;
+                        _decoder.AddByte( _b );
                         continue;
                     }
                 }
 
                 Label_010B:
-                if( ( ch & 0xff80 ) == 0 )
+                if( ( _ch & 0xff80 ) == 0 )
                 {
-                    decoder.AddByte( (byte)ch );
+                    _decoder.AddByte( (byte)_ch );
                 }
                 else
                 {
-                    decoder.AddChar( ch );
+                    _decoder.AddChar( _ch );
                 }
             }
 
-            return decoder.GetString( );
+            return _decoder.GetString( );
         }
 
         /// <summary>
@@ -189,67 +187,67 @@ namespace BudgetExecution
                 return null;
             }
 
-            var length = url.Length;
-            var decoder = new UrlDecoder( length * 10, Encoding.UTF8 );
-            decoder.ForFilePaths = true;
-            for( var i = 0; i < length; i++ )
+            var _length = url.Length;
+            var _decoder = new UrlDecoder( _length * 10, Encoding.UTF8 );
+            _decoder.ForFilePaths = true;
+            for( var _i = 0; _i < _length; _i++ )
             {
-                var ch = url[ i ];
-                if( ch == '+' )
+                var _ch = url[ _i ];
+                if( _ch == '+' )
                 {
-                    ch = ' ';
+                    _ch = ' ';
                 }
-                else if( ch == '%'
-                        && i < length - 2 )
+                else if( ( _ch == '%' )
+                        && ( _i < _length - 2 ) )
                 {
-                    if( url[ i + 1 ] == 'u'
-                       && i < length - 5 )
+                    if( ( url[ _i + 1 ] == 'u' )
+                       && ( _i < _length - 5 ) )
                     {
-                        var num3 = url[ i + 2 ].HexToInt( );
-                        var num4 = url[ i + 3 ].HexToInt( );
-                        var num5 = url[ i + 4 ].HexToInt( );
-                        var num6 = url[ i + 5 ].HexToInt( );
-                        if( num3 < 0
-                           || num4 < 0
-                           || num5 < 0
-                           || num6 < 0 )
+                        var _num3 = url[ _i + 2 ].HexToInt( );
+                        var _num4 = url[ _i + 3 ].HexToInt( );
+                        var _num5 = url[ _i + 4 ].HexToInt( );
+                        var _num6 = url[ _i + 5 ].HexToInt( );
+                        if( ( _num3 < 0 )
+                           || ( _num4 < 0 )
+                           || ( _num5 < 0 )
+                           || ( _num6 < 0 ) )
                         {
                             goto Label_010B;
                         }
 
-                        ch = (char)( num3 << 12 | num4 << 8 | num5 << 4 | num6 );
-                        i += 5;
-                        decoder.FlushBytes( false );
-                        decoder.AddChar( ch, true );
+                        _ch = (char)( _num3 << 12 | _num4 << 8 | _num5 << 4 | _num6 );
+                        _i += 5;
+                        _decoder.FlushBytes( false );
+                        _decoder.AddChar( _ch, true );
                         continue;
                     }
                     
-                    var num7 = url[ i + 1 ].HexToInt( );
-                    var num8 = url[ i + 2 ].HexToInt( );
-                    if( num7 >= 0
-                       && num8 >= 0 )
+                    var _num7 = url[ _i + 1 ].HexToInt( );
+                    var _num8 = url[ _i + 2 ].HexToInt( );
+                    if( ( _num7 >= 0 )
+                       && ( _num8 >= 0 ) )
                     {
-                        var b = (byte)( num7 << 4 | num8 );
-                        i += 2;
-                        decoder.FlushBytes( false );
-                        decoder.AddByte( b );
-                        if( i + 1 < length - 2
-                           && url[ i + 1 ] == '%' )
+                        var _b = (byte)( _num7 << 4 | _num8 );
+                        _i += 2;
+                        _decoder.FlushBytes( false );
+                        _decoder.AddByte( _b );
+                        if( ( _i + 1 < _length - 2 )
+                           && ( url[ _i + 1 ] == '%' ) )
                         {
-                            num7 = url[ i + 1 ].HexToInt( );
-                            num8 = url[ i + 2 ].HexToInt( );
-                            if( num7 >= 0
-                               && num8 >= 0 )
+                            _num7 = url[ _i + 1 ].HexToInt( );
+                            _num8 = url[ _i + 2 ].HexToInt( );
+                            if( ( _num7 >= 0 )
+                               && ( _num8 >= 0 ) )
                             {
-                                b = (byte)( num7 << 4 | num8 );
-                                i += 2;
-                                decoder.AddByte( b );
-                                decoder.FlushBytes( true );
+                                _b = (byte)( _num7 << 4 | _num8 );
+                                _i += 2;
+                                _decoder.AddByte( _b );
+                                _decoder.FlushBytes( true );
                             }
                         }
                         else
                         {
-                            decoder.FlushBytes( true );
+                            _decoder.FlushBytes( true );
                         }
 
                         continue;
@@ -257,17 +255,17 @@ namespace BudgetExecution
                 }
 
                 Label_010B:
-                if( ( ch & 0xff80 ) == 0 )
+                if( ( _ch & 0xff80 ) == 0 )
                 {
-                    decoder.AddByte( (byte)ch );
+                    _decoder.AddByte( (byte)_ch );
                 }
                 else
                 {
-                    decoder.AddChar( ch, false );
+                    _decoder.AddChar( _ch, false );
                 }
             }
 
-            return decoder.GetString( );
+            return _decoder.GetString( );
         }
 
         /// <summary>

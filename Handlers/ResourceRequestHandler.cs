@@ -154,7 +154,7 @@
 
             else if( request.Url.IsFileOffline( ) )
             {
-                var path = request.Url.FileURLToPath( );
+                var path = request.Url.FileUrlToPath( );
 
                 if( path.FileNotExists( ) )
                 {
