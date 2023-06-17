@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CBComponents.HeaderTableLayoutPanel" Version="1.2.6307.23101" />
-    <PackageReference Include="EdgeSharp.WinForms" Version="0.9.0" />
     <PackageReference Include="EPPlus" Version="6.2.4" />
     <PackageReference Include="Google.Apis" Version="1.60.0" />
     <PackageReference Include="Google.Apis.Core" Version="1.60.0" />
@@ -80,6 +79,18 @@
     <Reference Include="C1.Win.C1FlexGrid.4.8">
       <HintPath>Libraries\C1.Win.C1FlexGrid.4.8.dll</HintPath>
     </Reference>
+    <Reference Include="CefSharp">
+      <HintPath>Libraries\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core">
+      <HintPath>Libraries\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core.Runtime">
+      <HintPath>Libraries\CefSharp.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms">
+      <HintPath>Libraries\CefSharp.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="CharmNotification">
       <HintPath>Libraries\CharmNotification.dll</HintPath>
     </Reference>
@@ -97,6 +108,9 @@
     </Reference>
     <Reference Include="log4net">
       <HintPath>Libraries\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpBrowser">
+      <HintPath>Libraries\SharpBrowser.dll</HintPath>
     </Reference>
     <Reference Include="SQLite.Designer">
       <HintPath>Libraries\SQLite.Designer.dll</HintPath>
@@ -300,6 +314,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clients\WebBrower\" />
-    <Folder Include="Controls\WebPage\" />
+    <Folder Include="Controls\Browser\" />
+    <Folder Include="Controls\TabStrip\" />
   </ItemGroup>
 </Project>

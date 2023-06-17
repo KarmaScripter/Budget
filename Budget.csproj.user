@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Controls\Browser\WebBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Button\Button.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -197,6 +200,15 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\TabControl\TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\TabStrip\BaseStyledPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\TabStrip\BrowserTabStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\TabStrip\BrowserTabStripItem.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\TextBox\TextBox.cs">

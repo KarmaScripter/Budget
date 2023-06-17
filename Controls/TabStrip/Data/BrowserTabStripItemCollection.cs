@@ -1,0 +1,419 @@
+// ******************************************************************************************
+//     Assembly:                Budget Execution
+//     Author:                  Terry D. Eppler
+//     Created:                 06-01-2023
+// 
+//     Last Modified By:        Terry D. Eppler
+//     Last Modified On:        06-04-2023
+// ******************************************************************************************
+// <copyright file="BrowserTabStripItemCollection.cs" company="Terry D. Eppler">
+//    This is a Federal Budget, Finance, and Accounting application for the
+//    US Environmental Protection Agency (US EPA).
+//    Copyright ©  2023  Terry Eppler
+// 
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the “Software”),
+//    to deal in the Software without restriction,
+//    including without limitation the rights to use,
+//    copy, modify, merge, publish, distribute, sublicense,
+//    and/or sell copies of the Software,
+//    and to permit persons to whom the Software is furnished to do so,
+//    subject to the following conditions:
+// 
+//    The above copyright notice and this permission notice shall be included in all
+//    copies or substantial portions of the Software.
+// 
+//    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+//    INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+//    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+//    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//    ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//    DEALINGS IN THE SOFTWARE.
+// 
+//    You can contact me at:   terryeppler@gmail.com or eppler.terry@epa.gov
+// </copyright>
+// <summary>
+//   BrowserTabStripItemCollection.cs
+// </summary>
+// ******************************************************************************************
+
+using System;
+using System.ComponentModel;
+
+namespace BudgetExecution
+{
+    using System.Diagnostics.CodeAnalysis;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="BudgetExecution.CollectionWithEvents" />
+    [ SuppressMessage( "ReSharper", "UnusedMethodReturnValue.Global" ) ]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "ParameterTypeCanBeEnumerable.Global" ) ]
+    public class BrowserTabStripItemCollection : CollectionWithEvents
+    {
+        /// <summary>
+        /// The lock update
+        /// </summary>
+        private int _lockUpdate;
+
+        /// <summary>
+        /// Gets or sets the <see cref="BrowserTabStripItem"/> at the specified index.
+        /// </summary>
+        /// <value>
+        /// The <see cref="BrowserTabStripItem"/>.
+        /// </value>
+        /// <param name="index">The index.</param>
+        /// <returns></returns>
+        public BrowserTabStripItem this[ int index ]
+        {
+            get
+            {
+                if( index < 0
+                   || List.Count - 1 < index )
+                {
+                    return null;
+                }
+
+                return (BrowserTabStripItem)List[ index ];
+            }
+            set
+            {
+                List[ index ] = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets the drawn count.
+        /// </summary>
+        /// <value>
+        /// The drawn count.
+        /// </value>
+        [ Browsable( false ) ]
+        public virtual int DrawnCount
+        {
+            get
+            {
+                var count = Count;
+                var num = 0;
+                if( count == 0 )
+                {
+                    return 0;
+                }
+
+                for( var i = 0; i < count; i++ )
+                {
+                    if( this[ i ].IsDrawn )
+                    {
+                        num++;
+                    }
+                }
+
+                return num;
+            }
+        }
+
+        /// <summary>
+        /// Gets the last visible.
+        /// </summary>
+        /// <value>
+        /// The last visible.
+        /// </value>
+        public virtual BrowserTabStripItem LastVisible
+        {
+            get
+            {
+                for( var num = Count - 1; num > 0; num-- )
+                {
+                    if( this[ num ].Visible )
+                    {
+                        return this[ num ];
+                    }
+                }
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the first visible.
+        /// </summary>
+        /// <value>
+        /// The first visible.
+        /// </value>
+        public virtual BrowserTabStripItem FirstVisible
+        {
+            get
+            {
+                for( var i = 0; i < Count; i++ )
+                {
+                    if( this[ i ].Visible )
+                    {
+                        return this[ i ];
+                    }
+                }
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Gets the visible count.
+        /// </summary>
+        /// <value>
+        /// The visible count.
+        /// </value>
+        [ Browsable( false ) ]
+        public virtual int VisibleCount
+        {
+            get
+            {
+                var count = Count;
+                var num = 0;
+                if( count == 0 )
+                {
+                    return 0;
+                }
+
+                for( var i = 0; i < count; i++ )
+                {
+                    if( this[ i ].Visible )
+                    {
+                        num++;
+                    }
+                }
+
+                return num;
+            }
+        }
+
+        /// <summary>
+        /// Occurs when [collection changed].
+        /// </summary>
+        [ Browsable( false ) ]
+        public event CollectionChangeEventHandler CollectionChanged;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BrowserTabStripItemCollection"/> class.
+        /// </summary>
+        public BrowserTabStripItemCollection( )
+        {
+            _lockUpdate = 0;
+        }
+
+        /// <summary>
+        /// Adds the range.
+        /// </summary>
+        /// <param name="items">The items.</param>
+        public virtual void AddRange( BrowserTabStripItem[ ] items )
+        {
+            BeginUpdate( );
+            try
+            {
+                foreach( var value in items )
+                {
+                    List.Add( value );
+                }
+            }
+            finally
+            {
+                EndUpdate( );
+            }
+        }
+
+        /// <summary>
+        /// Assigns the specified collection.
+        /// </summary>
+        /// <param name="collection">The collection.</param>
+        public virtual void Assign( BrowserTabStripItemCollection collection )
+        {
+            BeginUpdate( );
+            try
+            {
+                Clear( );
+                for( var i = 0; i < collection.Count; i++ )
+                {
+                    var item = collection[ i ];
+                    var fATabStripItem = new BrowserTabStripItem( );
+                    fATabStripItem.Assign( item );
+                    Add( fATabStripItem );
+                }
+            }
+            finally
+            {
+                EndUpdate( );
+            }
+        }
+
+        /// <summary>
+        /// Adds the specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns></returns>
+        public virtual int Add( BrowserTabStripItem item )
+        {
+            var num = IndexOf( item );
+            if( num == -1 )
+            {
+                num = List.Add( item );
+            }
+
+            return num;
+        }
+
+        /// <summary>
+        /// Removes the specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        public virtual void Remove( BrowserTabStripItem item )
+        {
+            if( List.Contains( item ) )
+            {
+                List.Remove( item );
+            }
+        }
+
+        /// <summary>
+        /// Moves to.
+        /// </summary>
+        /// <param name="newIndex">The new index.</param>
+        /// <param name="item">The item.</param>
+        /// <returns></returns>
+        public virtual BrowserTabStripItem MoveTo( int newIndex, BrowserTabStripItem item )
+        {
+            var num = List.IndexOf( item );
+            if( num >= 0 )
+            {
+                RemoveAt( num );
+                Insert( 0, item );
+                return item;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Indexes the of.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns></returns>
+        public virtual int IndexOf( BrowserTabStripItem item )
+        {
+            return List.IndexOf( item );
+        }
+
+        /// <summary>
+        /// Determines whether this instance contains the object.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>
+        ///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
+        /// </returns>
+        public virtual bool Contains( BrowserTabStripItem item )
+        {
+            return List.Contains( item );
+        }
+
+        /// <summary>
+        /// Inserts the specified index.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="item">The item.</param>
+        public virtual void Insert( int index, BrowserTabStripItem item )
+        {
+            if( !Contains( item ) )
+            {
+                List.Insert( index, item );
+            }
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:CollectionChanged" /> event.
+        /// </summary>
+        /// <param name="e">The <see cref="CollectionChangeEventArgs"/> instance containing the event data.</param>
+        protected virtual void OnCollectionChanged( CollectionChangeEventArgs e )
+        {
+            CollectionChanged?.Invoke( this, e );
+        }
+
+        /// <summary>
+        /// Begins the update.
+        /// </summary>
+        protected virtual void BeginUpdate( )
+        {
+            _lockUpdate++;
+        }
+
+        /// <summary>
+        /// Ends the update.
+        /// </summary>
+        protected virtual void EndUpdate( )
+        {
+            if( --_lockUpdate == 0 )
+            {
+                OnCollectionChanged( new CollectionChangeEventArgs( CollectionChangeAction.Refresh, null ) );
+            }
+        }
+
+        /// <summary>
+        /// Called when [insert complete].
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="item">The item.</param>
+        protected override void OnInsertComplete( int index, object item )
+        {
+            var fATabStripItem = item as BrowserTabStripItem;
+            fATabStripItem.Changed += OnItemChanged;
+            OnCollectionChanged( new CollectionChangeEventArgs( CollectionChangeAction.Add, item ) );
+        }
+
+        /// <summary>
+        /// Called when [remove].
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <param name="item">The item.</param>
+        protected override void OnRemove( int index, object item )
+        {
+            base.OnRemove( index, item );
+            var fATabStripItem = item as BrowserTabStripItem;
+            fATabStripItem.Changed -= OnItemChanged;
+            OnCollectionChanged( new CollectionChangeEventArgs( CollectionChangeAction.Remove, item ) );
+        }
+
+        /// <summary>
+        /// Called when [clear].
+        /// </summary>
+        protected override void OnClear( )
+        {
+            if( Count == 0 )
+            {
+                return;
+            }
+
+            BeginUpdate( );
+            try
+            {
+                for( var num = Count - 1; num >= 0; num-- )
+                {
+                    RemoveAt( num );
+                }
+            }
+            finally
+            {
+                EndUpdate( );
+            }
+        }
+
+        /// <summary>
+        /// Called when [item changed].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        protected virtual void OnItemChanged( object sender, EventArgs e )
+        {
+            OnCollectionChanged( new CollectionChangeEventArgs( CollectionChangeAction.Refresh, sender ) );
+        }
+    }
+}

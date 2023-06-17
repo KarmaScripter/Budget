@@ -82,6 +82,14 @@ namespace BudgetExecution
         public string HoverText { get; set; }
 
         /// <summary>
+        /// Gets or sets the length of the selection.
+        /// </summary>
+        /// <value>
+        /// The length of the selection.
+        /// </value>
+        public int SelectionLength { get; set; }
+
+        /// <summary>
         /// Gets or sets the data filter.
         /// </summary>
         /// <value>
@@ -104,6 +112,7 @@ namespace BudgetExecution
             Font = new Font( "Roboto", 8 );
             HoverColor = Color.FromArgb( 0, 120, 212 );
             TextAlign = HorizontalAlignment.Left;
+            SelectionLength = Text.Length;
 
             // Disabled Color Configuration
             DisabledBackColor = Color.Transparent;
