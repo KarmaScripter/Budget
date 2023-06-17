@@ -355,8 +355,8 @@ namespace BudgetExecution
                         }
                         case ToolType.WebButton:
                         {
-                            using var _form = new WebPage( );
-                            _form?.ShowDialog( );
+                            var _notification = new Notification( "NOT YET IMPLEMENTED!" );
+                            _notification.Show( );
                             break;
                         }
                         default:

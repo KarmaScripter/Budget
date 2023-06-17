@@ -300,5 +300,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Clients\WebBrower\" />
+    <Folder Include="Controls\WebPage\" />
   </ItemGroup>
 </Project>

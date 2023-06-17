@@ -1,10 +1,10 @@
 ﻿// ******************************************************************************************
-//     Assembly:                Budget Execution
+//     Assembly:                Budget Enumerations
 //     Author:                  Terry D. Eppler
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        05-31-2023
+//     Last Modified On:        06-17-2023
 // ******************************************************************************************
 // <copyright file="MainForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -127,9 +127,9 @@ namespace BudgetExecution
                 SetTileProperties( );
                 SetTileText( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -142,12 +142,12 @@ namespace BudgetExecution
             try
             {
                 var _tiles = new List<Tile>( );
-                for( var i = 0; i < Controls.Count; i++ )
+                for( var _i = 0; _i < Controls.Count; _i++ )
                 {
-                    var control = Controls[ i ];
-                    if( control.GetType( ) == typeof( Tile ) )
+                    var _control = Controls[ _i ];
+                    if( _control.GetType( ) == typeof( Tile ) )
                     {
-                        var _tile = control as Tile;
+                        var _tile = _control as Tile;
                         _tiles.Add( _tile );
                     }
                 }
@@ -156,9 +156,9 @@ namespace BudgetExecution
                     ? _tiles
                     : Enumerable.Empty<Tile>( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
                 return default( IEnumerable<Tile> );
             }
         }
@@ -189,9 +189,9 @@ namespace BudgetExecution
                 WebTile.Body.Text = string.Empty;
                 WebTile.Banner.Text = "Web Clients, Browsers";
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -204,20 +204,20 @@ namespace BudgetExecution
             {
                 if( Tiles?.Any( ) == true )
                 {
-                    foreach( var tile in Tiles )
+                    foreach( var _tile in Tiles )
                     {
-                        tile.Size = new Size( 249, 140 );
-                        tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                        tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
-                        tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                        tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
-                        tile.TurnLiveTileOn = true;
+                        _tile.Size = new Size( 249, 140 );
+                        _tile.Title.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        _tile.Body.Font = new Font( "Roboto", 9, FontStyle.Regular );
+                        _tile.Footer.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                        _tile.Banner.Font = new Font( "Roboto", 8, FontStyle.Regular );
+                        _tile.TurnLiveTileOn = true;
                     }
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -231,9 +231,9 @@ namespace BudgetExecution
                 var _minion = new MinionSelector( );
                 _minion.ShowDialog( this );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -265,9 +265,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -299,9 +299,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -315,8 +315,7 @@ namespace BudgetExecution
                 var _forms = Program.Windows.Values;
                 if( _forms?.Any( f => f.GetType( ) == typeof( PdfForm ) ) == true )
                 {
-                    var _pdfForm = _forms
-                        ?.Where( f => f.GetType( ) == typeof( PdfForm ) )
+                    var _pdfForm = _forms?.Where( f => f.GetType( ) == typeof( PdfForm ) )
                         ?.First( );
 
                     _pdfForm.Owner = this;
@@ -332,9 +331,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -366,9 +365,9 @@ namespace BudgetExecution
                     Visible = false;
                 }
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -383,9 +382,9 @@ namespace BudgetExecution
             {
                 OpenDataGridForm( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -400,9 +399,9 @@ namespace BudgetExecution
             {
                 OpenChartDataForm( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -417,9 +416,9 @@ namespace BudgetExecution
             {
                 ShowSelectionDialog( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -436,9 +435,9 @@ namespace BudgetExecution
                 var _notification = new Notification( _msg );
                 _notification.Show( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -453,9 +452,9 @@ namespace BudgetExecution
             {
                 OpenPdfForm( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -468,15 +467,10 @@ namespace BudgetExecution
         {
             try
             {
-                var _web = new WebPage( );
-                _web.Owner = this;
-                _web.StartPosition = FormStartPosition.CenterScreen;
-                _web.Show( );
-                Visible = false;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -491,9 +485,9 @@ namespace BudgetExecution
             {
                 Close( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -510,9 +504,9 @@ namespace BudgetExecution
                 _loader.StartPosition = FormStartPosition.CenterParent;
                 _loader.ShowDialog( );
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 
@@ -529,9 +523,9 @@ namespace BudgetExecution
                 {
                     ContextMenu.Show( this, e.Location );
                 }
-                catch( Exception ex )
+                catch( Exception _ex )
                 {
-                    Fail( ex );
+                    Fail( _ex );
                 }
             }
         }
@@ -547,9 +541,9 @@ namespace BudgetExecution
             {
                 Program.Windows[ "MainForm" ] = this;
             }
-            catch( Exception ex )
+            catch( Exception _ex )
             {
-                Fail( ex );
+                Fail( _ex );
             }
         }
 

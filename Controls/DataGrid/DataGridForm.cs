@@ -4,7 +4,7 @@
 //     Created:                 03-24-2023
 // 
 //     Last Modified By:        Terry D. Eppler
-//     Last Modified On:        06-09-2023
+//     Last Modified On:        06-17-2023
 // ******************************************************************************************
 // <copyright file="DataGridForm.cs" company="Terry D. Eppler">
 //    This is a Federal Budget, Finance, and Accounting application for the
@@ -56,17 +56,17 @@ namespace BudgetExecution
     /// 
     /// </summary>
     /// <seealso cref="Syncfusion.Windows.Forms.MetroForm" />
-    [SuppressMessage( "ReSharper", "UnusedParameter.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" )]
-    [SuppressMessage( "ReSharper", "MemberCanBeInternal" )]
-    [SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" )]
-    [SuppressMessage( "ReSharper", "RedundantBoolCompare" )]
-    [SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" )]
-    [SuppressMessage( "ReSharper", "FunctionComplexityOverflow" )]
-    [SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" )]
-    [SuppressMessage( "ReSharper", "PossibleNullReferenceException" )]
+    [ SuppressMessage( "ReSharper", "UnusedParameter.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "ClassCanBeSealed.Global" ) ]
+    [ SuppressMessage( "ReSharper", "MemberCanBeInternal" ) ]
+    [ SuppressMessage( "ReSharper", "LoopCanBePartlyConvertedToQuery" ) ]
+    [ SuppressMessage( "ReSharper", "RedundantBoolCompare" ) ]
+    [ SuppressMessage( "ReSharper", "ReturnValueOfPureMethodIsNotUsed" ) ]
+    [ SuppressMessage( "ReSharper", "FunctionComplexityOverflow" ) ]
+    [ SuppressMessage( "ReSharper", "ArrangeDefaultValueWhenTypeNotEvident" ) ]
+    [ SuppressMessage( "ReSharper", "PossibleNullReferenceException" ) ]
     public partial class DataGridForm : MetroForm
     {
         /// <summary>
@@ -213,8 +213,9 @@ namespace BudgetExecution
         /// </value>
         public DataBuilder DataModel { get; set; }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGridForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         public DataGridForm( )
         {
@@ -330,8 +331,9 @@ namespace BudgetExecution
             FormClosed += OnFormClosed;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGridForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         /// <param name="bindingSource">The binding source.</param>
         public DataGridForm( BindingSource bindingSource )
@@ -348,8 +350,9 @@ namespace BudgetExecution
             ToolStrip.BindingSource = BindingSource;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGridForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -368,8 +371,9 @@ namespace BudgetExecution
             ToolStrip.BindingSource = BindingSource;
         }
 
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataGridForm"/> class.
+        /// Initializes a new instance of the <see cref="T:BudgetExecution.DataGridForm" /> class.
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="provider">The provider.</param>
@@ -546,6 +550,426 @@ namespace BudgetExecution
         }
 
         /// <summary>
+        /// Clears the data.
+        /// </summary>
+        public void ClearData( )
+        {
+            try
+            {
+                ClearSelections( );
+                ClearCollections( );
+                SelectedTable = string.Empty;
+                DataGrid.DataSource = null;
+                BindingSource.DataSource = null;
+                DataModel = null;
+                DataTable = null;
+                UpdateLabelText( );
+                TabControl.SelectedIndex = 0;
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [table ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public void OnTableListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    FormFilter.Clear( );
+                    ToolStrip.Visible = true;
+                    var _title = _listBox.SelectedValue?.ToString( );
+                    SelectedTable = _title?.Replace( " ", "" );
+                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataModel.DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    TabControl.SelectedIndex = 1;
+                    UpdateLabelText( );
+                    PopulateFirstComboBoxItems( );
+                    ResetListBoxVisibility( );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [first ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnFirstComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    FirstCategory = string.Empty;
+                    FirstValue = string.Empty;
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    FirstListBox.Items.Clear( );
+                    FirstCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( FirstCategory ) )
+                    {
+                        DataModel = new DataBuilder( Source, Provider );
+                        var _data = DataModel.DataElements[ FirstCategory ];
+                        foreach( var _item in _data )
+                        {
+                            FirstListBox.Items?.Add( _item );
+                        }
+                    }
+
+                    SecondTable.Visible = false;
+                    ThirdTable.Visible = false;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [first ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public void OnFirstListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( FormFilter.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    FirstValue = _listBox.SelectedValue?.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    PopulateSecondComboBoxItems( );
+                    if( SecondTable.Visible == false )
+                    {
+                        SecondTable.Visible = true;
+                    }
+
+                    if( ThirdTable.Visible == true )
+                    {
+                        ThirdTable.Visible = false;
+                    }
+
+                    if( GroupButton.Visible == false )
+                    {
+                        GroupButton.Visible = true;
+                        GroupSeparator.Visible = true;
+                    }
+
+                    ResetData( FormFilter );
+                    UpdateLabelText( );
+                    SqlQuery = CreateSqlText( FormFilter );
+                    SqlHeader.Text = SqlQuery;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    SqlQuery = string.Empty;
+                    SecondCategory = string.Empty;
+                    SecondValue = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    if( SecondListBox.Items?.Count > 0 )
+                    {
+                        SecondListBox.Items?.Clear( );
+                    }
+
+                    SecondCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( SecondCategory ) )
+                    {
+                        var _data = DataModel.DataElements[ SecondCategory ];
+                        foreach( var _item in _data )
+                        {
+                            SecondListBox.Items?.Add( _item );
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [second ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public void OnSecondListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( FormFilter.Keys?.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    SecondValue = _listBox.SelectedValue?.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    FormFilter.Add( SecondCategory, SecondValue );
+                    PopulateThirdComboBoxItems( );
+                    if( ThirdTable.Visible == false )
+                    {
+                        ThirdTable.Visible = true;
+                    }
+
+                    ResetData( FormFilter );
+                    UpdateLabelText( );
+                    SqlQuery = CreateSqlText( FormFilter );
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ComboBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
+        {
+            if( sender is ComboBox _comboBox )
+            {
+                try
+                {
+                    SqlQuery = string.Empty;
+                    ThirdCategory = string.Empty;
+                    ThirdValue = string.Empty;
+                    if( ThirdListBox.Items?.Count > 0 )
+                    {
+                        ThirdListBox.Items?.Clear( );
+                    }
+
+                    ThirdCategory = _comboBox.SelectedItem?.ToString( );
+                    if( !string.IsNullOrEmpty( ThirdCategory ) )
+                    {
+                        var _data = DataModel?.DataElements[ ThirdCategory ];
+                        if( _data?.Any( ) == true )
+                        {
+                            foreach( var _item in _data )
+                            {
+                                ThirdListBox.Items?.Add( _item );
+                            }
+                        }
+                    }
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [third ListBox item selected].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        public void OnThirdListBoxItemSelected( object sender )
+        {
+            if( sender is ListBox _listBox )
+            {
+                try
+                {
+                    if( FormFilter.Keys.Count > 0 )
+                    {
+                        FormFilter.Clear( );
+                    }
+
+                    if( FieldListBox.Items.Count > 0 )
+                    {
+                        FieldListBox.Items.Clear( );
+                    }
+
+                    ThirdValue = _listBox.SelectedValue?.ToString( );
+                    FormFilter.Add( FirstCategory, FirstValue );
+                    FormFilter.Add( SecondCategory, SecondValue );
+                    FormFilter.Add( ThirdCategory, ThirdValue );
+                    ResetData( FormFilter );
+                    UpdateLabelText( );
+                    SqlQuery = CreateSqlText( FormFilter );
+                    SqlHeader.Text = SqlQuery;
+                }
+                catch( Exception _ex )
+                {
+                    Fail( _ex );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when [test button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnTestButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                var _program = new ProgramProjectDialog( );
+                _program.ShowDialog( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [exit button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnExitButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                Application.Exit( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [main menu button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnMainMenuButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                OpenMainForm( );
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [remove filter button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( !string.IsNullOrEmpty( SelectedTable ) )
+                {
+                    ClearSelections( );
+                    ClearCollections( );
+                    DataGrid.DataSource = null;
+                    DataModel = new DataBuilder( Source, Provider );
+                    DataTable = DataModel.DataTable;
+                    BindingSource.DataSource = DataTable;
+                    DataGrid.DataSource = BindingSource;
+                    DataGrid.PascalizeHeaders( );
+                    DataGrid.FormatColumns( );
+                    ToolStrip.BindingSource = BindingSource;
+                    Fields = DataModel.Fields;
+                    Numerics = DataModel.Numerics;
+                    TabControl.SelectedIndex = 1;
+                    PopulateFirstComboBoxItems( );
+                    UpdateLabelText( );
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [chart button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnChartButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( BindingSource.DataSource != null )
+                {
+                    OpenChartDataForm( );
+                    Visible = false;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
+        /// Called when [excel button clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        public void OnExcelButtonClicked( object sender, EventArgs e )
+        {
+            try
+            {
+                if( BindingSource.DataSource != null )
+                {
+                    OpenExcelDataForm( );
+                    Visible = false;
+                }
+            }
+            catch( Exception _ex )
+            {
+                Fail( _ex );
+            }
+        }
+
+        /// <summary>
         /// Resets the data.
         /// </summary>
         /// <param name="where">The where.</param>
@@ -645,7 +1069,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings["Providers"];
+                var _path = ConfigurationManager.AppSettings[ "Providers" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -676,7 +1100,7 @@ namespace BudgetExecution
         {
             try
             {
-                var _path = ConfigurationManager.AppSettings["Dialogs"];
+                var _path = ConfigurationManager.AppSettings[ "Dialogs" ];
                 if( !string.IsNullOrEmpty( _path ) )
                 {
                     var _files = Directory.GetFiles( _path );
@@ -694,10 +1118,7 @@ namespace BudgetExecution
                             case ToolType.EditSqlButton:
                             {
                                 var _tool = type.ToString( );
-                                var _file = _files
-                                    ?.Where( f => f.Contains( _tool ) )
-                                    ?.First( );
-
+                                var _file = _files?.Where( f => f.Contains( _tool ) )?.First( );
                                 if( !string.IsNullOrEmpty( _file )
                                    && File.Exists( _file ) )
                                 {
@@ -1048,29 +1469,6 @@ namespace BudgetExecution
         }
 
         /// <summary>
-        /// Clears the data.
-        /// </summary>
-        public void ClearData( )
-        {
-            try
-            {
-                ClearSelections( );
-                ClearCollections( );
-                SelectedTable = string.Empty;
-                DataGrid.DataSource = null;
-                BindingSource.DataSource = null;
-                DataModel = null;
-                DataTable = null;
-                UpdateLabelText( );
-                TabControl.SelectedIndex = 0;
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
         /// Clears the list boxes.
         /// </summary>
         private void ClearListBoxes( )
@@ -1149,9 +1547,9 @@ namespace BudgetExecution
 
                     for( var _i = 0; _i < Numerics.Count; _i++ )
                     {
-                        if( !string.IsNullOrEmpty( Numerics[_i] ) )
+                        if( !string.IsNullOrEmpty( Numerics[ _i ] ) )
                         {
-                            NumericListBox.Items.Add( Numerics[_i] );
+                            NumericListBox.Items.Add( Numerics[ _i ] );
                         }
                     }
                 }
@@ -1268,7 +1666,7 @@ namespace BudgetExecution
                         && ( Owner.GetType( ) != typeof( MainForm ) ) )
                 {
                     Owner.Close( );
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -1349,403 +1747,6 @@ namespace BudgetExecution
                     var _chartDataForm = new ChartDataForm( BindingSource );
                     _chartDataForm.Owner = _mainForm;
                     _chartDataForm.Show( );
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [table ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        public void OnTableListBoxItemSelected( object sender )
-        {
-            if( sender is ListBox _listBox )
-            {
-                try
-                {
-                    FormFilter.Clear( );
-                    ToolStrip.Visible = true;
-                    var _title = _listBox.SelectedValue?.ToString( );
-                    SelectedTable = _title?.Replace( " ", "" );
-                    Source = (Source)Enum.Parse( typeof( Source ), SelectedTable );
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataModel.DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                    TabControl.SelectedIndex = 1;
-                    UpdateLabelText( );
-                    PopulateFirstComboBoxItems( );
-                    ResetListBoxVisibility( );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [first ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnFirstComboBoxItemSelected( object sender, EventArgs e )
-        {
-            if( sender is ComboBox _comboBox )
-            {
-                try
-                {
-                    FirstCategory = string.Empty;
-                    FirstValue = string.Empty;
-                    SecondCategory = string.Empty;
-                    SecondValue = string.Empty;
-                    ThirdCategory = string.Empty;
-                    ThirdValue = string.Empty;
-                    FirstListBox.Items.Clear( );
-                    FirstCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( FirstCategory ) )
-                    {
-                        DataModel = new DataBuilder( Source, Provider );
-                        var _data = DataModel.DataElements[FirstCategory];
-                        foreach( var _item in _data )
-                        {
-                            FirstListBox.Items?.Add( _item );
-                        }
-                    }
-
-                    SecondTable.Visible = false;
-                    ThirdTable.Visible = false;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [first ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        public void OnFirstListBoxItemSelected( object sender )
-        {
-            if( sender is ListBox _listBox )
-            {
-                try
-                {
-                    if( FormFilter.Count > 0 )
-                    {
-                        FormFilter.Clear( );
-                    }
-
-                    FirstValue = _listBox.SelectedValue?.ToString( );
-                    FormFilter.Add( FirstCategory, FirstValue );
-                    PopulateSecondComboBoxItems( );
-                    if( SecondTable.Visible == false )
-                    {
-                        SecondTable.Visible = true;
-                    }
-
-                    if( ThirdTable.Visible == true )
-                    {
-                        ThirdTable.Visible = false;
-                    }
-
-                    if( GroupButton.Visible == false )
-                    {
-                        GroupButton.Visible = true;
-                        GroupSeparator.Visible = true;
-                    }
-
-                    ResetData( FormFilter );
-                    UpdateLabelText( );
-                    SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [second ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnSecondComboBoxItemSelected( object sender, EventArgs e )
-        {
-            if( sender is ComboBox _comboBox )
-            {
-                try
-                {
-                    SqlQuery = string.Empty;
-                    SecondCategory = string.Empty;
-                    SecondValue = string.Empty;
-                    ThirdCategory = string.Empty;
-                    ThirdValue = string.Empty;
-                    if( SecondListBox.Items?.Count > 0 )
-                    {
-                        SecondListBox.Items?.Clear( );
-                    }
-
-                    SecondCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( SecondCategory ) )
-                    {
-                        var _data = DataModel.DataElements[SecondCategory];
-                        foreach( var _item in _data )
-                        {
-                            SecondListBox.Items?.Add( _item );
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [second ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        public void OnSecondListBoxItemSelected( object sender )
-        {
-            if( sender is ListBox _listBox )
-            {
-                try
-                {
-                    if( FormFilter.Keys?.Count > 0 )
-                    {
-                        FormFilter.Clear( );
-                    }
-
-                    SecondValue = _listBox.SelectedValue?.ToString( );
-                    FormFilter.Add( FirstCategory, FirstValue );
-                    FormFilter.Add( SecondCategory, SecondValue );
-                    PopulateThirdComboBoxItems( );
-                    if( ThirdTable.Visible == false )
-                    {
-                        ThirdTable.Visible = true;
-                    }
-
-                    ResetData( FormFilter );
-                    UpdateLabelText( );
-                    SqlQuery = CreateSqlText( FormFilter );
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [third ComboBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnThirdComboBoxItemSelected( object sender, EventArgs e )
-        {
-            if( sender is ComboBox _comboBox )
-            {
-                try
-                {
-                    SqlQuery = string.Empty;
-                    ThirdCategory = string.Empty;
-                    ThirdValue = string.Empty;
-                    if( ThirdListBox.Items?.Count > 0 )
-                    {
-                        ThirdListBox.Items?.Clear( );
-                    }
-
-                    ThirdCategory = _comboBox.SelectedItem?.ToString( );
-                    if( !string.IsNullOrEmpty( ThirdCategory ) )
-                    {
-                        var _data = DataModel?.DataElements[ThirdCategory];
-                        if( _data?.Any( ) == true )
-                        {
-                            foreach( var _item in _data )
-                            {
-                                ThirdListBox.Items?.Add( _item );
-                            }
-                        }
-                    }
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [third ListBox item selected].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        public void OnThirdListBoxItemSelected( object sender )
-        {
-            if( sender is ListBox _listBox )
-            {
-                try
-                {
-                    if( FormFilter.Keys.Count > 0 )
-                    {
-                        FormFilter.Clear( );
-                    }
-
-                    if( FieldListBox.Items.Count > 0 )
-                    {
-                        FieldListBox.Items.Clear( );
-                    }
-
-                    ThirdValue = _listBox.SelectedValue?.ToString( );
-                    FormFilter.Add( FirstCategory, FirstValue );
-                    FormFilter.Add( SecondCategory, SecondValue );
-                    FormFilter.Add( ThirdCategory, ThirdValue );
-                    ResetData( FormFilter );
-                    UpdateLabelText( );
-                    SqlQuery = CreateSqlText( FormFilter );
-                    SqlHeader.Text = SqlQuery;
-                }
-                catch( Exception _ex )
-                {
-                    Fail( _ex );
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called when [test button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnTestButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                var _program = new ProgramProjectDialog( );
-                _program.ShowDialog( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [exit button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnExitButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                Application.Exit( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [main menu button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnMainMenuButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                OpenMainForm( );
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [remove filter button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnRemoveFilterButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( !string.IsNullOrEmpty( SelectedTable ) )
-                {
-                    ClearSelections( );
-                    ClearCollections( );
-                    DataGrid.DataSource = null;
-                    DataModel = new DataBuilder( Source, Provider );
-                    DataTable = DataModel.DataTable;
-                    BindingSource.DataSource = DataTable;
-                    DataGrid.DataSource = BindingSource;
-                    DataGrid.PascalizeHeaders( );
-                    DataGrid.FormatColumns( );
-                    ToolStrip.BindingSource = BindingSource;
-                    Fields = DataModel.Fields;
-                    Numerics = DataModel.Numerics;
-                    TabControl.SelectedIndex = 1;
-                    PopulateFirstComboBoxItems( );
-                    UpdateLabelText( );
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [chart button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnChartButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null )
-                {
-                    OpenChartDataForm( );
-                    Visible = false;
-                }
-            }
-            catch( Exception _ex )
-            {
-                Fail( _ex );
-            }
-        }
-
-        /// <summary>
-        /// Called when [excel button clicked].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        public void OnExcelButtonClicked( object sender, EventArgs e )
-        {
-            try
-            {
-                if( BindingSource.DataSource != null )
-                {
-                    OpenExcelDataForm( );
                     Visible = false;
                 }
             }
@@ -2107,7 +2108,7 @@ namespace BudgetExecution
                 }
                 else
                 {
-                    var _mainForm = (MainForm)Program.Windows["MainForm"];
+                    var _mainForm = (MainForm)Program.Windows[ "MainForm" ];
                     _mainForm.Refresh( );
                     _mainForm.Visible = true;
                     ClearData( );
@@ -2154,7 +2155,7 @@ namespace BudgetExecution
         {
             try
             {
-                Program.Windows["DataGridForm"] = this;
+                Program.Windows[ "DataGridForm" ] = this;
             }
             catch( Exception _ex )
             {
